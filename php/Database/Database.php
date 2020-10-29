@@ -20,8 +20,8 @@ class Database
     private static function setSQL(): bool
     {
 	self::$SQL = array(
-	    'user' => 'phpmyadmin',
-	    'pass' => 'Krupp5y5t3m',
+	    'user' => 'root',
+	    'pass' => 'mysql',
 	    'host' => 'localhost',
 	    'db'   => 'ksys_tudaster'
 	);
