@@ -22,8 +22,8 @@ class Database
 	self::$SQL = array(
 	    'user' => 'root',
 	    'pass' => 'mysql',
-	    'port' => '49157'
-	    'host' => 'localhost',
+	    'port' => '3306',
+	    'host' => 'mysql-server',
 	    'db'   => 'ksys_tudaster'
 	);
 	return true;
@@ -41,9 +41,9 @@ class Database
     {
 	try {
 	    if ( empty($dbName) ) {
-		self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".getSQL()['port'], self::getSQL()['user'], self::getSQL()['pass']);
+		self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".self::getSQL()['port'], self::getSQL()['user'], self::getSQL()['pass']);
 	    } else {
-		self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".getSQL()['port'].";dbname=".$dbName, self::getSQL()['user'], self::getSQL()['pass']);
+		self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".self::getSQL()['port'].";dbname=".$dbName, self::getSQL()['user'], self::getSQL()['pass']);
 	    }
 	    self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    return true;
