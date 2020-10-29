@@ -1,0 +1,39 @@
+#
+#				Error Handling
+#
+#-------------------------------------------------------------------------#
+
+[POST DATA]---------------------------------------------------------------#
+
+MUST modify these parameters according to the modifications of the post
+ data:
+    -> php/Queries/Insert.php -> $GLOBALS['Database'][{classId}]['Insert']
+    -> php/Database/{dbName}.php -> Insert() -> vArray[]
+    -> php/Pages/{pageName}.php -> $collectiveArray['array'][]
+    -> js/05_ajx.events.js -> arrayObject[[]]
+
+Errors still may occur, refer to error.log
+
+#-------------------------------------------------------------------------#
+
+For adding new page, use the precompiled {sampleFiles} at php/SampleFiles
+
+#-------------------------------------------------------------------------#
+
+Page canonical is built in &x=MainPage&y=SubPage&z=Action order
+
+#-------------------------------------------------------------------------#
+
+Links are categorized by functionality.
+    data-link : Tells which page to be loaded
+    data-post : Sends specific post data (mostly ids)
+    data-toggle : implies special action (modal, dropdown)
+    
+Functionality is autocompiled from 05_ajx.events.js
+
+#-------------------------------------------------------------------------#
+
+Javascript and CSS files must be loaded orderwise, which is set by default
+
+#-------------------------------------------------------------------------#
+
