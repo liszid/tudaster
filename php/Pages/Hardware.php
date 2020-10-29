@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
+use Samples\{
+    sRedirect,
+    sFrame
+};
+
+if (
+    isset($sessionUsr['userId']) && (int)$sessionUsr['canHardware'] > 0)
+{
+    $urlPaths = array(
+        "Root" => "Hardware"
+    );
+    
+    echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => ''));
+} else {
+    echo sRedirect::Home();
+}
