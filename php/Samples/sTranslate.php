@@ -12,13 +12,13 @@ use PreLoad\{
 
 class sTranslate {
     const TRANSLATE = array(
-	"Administrative" => array(
-	    "navbar" => "Admin",
-	    "fa" => "pencil-square",
-	    "title" => "Adminisztráció",
-	    "help" => "",
-	    "card" => ""
-	),
+	    "Administrative" => array(
+	        "navbar" => "Admin",
+	        "fa" => "pencil-square",
+	        "title" => "Adminisztráció",
+	        "help" => "",
+	        "card" => ""
+	    ),
         "Administrative/Users" => array(
     	    "navbar" => "Felhasználók",
     	    "fa" => "user",
@@ -239,15 +239,15 @@ class sTranslate {
  */
     public static function Card(string $string): array
     {
-	if (array_key_exists($string, self::ROLE)) {
-	    if (array_key_exists(self::ROLE[$string]['respective'], self::TRANSLATE)) {
-		return array('color' => self::ROLE[$string]['color'], 'header' => self::ROLE[$string]['header'], 'title' => self::TRANSLATE[self::ROLE[$string]['respective']]['title'], 'text' => self::TRANSLATE[self::ROLE[$string]['respective']]['help']);
+	    if (array_key_exists($string, self::ROLE)) {
+	        if (array_key_exists(self::ROLE[$string]['respective'], self::TRANSLATE)) {
+                return array('color' => self::ROLE[$string]['color'], 'header' => self::ROLE[$string]['header'], 'title' => self::TRANSLATE[self::ROLE[$string]['respective']]['title'], 'text' => self::TRANSLATE[self::ROLE[$string]['respective']]['help']);
+	        } else {
+		        return array();
+	        }
 	    } else {
-		return array();
+	        return array();
 	    }
-	} else {
-	    return array();
-	}
     }
 
 /*
@@ -260,12 +260,10 @@ class sTranslate {
  */
     public static function Title(string $string, int $size = 1): string
     {
-	if (array_key_exists($string, self::TRANSLATE)) {
-	    return '<h'.$size.'><i class="fa fa-'.self::TRANSLATE[$string]['fa'].'" aria-hidden="true"></i> '.self::TRANSLATE[$string]['title'].'</h'.$size.'>';
-	} else {
-	    return '<h'.$size.'><i class="fa fa-question" aria-hidden="true"></i> Ismeretlen</h'.$size.'>';
-	}
+	    if (array_key_exists($string, self::TRANSLATE)) {
+	        return '<h'.$size.'><i class="fa fa-'.self::TRANSLATE[$string]['fa'].'" aria-hidden="true"></i> '.self::TRANSLATE[$string]['title'].'</h'.$size.'>';
+	    } else {
+	        return '<h'.$size.'><i class="fa fa-question" aria-hidden="true"></i> Ismeretlen</h'.$size.'>';
+	    }
     }
-    
-    
 }
