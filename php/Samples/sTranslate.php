@@ -109,7 +109,7 @@ class sTranslate {
     	    "navbar" => "Hozzáférések",
     	    "fa" => "user-secret",
     	    "title" => "Hozzáférési adatok",
-    	    "help" => "Hozzáférési adatok (Alap) olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hozzáférés' gombra kattintva a menüsávban",
+    	    "help" => "Hozzáférési adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hozzáférés' gombra kattintva a menüsávban",
             "card" => ""
     	),
         "Hardware" => array(
@@ -151,8 +151,65 @@ class sTranslate {
     	    "navbar" => "Profil",
     	    "fa" => "user",
     	    "title" => "Profil",
-    	    "help" => "",
+    	    "help" => "Profilod szerkesztéséhez kattints a menüsávban a \'Profil\' gombra és a \'Profil\' oldalon a \'Szerkesztés\' gombra kattintva",
             "card" => ""
+    	)
+    );
+    const ROLE = array(
+        'mngUsers' => array(
+    	    'color' => 'info',
+    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'respective' => 'Administrative/Users'
+    	),
+        'mngGroups' => array(
+    	    'color' => 'info',
+    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'respective' => 'Administrative/Groups'
+    	),
+        'mngMembers' => array(
+    	    'color' => 'info',
+    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'respective' => 'Administrative/Membership'
+    	),
+        'canEdit' => array(
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
+    	    'respective' => 'Profile'
+    	),
+        'canUsers' => array(
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
+    	    'respective' => 'Users'
+    	),
+        'canKnowledge' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Knowledge'
+    	),
+        'canUsername' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Accesses'
+        ),
+        'canPassword' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Accesses'
+    	),
+        'canHardware' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Hardware'
+    	),
+        'canSoftware' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Software'
+    	),
+        'canCompany' => array(
+    	    'color' => 'secondary',
+    	    'header' => 'Jövendőbeli funkció',
+    	    'respective' => 'Company'
     	)
     );
     
@@ -172,7 +229,35 @@ class sTranslate {
     	    return 'Ismeretlen kifejezés';
     	}
     }
+    
+/*
+ * Returns Card array for the corresponding Role
+ * @param $string string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
+    public static function Card(string $string): array
+    {
+	if (array_key_exists($string, self::ROLE)) {
+	    if (array_key_exists(self::ROLE[$string]['respective'], self::TRANSLATE)) {
+		return array('color' => self::ROLE[$string]['color'], 'header' => self::ROLE[$string]['header'], 'title' => self::TRANSLATE[self::ROLE[$string]['respective']]['title'], 'text' => self::TRANSLATE[self::ROLE[$string]['respective']]['help']);
+	    } else {
+		return array();
+	    }
+	} else {
+	    return array();
+	}
+    }
 
+/*
+ * Returns a HTML Title on set size
+ * @param $array array
+ * @param $size int
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Title(string $string, int $size = 1): string
     {
 	if (array_key_exists($string, self::TRANSLATE)) {

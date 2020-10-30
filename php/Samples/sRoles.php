@@ -6,6 +6,13 @@ namespace Samples;
 
 class sRoles
 {
+/*
+ * Used to display Role settings at profile page
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Prompt(array $array = array()): string
     {
 	if (isset($array)) {

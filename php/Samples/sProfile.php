@@ -6,6 +6,14 @@ namespace Samples;
 
 class sProfile
 {
+/*
+ * Collective function for Profile display
+ * @param $array array
+ * @param $type string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Prompt(array $array = array(), string $type = ''): string
     {
         switch ($type) {
@@ -26,7 +34,6 @@ class sProfile
 * @param $array array
 * @param $bool bool
 * @return string
-* 
 * @author Liszi Dániel
 * @since 2020.10.12
 */
@@ -61,7 +68,14 @@ class sProfile
                 </div>
             </div>';
     }
-    
+
+/*
+ * Adds profile property element
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Property(array $array): string
     {
 	return '
@@ -70,6 +84,13 @@ class sProfile
             </div>';
     }
     
+/*
+ * Adds input element on Editor
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Input(array $array): string
     {
 	return '
@@ -82,6 +103,14 @@ class sProfile
         ';
     }
     
+/*
+ * Adds Editor button on Profile
+ * @param $array array
+ * @param $bool bool
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Button(array $array, bool $bool): string
     {
         if ($bool) {
@@ -98,6 +127,13 @@ class sProfile
         }
     }
     
+/*
+ * Displays Profile Editor
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Edit(array $array = array()):string
     {
         return '

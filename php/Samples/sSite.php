@@ -22,8 +22,15 @@ class sSite
     public function __construct()
     {
 	self::setSessionVariables();
+	echo self::Build();
     }
     
+/*
+ * Sets session variables into static variables
+ * @return bool
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function setSessionVariables(): bool
     {
 	self::$sessionUsr   = (isset($_SESSION['User']))? $_SESSION['User'] : array();
@@ -32,6 +39,12 @@ class sSite
 	return true;
     }
         
+/*
+ * Returns the <head> part of the HTML
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Head(): string
     {
 	return '
@@ -61,6 +74,12 @@ class sSite
 	</head>';
     }
 
+/*
+ * Returns the Navigation bar of the HTML
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Navbar(): string
     {
 	return '
@@ -82,6 +101,12 @@ class sSite
 	</nav>';
     }
 
+/*
+ * Sets the left part of the Navigation Bar
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function NavbarLeft(): string
     {
 	$returnString = '';
@@ -128,6 +153,12 @@ class sSite
 	return $returnString;
     }
 
+/*
+ * Sets the right side of the Navigation Bar
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function NavbarRight(): string
     {
 	$returnString = '';
@@ -143,6 +174,12 @@ class sSite
 	return $returnString;
     }
 
+/*
+ * Sets the <footer> part of the HTML
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function Footer(): string
     {
 	return '
@@ -151,6 +188,12 @@ class sSite
 	    </div>';
     }
 
+/*
+ * Builds the site
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Build(): string
     {
         return '

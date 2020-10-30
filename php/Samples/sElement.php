@@ -6,6 +6,14 @@ namespace Samples;
 
 class sElement
 {
+/*
+ * Collective function for User related elements
+ * @param $array array
+ * @param $type string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function User(array $array = array(), string $type = ''): string
     {
         switch ($type) {
@@ -17,6 +25,13 @@ class sElement
                 break;
         }
     }
+/*
+ * Used to display user activity elements
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function UserActivity(array $array): string
     {
         return '
@@ -25,6 +40,13 @@ class sElement
             </li>
         ';
     }
+/*
+ * Used to display Profile editor elements (degraded)
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function UserEdit(array $array): string
     {
         return '
@@ -37,6 +59,14 @@ class sElement
         ';
     }
     
+/*
+ * Collective function for Administrative related elements (degraded)
+ * @param $array array
+ * @param $type string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Admin(array $array = array(), string $type = ''): string
     {
         switch ($type) {
@@ -48,12 +78,26 @@ class sElement
                 break;
         }
     }
+/*
+ * Used to display Administrative menu elements (degraded)
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function AdminNavbar(array $array): string
     {
         return ($array['bool'] > 0)
             ?'<li class="nav-item"> <a class="nav-link'.(($array['active']) ? ' active' : '').'" id="pills-'.$array['id'].'-tab" data-toggle="pill" href="#pills-'.$array['id'].'" role="tab" aria-controls="pills-'.$array['id'].'" aria-selected="'.$array['active'].'">'.$array['desc'].'</a> </li>'
             :'';
     }
+/*
+ * Used to display Administrative menu content (degraded)
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     private static function AdminContent(array $array): string
     {
         return ($array['bool'] > 0)

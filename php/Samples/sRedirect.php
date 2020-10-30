@@ -12,11 +12,24 @@ use PreLoad\{
 
 class sRedirect
 {
+/*
+ * Function short for Home redirect
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Home(): string
     {
 	return sRedirect::Error(array( 'icon' => 'exclamation-triangle', 'title' => 'Hiba', 'desc' => 'Érvénytelen próbálkozás', 'script' => "Instance.initElmnt('x=Home'); $('[data-dismiss=modal]').trigger({ type: 'click' });"));
     }
     
+/*
+ * Normal modal window display for redirecting
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Modal(array $array = array()): string
     {
 	return '
@@ -40,6 +53,13 @@ class sRedirect
 	';
     }
 
+/*
+ * Error window display for redirecting
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Error(array $array = array()): string
     {
 	return '
@@ -59,6 +79,14 @@ class sRedirect
 	    </errormessage>';
     }
 
+/*
+ * Used only at Profile for Login action(degraded)
+ * @param $array array
+ * @param $type string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
     public static function Sample(array $array = array()): string
     {
 	$redirectArray = array(
