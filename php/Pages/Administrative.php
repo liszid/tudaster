@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-use Data\
-{
-    dUser
+use Data\ {
+    dUser,
+    dGroup,
+    dGroup_Member
 };
 
-use PreLoad\
-{
+use PreLoad\ {
     Valid,
     Check,
     Log
 };
 
-use Samples\
-{
+use Samples\ {
     sCard,
     sFrame,
     sRedirect,
@@ -23,8 +22,7 @@ use Samples\
     sTranslate
 };
 
-if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$sessionUsr['mngGroups'] > 0))
-{
+if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$sessionUsr['mngGroups'] > 0)) {
     $returnContent = '';
 
     $urlPaths = array(
@@ -37,25 +35,27 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
     /*
      * Post action handling section
      */
-    if (isset($_POST['y']) && isset($_POST['z']))
-    {
+    if (isset($_POST['y']) && isset($_POST['z'])) {
         $returnArray = array();
-        switch (Check::isPost('y'))
-        {
+
+        switch (Check::isPost('y')) {
         case 'Users':
-            switch (Check::isPost('z'))
-            {
+            $dUser = new dUser();
+            switch (Check::isPost('z')) {
             case 'Reset':
                 $returnArray = array('path' => $urlPaths['Users'], 'content' => 'Reset'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: ''));
                 break;
             case 'Delete':
-                $returnArray = array('path' => $urlPaths['Users'], 'content' => 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: ''));
+                if ($dUser->Delete(array('userId' => $_POST['dp']))) {
+                    $returnArray = array('path' => $urlPaths['Users'], 'content' => 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '').' was success');
+                } else {
+                    $returnArray = array('path' => $urlPaths['Users'], 'content' => 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '').' failed');
+                }
                 break;
             }
             break;
         case 'Groups':
-            switch (Check::isPost('z'))
-            {
+            switch (Check::isPost('z')) {
             case 'Edit':
                 $returnArray = array('path' => $urlPaths['Groups'], 'content' => 'Edit'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: ''));
                 break;
@@ -65,8 +65,7 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
             }
             break;
         case 'Membership':
-            switch (Check::isPost('z'))
-            {
+            switch (Check::isPost('z')) {
             case 'Edit':
                 $returnArray = array('path' => $urlPaths['Membership'], 'content' => 'Edit'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: ''));
                 break;
@@ -80,11 +79,8 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
         /*
          * Page loading section
          */
-    }
-    elseif (isset($_POST['y']) || isset($_POST['b']))
-    {
-        switch (Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Administrative')))
-        {
+    } elseif (isset($_POST['y']) || isset($_POST['b'])) {
+        switch (Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Administrative'))) {
         case 'Users':
             $returnContent .= sAdministrative::Users();
             echo sFrame::Page(array('path' => $urlPaths['Users'], 'content' => $returnContent));
@@ -101,15 +97,11 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
             echo sRedirect::Home();
             break;
         }
-    }
-    else
-    {
+    } else {
         $returnContent .= '<div class="card-deck d-flex justify-content-center">';
 
-        foreach ($urlPaths as $key => $value)
-        {
-            if (strcmp(array_key_first($urlPaths), $key))
-            {
+        foreach ($urlPaths as $key => $value) {
+            if (strcmp(array_key_first($urlPaths), $key)) {
                 $returnContent .= '<a data-link="'.$value.'">'.sCard::Blank(array('color' => 'success', 'header' => 'Elérhető funkció', 'title' => sTranslate::Title($value, 3), 'text' => sTranslate::Prompt($value, 'card'))).'</a>';
             }
         }
@@ -118,8 +110,6 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
 
         echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => $returnContent));
     }
-}
-else
-{
+} else {
     echo sRedirect::Home();
 }

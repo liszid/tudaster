@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Data;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 use Database\dbUser;
 
 class dUser implements iData
@@ -32,8 +38,18 @@ class dUser implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-
-        return self::$dbUser->Delete($array, $type);
+        $User = self::Select($array, 'byUserId')[0];
+        if(! empty($User)) {
+            if ($User['isDelete']) {
+                $bool = self::$dbUser->Delete($array, $type);
+                Log::Export($bool);
+                return $bool;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public static function Check( ): bool
