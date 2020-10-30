@@ -9,34 +9,34 @@ use Database\dbCombined;
 class dCombined implements iData
 {
     private static $dbCombined;
-    
+
     public function __construct()
     {
-	self::$dbCombined = new dbCombined();
+        self::$dbCombined = new dbCombined();
     }
-    
+
     public static function Insert(array $array = array()): bool
     {
-	return self::$dbCombined->Insert($array);
+        return self::$dbCombined->Insert($array);
     }
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	return self::$dbCombined->Select($array, $type);
+        return self::$dbCombined->Select($array, $type);
     }
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-	return self::$dbCombined->Update($array, $type);
+        return self::$dbCombined->Update($array, $type);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-	return self::$dbCombined->Delete($array, $type);
+        return self::$dbCombined->Delete($array, $type);
     }
 
     public static function Check( ): bool
     {
-	return (self::$dbCombined->Check());
+        return (self::$dbCombined->Check());
     }
 }
