@@ -2,25 +2,30 @@
 
 declare(strict_types=1);
 
-use PreLoad\{
+use PreLoad\
+{
     Valid,
     Check,
     Log
-};
+};s
 
-use Samples\{
+use Samples\
+{
     sRedirect,
     sFrame
 };
 
-if (isset($sessionUsr['userId']) && ((int)$sessionUsr['canUsername'] > 0 || ((int)$sessionUsr['canUsername'] > 0 && (int)$sessionUsr['canPassword'] > 0))) {
-    
+if (isset($sessionUsr['userId']) && ((int)$sessionUsr['canUsername'] > 0 || ((int)$sessionUsr['canUsername'] > 0 && (int)$sessionUsr['canPassword'] > 0)))
+{
+
     $urlPaths = array(
-	"Root" => "Accesses"
-    );
-    
+                    "Root" => "Accesses"
+                );
+
     echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => ''));
-    
-} else {
+
+}
+else
+{
     echo sRedirect::Home();
 }

@@ -12,7 +12,8 @@ require_once 'globals.php';
  * the required statements and variables which we work with.
  */
 
-use PreLoad\{
+use PreLoad\
+{
     Log,
     Check,
     Valid
@@ -34,8 +35,8 @@ $sessionAct   = (! empty($sessionUsr))? $sessionUsr['Activity'] : array();
 
 if (!isset($_SESSION['Database'])) {
     if ( $Table::initTable() === true) {
-	$_SESSION['Database'] = true;
-    } 
+        $_SESSION['Database'] = true;
+    }
 }
 
 if ( Valid::vString( $formPage ) ) {

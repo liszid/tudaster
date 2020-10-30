@@ -42,7 +42,7 @@ function AutoLoader($className)
 
     if (file_exists($className . '.php')) {
         include_once($className . '.php');
-    } elseif(file_exists($GLOBALS['rootPhp'] . $className . '.php')){
+    } elseif(file_exists($GLOBALS['rootPhp'] . $className . '.php')) {
         include_once($GLOBALS['rootPhp'] . $className . '.php');
     } else {
         foreach ($files as $fileName) {
