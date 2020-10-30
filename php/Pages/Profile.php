@@ -18,7 +18,8 @@ use Samples\{
     sRoles,
     sProfile,
     sRedirect,
-    sFrame
+    sFrame,
+    sTranslate
 };
 if (isset($sessionUsr['userId'])) {
     if(isset($_POST["Save"]) && $sessionUsr['canEdit']) {
@@ -26,10 +27,10 @@ if (isset($sessionUsr['userId'])) {
             array(
                 'type'  =>  'Save',
                 'func'  =>  function(array $array): bool {$dUser = new dUser(); return $dUser::Update($array);},
-                'array'  =>  array( 
-            	    'nameFirst' => $_POST['nameFirst'], 
-            	    'nameLast' => $_POST['nameLast'], 
-            	    'contPhone' => $_POST['contPhone'], 
+                'array'  =>  array(
+            	    'nameFirst' => $_POST['nameFirst'],
+            	    'nameLast' => $_POST['nameLast'],
+            	    'contPhone' => $_POST['contPhone'],
             	    'contSite' => $_POST['contSite'],
             	    'thumbnail' => $_POST['thumbnail'],
             	    'userId' => $sessionUsr['userId']
@@ -43,8 +44,8 @@ if (isset($sessionUsr['userId'])) {
                     array(
                         'bool'      =>  $e['func']($e['array']),
                         'redirect'  =>  array(
-                            'icon'      =>  'fa-pencil',
-                            'title'     =>  'Profil Szerkesztése',
+                            'icon'      =>  sTranslate::TRANSLATE['Profile']['fa'],
+                            'title'     =>  sTranslate::TRANSLATE['Profile']['title'],
                             'desc'      =>  $e['desc'],
                             'success'   =>  "Instance.initElmnt('d=Profile', 'modalDialog');",
                             'fail'      =>  "Instance.initElmnt('d=Profile&editProfile=', 'modalDialog');"
@@ -62,10 +63,10 @@ if (isset($sessionUsr['userId'])) {
 	$modalBody = '
 	    <div class="container bootstrap snippet">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         '.((! isset($_POST['editProfile']))? sProfile::Prompt($User,'Self') : sProfile::Prompt($User, 'Edit')).'
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         '.(sActivity::Prompt($sessionAct)).'
                         <br />
                         '.(sRoles::Prompt($sessionUsr)).'

@@ -18,22 +18,21 @@ use Data\dUser;
 if ( ! Valid::vArray($sessionUsr) ) {
     $return = '';
     if (isset($_POST['Login'])) {
-	$funcReference = function (array $array, string $type): array 
-	{
-	    $dUser = new dUser();
-	    if (strcmp($type, 'Login') === 0) {
-		return ($dUser->Select($array, $type))[0];
-	    } elseif(strcmp($type, 'byUserName') === 0) {
-		return ($dUser->Select($array, $type))[0];
-	    } else {
-		return array();
-	    }
-	};
 
 	$collectiveArray = array(
 	    array(
 		'type'  =>  'Login',
-		'func'  =>  'funcReference',
+		'func'  =>  function (array $array, string $type): array
+        {
+            $dUser = new dUser();
+            if (strcmp($type, 'Login') === 0) {
+                return ($dUser->Select($array, $type))[0];
+            } elseif(strcmp($type, 'byUserName') === 0) {
+                return ($dUser->Select($array, $type))[0];
+            } else {
+                return array();
+            }
+        },
 		'array' =>  $_POST,
 		'desc'  =>  'Bejelentkezés'
 	    )
@@ -42,9 +41,9 @@ if ( ! Valid::vArray($sessionUsr) ) {
 	    if (isset($_POST[$e['type']])) {
 		echo sRedirect::Sample(
 		    array(
-			'bool'      =>  ${$e['func']}($e['array'], $e['type']),
+			'bool'      =>  $e['func']($e['array'], $e['type']),
 			'login'     =>  true,
-			'id'        =>  ${$e['func']}(array('nameUser' => $e['array']['nameUser']), 'byUserName')['userId'],
+			'id'        =>  $e['func'](array('nameUser' => $e['array']['nameUser']), 'byUserName')['userId'],
 			'redirect'  =>  array(
 			    'icon'  =>  'fa-sign-in',
 			    'title' =>  'Bejelentkezés',
@@ -59,7 +58,7 @@ if ( ! Valid::vArray($sessionUsr) ) {
     elseif (isset($_POST['x']) && $_POST['x'] === 'Login') {
 	$urlPaths = array(
 	    'Root' => 'Login'
-	);	
+	);
 	$modalBody = '
 	    <form class="needs-validation" novalidate autocomplete="on">
                 <div class="form-group col-12 p-1">

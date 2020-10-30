@@ -17,17 +17,12 @@ class sRoles
     {
 	if (isset($array)) {
             $prompt = '';
-            $elementArray = array(
-                array("desc" => "Tudáscikk", "data" => $array['canKnowledge']),
-                array("desc" => "Hozzáférés", "data" => $array['canUsername'].':'.$array['canPassword']),
-                array("desc" => "Hardver", "data" => $array['canHardware']),
-                array("desc" => "Szoftver", "data" => $array['canSoftware']),
-                array("desc" => "Cég adat", "data" => $array['canCompany']),
-                array("desc" => "Profil", "data" => $array['canEdit'])
-            );
+            $elementArray = array('canKnowledge', 'canUsername', 'canPassword', 'canHardware', 'canSoftware', 'canCompany', 'canEdit');
+
             foreach ($elementArray as $e) {
-                $prompt .= sElement::User( $e, "Activity");
+                $prompt .= sElement::User( array("desc" => sTranslate::TRANSLATE[sTranslate::ROLE[$e]['respective']]['navbar'], "data" => $array[$e]), "Activity");
             }
+
             return '
                 <ul class="list-group">
                     <li class="list-group-item text-muted">

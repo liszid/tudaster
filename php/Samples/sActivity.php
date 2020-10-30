@@ -16,7 +16,7 @@ use Data\{
 
 class sActivity
 {
-    
+
 /**
  * Returns activity modul, or errorLog
  * @param $array array
@@ -24,32 +24,32 @@ class sActivity
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function Prompt (array $array = array()): string //getSampleActivities
     {
-	if (isset($array)) {
-	    $prompt = '';
-	    $elementArray = array(
-		array("desc" => "Tudáscikk", "data" => $array['actKnow']),
-		array("desc" => "Jelszó", "data" => $array['actPass']),
-		array("desc" => "Hardver", "data" => $array['actHard']),
-		array("desc" => "Szoftver", "data" => $array['actSoft']),
-	    );
-	    foreach ($elementArray as $e) {
-		$prompt .= sElement::User( $e, "Activity");
-	    }
-	    return '
-		<ul class="list-group">
-		    <li class="list-group-item text-muted">
-			<i class="fa fa-dashboard"></i> Bejegyzések
-		    </li>
-		    '.$prompt.'
-		</ul>';
-	} else {
-	    return '';
-	}
+        if (isset($array)) {
+            $prompt = '';
+            $elementArray = array(
+                array("desc" => "Tudáscikk", "data" => $array['actKnow']),
+                array("desc" => "Jelszó", "data" => $array['actPass']),
+                array("desc" => "Hardver", "data" => $array['actHard']),
+                array("desc" => "Szoftver", "data" => $array['actSoft']),
+            );
+            foreach ($elementArray as $e) {
+                $prompt .= sElement::User( $e, "Activity");
+            }
+            return '
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">
+                    <i class="fa fa-dashboard"></i> Bejegyzések
+                    </li>
+                    '.$prompt.'
+                </ul>';
+        } else {
+            return '';
+        }
     }
-    
+
 /**
  * Returns activity array
  * @param $userId int
@@ -60,12 +60,12 @@ class sActivity
  */
     public static function Activity(int $userId = 0): array
     {
-	return array(
-	    'actKnow' => '0',
-	    'actPass' => '0',
-	    'actHard' => '0',
-	    'actSoft' => '0',
-	);
+        return array(
+            'actKnow' => '0',
+            'actPass' => '0',
+            'actHard' => '0',
+            'actSoft' => '0',
+        );
     }
 
 /**
@@ -78,8 +78,8 @@ class sActivity
  */
     public static function Set(int $userId = 0): void
     {
-	$dCombined = new dCombined();
-	$_SESSION['User'] = ($dCombined->Select(array('userId' => $userId),'User_Full'))[0];
-	$_SESSION['User']['Activity'] = self::Activity($userId);
+        $dCombined = new dCombined();
+        $_SESSION['User'] = ($dCombined->Select(array('userId' => $userId),'User_Full'))[0];
+        $_SESSION['User']['Activity'] = self::Activity($userId);
     }
 }
