@@ -195,7 +195,6 @@ class Queries extends Database
     public static function qRun(array $array): object
     {
         try {
-            Log::Export($array);
             self::setConnection(self::getSQL()['db']);
             $statement = self::getConnection()->prepare($array['query']);
             foreach ($array['vNames'] as $v)
