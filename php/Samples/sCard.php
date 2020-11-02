@@ -12,6 +12,73 @@ use PreLoad\{
 
 class sCard
 {
+
+    public static function Translated(string $string = '', string $type = ''): string
+    {
+        switch ($type) {
+            case 'Card':
+                return self::Card($string);
+                break;
+            case  'Linked':
+                return self::Linked($string);
+                break;
+        }
+    }
+
+/*
+ * Returns Card array for the corresponding Role
+ * @param $string string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
+    private static function Card(string $string): string
+    {
+	    if (array_key_exists($string, sTranslate::ROLE)) {
+	        if (array_key_exists(sTranslate::ROLE[$string]['respective'], sTranslate::TRANSLATE)) {
+                return self::Blank(
+                    array(
+                        'color' => sTranslate::ROLE[$string]['color'],
+                        'header' => sTranslate::ROLE[$string]['header'],
+                        'title' => sTranslate::TRANSLATE[sTranslate::ROLE[$string]['respective']]['title'],
+                        'text' => sTranslate::TRANSLATE[sTranslate::ROLE[$string]['respective']]['card']
+                    )
+                );
+	        } else {
+		        return '';
+	        }
+        } elseif  (array_key_exists($string, sTranslate::TRANSLATE)) {
+//  Must search for the 'respective' equality
+
+	    } else {
+	        return '';
+	    }
+    }
+
+/*
+ * Returns a Blank Card with a Link to its respective menu
+ * @param $string string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.02
+ */
+    private static function Linked(string $string): string
+    {
+	    if (array_key_exists($string, sTranslate::ROLE)) {
+	        if (array_key_exists(sTranslate::ROLE[$string]['respective'], sTranslate::TRANSLATE)) {
+                return '<a data-link="'.sTranslate::ROLE[$string]['respective'].'">'.self::Card($string).'</a>';
+	        } else {
+		        return '';
+	        }
+        } elseif (array_key_exists($string, sTranslate::TRANSLATE)) {
+// Needs self::Card() to be working
+//          return '<a data-link="'.$string.'">'.self::Card($string).'</a>'
+            return '';
+	    } else {
+	        return '';
+	    }
+    }
+
 /*
  * Used to display Blank card
  * @param $array array
@@ -22,13 +89,13 @@ class sCard
     public static function Blank(array $array): string
     {
 	return '
-	<div class="card border-'.$array['color'].''.((isset($array['class']))?' '.$array['class']:'').'" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
-	    <div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>
-	    <div class="card-body text-'.$array['color'].'">
-		'.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
-		<p class="card-text">'.$array['text'].'</p>
-	    </div>
-	</div>
+        <div class="card border-'.$array['color'].''.((isset($array['class']))?' '.$array['class']:'').'" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
+            <div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>
+            <div class="card-body text-'.$array['color'].'">
+            '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
+            <p class="card-text">'.$array['text'].'</p>
+            </div>
+        </div>
 	';
     }
 

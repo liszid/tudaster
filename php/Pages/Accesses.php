@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-use PreLoad\
-{
+use PreLoad\{
     Valid,
     Check,
     Log
-};s
+};
 
-use Samples\
-{
+use Samples\{
     sRedirect,
     sFrame
 };

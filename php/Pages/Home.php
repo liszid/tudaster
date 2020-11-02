@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Samples\{
     sCard,
     sBreadcrumbs,
-    sTranslate,
     sFrame
 };
 
@@ -26,44 +25,44 @@ if (! isset($sessionUsr['userId']) ) {
 	<div class="card-columns m-3">
 	'.(((int)$sessionUsr['mngGroups'] > 0 && (int)$sessionUsr['mngUsers'] > 0)
         ?(
-            sTranslate::Linked('mngGroups').
-            sTranslate::Linked('mngUsers').
-            sTranslate::Linked('mngMembers')
+            sCard::Translated('mngGroups', 'Linked').
+            sCard::Translated('mngUsers', 'Linked').
+            sCard::Translated('mngMembers', 'Linked')
 	    ):(
 		''
 	    )
 	).'
 	'.sCard::Blank($cardArray['Profile']).'
 	'.(((int)$sessionUsr['canEdit'] > 0)
-        ? sCard::Blank(sTranslate::Card('canEdit'))
+        ? sCard::Translated('canEdit', 'Card')
         :''
     ).'
 	'.(((int)$sessionUsr['canUsers'] > 0)
-        ? sTranslate::Linked('canUsers')
+        ? sCard::Translated('canUsers', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canKnowledge'] > 0)
-        ? sTranslate::Linked('canKnowledge')
+        ? sCard::Translated('canKnowledge', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canUsername'] > 0)
-        ? sTranslate::Linked('canUsername')
+        ? sCard::Translated('canUsername', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canPassword'] > 0)
-        ? sTranslate::Linked('canPassword')
+        ? sCard::Translated('canPassword', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canHardware'] > 0)
-        ? sTranslate::Linked('canHardware')
+        ? sCard::Translated('canHardware', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canSoftware'] > 0)
-        ? sTranslate::Linked('canSoftware')
+        ? sCard::Translated('canSoftware', 'Linked')
         :''
     ).'
 	'.(((int)$sessionUsr['canCompany'] > 0)
-        ? sTranslate::Linked('canCompany')
+        ? sCard::Translated('canCompany', 'Linked')
         :''
     ).'
     </div>';

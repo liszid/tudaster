@@ -231,51 +231,6 @@ class sTranslate {
     }
 
 /*
- * Returns Card array for the corresponding Role
- * @param $string string
- * @return array
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    public static function Card(string $string): array
-    {
-	    if (array_key_exists($string, self::ROLE)) {
-	        if (array_key_exists(self::ROLE[$string]['respective'], self::TRANSLATE)) {
-                return array(
-                    'color' => self::ROLE[$string]['color'],
-                    'header' => self::ROLE[$string]['header'],
-                    'title' => self::TRANSLATE[self::ROLE[$string]['respective']]['title'],
-                    'text' => self::TRANSLATE[self::ROLE[$string]['respective']]['card']
-                );
-	        } else {
-		        return array();
-	        }
-	    } else {
-	        return array();
-	    }
-    }
-
-/*
- * Returns a Blank Card with a Link to its respective menu
- * @param $string string
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.02
- */
-    public static function Linked(string $string): string
-    {
-	    if (array_key_exists($string, self::ROLE)) {
-	        if (array_key_exists(self::ROLE[$string]['respective'], self::TRANSLATE)) {
-                return '<a data-link="'.sTranslate::ROLE[$string]['respective'].'">'.sCard::Blank(sTranslate::Card($string)).'</a>';
-	        } else {
-		        return '';
-	        }
-	    } else {
-	        return '';
-	    }
-    }
-
-/*
  * Returns a HTML Title on set size
  * @param $array array
  * @param $size int
