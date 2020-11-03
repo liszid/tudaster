@@ -27,3 +27,19 @@
   'Update' => 'UPDATE `User` SET nameFirst=:nameFirst ,nameLast=:nameLast ,contSite=:contSite ,contPhone=:contPhone ,thumbnail=:thumbnail WHERE userId=:userId',
 )
 [08:46:00] - true
+[09:42:17] - array (
+  'Delete' => 'DELETE FROM `User` WHERE userId=:userId',
+  'Insert' => '
+    INSERT INTO `User`(nameUser, pWord, nameFirst, nameLast, contEmail, contPhone, contSite)
+    VALUES
+	(:nameUser, :pWord, :nameFirst, :nameLast, :contEmail, :contPhone, :contSite);',
+  'Select' => 
+  array (
+    'All' => 'SELECT * FROM `User`',
+    'byUserName' => 'SELECT * FROM `User` WHERE nameUser=:nameUser',
+    'byUserId' => 'SELECT * FROM `User` WHERE userId=:userId',
+    'Login' => 'SELECT userId FROM `User` WHERE nameUser=:nameUser AND pWord=:pWord',
+  ),
+  'Update' => 'UPDATE `User` SET nameFirst=:nameFirst ,nameLast=:nameLast ,contSite=:contSite ,contPhone=:contPhone ,thumbnail=:thumbnail WHERE userId=:userId',
+)
+[09:42:17] - true

@@ -22,7 +22,7 @@ class sRedirect
     {
 	return sRedirect::Error(array( 'icon' => 'exclamation-triangle', 'title' => 'Hiba', 'desc' => 'Érvénytelen próbálkozás', 'script' => "Instance.initElmnt('x=Home'); $('[data-dismiss=modal]').trigger({ type: 'click' });"));
     }
-    
+
 /*
  * Normal modal window display for redirecting
  * @param $array array
@@ -36,17 +36,17 @@ class sRedirect
 	    <modalmessage>
 		<div class="modal-content">
 		    <div class="modal-header">
-			<h4 class="modal-title"><i class="fa '.$array['icon'].'"></i> '.$array['title'].'</h4>
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><i class="fa '.$array['icon'].'"></i> '.$array['title'].'</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body text-center justification-centered">
-			<h4>'.$array['desc'].'</h4>
-			<div class="spinner-grow">
-			    <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ '. ( isset( $array['script'] ) ? $array['script'] : 'window.location.reload()' ) .'}, 750);">
-			</div>
+                <h4>'.$array['desc'].'</h4>
+                <div class="spinner-grow">
+                    <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ '. ( isset( $array['script'] ) ? $array['script'] : 'window.location.reload()' ) .'}, 750);">
+                </div>
 		    </div>
 		    <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		    </div>
 		</div>
 	    </modalmessage>

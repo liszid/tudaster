@@ -36,32 +36,43 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
  */
     if (isset($_POST['y']) && isset($_POST['z'])) {
         $returnArray = array();
-        if(Valid::vString(Check::isPost('y')) && Valid::vString(Check::isPost('z'))) {
-            $returnContent = sAdministrative::Action(array('y' => Check::isPost('y'), 'z' => Check::isPost('z')));
-            $returnArray = array('path' => $urlPaths['Users'], 'content' => $returnContent);
+
+        if(
+            Valid::vString(Check::isPost('y')) &&
+            Valid::vString(Check::isPost('z'))
+        ) {
+            $returnContent = sAdministrative::Action(
+                array(
+                    'y' => Check::isPost('y'),
+                    'z' => Check::isPost('z'),
+                    'dp' => Check::isPost('dp')
+                )
+            );
         }
-        echo ((! empty($returnArray))? sFrame::Modal($returnArray) : sRedirect::Home());
+
+        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')], 'content' => $returnContent)) : sRedirect::Home());
 /*
  * Page loading section
  */
     } elseif (isset($_POST['y']) || isset($_POST['b'])) {
-        switch (Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Administrative'))) {
-        case 'Users':
-            $returnContent .= sAdministrative::Users(array('path' => $urlPaths['Users']));
-            echo sFrame::Page(array('path' => $urlPaths['Users'], 'content' => $returnContent));
-            break;
-        case 'Groups':
-            $returnContent .= sAdministrative::Groups(array('path' => $urlPaths['Groups']));
-            echo sFrame::Page(array('path' => $urlPaths['Groups'], 'content' => $returnContent));
-            break;
-        case 'Membership':
-            $returnContent .= sAdministrative::Membership(array('path' => $urlPaths['Membership']));
-            echo sFrame::Page(array('path' => $urlPaths['Membership'], 'content' => $returnContent));
-            break;
-        default:
-            echo sRedirect::Home();
-            break;
+        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Administrative'));
+
+        switch ($postUrl) {
+            case 'Users':
+                $returnContent .= sAdministrative::Users(array('path' => $urlPaths[$postUrl]));
+                break;
+            case 'Groups':
+                $returnContent .= sAdministrative::Groups(array('path' => $urlPaths[$postUrl]));
+                break;
+            case 'Membership':
+                $returnContent .= sAdministrative::Membership(array('path' => $urlPaths[$postUrl]));
+                break;
         }
+
+        echo ((Valid::vString($returnContent))? sFrame::Page(array('path' => $urlPaths[$postUrl], 'content' => $returnContent)) : sRedirect::Home);
+/*
+ * Collective page with Cards
+ */
     } else {
         $returnContent .= '<div class="card-deck d-flex justify-content-center">';
 
@@ -75,6 +86,7 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
 
         echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => $returnContent));
     }
+
 } else {
     echo sRedirect::Home();
 }

@@ -22,26 +22,53 @@ class sAdministrative {
     private static $dGroup_Member;
     private static $dCombined;
 
+/*
+ * Sets the class variable : dUser
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     private static function setDUser()
     {
         self::$dUser = new dUser();
     }
 
+/*
+ * Sets the class variable : dGroup
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     private static function setDGroup()
     {
         self::$dGroup = new dGroup();
     }
 
+/*
+ * Sets the class variable : dGroup_Member
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     private static function setDGroup_Member()
     {
         self::$dGroup_Member = new dGroup_Member();
     }
 
+/*
+ * Sets the class variable : dCombined
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     private static function setDCombined()
     {
         self::$dCombined = new dCombined();
     }
 
+/*
+ * Used at Administrative Page for interactions
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     public static function Action(array $array = array()): string
     {
         $returnContent = '';
@@ -50,34 +77,45 @@ class sAdministrative {
         self::setDUser();
 
         switch ($nestedArg) {
+            case 'Users/Add':
+                $returnContent = 'Adding new user form';
+                break;
             case 'Users/Reset':
-                $returnContent = 'Reset'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '');
+                $returnContent = 'Reset, dp: '.$array['dp'];
                 break;
             case 'Users/Delete':
-                if (self::$dUser->Delete(array('userId' => $_POST['dp']))) {
-                    $returnContent = 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '').' was success';
+                if (self::$dUser->Delete(array('userId' => $array['dp']))) {
+                    $returnContent = 'Delete, dp: '.$array['dp'].' was successfull';
                 } else {
-                    $returnContent = 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '').' failed';
+                    $returnContent = 'Delete, dp: '.$array['dp'].' failed';
                 }
                 break;
+            case 'Groups/Add':
+                $returnContent = 'Adding new group form';
+                break;
             case 'Groups/Edit':
-                $returnContent = 'Edit'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '');
+                $returnContent = 'Edit, dp: '.$array['dp'];
                 break;
             case 'Groups/Delete':
-                $returnContent = 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '');
+                $returnContent = 'Delete, dp: '.$array['dp'];
                 break;
             case 'Membership/Edit':
-                $returnContent = 'Edit'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '');
+                $returnContent = 'Edit, dp: '.$array['dp'];
                 break;
-            case 'Membership/Delete':
-                $returnContent = 'Delete'.((isset($_POST['dp']))? ', dp: '.$_POST['dp']: '');
-                break;
+        }
 
+        if (Valid::vString($returnContent)) {
+            $returnContent .= '
+                <div class="col-12">
+                    <div class="spinner-grow">
+                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x=Administrative&y='.$array['y'].'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
+                    </div>
+                </div>';
+            $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
         }
 
         return $returnContent;
     }
-
 /*
  * Used at Administrative Page to display Users section
  * @param $array array
@@ -93,6 +131,12 @@ class sAdministrative {
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
+        $returnString .= '
+            <div>
+                <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-toggle="modal" data-target="#modalBox">
+                    <i class="fa fa-sign-up" aria-hidden="true"></i>
+                </a>
+            </div>';
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
         return $returnString;
     }
