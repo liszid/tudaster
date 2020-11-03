@@ -31,7 +31,7 @@ if (isset($sessionUsr['userId']))
         $collectiveArray = array(
                                array(
                                    'type'  =>  'Save',
-                                   'func'  =>  function(array $array): bool {$dUser = new dUser(); return $dUser::Update($array);},
+                                   'func'  =>  function(array $array): bool {$dUser = new dUser(); return $dUser::Update($array, 'Profile');},
                                    'array'  =>  array(
                                        'nameFirst' => $_POST['nameFirst'],
                                        'nameLast' => $_POST['nameLast'],

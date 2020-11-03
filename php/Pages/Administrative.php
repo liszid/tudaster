@@ -30,42 +30,6 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
                     "Groups"    => "Administrative/Groups",
                     "Membership"=> "Administrative/Membership"
                 );
-    if(isset($_POST["Save"]))
-    {
-        $collectiveArray = array(
-                               array(
-                                   'type'  =>  'Save',
-                                   'func'  =>  function(array $array): bool {$dUser = new dUser(); return $dUser::Update($array);},
-                                   'array'  =>  array(
-                                       'nameFirst' => $_POST['nameFirst'],
-                                       'nameLast' => $_POST['nameLast'],
-                                       'contPhone' => $_POST['contPhone'],
-                                       'contSite' => $_POST['contSite'],
-                                       'thumbnail' => $_POST['thumbnail'],
-                                       'userId' => $sessionUsr['userId']
-                                   ),
-                                   'desc'  =>  'Update'
-                               )
-                           );
-        foreach( $collectiveArray as $e )
-        {
-            if (isset($_POST[$e['type']]))
-            {
-                echo sRedirect::Sample(
-                    array(
-                        'bool'      =>  $e['func']($e['array']),
-                        'redirect'  =>  array(
-                            'icon'      =>  sTranslate::TRANSLATE['Profile']['fa'],
-                            'title'     =>  sTranslate::TRANSLATE['Profile']['title'],
-                            'desc'      =>  $e['desc'],
-                            'success'   =>  "Instance.initElmnt('d=Profile', 'modalDialog');",
-                            'fail'      =>  "Instance.initElmnt('d=Profile&editProfile=', 'modalDialog');"
-                        )
-                    )
-                );
-            }
-        }
-    }
 
 /*
  * Post action handling section

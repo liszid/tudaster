@@ -89,27 +89,27 @@ class sRedirect
  */
     public static function Sample(array $array = array()): string
     {
-	$redirectArray = array(
-	    'icon' => $array['redirect']['icon'],
-	    'title' => $array['redirect']['title']
-	);
-	if ($array['bool']) {
-	    if (isset($array['update']) && $array['update']) {
-		$dUser = new dUser;
-		$dUser::Reload($array['id']);
-	    } elseif (isset($array['login']) && $array['login']) {
-		sActivity::Set(intval($array['id']));
-	    }
-	    if (isset($array['redirect']['success'])) {
-		$redirectArray['script'] = $array['redirect']['success'];
-	    }
-	    $redirectArray['desc'] = 'Sikeres '.$array['redirect']['desc'];
-	} else {
-	    if (isset($array['redirect']['fail'])) {
-		$redirectArray['script'] = $array['redirect']['fail'];
-	    }
-	    $redirectArray['desc'] = 'Sikertelen '.$array['redirect']['desc'];
-	}
-	return sRedirect::Modal($redirectArray);
+        $redirectArray = array(
+            'icon' => $array['redirect']['icon'],
+            'title' => $array['redirect']['title']
+        );
+        if ($array['bool']) {
+            if (isset($array['update']) && $array['update']) {
+                $dUser = new dUser;
+                $dUser::Reload($array['id']);
+            } elseif (isset($array['login']) && $array['login']) {
+                sActivity::Set(intval($array['id']));
+            }
+            if (isset($array['redirect']['success'])) {
+                $redirectArray['script'] = $array['redirect']['success'];
+            }
+            $redirectArray['desc'] = 'Sikeres '.$array['redirect']['desc'];
+        } else {
+            if (isset($array['redirect']['fail'])) {
+                $redirectArray['script'] = $array['redirect']['fail'];
+            }
+            $redirectArray['desc'] = 'Sikertelen '.$array['redirect']['desc'];
+        }
+        return sRedirect::Modal($redirectArray);
     }
 }

@@ -29,9 +29,29 @@ class sElement
             case 'Add':
                 return self::GeneralAdd($array);
                 break;
+            case 'Input':
+                return self::GeneralInput($array);
+                break;
         }
     }
-
+/*
+ * Adds input element on Editor
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    public static function GeneralInput(array $array): string
+    {
+        return '
+            <div class="form-group row col-12 p-0">
+                <label for="'.$array['origo'].'-'.$array['data'].'" class="col-sm-3 col-form-label">'.$array['desc'].'</label>
+                <div class="col-sm-9">
+                    <input type="'.$array['type'].'" class="form-control" id="usrEdit-'.$array['data'].'" value="'.$array['value'].'">
+                </div>
+            </div>
+        ';
+    }
 /*
  * Used to generate modal redirect spinner
  * @param $array array

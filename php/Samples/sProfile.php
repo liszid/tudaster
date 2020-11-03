@@ -28,7 +28,7 @@ class sProfile
                 break;
         }
     }
-    
+
 /**
 * Bool represents if its an inside or outside load of the profile
 * @param $array array
@@ -83,26 +83,7 @@ class sProfile
                 <b>'.$array['desc'].'</b><span class="float-right">'.$array['value'].'</span>
             </div>';
     }
-    
-/*
- * Adds input element on Editor
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    private static function Input(array $array): string
-    {
-	return '
-            <div class="form-group row col-12 p-0">
-                <label for="usrEdit-'.$array['data'].'" class="col-sm-3 col-form-label">'.$array['desc'].'</label>
-                <div class="col-sm-9">
-                    <input type="'.$array['type'].'" class="form-control" id="usrEdit-'.$array['data'].'" value="'.$array['value'].'">
-                </div>
-            </div>
-        ';
-    }
-    
+
 /*
  * Adds Editor button on Profile
  * @param $array array
@@ -126,7 +107,7 @@ class sProfile
             return '';
         }
     }
-    
+
 /*
  * Displays Profile Editor
  * @param $array array
@@ -142,18 +123,18 @@ class sProfile
         	<h1>'.$array['nameUser'].'</h1>
                 <i class="fa fa-'.$array['thumbnail'].' fa-5x"></i>
                 <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Ikonok keresése</a></p>
-            </div>            
+            </div>
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
                     <hr>
                     <form method="post" class="form-group col-12" autocomplete="on">
                         <div class="form-group col p-0">
                             <div class="col-12 row">
-                        	'.self::Input(array('data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text')).'
-                                '.self::Input(array('data' => 'nameLast', 'desc' => 'Vezetéknév', 'value' => $array['nameLast'], 'type' => 'text')).'
-                                '.self::Input(array('data' => 'nameFirst', 'desc' => 'Keresztnév', 'value' => $array['nameFirst'], 'type' => 'text')).'
-                                '.self::Input(array('data' => 'contPhone', 'desc' => 'Telefon', 'value' => $array['contPhone'], 'type' => 'text')).'
-                                '.self::Input(array('data' => 'contSite', 'desc' => 'Telephely', 'value' => $array['contSite'], 'type' => 'text')).'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameLast', 'desc' => 'Vezetéknév', 'value' => $array['nameLast'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameFirst', 'desc' => 'Keresztnév', 'value' => $array['nameFirst'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'contPhone', 'desc' => 'Telefon', 'value' => $array['contPhone'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'contSite', 'desc' => 'Telephely', 'value' => $array['contSite'], 'type' => 'text'), 'Input').'
                             </div>
                         </div>
                         <div class="form-group">

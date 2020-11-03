@@ -13,7 +13,10 @@ use Samples\{
     sFrame
 };
 
-use Data\dUser;
+use Data\{
+    dUser,
+    dCombined
+};
 
 if ( ! Valid::vArray($sessionUsr) ) {
     $return = '';
@@ -25,8 +28,9 @@ if ( ! Valid::vArray($sessionUsr) ) {
 		'func'  =>  function (array $array, string $type): array
         {
             $dUser = new dUser();
+            $dCombined = new dCombined();
             if (strcmp($type, 'Login') === 0) {
-                return ($dUser->Select($array, $type))[0];
+                return (($var = ($dCombined->Select(($dUser->Select($array, $type))[0],'User_Full'))[0])['canLogin'] > 0)? $var : array();
             } elseif(strcmp($type, 'byUserName') === 0) {
                 return ($dUser->Select($array, $type))[0];
             } else {
