@@ -45,7 +45,7 @@ class sElement
             return '
                 <div class="col-12">
                     <div class="spinner-grow">
-                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x='.((isset($array['x']))?$array['x']:'Home').((isset($array['y']))?'&y='.$array['y']:'').'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
+                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x='.((isset($array['x']))?$array['x']:'Home').((isset($array['y']))?'&y='.$array['y'].((isset($array['z']))?'&z='.$array['z']:''):'').'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
                     </div>
                 </div>';
         } else {
@@ -64,11 +64,13 @@ class sElement
     {
         if (isset($array['path'])) {
             return '
-                <div class="col-12 border border-light p-2 mb-2">
-                    <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
-                        <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
-                        <span><b>Új hozzáadása</b></span>
-                    </a>
+                <div class="col-12 border border-light p-2 mb-2 d-flex">
+                    <div class="ml-auto">
+                        <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
+                            <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
+                            <span><b>Új hozzáadása</b></span>
+                        </a>
+                    </div>
                 </div>';
         } else {
             return '';

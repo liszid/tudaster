@@ -75,6 +75,7 @@ class sAdministrative {
         $nestedArg = $array['y']."/".$array['z'];
 
         self::setDUser();
+        self::setDGroup();
 
         switch ($nestedArg) {
             case 'Users/Add':
@@ -97,7 +98,6 @@ class sAdministrative {
                 break;
             case 'Groups/Edit':
                 $returnContent = 'Edit, dp: '.$array['dp'];
-                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
                 break;
             case 'Groups/Delete':
                 $returnContent = 'Delete, dp: '.$array['dp'];
@@ -105,7 +105,6 @@ class sAdministrative {
                 break;
             case 'Membership/Edit':
                 $returnContent = 'Edit, dp: '.$array['dp'];
-                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Membership'), 'Spinner');
                 break;
         }
 
