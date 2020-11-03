@@ -82,11 +82,11 @@ class sAdministrative {
                 $returnContent .= 'Adding new user form';
                 break;
             case 'Users/Reset':
-                $returnContent .= 'Reset, dp: '.$array['dp'];
+                $returnContent .= ((self::$dUser->Update(array('userId' => $array['dp']), 'Reset')) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Users/Delete':
-                $returnContent .= ((self::$dUser->Delete(array('userId' => $array['dp'])))? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
+                $returnContent .= ((self::$dUser->Delete(array('userId' => $array['dp']))) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Groups/Add':
@@ -96,8 +96,7 @@ class sAdministrative {
                 $returnContent .= 'Edit, dp: '.$array['dp'];
                 break;
             case 'Groups/Delete':
-
-                $returnContent .= ((self::$dGroup->Delete(array('groupId' => $array['dp'])))? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
+                $returnContent .= ((self::$dGroup->Delete(array('groupId' => $array['dp']))) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
                 break;
             case 'Membership/Edit':

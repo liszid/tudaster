@@ -93,7 +93,6 @@ $GLOBALS['Database']['Table']['Create'] = array(
     7 => "
         CREATE TABLE IF NOT EXISTS `Company_Site_Department`(
             companySiteDepartmentId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-
             CONSTRAINT PKCompanySiteDepartment PRIMARY KEY (companySiteDepartmentId)
         );"
 );

@@ -56,12 +56,9 @@ class Queries extends Database
         $typeArray = ['Delete', 'Insert', 'Select', 'Update'];
         foreach ($typeArray as $t)
         {
-            if(isset($GLOBALS['Database'][$classId][$t]))
-            {
+            if(isset($GLOBALS['Database'][$classId][$t])) {
                 $array[$t] = $GLOBALS['Database'][$classId][$t];
-            }
-            else
-            {
+            } else {
                 $array[$t] = array();
             }
         }
