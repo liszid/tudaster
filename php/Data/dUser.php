@@ -41,9 +41,7 @@ class dUser implements iData
         $User = self::Select($array, 'byUserId')[0];
         if(! empty($User)) {
             if ($User['isDelete']) {
-                $bool = self::$dbUser->Delete($array, $type);
-                Log::Export($bool);
-                return $bool;
+                return self::$dbUser->Delete($array, $type);
             } else {
                 return false;
             }

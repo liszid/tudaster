@@ -36,23 +36,37 @@ $GLOBALS['Database'][6]['Insert'] = "
     INSERT INTO `Company_Worker`(companyId, companySiteId, companyPositionId, companyWorkerName, companyWorkerEmail, companyWorkerPhone)
     VALUES
         (:companyId, :companySiteId, :companyPositionId, :companyWorkerName, :companyWorkerEmail, :companyWorkerPhone);";
-        
+
 //DEFAULTS----------------------------------------------------
 
 $GLOBALS['Database']['Table']['Insert'][0] = "
     INSERT INTO `User`(nameUser, pWord, thumbnail, nameFirst, nameLast, contEmail, contPhone, contSite, isDelete)
     VALUES
 	('admin', '2bd96d900954217a5e04993a74737d8d', 'user-md', 'Admin', 'Ksys', 'teszt@kruppsystem.hu', '+0036301234567', 'Törökbálint', 0),
-	('liszid', '2bd96d900954217a5e04993a74737d8d', 'user', 'Dániel', 'Liszi', 'liszi.daniel@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1);";
+	('liszid', '2bd96d900954217a5e04993a74737d8d', 'user', 'Dániel', 'Liszi', 'liszi.daniel@kruppsystem.hu', '+0036301234567', 'Törökbálint', 0),
+	('test1', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test1@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1),
+	('test2', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test2@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1),
+	('test3', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test3@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1),
+	('test4', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test4@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1),
+	('test5', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test5@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1),
+	('test6', '2bd96d900954217a5e04993a74737d8d', 'user', 'TEST', 'TEST', 'test6@kruppsystem.hu', '+0036301234567', 'Törökbálint', 1);";
 
 $GLOBALS['Database']['Table']['Insert'][1] = "
     INSERT INTO `Group`(groupName, groupDesc, mngGroups, mngUsers, canUsers, canCompany, canKnowledge, canUsername, canPassword, canHardware, canSoftware, canEdit, canLogin, isDelete)
     VALUES
 	('Administrator',	'Super Users on site',		1, 1, 7, 7, 7, 7, 7, 7, 7, 1, 1, 0),
-	('Default', 		'Default users after creation', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0);";
+	('Default', 		'Default users after creation', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+	('Test_1', 		    'Only for testing purpose', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+	('Test_2', 		    'Only for testing purpose', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);";
 
 $GLOBALS['Database']['Table']['Insert'][2] = "
-    INSERT INTO `Group_Member`(userId, groupId, isDelete)
+    INSERT INTO `Group_Member`(userId, groupId)
     VALUES
-	(1, 1, 0),
-	(2, 2, 1);";
+	(1, 1),
+	(2, 2),
+	(3, 3),
+	(4, 4),
+	(5, 3),
+	(6, 4),
+	(7, 4),
+	(8, 3);";

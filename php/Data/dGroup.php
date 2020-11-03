@@ -32,7 +32,21 @@ class dGroup implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbGroup->Delete($array, $type);
+        $Group = self::Select($array, 'byGroupId')[0];
+        if(! empty($Group)) {
+            if ($Group['isDelete']) {
+                $dGroup_Member = new dGroup_Member();
+                $Members = $dGroup_Member->Select($array, 'byGroupId');
+                foreach ($Members as $i) {
+                    $dGroup_Member->Update(array('userId' => $i['userId'], 'groupId' => 2));
+                }
+                return self::$dbGroup->Delete($array, $type);
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public static function Check( ): bool

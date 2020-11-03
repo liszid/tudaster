@@ -79,32 +79,29 @@ class sAdministrative {
 
         switch ($nestedArg) {
             case 'Users/Add':
-                $returnContent = 'Adding new user form';
+                $returnContent .= 'Adding new user form';
                 break;
             case 'Users/Reset':
-                $returnContent = 'Reset, dp: '.$array['dp'];
+                $returnContent .= 'Reset, dp: '.$array['dp'];
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Users/Delete':
-                if (self::$dUser->Delete(array('userId' => $array['dp']))) {
-                    $returnContent = 'Delete, dp: '.$array['dp'].' was successfull';
-                } else {
-                    $returnContent = 'Delete, dp: '.$array['dp'].' failed';
-                }
+                $returnContent .= ((self::$dUser->Delete(array('userId' => $array['dp'])))? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Groups/Add':
-                $returnContent = 'Adding new group form';
+                $returnContent .= 'Adding new group form';
                 break;
             case 'Groups/Edit':
-                $returnContent = 'Edit, dp: '.$array['dp'];
+                $returnContent .= 'Edit, dp: '.$array['dp'];
                 break;
             case 'Groups/Delete':
-                $returnContent = 'Delete, dp: '.$array['dp'];
+
+                $returnContent .= ((self::$dGroup->Delete(array('groupId' => $array['dp'])))? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
                 break;
             case 'Membership/Edit':
-                $returnContent = 'Edit, dp: '.$array['dp'];
+                $returnContent .= 'Edit, dp: '.$array['dp'];
                 break;
         }
 
@@ -127,8 +124,8 @@ class sAdministrative {
         $returnString = '';
         $Users = self::$dUser->Select(array(), 'All');
         if (isset($array['path'])) {
+            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'user-plus'), 'Add');
         }
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
         return $returnString;
@@ -147,8 +144,8 @@ class sAdministrative {
         $returnString = '';
         $Groups = self::$dGroup->Select(array(), 'All');
         if (Valid::vString($array['path'])) {
+            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'user-plus'), 'Add');
         }
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');
         return $returnString;

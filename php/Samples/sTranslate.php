@@ -94,7 +94,14 @@ class sTranslate {
     	    "fa" => "vcard",
     	    "title" => "Csoport tagságok",
     	    "help" => "A Csoport tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot",
-            "card" => "Csoport tagságok szerkesztéséhez kattintson a kártyára"
+            "card" => "Csoport tagságok szerkesztéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'title' => '',
+                'text' => '
+                    <b>Csoport tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
+                )
     	),
     	"Administrative/Membership/Edit" => array(
             "navbar" => "Tagság szerkesztése",
