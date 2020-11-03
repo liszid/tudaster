@@ -12,7 +12,13 @@ use PreLoad\{
 
 class sCard
 {
-
+/*
+ * Returns the set type of Card using sTranslate
+ * @param $string string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
     public static function Translated(string $string = '', string $type = ''): string
     {
         switch ($type) {
@@ -30,7 +36,7 @@ class sCard
  * @param $string string
  * @return string
  * @author Liszi Dániel
- * @since 2020.10.30
+ * @since 2020.11.03
  */
     private static function Card(string $string): string
     {
@@ -48,8 +54,19 @@ class sCard
 		        return '';
 	        }
         } elseif  (array_key_exists($string, sTranslate::TRANSLATE)) {
-//  Must search for the 'respective' equality
-
+            $key = array_keys(sTranslate::ROLE)[array_search($string, array_column(sTranslate::ROLE, 'respective'))];
+            if ($key !== false) {
+                return self::Blank(
+                    array(
+                        'color' => sTranslate::ROLE[$key]['color'],
+                        'header' => sTranslate::ROLE[$key]['header'],
+                        'title' => sTranslate::TRANSLATE[$string]['title'],
+                        'text' => sTranslate::TRANSLATE[$string]['card']
+                    )
+                );
+            } else {
+                return '';
+            }
 	    } else {
 	        return '';
 	    }
@@ -60,7 +77,7 @@ class sCard
  * @param $string string
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.02
+ * @since 2020.11.03
  */
     private static function Linked(string $string): string
     {
@@ -71,9 +88,7 @@ class sCard
 		        return '';
 	        }
         } elseif (array_key_exists($string, sTranslate::TRANSLATE)) {
-// Needs self::Card() to be working
-//          return '<a data-link="'.$string.'">'.self::Card($string).'</a>'
-            return '';
+            return '<a data-link="'.$string.'">'.self::Card($string).'</a>';
 	    } else {
 	        return '';
 	    }
@@ -86,17 +101,17 @@ class sCard
  * @author Liszi Dániel
  * @since 2020.10.30
  */
-    public static function Blank(array $array): string
+    public static function Blank(array $array = array()): string
     {
-	return '
-        <div class="card border-'.$array['color'].''.((isset($array['class']))?' '.$array['class']:'').'" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
-            <div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>
-            <div class="card-body text-'.$array['color'].'">
-            '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
-            <p class="card-text">'.$array['text'].'</p>
+        return '
+            <div class="card border-'.$array['color'].''.((isset($array['class']))?' '.$array['class']:'').'" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
+                <div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>
+                <div class="card-body text-'.$array['color'].'">
+                '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
+                <p class="card-text">'.$array['text'].'</p>
+                </div>
             </div>
-        </div>
-	';
+        ';
     }
 
 /*
@@ -106,17 +121,17 @@ class sCard
  * @author Liszi Dániel
  * @since 2020.10.30
  */
-    public static function Fill(array $array): string
+    public static function Fill(array $array = array()): string
     {
-	return '
-	<div class="card text-white bg-'.$array['color'].' m-2" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
-	    <div class="card-header">'.$array['header'].'</div>
-	    <div class="card-body">
-		'.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
-		<p class="card-text">'.$array['text'].'</p>
-	    </div>
-	</div>
-	';
+        return '
+            <div class="card text-white bg-'.$array['color'].' m-2" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
+                <div class="card-header">'.$array['header'].'</div>
+                <div class="card-body">
+                '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
+                <p class="card-text">'.$array['text'].'</p>
+                </div>
+            </div>
+        ';
     }
 
 /*
@@ -126,27 +141,34 @@ class sCard
  * @author Liszi Dániel
  * @since 2020.10.30
  */
-    public static function Collapsible(array $array): string
+    public static function Collapsible(array $array = array()): string
     {
-	$accordionId = 'accordion-'.md5('accordion-'.rand());
-	$headingId = 'heading-'.md5('heading-'.rand());
-	$collapseId = 'collapse-'.md5('collapse-'.rand());
-	return '
-	    <div id="'.$accordionId.'" class="mb-2">
-		<div class="card">
-		    <div class="card-header" id="'.$headingId.'">
-			<h5 class="mb-0">
-			    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#'.$collapseId.'" aria-expanded="false" aria-controls="'.$collapseId.'">
-				'.$array['header'].'
-			    </button>
-			</h5>
-		    </div>
-		    <div id="'.$collapseId.'" class="collapse" aria-labelledby="'.$headingId.'" data-parent="#'.$accordionId.'">
-			<div class="card-body">
-			    '.$array['text'].'
-			</div>
-		    </div>
-		</div>
-	    </div>';
+        $accordionId = 'accordion-'.md5('accordion-'.rand());
+        $headingId = 'heading-'.md5('heading-'.rand());
+        $collapseId = 'collapse-'.md5('collapse-'.rand());
+        $contHeader = ((isset($array['header'])) ? $array['header'] : '');
+        $contText = ((isset($array['text'])) ? $array['text'] : '');
+        if (Valid::vArray($array)) {
+            return '
+                <div id="'.$accordionId.'" class="mb-2">
+                <div class="card">
+                    <div class="card-header" id="'.$headingId.'">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#'.$collapseId.'" aria-expanded="false" aria-controls="'.$collapseId.'">
+                        '.$contHeader.'
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="'.$collapseId.'" class="collapse" aria-labelledby="'.$headingId.'" data-parent="#'.$accordionId.'">
+                    <div class="card-body">
+                        '.$contText.'
+                    </div>
+                    </div>
+                </div>
+                </div>
+            ';
+        } else {
+            return '';
+        }
     }
 }

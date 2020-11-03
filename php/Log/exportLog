@@ -1,0 +1,29 @@
+[07:38:21] - 0
+[07:38:21] - 1
+[07:38:21] - 2
+[07:41:38] - 'mngUsers'
+[07:41:38] - 'mngGroups'
+[07:41:38] - 'mngMembers'
+[08:07:43] - array (
+  'path' => 'Administrative/Users',
+)
+[08:08:12] - ''
+[08:08:50] - 'Administrative/Users'
+[08:09:04] - 'Administrative/Users'
+[08:09:27] - 'Administrative/Users'
+[08:45:59] - array (
+  'Delete' => 'DELETE FROM `User` WHERE userId=:userId',
+  'Insert' => '
+    INSERT INTO `User`(nameUser, pWord, nameFirst, nameLast, contEmail, contPhone, contSite)
+    VALUES
+	(:nameUser, :pWord, :nameFirst, :nameLast, :contEmail, :contPhone, :contSite);',
+  'Select' => 
+  array (
+    'All' => 'SELECT * FROM `User`',
+    'byUserName' => 'SELECT * FROM `User` WHERE nameUser=:nameUser',
+    'byUserId' => 'SELECT * FROM `User` WHERE userId=:userId',
+    'Login' => 'SELECT userId FROM `User` WHERE nameUser=:nameUser AND pWord=:pWord',
+  ),
+  'Update' => 'UPDATE `User` SET nameFirst=:nameFirst ,nameLast=:nameLast ,contSite=:contSite ,contPhone=:contPhone ,thumbnail=:thumbnail WHERE userId=:userId',
+)
+[08:46:00] - true

@@ -15,7 +15,7 @@ if (! isset($sessionUsr['userId']) ) {
 } else {
     $cardArray = array(
         'hello' => array('color' => 'success', 'header' => 'Köszöntő', 'title' => 'Üdv újra, '.$sessionUsr['nameUser'], 'text' => 'A Tudástér a rendelkezésedre áll'),
-        'Profile' => array('color' => 'success', 'header' => 'Elérhető funkció', 'title' => 'Profil', 'text' => 'Profilod megtekintéséhez kattints a menüsávban a \'Profil\' gombra'),
+        'Profile' => array('color' => 'success', 'header' => 'Elérhető funkció', 'title' => 'Profil', 'text' => 'Profilod megtekintéséhez kattints a menüsávban a \'Profil\' gombra')
     );
 
     $returnContent .= '

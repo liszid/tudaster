@@ -24,7 +24,15 @@ class sTranslate {
     	    "fa" => "user",
     	    "title" => "Felhasználók",
     	    "help" => "A Felhasználók kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Felhasználók' menüpontot",
-    	    "card" => "Felhasználók szerkesztéséhez kattintson a kártyára"
+    	    "card" => "Felhasználók szerkesztéséhez kattintson a kártyára",
+    	    "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'title' => '',
+                'text' => '
+                    <b>Felhasználói jelszó alaphelyzetbe állítása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-undo" aria-hidden="true"></i></a><br />
+                    <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
+                )
     	),
     	"Administrative/Users/Reset" => array(
             "navbar" => "Jelszó helyreállítás",
@@ -40,13 +48,32 @@ class sTranslate {
             "help" => "",
             "card" => ""
         ),
-
         "Administrative/Groups" => array(
     	    "navbar" => "Csoportok",
     	    "fa" => "users",
     	    "title" => "Csoportok",
     	    "help" => "A Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot",
-    	    "card" => "Csoportok szerkesztéséhez kattintson a kártyára"
+    	    "card" => "Csoportok szerkesztéséhez kattintson a kártyára",
+    	    "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'title' => '',
+                'text' => '
+                    <b>mG</b> - Csoportok kezelése <br />
+                    <b>mU</b> - Felhasználók kezelése <br />
+                    <b>cUs</b> - Regisztráltak megtekintése  <br />
+                    <b>cC</b> - Cégek jogosultság <br />
+                    <b>cK</b> - Tudáscikkek jogosultság <br />
+                    <b>cUn</b> - Hozzáférések alap jogosultság <br />
+                    <b>cP</b> - Hozzáférések emelt jogosultság <br />
+                    <b>cH</b> - Hardver jogosultság <br />
+                    <b>cS</b> - Szoftver jogosultság <br />
+                    <b>cE</b> - Profil szerkesztés <br />
+                    <b>cL</b> - Bejelentkezés <br />
+                    <br />
+                    <b>Csoport szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a> <br />
+                    <b>Csoport törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
+                )
     	),
     	"Administrative/Groups/Edit" => array(
             "navbar" => "Csoport szerkesztése",
@@ -62,7 +89,6 @@ class sTranslate {
             "help" => "",
             "card" => ""
         ),
-
     	"Administrative/Membership" => array(
     	    "navbar" => "Tagságok",
     	    "fa" => "vcard",
@@ -89,7 +115,7 @@ class sTranslate {
             "fa" => "user",
             "title" => "Felhasználók",
             "help" => "Regisztrált felhasználók megtekintéséhez kattintson a menüsorban a 'Felhasználók' gombra",
-            "card" => ""
+            "card" => "Regisztrált felhasználók megtekintéséhez kattintson a kártyára"
     	),
         "Home" => array(
     	    "navbar" => "Főoldal",
@@ -103,35 +129,35 @@ class sTranslate {
     	    "fa" => "info",
     	    "title" => "Tudáscikkek",
     	    "help" => "Tudáscikkek olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Tudáscikk' gombra kattintva a menüsávban",
-            "card" => ""
+            "card" => "Tudáscikkek megtekintéséhez kattintson a kártyára"
     	),
         "Accesses" => array(
     	    "navbar" => "Hozzáférések",
     	    "fa" => "user-secret",
     	    "title" => "Hozzáférési adatok",
     	    "help" => "Hozzáférési adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hozzáférés' gombra kattintva a menüsávban",
-            "card" => ""
+            "card" => "Hozzáférési adatok megtekintéséhez kattintson a kártyára"
     	),
         "Hardware" => array(
     	    "navbar" => "Hardverek",
     	    "fa" => "hdd-o",
     	    "title" => "Hardver adatok",
     	    "help" => "Hardver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => ""
+            "card" => "Hardver adatok megtekintéséhez kattintson a kártyára"
     	),
         "Software" => array(
     	    "navbar" => "Szoftverek",
     	    "fa" => "file-o",
     	    "title" => "Szoftver adatok",
     	    "help" => "Szoftver olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Szoftver' gombra kattintva a menüsávban",
-            "card" => ""
+            "card" => "Szoftver adatok megtekintéséhez kattintson a kártyára"
     	),
         "Company" => array(
     	    "navbar" => "Cégek",
     	    "fa" => "building-o",
     	    "title" => "Cég adatok",
     	    "help" => "Céges adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
-            "card" => ""
+            "card" => "Céges adatok megtekintéséhez kattintson a kártyára"
     	),
     	"Login" => array(
     	    "navbar" => "Bejelentkezés",
@@ -151,10 +177,11 @@ class sTranslate {
     	    "navbar" => "Profil",
     	    "fa" => "user",
     	    "title" => "Profil",
-    	    "help" => "Profilod szerkesztéséhez kattints a menüsávban a 'Profil' gombra és a 'Profil' oldalon a 'Szerkesztés' gombra kattintva",
-            "card" => ""
+    	    "help" => "Profilja szerkesztéséhez kattintson a menüsávban a 'Profil' gombra és a 'Profil' oldalon a 'Szerkesztés' gombra",
+            "card" => "Profilja szerkesztéséhez kattintson a menüsávban a 'Profil' gombra és a 'Profil' oldalon a 'Szerkesztés' gombra"
     	)
     );
+
     const ROLE = array(
         'mngUsers' => array(
     	    'color' => 'info',
@@ -227,6 +254,26 @@ class sTranslate {
     	    return  self::TRANSLATE[$string][$type];
     	} else {
     	    return 'Ismeretlen kifejezés';
+    	}
+    }
+
+/*
+ * Returns the info array of the key if exists
+ * @param $string string
+ * @return array
+ * @author Liszi Dániel
+ * @since 2020.10.26
+ */
+    public static function Info(string $string): array
+    {
+        if (array_key_exists($string, self::TRANSLATE)) {
+            if(isset(self::TRANSLATE[$string]['info'])) {
+                return  self::TRANSLATE[$string]['info'];
+    	    } else {
+                return array();
+    	    }
+    	} else {
+    	    return array();
     	}
     }
 
