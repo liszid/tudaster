@@ -82,6 +82,7 @@ class sAdministrative {
                 break;
             case 'Users/Reset':
                 $returnContent = 'Reset, dp: '.$array['dp'];
+                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Users/Delete':
                 if (self::$dUser->Delete(array('userId' => $array['dp']))) {
@@ -89,28 +90,26 @@ class sAdministrative {
                 } else {
                     $returnContent = 'Delete, dp: '.$array['dp'].' failed';
                 }
+                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Groups/Add':
                 $returnContent = 'Adding new group form';
                 break;
             case 'Groups/Edit':
                 $returnContent = 'Edit, dp: '.$array['dp'];
+                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
                 break;
             case 'Groups/Delete':
                 $returnContent = 'Delete, dp: '.$array['dp'];
+                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
                 break;
             case 'Membership/Edit':
                 $returnContent = 'Edit, dp: '.$array['dp'];
+                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Membership'), 'Spinner');
                 break;
         }
 
         if (Valid::vString($returnContent)) {
-            $returnContent .= '
-                <div class="col-12">
-                    <div class="spinner-grow">
-                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x=Administrative&y='.$array['y'].'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
-                    </div>
-                </div>';
             $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
         }
 
@@ -130,13 +129,8 @@ class sAdministrative {
         $Users = self::$dUser->Select(array(), 'All');
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'user-plus'), 'Add');
         }
-        $returnString .= '
-            <div>
-                <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-toggle="modal" data-target="#modalBox">
-                    <i class="fa fa-sign-up" aria-hidden="true"></i>
-                </a>
-            </div>';
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
         return $returnString;
     }
@@ -155,6 +149,7 @@ class sAdministrative {
         $Groups = self::$dGroup->Select(array(), 'All');
         if (Valid::vString($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'user-plus'), 'Add');
         }
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');
         return $returnString;

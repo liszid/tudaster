@@ -15,7 +15,7 @@ class sRoles
  */
     public static function Prompt(array $array = array()): string
     {
-	if (isset($array)) {
+        if (isset($array)) {
             $prompt = '';
             $elementArray = array('canKnowledge', 'canUsername', 'canPassword', 'canHardware', 'canSoftware', 'canCompany', 'canEdit');
 

@@ -4,8 +4,76 @@ declare(strict_types=1);
 
 namespace Samples;
 
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
 class sElement
 {
+/*
+ * Collective function for General elements
+ * @param $array array
+ * @param $type string
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
+    public static function General(array $array = array(), string $type = ''): string
+    {
+        switch ($type) {
+            case 'Spinner':
+                return self::GeneralSpinner($array);
+                break;
+            case 'Add':
+                return self::GeneralAdd($array);
+                break;
+        }
+    }
+
+/*
+ * Used to generate modal redirect spinner
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    private static function GeneralSpinner(array $array): string
+    {
+        if (Valid::vArray($array)) {
+            return '
+                <div class="col-12">
+                    <div class="spinner-grow">
+                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x='.((isset($array['x']))?$array['x']:'Home').((isset($array['y']))?'&y='.$array['y']:'').'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
+                    </div>
+                </div>';
+        } else {
+            return '';
+        }
+    }
+
+/*
+ * Used to generate "Add New" button
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    private static function GeneralAdd(array $array): string
+    {
+        if (isset($array['path'])) {
+            return '
+                <div class="col-12 border border-light p-2 mb-2">
+                    <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
+                        <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
+                        <span><b>Új hozzáadása</b></span>
+                    </a>
+                </div>';
+        } else {
+            return '';
+        }
+    }
 /*
  * Collective function for User related elements
  * @param $array array
@@ -19,9 +87,6 @@ class sElement
         switch ($type) {
             case 'Activity':
                 return self::UserActivity($array);
-                break;
-            case 'Edit':
-                return self::UserEdit($array);
                 break;
         }
     }
@@ -41,26 +106,7 @@ class sElement
         ';
     }
 /*
- * Used to display Profile editor elements (degraded)
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    private static function UserEdit(array $array): string
-    {
-        return '
-            <div class="form-group row col-12 p-0">
-                <label for="usrEdit-'.$array['data'].'" class="col-sm-3 col-form-label">'.$array['desc'].'</label>
-                <div class="col-sm-9">
-                    <input type="'.$array['type'].'" class="form-control" id="usrEdit-'.$array['data'].'" value="'.$array['value'].'">
-                </div>
-            </div>
-        ';
-    }
-    
-/*
- * Collective function for Administrative related elements (degraded)
+ * Collective function for Administrative related elements
  * @param $array array
  * @param $type string
  * @return string
@@ -70,38 +116,9 @@ class sElement
     public static function Admin(array $array = array(), string $type = ''): string
     {
         switch ($type) {
-            case 'Navbar': 
-                return self::AdminNavbar($array);
-                break;
-            case 'Content':
-                return self::AdminContent($array);
+            default:
                 break;
         }
     }
-/*
- * Used to display Administrative menu elements (degraded)
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    private static function AdminNavbar(array $array): string
-    {
-        return ($array['bool'] > 0)
-            ?'<li class="nav-item"> <a class="nav-link'.(($array['active']) ? ' active' : '').'" id="pills-'.$array['id'].'-tab" data-toggle="pill" href="#pills-'.$array['id'].'" role="tab" aria-controls="pills-'.$array['id'].'" aria-selected="'.$array['active'].'">'.$array['desc'].'</a> </li>'
-            :'';
-    }
-/*
- * Used to display Administrative menu content (degraded)
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    private static function AdminContent(array $array): string
-    {
-        return ($array['bool'] > 0)
-            ?'<div class="tab-pane fade'.(($array['active']) ? ' show active' : '').'" id="pills-'.$array['id'].'" role="tabpanel" aria-labelledby="pills-'.$array['id'].'-tab">'.$array['content'].'</div>'
-            :'';
-    }
+
 }

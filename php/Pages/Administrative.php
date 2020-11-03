@@ -25,10 +25,10 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root" => "Administrative",
-                    "Users" => "Administrative/Users",
-                    "Groups" => "Administrative/Groups",
-                    "Membership" => "Administrative/Membership"
+                    "Root"      => "Administrative",
+                    "Users"     => "Administrative/Users",
+                    "Groups"    => "Administrative/Groups",
+                    "Membership"=> "Administrative/Membership"
                 );
 
 /*
@@ -43,9 +43,9 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
         ) {
             $returnContent = sAdministrative::Action(
                 array(
-                    'y' => Check::isPost('y'),
-                    'z' => Check::isPost('z'),
-                    'dp' => Check::isPost('dp')
+                    'y'     => Check::isPost('y'),
+                    'z'     => Check::isPost('z'),
+                    'dp'    => Check::isPost('dp')
                 )
             );
         }
