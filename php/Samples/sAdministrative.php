@@ -86,7 +86,7 @@ class sAdministrative {
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Users/Delete':
-                $returnContent .= ((self::$dUser->Delete(array('userId' => $array['dp']))) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
+                $returnContent .= ((self::$dUser->Update(array('userId' => (int)$array['dp'], 'groupId' => 3), 'Delete')) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
                 $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
                 break;
             case 'Groups/Add':

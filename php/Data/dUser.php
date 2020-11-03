@@ -33,7 +33,13 @@ class dUser implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbUser->Update($array, $type);
+
+        if (strcmp($type, 'Delete') === 0) {
+            $dGroup_Member = new dGroup_Member();
+            return $dGroup_Member->Update($array);
+        } else {
+            return self::$dbUser->Update($array, $type);
+        }
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

@@ -60,7 +60,6 @@ class dbUser extends Table implements iDatabase
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-
         $tempArray = array();
 
         if (strcmp($type, 'Reset') === 0) {

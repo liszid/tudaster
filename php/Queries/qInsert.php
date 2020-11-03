@@ -56,6 +56,7 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
     VALUES
 	('Administrator',	'Super Users on site',		1, 1, 7, 7, 7, 7, 7, 7, 7, 1, 1, 0),
 	('Default', 		'Default users after creation', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+	('Deleted',         'Group of Deleted users', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	('Test_1', 		    'Only for testing purpose', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 	('Test_2', 		    'Only for testing purpose', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);";
 
@@ -64,9 +65,9 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
     VALUES
 	(1, 1),
 	(2, 2),
-	(3, 3),
-	(4, 4),
-	(5, 3),
-	(6, 4),
-	(7, 4),
-	(8, 3);";
+	(3, 4),
+	(4, 5),
+	(5, 4),
+	(6, 5),
+	(7, 5),
+	(8, 4);";

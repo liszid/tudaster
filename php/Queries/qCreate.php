@@ -49,7 +49,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             userId INT(6) UNSIGNED NOT NULL,
             groupId INT(6) UNSIGNED NOT NULL,
             CONSTRAINT PKGroup_Member PRIMARY KEY (groupMemberId),
-            CONSTRAINT gmGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId),
+            CONSTRAINT gmGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
             CONSTRAINT gmUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
     3 => "
