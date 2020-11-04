@@ -79,54 +79,25 @@ class sAdministrative {
 
         switch ($nestedArg) {
             case 'Users/Add':
-                $returnContent .= '
-                    <form method="post" class="form-group col-12" autocomplete="on">
-                        <div class="form-group col p-0">
-                            <div class="col-12 row">
-                                '.sElement::General(array('origo' => 'admUsrAdd', 'data' => 'nameUser', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'admUsrAdd', 'data' => 'contEmail', 'desc' => 'Email', 'value' => '', 'type' => 'text'), 'Input').'
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-12 row">
-                                <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
-                            </div>
-                        </div>
-                    </form>';
+                $returnContent .= self::actionUsersAdd($array);
                 break;
             case 'Users/Reset':
-                $returnContent .= ((self::$dUser->Update(array('userId' => $array['dp']), 'Reset')) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
-                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                $returnContent .= self::actionUsersReset($array);
                 break;
             case 'Users/Delete':
-                $returnContent .= ((self::$dUser->Update(array('userId' => (int)$array['dp'], 'groupId' => 3), 'Delete')) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
-                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                $returnContent .= self::actionUsersDelete($array);
                 break;
             case 'Groups/Add':
-                $returnContent .= '
-                    <form method="post" class="form-group col-12" autocomplete="on">
-                        <div class="form-group col p-0">
-                            <div class="col-12 row">
-                                '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-12 row">
-                                <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
-                            </div>
-                        </div>
-                    </form>';
+                $returnContent .= self::actionGroupsAdd($array);
                 break;
             case 'Groups/Edit':
-                $returnContent .= 'Edit, dp: '.$array['dp'];
+                $returnContent .= self::actionGroupsEdit($array);
                 break;
             case 'Groups/Delete':
-                $returnContent .= ((self::$dGroup->Delete(array('groupId' => $array['dp']))) ? 'Sikeres müvelet!' : 'Sikertelen müvelet!');
-                $returnContent .= sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+                $returnContent .= self::actionGroupsDelete($array);
                 break;
             case 'Membership/Edit':
-                $returnContent .= 'Edit, dp: '.$array['dp'];
+                $returnContent .= self::actionMembershipEdit($array);
                 break;
         }
 
@@ -136,6 +107,151 @@ class sAdministrative {
 
         return $returnContent;
     }
+
+/*
+ * Returns User adding form
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionUsersAdd(array $array = array()): string
+    {
+        return '
+            <form method="post" class="form-group col-12" autocomplete="on">
+                <div class="form-group col p-0">
+                    <div class="col-12 row">
+                        '.sElement::General(array('origo' => 'admUsrAdd', 'data' => 'nameUser', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'admUsrAdd', 'data' => 'contEmail', 'desc' => 'Email', 'value' => '', 'type' => 'text'), 'Input').'
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 row">
+                        <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                    </div>
+                </div>
+            </form>';
+    }
+
+/*
+ * Fires User Password Reset
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionUsersReset(array $array = array()): string
+    {
+        return
+            '<h4>'.(
+                (
+                    self::$dUser->Update(
+                        array(
+                            'userId' => (int)$array['dp']
+                        ),'Reset'
+                    )
+                )
+                ? sTranslate::ACTION['Success']['content']
+                : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+    }
+
+/*
+ * Fires User Delete
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionUsersDelete(array $array = array()): string
+    {
+        return
+            '<h4>'.(
+                (
+                    self::$dUser->Update(
+                        array(
+                            'userId' => (int)$array['dp'],
+                            'groupId' => 3
+                        ), 'Delete'
+                    )
+                )
+                ? sTranslate::ACTION['Success']['content']
+                : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+    }
+
+/*
+ * Returns Group adding form
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionGroupsAdd(array $array = array()): string
+    {
+        return '
+            <form method="post" class="form-group col-12" autocomplete="on">
+                <div class="form-group col p-0">
+                    <div class="col-12 row">
+                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 row">
+                        <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                    </div>
+                </div>
+            </form>';
+    }
+
+/*
+ * Returns Group Editing form
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionGroupsEdit(array $array = array()): string
+    {
+        return 'Edit, dp: '.$array['dp'];
+    }
+
+/*
+ * Fires Group Delete action
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionGroupsDelete(array $array = array()): string
+    {
+        return
+            '<h4>'.(
+                (
+                    self::$dGroup->Delete(
+                        array(
+                            'groupId' => $array['dp']
+                        )
+                    )
+                )
+                    ? sTranslate::ACTION['Success']['content']
+                    : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+    }
+
+/*
+ * Return Membership Editing form
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.04
+ */
+    private static function actionMembershipEdit(array $array = array()): string
+    {
+        return 'Edit, dp: '.$array['dp'];
+    }
+
 /*
  * Used at Administrative Page to display Users section
  * @param $array array
