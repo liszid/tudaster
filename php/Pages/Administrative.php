@@ -32,7 +32,7 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
                 );
 
 /*
- * Post action handling section
+ * Post action handling and form prompt section
  */
     if (isset($_POST['y']) && isset($_POST['z'])) {
         $returnArray = array();
@@ -41,13 +41,7 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
             Valid::vString(Check::isPost('y')) &&
             Valid::vString(Check::isPost('z'))
         ) {
-            $returnContent = sAdministrative::Action(
-                array(
-                    'y'     => Check::isPost('y'),
-                    'z'     => Check::isPost('z'),
-                    'dp'    => Check::isPost('dp')
-                )
-            );
+            $returnContent = sAdministrative::Action($_POST);
         }
 
         echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')], 'content' => $returnContent)) : sRedirect::Home());
