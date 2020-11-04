@@ -39,6 +39,8 @@ class dbUser extends Table implements iDatabase
             $tempArray = array('nameUser');
         } elseif (strcmp($type, 'byUserId') === 0) {
             $tempArray = array('userId');
+        } elseif (strcmp($type, 'byContEmail') === 0) {
+            $tempArray = array('contEmail');
         } elseif (strcmp($type, 'Login') === 0) {
             $tempArray = array('nameUser', 'pWord');
         } elseif (strcmp($type, 'All') === 0) {

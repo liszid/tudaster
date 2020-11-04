@@ -3,14 +3,16 @@
 declare(strict_types=1);
 
 $GLOBALS['Database'][0]['Insert'] = "
-    INSERT INTO `User`(nameUser, pWord, nameFirst, nameLast, contEmail, contPhone, contSite)
+    INSERT INTO `User`(nameUser, pWord,  contEmail)
     VALUES
-	(:nameUser, :pWord, :nameFirst, :nameLast, :contEmail, :contPhone, :contSite);";
+	(:nameUser, :pWord, :contEmail);";
 
+//, mngGroups, mngUsers, canUsers, canCompany, canKnowledge, canUsername, canPassword, canHardware, canSoftware, canEdit, canLogin
+//, :mngGroups, :mngUsers, :canUsers, :canCompany, :canKnowledge, :canUsername, :canPassword, :canHardware, :canSoftware, :canEdit, :canLogin
 $GLOBALS['Database'][1]['Insert'] = "
-    INSERT INTO `Group`(groupName, groupDesc, mngGroups, mngUsers, canUsers, canCompany, canKnowledge, canUsername, canPassword, canHardware, canSoftware, canEdit, canLogin)
+    INSERT INTO `Group`(groupName, groupDesc)
     VALUES
-	(:groupName, :groupDesc, :mngGroups, :mngUsers, :canUsers, :canCompany, :canKnowledge, :canUsername, :canPassword, :canHardware, :canSoftware, :canEdit, :canLogin);";
+	(:groupName, :groupDesc);";
 
 $GLOBALS['Database'][2]['Insert'] = "
     INSERT INTO `Group_Member`(userId, groupId)

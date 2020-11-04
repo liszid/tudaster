@@ -87,15 +87,15 @@ class Valid
  * @author Liszi Dániel
  * @since 2020.10.05
  */
-    public static function vEmail(string $string): bool
+    private static function vEmail(string $string): bool
     {
-        $atIndex = strrpos($email, "@");
+        $atIndex = strrpos($string, "@");
 
         if (is_bool($atIndex) && !$atIndex) {
            return false;
         } else {
-            $domain = substr($email, $atIndex+1);
-            $local = substr($email, 0, $atIndex);
+            $domain = substr($string, $atIndex+1);
+            $local = substr($string, 0, $atIndex);
             $localLen = strlen($local);
             $domainLen = strlen($domain);
 

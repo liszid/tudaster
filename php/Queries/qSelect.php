@@ -16,6 +16,7 @@ $GLOBALS['Database'][0]['Select'] = array(
     'All' => "SELECT * FROM `User`",
     'byUserName' => "SELECT * FROM `User` WHERE nameUser=:nameUser",
     'byUserId' => "SELECT * FROM `User` WHERE userId=:userId",
+    'byContEmail' => "SELECT * FROM `User` WHERE contEmail=:contEmail",
     'Login' => "SELECT userId FROM `User` WHERE nameUser=:nameUser AND pWord=:pWord"
 );
 

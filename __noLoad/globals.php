@@ -21,6 +21,8 @@ $GLOBALS['rootLoad']	= $GLOBALS['rootPhp'].'Load/';
 $GLOBALS['cssType']	= ".css";
 $GLOBALS['phpType']	= ".php";
 $GLOBALS['jsType']	= ".js";
+$GLOBALS['defaultGrp'] = 2;
+
 
 spl_autoload_register('AutoLoader');
 

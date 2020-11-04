@@ -133,8 +133,13 @@ class sAdministrative {
                     </div>
                 </form>';
         } else {
-            Log::Export($array);
-            return 'SAVE';
+            self::setDUser();
+            return
+                '<h4>'.(
+                    (self::$dUser->Insert($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
         }
     }
 
