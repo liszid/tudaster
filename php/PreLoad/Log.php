@@ -13,7 +13,7 @@ class Log
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function Error(string $string): bool
     {
         return self::Write('Error: '.$string, 'errorLog');
@@ -28,9 +28,9 @@ class Log
  */
     public static function Export($variable): bool
     {
-	return self::Write(var_export($variable, true), 'exportLog');
+        return self::Write(var_export($variable, true), 'exportLog');
     }
-    
+
 /**
  * Writes log into designated file
  * @param $string string
@@ -39,7 +39,7 @@ class Log
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function Write(string $string, string $file = "defaultLog"): bool
     {
         $file = fopen($GLOBALS['rootLog'].$file,"a");

@@ -57,3 +57,7 @@
   'userId' => 8,
   'groupId' => 3,
 )
+[08:04:21] - array (
+  'userId' => 7,
+  'groupId' => 3,
+)

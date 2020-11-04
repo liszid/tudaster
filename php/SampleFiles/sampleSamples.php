@@ -13,6 +13,6 @@ use PreLoad\{
 class s {
     public static function Prompt(array $array): string
     {
-	return '';
+        return '';
     }
 }

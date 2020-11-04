@@ -148,6 +148,7 @@ class sCard
         $collapseId = 'collapse-'.md5('collapse-'.rand());
         $contHeader = ((isset($array['header'])) ? $array['header'] : '');
         $contText = ((isset($array['text'])) ? $array['text'] : '');
+
         if (Valid::vArray($array)) {
             return '
                 <div id="'.$accordionId.'" class="mb-2">

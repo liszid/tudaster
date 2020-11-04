@@ -40,18 +40,14 @@ class Database
     public static function setConnection(string $dbName = ''): bool
     {
         try {
-            if ( empty($dbName) )
-            {
+            if ( empty($dbName) ) {
                 self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".self::getSQL()['port'], self::getSQL()['user'], self::getSQL()['pass']);
-            }
-            else {
+            } else {
                 self::$conn = new PDO("mysql:host=".self::getSQL()['host'].";port=".self::getSQL()['port'].";dbname=".$dbName, self::getSQL()['user'], self::getSQL()['pass']);
             }
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return true;
-        }
-        catch(PDOException $e)
-        {
+        } catch(PDOException $e) {
             return false;
         }
     }
@@ -70,7 +66,6 @@ class Database
     {
         self::setConnection();
         $statement = self::getConnection()->prepare($query);
-//	$statement->bindParam(':sqlDb', self::getSQL()['db']);
         $statement->execute();
         return (intval($statement->rowCount()) === 1 )? true: false;
     }
@@ -84,8 +79,7 @@ class Database
      */
     public static function initDatabase(): bool
     {
-        if (self::sqlQueriesDB($GLOBALS['Database']['Select']['Database']) !== true)
-        {
+        if (self::sqlQueriesDB($GLOBALS['Database']['Select']['Database']) !== true) {
             return (self::sqlQueriesDB($GLOBALS['Database']['Create']['Database']) === true) ? true : false;
         }
         return true;

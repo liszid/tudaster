@@ -6,7 +6,7 @@ namespace PreLoad;
 
 class Valid
 {
-    
+
 /**
  * Checks if string is useable
  * @param $string string
@@ -14,7 +14,7 @@ class Valid
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function vString(string $string): bool
     {
         if (
@@ -27,7 +27,7 @@ class Valid
             return false;
         }
     }
-    
+
 /**
  * Checks if array is useable
  * @param $array array
@@ -35,7 +35,7 @@ class Valid
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function vArray(array $array): bool
     {
         if (
@@ -48,7 +48,7 @@ class Valid
             return false;
         }
     }
-    
+
 /**
  * Checks if input string is of regular expression
  * @param $string string
@@ -57,7 +57,7 @@ class Valid
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function vInput(string $string, int $int): bool
     {
         if (self::vString($string) && $int < 4) {
@@ -78,7 +78,7 @@ class Valid
             return false;
         }
     }
-    
+
 /**
  * Checks if e-mail address is useable
  * @param $string string
@@ -86,7 +86,7 @@ class Valid
  *
  * @author Liszi Dániel
  * @since 2020.10.05
- */  
+ */
     public static function vEmail(string $string): bool
     {
         $atIndex = strrpos($email, "@");
@@ -98,12 +98,13 @@ class Valid
             $local = substr($email, 0, $atIndex);
             $localLen = strlen($local);
             $domainLen = strlen($domain);
+
             if (
-                $localLen < 1 
+                $localLen < 1
                 || $localLen > 64
-                || $domainLen < 1 
+                || $domainLen < 1
                 || $domainLen > 255
-                || $local[0] == '.' 
+                || $local[0] == '.'
                 || $local[$localLen-1] == '.'
                 || preg_match('/\\.\\./', $local)
                 || ! preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain)
@@ -111,14 +112,17 @@ class Valid
             ) {
                 return false;
             }
+
             if( !preg_match('/^(\\\\.|[A-Za-z0-9!#%&`_=\\/$\'*+?^{}|~.-])+$/', str_replace("\\\\","",$local))) {
                 if (!preg_match('/^"(\\\\"|[^"])+"$/',str_replace("\\\\","",$local))) {
                     return false;
                 }
             }
+
             if (! (checkdnsrr($domain,"MX") || checkdnsrr($domain,"A"))) {
                 return false;
             }
+
             return true;
         }
     }

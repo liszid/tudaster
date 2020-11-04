@@ -50,16 +50,16 @@ class sProfile
                     <hr>
                         <div class="form-group col">
                     	    <div class = "col-12 row m-1">
-                    		'.self::Property(array('desc' => "Szerepkör", 'value' => $array['groupName'])).'
+                                '.self::Property(array('desc' => "Szerepkör", 'value' => $array['groupName'])).'
                                 '.self::Property(array('desc' => "Leírás", 'value' => $array['groupDesc'])).'
                     	    </div>
                     	    <hr />
                             <div class = "col-12 row m-1">
-                        	'.self::Property(array('desc' => "Vezetéknév", 'value' => $array['nameLast'])).'
-                        	'.self::Property(array('desc' => "Keresztnév", 'value' => $array['nameFirst'])).'
-                        	'.self::Property(array('desc' => "Telephely", 'value' => $array['contSite'])).'
-                        	'.self::Property(array('desc' => "E-mail", 'value' => $array['contEmail'])).'
-                        	'.self::Property(array('desc' => "Telefon", 'value' => $array['contPhone'])).'
+                                '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['nameLast'])).'
+                                '.self::Property(array('desc' => "Keresztnév", 'value' => $array['nameFirst'])).'
+                                '.self::Property(array('desc' => "Telephely", 'value' => $array['contSite'])).'
+                                '.self::Property(array('desc' => "E-mail", 'value' => $array['contEmail'])).'
+                                '.self::Property(array('desc' => "Telefon", 'value' => $array['contPhone'])).'
                             </div>
                         </div>
                         '.self::Button($array, $bool).'
@@ -80,8 +80,8 @@ class sProfile
     {
 	return '
 	    <div class="container p-1 my-1 border col-12  m-1">
-                <b>'.$array['desc'].'</b><span class="float-right">'.$array['value'].'</span>
-            </div>';
+            <b>'.$array['desc'].'</b><span class="float-right">'.$array['value'].'</span>
+        </div>';
     }
 
 /*
@@ -97,11 +97,11 @@ class sProfile
         if ($bool) {
             return '
         	<div class="form-group">
-            	    <div class="col-12 row text-center justify-content-center">
-                	<a href="#" class="btn btn-lg btn-info'.(((int)$array['canEdit'] === 0)?' disabled':'').'" role="button" data-link="Profile" href="#" data-target="#modalBox" data-post="editProfile">
-                    	    <i class="fa fa-pencil"></i> Szerkesztés
-                	</a>
-            	    </div>
+                <div class="col-12 row text-center justify-content-center">
+                    <a href="#" class="btn btn-lg btn-info'.(((int)$array['canEdit'] === 0)?' disabled':'').'" role="button" data-link="Profile" href="#" data-target="#modalBox" data-post="editProfile">
+                        <i class="fa fa-pencil"></i> Szerkesztés
+                    </a>
+                </div>
         	</div>';
         } else {
             return '';

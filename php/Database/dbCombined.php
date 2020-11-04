@@ -20,12 +20,12 @@ class dbCombined extends Table implements iDatabase
 	parent::__construct();
 	self::$classQueries = self::qGet(self::CLASS_ID);
     }
-    
+
     public static function Insert(array $array = array()): bool
     {
         return false;
     }
-        
+
     public static function Select(array $array = array(), string $type = ''): array
     {
 	$tempArray = array();
@@ -37,12 +37,12 @@ class dbCombined extends Table implements iDatabase
         } else {
             return array();
         }
-	
-	if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
+
+        if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
     	    if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
-        	return $tempVar->fetchAll();
+                return $tempVar->fetchAll();
     	    } else {
-        	return array();
+                return array();
     	    }
         } else {
     	    return array();
@@ -61,7 +61,7 @@ class dbCombined extends Table implements iDatabase
 
     public static function Check( ): bool
     {
-	return false;
+        return false;
     }
 
 }
