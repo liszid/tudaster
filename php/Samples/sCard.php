@@ -83,7 +83,7 @@ class sCard
     {
 	    if (array_key_exists($string, sTranslate::ROLE)) {
 	        if (array_key_exists(sTranslate::ROLE[$string]['respective'], sTranslate::TRANSLATE)) {
-                return '<a data-link="'.sTranslate::ROLE[$string]['respective'].'" class="m-2">'.self::Card($string).'</a>';
+                return '<a data-link="'.sTranslate::ROLE[$string]['respective'].'" class="ml-auto">'.self::Card($string).'</a>';
 	        } else {
 		        return '';
 	        }
