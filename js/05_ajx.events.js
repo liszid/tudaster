@@ -7,7 +7,13 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         {
             get( )
             {
-                return ["Profile"];
+                return [
+                    "Profile",
+                    "Administrative/Users/Add",
+                    "Administrative/Groups/Add",
+                    "Administrative/Groups/Edit",
+                    "Administrative/Membership/Edit"
+                ];
             }
         } );
         Object.defineProperty( this, 'modalPagesForGet',
@@ -137,12 +143,15 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                 if (loc !== null && srcLmnt !== null)
                 {
                     e.preventDefault();
+                    _self.enlargenModal(loc);
+                    let tempLocation = loc.split("/");
+                    let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
+
                     $('a').on('click', function()
                     {
                         $('.navbar-collapse').collapse('hide');
                     });
-                    let tempLocation = loc.split("/");
-                    let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
+
                     if (tempLocation.length > 1)
                     {
                         let canonicLocation = 'x=' + tempLocation[0] + '&y=' + tempLocation[1] + ((tempLocation[2] !== undefined)? '&z=' + tempLocation[2] : '');
@@ -158,7 +167,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     }
                     else
                     {
-                        _self.enlargenModal(loc);
                         if(srcLmnt.hasAttribute('data-target'))
                         {
                             _self.initElmnt('x=' + loc + ((srcLmnt.getAttribute('data-post') !== null)? '&' + srcLmnt.getAttribute('data-post'):''), 'modalDialog');
