@@ -47,7 +47,7 @@ class sElement
             <div class="form-group row col-12 p-0">
                 <label for="'.$array['origo'].'-'.$array['data'].'" class="col-sm-3 col-form-label">'.$array['desc'].'</label>
                 <div class="col-sm-9">
-                    <input type="'.$array['type'].'" class="form-control" id="usrEdit-'.$array['data'].'" value="'.$array['value'].'">
+                    <input type="'.$array['type'].'" class="form-control" id="'.$array['origo'].'-'.$array['data'].'" value="'.$array['value'].'">
                 </div>
             </div>
         ';
