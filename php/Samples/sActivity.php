@@ -70,16 +70,15 @@ class sActivity
 
 /**
  * Sets UserSession array
- * @param $userId int
- * @return string
- *
+ * @param $array array
  * @author Liszi Dániel
- * @since 2020.10.12
+ * @since 2020.11.04
  */
-    public static function Set(int $userId = 0): void
+    public static function Set(array $array = array()): void
     {
-        $dCombined = new dCombined();
-        $_SESSION['User'] = ($dCombined->Select(array('userId' => $userId),'User_Full'))[0];
-        $_SESSION['User']['Activity'] = self::Activity($userId);
+        if (Valid::vArray($array)) {
+            $_SESSION['User'] = $array;
+            $_SESSION['User']['Activity'] = self::Activity((int)$array['userId']);
+        }
     }
 }

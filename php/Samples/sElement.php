@@ -62,10 +62,33 @@ class sElement
     private static function GeneralSpinner(array $array): string
     {
         if (Valid::vArray($array)) {
+            $location = '';
+
+            if (
+                isset($array['x']) &&
+                ! empty($array['x'])
+            ) {
+                $location .= 'x='.$array['x'];
+                if (
+                    isset($array['y']) &&
+                    ! empty($array['y'])
+                ) {
+                    $location .= '&y='.$array['y'];
+                    if (
+                        isset($array['z']) &&
+                        ! empty($array['z'])
+                    ) {
+                        $location .= '&z='.$array['z'];
+                    }
+                }
+            } else {
+                $location .= 'x=Home';
+            }
+
             return '
                 <div class="col-12">
                     <div class="spinner-grow">
-                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout(function(){ Instance.initElmnt(\'x='.((isset($array['x']))?$array['x']:'Home').((isset($array['y']))?'&y='.$array['y'].((isset($array['z']))?'&z='.$array['z']:''):'').'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' });}, 750);">
+                        <img style="display:none;" src="'.$GLOBALS['Path'].'images/placeholder.png" alt="Loading Animation" onload="setTimeout( function(){ Instance.initElmnt(\''.$location.'\'); $(\'[data-dismiss=modal]\').trigger({ type: \'click\' }); '.((isset($array['reload']) && $array['reload'])? 'window.location.reload();' : '').' }, 750);">
                     </div>
                 </div>';
         } else {

@@ -9,8 +9,11 @@ use PreLoad\{
 };
 
 use Samples\{
+    sFrame,
+    sElement,
     sRedirect,
-    sFrame
+    sActivity,
+    sTranslate
 };
 
 use Data\{
@@ -19,50 +22,37 @@ use Data\{
 };
 
 if ( ! Valid::vArray($sessionUsr) ) {
-    $return = '';
-    if (isset($_POST['Login'])) {
+    $urlPaths = array(
+        'Root' => 'Login'
+    );
 
-	$collectiveArray = array(
-	    array(
-            'type'  =>  'Login',
-            'func'  =>  function (array $array, string $type): array
-            {
-                $dUser = new dUser();
-                $dCombined = new dCombined();
-                if (strcmp($type, 'Login') === 0) {
-                    return (($var = ($dCombined->Select(($dUser->Select($array, $type))[0],'User_Full'))[0])['canLogin'] > 0)? $var : array();
-                } elseif(strcmp($type, 'byUserName') === 0) {
-                    return ($dUser->Select($array, $type))[0];
-                } else {
-                    return array();
+
+    if (isset($_POST['Login'])) {
+        $dUser = new dUser();
+        $dCombined = new dCombined();
+
+        $selectLogin = $dUser->Select($_POST, 'Login');
+        $returnContent = '
+            <div class="text-center justification-centered">
+                <h4>'.sTranslate::ACTION['Fail']['content'].'</h4>
+                '.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner').'
+            </div>';
+
+        if (isset($selectLogin[0]) && Valid::vArray($selectLogin[0])) {
+            $userVar = $dCombined->Select($selectLogin[0],'User_Full');
+            if (isset($userVar[0]) && Valid::vArray($userVar[0])) {
+                if ($userVar[0]['canLogin'] > 0) {
+                    sActivity::Set($userVar[0]);
+                    $returnContent = '
+                        <div class="text-center justification-centered">
+                            <h4>'.sTranslate::ACTION['Success']['content'].'</h4>
+                            '.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner').'
+                        </div>';
                 }
-            },
-            'array' =>  $_POST,
-            'desc'  =>  'Bejelentkezés'
-	    )
-	);
-	foreach ( $collectiveArray as $e ) {
-	    if (isset($_POST[$e['type']])) {
-            echo sRedirect::Sample(
-                array(
-                'bool'      =>  $e['func']($e['array'], $e['type']),
-                'login'     =>  true,
-                'id'        =>  $e['func'](array('nameUser' => $e['array']['nameUser']), 'byUserName')['userId'],
-                'redirect'  =>  array(
-                    'icon'  =>  'fa-sign-in',
-                    'title' =>  'Bejelentkezés',
-                    'desc'  =>  $e['desc'],
-                    'fail'  =>  "Instance.initElmnt('x=Login&nameUser=".$e['array']['nameUser']."', 'modalDialog');"
-                )
-                )
-            );
-	    }
-	}
-    }
-    elseif (isset($_POST['x']) && $_POST['x'] === 'Login') {
-        $urlPaths = array(
-            'Root' => 'Login'
-        );
+            }
+        }
+        echo sFrame::Modal(array('path' => $urlPaths['Root'], 'content' => $returnContent));
+    } elseif (isset($_POST['x']) && $_POST['x'] === 'Login') {
         $modalBody = '
             <form class="needs-validation" novalidate autocomplete="on">
                     <div class="form-group col-12 p-1">

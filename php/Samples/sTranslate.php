@@ -247,6 +247,15 @@ class sTranslate {
     	)
     );
 
+    const ACTION = array(
+        'Success' => array(
+            'content' => 'Sikeres müvelet!'
+        ),
+        'Fail' => array(
+            'content' => 'Sikertelen müvelet!'
+        )
+    );
+
 /*
  * Prompts respective name from array[type]
  * @param $string string
