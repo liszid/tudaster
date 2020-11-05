@@ -204,8 +204,8 @@ class sTranslate {
     	    'respective' => 'Administrative/Groups'
     	),
         'mngMembers' => array(
-    	    'color' => 'info',
-    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
     	    'respective' => 'Administrative/Membership'
     	),
         'canEdit' => array(

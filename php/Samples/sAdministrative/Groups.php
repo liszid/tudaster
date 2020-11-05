@@ -26,6 +26,7 @@ class Groups extends \Samples\sAdministrative
 */
     public static function Add(array $array = array()): string
     {
+        self::setDGroup();
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
@@ -51,6 +52,7 @@ class Groups extends \Samples\sAdministrative
 */
     public static function Edit(array $array = array()): string
     {
+        self::setDGroup();
         return 'Edit, dp: '.$array['dp'];
     }
 
@@ -63,6 +65,7 @@ class Groups extends \Samples\sAdministrative
 */
     public static function Delete(array $array = array()): string
     {
+        self::setDGroup();
         return
             '<h4>'.(
                 (

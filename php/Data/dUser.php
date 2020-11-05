@@ -49,8 +49,7 @@ class dUser implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-
-        if (strcmp($type, 'Delete') === 0) {
+        if (! strcmp($type, 'Delete')) {
             $dGroup_Member = new dGroup_Member();
             return $dGroup_Member->Update($array, 'byUserId');
         } else {

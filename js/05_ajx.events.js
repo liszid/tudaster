@@ -220,6 +220,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                         }
                                         else
                                         {
+//  This part is for checkboxes, each value is seperated by semi-colon
                                             let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k][0]+'"]');
                                             returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=");
                                             for (let l = 0; l < innerArray.length; l++)

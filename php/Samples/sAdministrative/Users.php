@@ -61,6 +61,7 @@ class Users extends \Samples\sAdministrative
 */
     public static function Reset(array $array = array()): string
     {
+        self::setDUser();
         return
             '<h4>'.(
                 (
@@ -84,6 +85,7 @@ class Users extends \Samples\sAdministrative
 */
     public static function Delete(array $array = array()): string
     {
+        self::setDUser();
         return
             '<h4>'.(
                 (

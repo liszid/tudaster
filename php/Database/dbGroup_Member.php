@@ -64,7 +64,7 @@ class dbGroup_Member extends Table implements iDatabase
         } elseif (strcmp($type, 'byGroupMemberId') === 0) {
             $tempArray = array('groupId', 'groupMemberId');
         } else {
-            return array();
+            return false;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {

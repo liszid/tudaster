@@ -25,14 +25,28 @@ class General
         $labelDesc = (isset($array['desc'])) ? $array['desc'] : '';
         $inputValue = (isset($array['value'])) ? $array['value'] : '';
         $inputType = (isset($array['type'])) ? $array['type'] : '';
+        $input = '';
+
+        if (
+            ! strcmp($inputType, 'select')
+            && isset($array['select'])
+        ) {
+            $input = '<select class="custom-select" id="'.$inputId.'">';
+            foreach ($array['select'] as $i) {
+                $input .= '<option value="'.$i['id'].'">'.$i['name'].'</option>';
+            }
+            $input .= '</select>';
+        } else {
+            $input = '
+                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">
+                '.((! strcmp($inputType, 'hidden'))? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>':'');
+        }
 
         return '
             <div class="form-group row col-12 p-0">
                 <label for="'.$inputId.'" class="col-sm-3 col-form-label">'.$labelDesc.'</label>
                 <div class="col-sm-9">
-                    <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">
-                    '.((! strcmp($inputType, 'hidden'))? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>':'').'
-
+                    '.$input.'
                 </div>
             </div>
         ';

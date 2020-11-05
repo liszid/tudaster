@@ -26,13 +26,22 @@ class Membership extends \Samples\sAdministrative
 */
     public static function Edit(array $array = array()): string
     {
+        self::setDGroup();
+        self::setDGroup_Member();
+
         if (! isset($array['Save'])) {
+            $selectTag = array();
+
+            foreach(self::$dGroup->Select(array(), 'forMemberEdit') as $i) {
+                $selectTag[] = array('id' => $i['groupId'], 'name' => $i['groupName']);
+            }
+
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupMemberId', 'desc' => 'Csoport tag Id', 'value' => $array['dp'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupId', 'desc' => 'Csoport Id', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupId', 'desc' => 'Csoport Id', 'value' => '', 'select' => $selectTag, 'type' => 'select'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
@@ -42,13 +51,12 @@ class Membership extends \Samples\sAdministrative
                     </div>
                 </form>';
         } else {
-            self::setDGroup_Member();
             return
                 '<h4>'.(
-                    (self::$dGroup_Member->Update($array))
+                    (self::$dGroup_Member->Update($array, 'byGroupMemberId'))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Membership'), 'Spinner');
         }
         return 'Edit, dp: '.$array['dp'];
     }
