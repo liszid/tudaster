@@ -275,7 +275,7 @@ class sAdministrative {
         $returnString = '';
         $Users = self::$dUser->Select(array(), 'All');
         if (isset($array['path'])) {
-            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
+//            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
@@ -295,7 +295,7 @@ class sAdministrative {
         $returnString = '';
         $Groups = self::$dGroup->Select(array(), 'All');
         if (Valid::vString($array['path'])) {
-            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
+//            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');

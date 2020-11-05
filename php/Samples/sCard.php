@@ -148,24 +148,27 @@ class sCard
         $collapseId = 'collapse-'.md5('collapse-'.rand());
         $contHeader = ((isset($array['header'])) ? $array['header'] : '');
         $contText = ((isset($array['text'])) ? $array['text'] : '');
+// Optional Contents
+        $contAddButton = ((isset($array['path']) && isset($array['addButton']) && $array['addButton'])? sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add') : '');
 
         if (Valid::vArray($array)) {
             return '
                 <div id="'.$accordionId.'" class="mb-2">
-                <div class="card">
-                    <div class="card-header" id="'.$headingId.'">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#'.$collapseId.'" aria-expanded="false" aria-controls="'.$collapseId.'">
-                        '.$contHeader.'
-                        </button>
-                    </h5>
+                    <div class="card">
+                        <div class="card-header d-flex" id="'.$headingId.'">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#'.$collapseId.'" aria-expanded="false" aria-controls="'.$collapseId.'">
+                                '.$contHeader.'
+                                </button>
+                            </h5>
+                            '.$contAddButton.'
+                        </div>
+                        <div id="'.$collapseId.'" class="collapse" aria-labelledby="'.$headingId.'" data-parent="#'.$accordionId.'">
+                            <div class="card-body">
+                                '.$contText.'
+                            </div>
+                        </div>
                     </div>
-                    <div id="'.$collapseId.'" class="collapse" aria-labelledby="'.$headingId.'" data-parent="#'.$accordionId.'">
-                    <div class="card-body">
-                        '.$contText.'
-                    </div>
-                    </div>
-                </div>
                 </div>
             ';
         } else {

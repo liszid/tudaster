@@ -28,8 +28,10 @@ class sTranslate {
     	    "info" => array(
                 'color' => 'success',
                 'header' => 'Információ',
+                'addButton' => true,
                 'title' => '',
                 'text' => '
+                    <p>Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve csoportja a 2-es ID-val rendelkezö "Default" csoport</p>
                     <b>Felhasználói jelszó alaphelyzetbe állítása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-undo" aria-hidden="true"></i></a><br />
                     <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                 )
@@ -57,6 +59,7 @@ class sTranslate {
     	    "info" => array(
                 'color' => 'success',
                 'header' => 'Információ',
+                'addButton' => true,
                 'title' => '',
                 'text' => '
                     <b>mG</b> - Csoportok kezelése <br />
@@ -284,7 +287,9 @@ class sTranslate {
     {
         if (array_key_exists($string, self::TRANSLATE)) {
             if(isset(self::TRANSLATE[$string]['info'])) {
-                return  self::TRANSLATE[$string]['info'];
+                $array = self::TRANSLATE[$string]['info'];
+                $array['path'] = $string;
+                return  $array;
     	    } else {
                 return array();
     	    }

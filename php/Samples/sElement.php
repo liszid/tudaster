@@ -106,14 +106,13 @@ class sElement
     private static function GeneralAdd(array $array): string
     {
         if (isset($array['path'])) {
+        //col-12 border border-light p-2 mb-2
             return '
-                <div class="col-12 border border-light p-2 mb-2 d-flex">
-                    <div class="ml-auto">
-                        <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
-                            <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
-                            <span><b>Új hozzáadása</b></span>
-                        </a>
-                    </div>
+                <div class="ml-auto">
+                    <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
+                        <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
+                        <span><b>Új hozzáadása</b></span>
+                    </a>
                 </div>';
         } else {
             return '';
