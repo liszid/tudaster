@@ -191,8 +191,8 @@ class sTranslate {
 
     const ROLE = array(
         'mngUsers' => array(
-    	    'color' => 'info',
-    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
     	    'respective' => 'Administrative/Users'
     	),
         'mngGroups' => array(
