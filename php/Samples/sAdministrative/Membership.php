@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Samples\sAdministrative;
 
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
 class Membership extends \Samples\sAdministrative
 {
 /*

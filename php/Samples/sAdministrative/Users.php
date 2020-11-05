@@ -4,6 +4,17 @@ declare(strict_types=1);
 
 namespace Samples\sAdministrative;
 
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
+use Samples\{
+    sElement,
+    sTranslate
+};
+
 class Users extends \Samples\sAdministrative
 {
 /*
@@ -20,8 +31,8 @@ class Users extends \Samples\sAdministrative
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.\Samples\sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'nameUser', 'desc' => 'Bejelentkezési név', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.\Samples\sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'contEmail', 'desc' => 'E-mail cím', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'nameUser', 'desc' => 'Bejelentkezési név', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'contEmail', 'desc' => 'E-mail cím', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
@@ -35,9 +46,9 @@ class Users extends \Samples\sAdministrative
             return
                 '<h4>'.(
                     (self::$dUser->Insert($array))
-                        ? \Samples\sTranslate::ACTION['Success']['content']
-                        : \Samples\sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.\Samples\sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
         }
     }
 
@@ -59,9 +70,9 @@ class Users extends \Samples\sAdministrative
                         ),'Reset'
                     )
                 )
-                ? \Samples\sTranslate::ACTION['Success']['content']
-                : \Samples\sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.\Samples\sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                ? sTranslate::ACTION['Success']['content']
+                : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
     }
 
 /*
@@ -83,9 +94,9 @@ class Users extends \Samples\sAdministrative
                         ), 'Delete'
                     )
                 )
-                ? \Samples\sTranslate::ACTION['Success']['content']
-                : \Samples\sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.\Samples\sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
+                ? sTranslate::ACTION['Success']['content']
+                : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
     }
 
 }

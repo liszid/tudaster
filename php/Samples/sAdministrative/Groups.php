@@ -4,6 +4,17 @@ declare(strict_types=1);
 
 namespace Samples\sAdministrative;
 
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
+use Samples\{
+    sElement,
+    sTranslate
+};
+
 class Groups extends \Samples\sAdministrative
 {
 /*
@@ -19,8 +30,8 @@ class Groups extends \Samples\sAdministrative
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">
-                        '.\Samples\sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                        '.\Samples\sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
                     </div>
                 </div>
                 <div class="form-group">
@@ -61,8 +72,8 @@ class Groups extends \Samples\sAdministrative
                         )
                     )
                 )
-                    ? \Samples\sTranslate::ACTION['Success']['content']
-                    : \Samples\sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.\Samples\sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+                    ? sTranslate::ACTION['Success']['content']
+                    : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
     }
 }

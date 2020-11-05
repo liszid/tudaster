@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Samples\sElement;
 
+use PreLoad\{
+    Valid,
+    Check,
+    Log
+};
+
 class General
 {
 /*
