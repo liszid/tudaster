@@ -31,7 +31,7 @@ class dUser implements iData
                     if ($bool_1) {
                         $dGroup_Member = new dGroup_Member();
                         $userId = (self::Select($array, 'byUserName'))[0]['userId'];
-                        return $dGroup_Member::Insert(array('userId' => $userId,'groupId' => $GLOBALS['defaultGrp']));
+                        return $dGroup_Member::Insert(array('userId' => (int)$userId, 'groupId' => (int)$GLOBALS['defaultGrp']));
                     } else {
                         return false;
                     }

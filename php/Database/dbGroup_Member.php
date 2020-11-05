@@ -24,7 +24,7 @@ class dbGroup_Member extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
-            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array('groupId, userId'),'vData' => $array))->rowCount() > 0);
+            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array('groupId', 'userId'),'vData' => $array))->rowCount() > 0);
         } else {
             return false;
         }
