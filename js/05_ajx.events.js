@@ -39,7 +39,8 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ["usrLogin", "x=Login&Login=", "button", ["nameUser", "pWord"], "modalDialog"],
                     ["usrEdit", "x=Profile&Save=", "button", ["nameFirst", "nameLast", "thumbnail", "contSite", "contPhone"], "modalDialog"],
                     ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
-                    ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"]
+                    ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"],
+                    ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", ["groupMemberId","groupId"], "modalDialog"]
                 ];
             }
         } );
