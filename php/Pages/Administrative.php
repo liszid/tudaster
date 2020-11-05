@@ -21,7 +21,13 @@ use Samples\ {
     sAdministrative
 };
 
-if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$sessionUsr['mngGroups'] > 0)) {
+if (
+    isset($sessionUsr['userId'])
+    && (
+        (int)$sessionUsr['mngUsers'] > 0
+        && (int)$sessionUsr['mngGroups'] > 0
+    )
+) {
     $returnContent = '';
 
     $urlPaths = array(
@@ -38,8 +44,8 @@ if (isset($sessionUsr['userId']) &&( (int)$sessionUsr['mngUsers'] > 0 && (int)$s
         $returnArray = array();
 
         if(
-            Valid::vString(Check::isPost('y')) &&
-            Valid::vString(Check::isPost('z'))
+            Valid::vString(Check::isPost('y'))
+            && Valid::vString(Check::isPost('z'))
         ) {
             $returnContent = sAdministrative::Action($_POST);
         }

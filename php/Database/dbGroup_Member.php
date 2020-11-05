@@ -57,8 +57,18 @@ class dbGroup_Member extends Table implements iDatabase
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        if (! empty($array) && Valid::vString(self::$classQueries['Update'])) {
-            return (self::qRun(array('query' => self::$classQueries['Update'], 'vNames' => array('groupId', 'userId'), 'vData' => $array) )->rowCount() > 0);
+        $tempArray = array();
+
+        if (strcmp($type, 'byUserId') === 0) {
+            $tempArray = array('groupId', 'userId');
+        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
+            $tempArray = array('groupId', 'groupMemberId');
+        } else {
+            return array();
+        }
+
+        if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {
+            return (self::qRun(array('query' => self::$classQueries['Update'][$type], 'vNames' => $tempArray, 'vData' => $array) )->rowCount() > 0);
         } else {
             return false;
         }

@@ -9,4 +9,7 @@ $GLOBALS['Database']['0']['Update'] = array(
 
 $GLOBALS['Database']['1']['Update'] = "UPDATE `Group` SET groupDesc=:groupDesc ,mngGroups=:mngGroups ,mngUsers=:mngUsers ,canUsers=:canUsers ,canKnowledge=:canKnowledge ,canUsername=:canUsername ,canPassword=:canPassword ,canHardware=:canHardware, canSoftware=:canSoftware ,canEdit=:canEdit ,canLogin=:canLogin WHERE groupId=:groupId";
 
-$GLOBALS['Database']['2']['Update'] = "UPDATE `Group_Member` SET groupId=:groupId WHERE userId=:userId";
+$GLOBALS['Database']['2']['Update'] = array(
+    "byUserId" => "UPDATE `Group_Member` SET groupId=:groupId WHERE userId=:userId",
+    "byGroupMemberId" => "UPDATE `Group_Member` SET groupId=:groupId WHERE groupMemberId=:groupMemberId"
+);

@@ -21,11 +21,18 @@ class General
  */
     public static function Input(array $array): string
     {
+        $inputId = (isset($array['origo']) && isset($array['data'])) ? $array['origo'].'-'.$array['data'] : '';
+        $labelDesc = (isset($array['desc'])) ? $array['desc'] : '';
+        $inputValue = (isset($array['value'])) ? $array['value'] : '';
+        $inputType = (isset($array['type'])) ? $array['type'] : '';
+
         return '
             <div class="form-group row col-12 p-0">
-                <label for="'.$array['origo'].'-'.$array['data'].'" class="col-sm-3 col-form-label">'.$array['desc'].'</label>
+                <label for="'.$inputId.'" class="col-sm-3 col-form-label">'.$labelDesc.'</label>
                 <div class="col-sm-9">
-                    <input type="'.$array['type'].'" class="form-control" id="'.$array['origo'].'-'.$array['data'].'" value="'.$array['value'].'">
+                    <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">
+                    '.((! strcmp($inputType, 'hidden'))? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>':'').'
+
                 </div>
             </div>
         ';
@@ -43,18 +50,18 @@ class General
             $location = '';
 
             if (
-                isset($array['x']) &&
-                ! empty($array['x'])
+                isset($array['x'])
+                && ! empty($array['x'])
             ) {
                 $location .= 'x='.$array['x'];
                 if (
-                    isset($array['y']) &&
-                    ! empty($array['y'])
+                    isset($array['y'])
+                    && ! empty($array['y'])
                 ) {
                     $location .= '&y='.$array['y'];
                     if (
-                        isset($array['z']) &&
-                        ! empty($array['z'])
+                        isset($array['z'])
+                        && ! empty($array['z'])
                     ) {
                         $location .= '&z='.$array['z'];
                     }

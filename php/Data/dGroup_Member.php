@@ -17,7 +17,14 @@ class dGroup_Member implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbGroup_Member->Insert($array);
+        if (
+            isset($array['userId'])
+            && isset($array['groupId'])
+        ) {
+            return self::$dbGroup_Member->Insert($array);
+        } else {
+            return false;
+        }
     }
 
     public static function Select(array $array = array(), string $type = ''): array
@@ -27,7 +34,17 @@ class dGroup_Member implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbGroup_Member->Update($array, $type);
+        if (
+            isset($array['groupId'])
+            && (
+                isset($array['userId'])
+                || isset($array['groupMemberId'])
+            )
+        ) {
+            return self::$dbGroup_Member->Update($array, $type);
+        } else {
+            return false;
+        }
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
