@@ -6,9 +6,6 @@ namespace Samples\sAdministrative;
 
 class Users extends \Samples\sAdministrative
 {
-    public function __construct(){
-        parent::__construct();
-    }
 /*
 * Returns User adding form
 * @param $array array

@@ -26,7 +26,7 @@ class sAdministrative {
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    private static function setDUser()
+    protected static function setDUser()
     {
         self::$dUser = new dUser();
     }
@@ -36,7 +36,7 @@ class sAdministrative {
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    private static function setDGroup()
+    protected static function setDGroup()
     {
         self::$dGroup = new dGroup();
     }
@@ -46,7 +46,7 @@ class sAdministrative {
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    private static function setDGroup_Member()
+    protected static function setDGroup_Member()
     {
         self::$dGroup_Member = new dGroup_Member();
     }
@@ -56,7 +56,7 @@ class sAdministrative {
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    private static function setDCombined()
+    protected static function setDCombined()
     {
         self::$dCombined = new dCombined();
     }
@@ -70,33 +70,33 @@ class sAdministrative {
  */
     public static function Action(array $array = array()): string
     {
+        $wclass;
         $returnContent = '';
-        $nestedArg = $array['y']."/".$array['z'];
 
-        self::setDUser();
-        self::setDGroup();
+        switch($array['y']) {
+            case 'Users':
+                $wclass = new sAdministrative\Users;
+                break;
+            case 'Groups':
+                $wclass = new sAdministrative\Groups;
+                break;
+            case 'Membership':
+                $wclass = new sAdministrative\Membership;
+                break;
+        }
 
-        switch ($nestedArg) {
-            case 'Users/Add':
-                $returnContent .= sAdministrative\Users::Add($array);
+        switch ($array['z']) {
+            case 'Add':
+                $returnContent .= $wclass::Add($array);
                 break;
-            case 'Users/Reset':
-                $returnContent .= sAdministrative\Users::Reset($array);
+            case 'Reset':
+                $returnContent .= $wclass::Reset($array);
                 break;
-            case 'Users/Delete':
-                $returnContent .= sAdministrative\Users::Delete($array);
+            case 'Delete':
+                $returnContent .= $wclass::Delete($array);
                 break;
-            case 'Groups/Add':
-                $returnContent .= sAdministrative\Groups::Add($array);
-                break;
-            case 'Groups/Edit':
-                $returnContent .= sAdministrative\Groups::Edit($array);
-                break;
-            case 'Groups/Delete':
-                $returnContent .= sAdministrative\Groups::Delete($array);
-                break;
-            case 'Membership/Edit':
-                $returnContent .= sAdministrative\Membership::Edit($array);
+            case 'Edit':
+                $returnContent .= $wclass::Edit($array);
                 break;
         }
 

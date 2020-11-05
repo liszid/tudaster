@@ -6,9 +6,6 @@ namespace Samples\sAdministrative;
 
 class Groups extends \Samples\sAdministrative
 {
-    public function __construct(){
-        parent::__construct();
-    }
 /*
 * Returns Group adding form
 * @param $array array
