@@ -33,7 +33,7 @@ class sActivity
                 array("desc" => "Tudáscikk", "data" => $array['actKnow']),
                 array("desc" => "Jelszó", "data" => $array['actPass']),
                 array("desc" => "Hardver", "data" => $array['actHard']),
-                array("desc" => "Szoftver", "data" => $array['actSoft']),
+                array("desc" => "Szoftver", "data" => $array['actSoft'])
             );
             foreach ($elementArray as $e) {
                 $prompt .= sElement::User( $e, "Activity");
@@ -41,7 +41,7 @@ class sActivity
             return '
                 <ul class="list-group">
                     <li class="list-group-item text-muted">
-                    <i class="fa fa-dashboard"></i> Bejegyzések
+                        <i class="fa fa-dashboard"></i> Bejegyzések
                     </li>
                     '.$prompt.'
                 </ul>';

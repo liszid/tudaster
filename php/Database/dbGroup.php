@@ -38,6 +38,8 @@ class dbGroup extends Table implements iDatabase
             $tempArray = array();
         } elseif (strcmp($type, 'byGroupId') === 0) {
             $tempArray = array('groupId');
+        } elseif (strcmp($type, 'forMemberEdit') === 0) {
+            $tempArray = array();
         } else {
             return array();
         }

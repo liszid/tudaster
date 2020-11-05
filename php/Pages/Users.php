@@ -18,14 +18,17 @@ use Samples\{
     sFrame
 };
 
-if (isset($sessionUsr['userId']) && $sessionUsr['canUsers'] > 0) {
+if (
+    isset($sessionUsr['userId'])
+    && $sessionUsr['canUsers'] > 0
+) {
     $urlPaths = array(
         "Root" => "Users"
     );
-    
+
     $dUser = new dUser();
     $Users = $dUser::Select(array(), 'All');
-    
+
     echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => sTables::Prompt($Users, 'Home_Users')));
 } else {
     echo sRedirect::Home();

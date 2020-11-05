@@ -13,13 +13,16 @@ use Samples\{
     sFrame
 };
 
-if (isset($sessionUsr['userId']) && (int)$sessionUsr['canCompany'] > 0) {
+if (
+    isset($sessionUsr['userId'])
+    && (int)$sessionUsr['canCompany'] > 0
+) {
     $urlPaths = array(
         "Root" => "Company"
     );
-    
+
     echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => ''));
-    
+
 } else {
     echo sRedirect::Home();
 }

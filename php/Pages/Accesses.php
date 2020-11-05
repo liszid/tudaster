@@ -13,8 +13,16 @@ use Samples\{
     sFrame
 };
 
-if (isset($sessionUsr['userId']) && ((int)$sessionUsr['canUsername'] > 0 || ((int)$sessionUsr['canUsername'] > 0 && (int)$sessionUsr['canPassword'] > 0)))
-{
+if (
+    isset($sessionUsr['userId'])
+    && (
+        (int)$sessionUsr['canUsername'] > 0
+        || (
+            (int)$sessionUsr['canUsername'] > 0
+            && (int)$sessionUsr['canPassword'] > 0
+        )
+    )
+) {
 
     $urlPaths = array(
                     "Root" => "Accesses"

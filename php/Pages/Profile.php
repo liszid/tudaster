@@ -54,15 +54,15 @@ if (isset($sessionUsr['userId']))
                             'icon'      =>  sTranslate::TRANSLATE['Profile']['fa'],
                             'title'     =>  sTranslate::TRANSLATE['Profile']['title'],
                             'desc'      =>  $e['desc'],
-                            'success'   =>  "Instance.initElmnt('d=Profile', 'modalDialog');",
-                            'fail'      =>  "Instance.initElmnt('d=Profile&editProfile=', 'modalDialog');"
+                            'success'   =>  "Instance.initElmnt('x=Profile', 'modalDialog');",
+                            'fail'      =>  "Instance.initElmnt('x=Profile&editProfile=', 'modalDialog');"
                         )
                     )
                 );
             }
         }
     }
-    elseif (isset($_POST['x']) && strcmp($_POST['x'], 'Profile') === 0)
+    elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Profile'))
     {
         $dCombined = new dCombined();
         $User = ($dCombined->Select($sessionUsr,'User_Full'))[0];

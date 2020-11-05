@@ -52,7 +52,7 @@ class dUser implements iData
 
         if (strcmp($type, 'Delete') === 0) {
             $dGroup_Member = new dGroup_Member();
-            return $dGroup_Member->Update($array);
+            return $dGroup_Member->Update($array, 'byUserId');
         } else {
             return self::$dbUser->Update($array, $type);
         }
