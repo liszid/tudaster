@@ -17,8 +17,8 @@ class dbCombined extends Table implements iDatabase
     private static $classQueries = array();
 
     public function __construct(){
-	parent::__construct();
-	self::$classQueries = self::qGet(self::CLASS_ID);
+        parent::__construct();
+        self::$classQueries = self::qGet(self::CLASS_ID);
     }
 
     public static function Insert(array $array = array()): bool

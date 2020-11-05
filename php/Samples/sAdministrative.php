@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace Samples;
-
 use PreLoad\{
     Valid,
     Check,
@@ -17,10 +16,10 @@ use Data\{
 };
 
 class sAdministrative {
-    private static $dUser;
-    private static $dGroup;
-    private static $dGroup_Member;
-    private static $dCombined;
+    protected static $dUser;
+    protected static $dGroup;
+    protected static $dGroup_Member;
+    protected static $dCombined;
 
 /*
  * Sets the class variable : dUser
@@ -79,25 +78,25 @@ class sAdministrative {
 
         switch ($nestedArg) {
             case 'Users/Add':
-                $returnContent .= self::actionUsersAdd($array);
+                $returnContent .= sAdministrative\Users::Add($array);
                 break;
             case 'Users/Reset':
-                $returnContent .= self::actionUsersReset($array);
+                $returnContent .= sAdministrative\Users::Reset($array);
                 break;
             case 'Users/Delete':
-                $returnContent .= self::actionUsersDelete($array);
+                $returnContent .= sAdministrative\Users::Delete($array);
                 break;
             case 'Groups/Add':
-                $returnContent .= self::actionGroupsAdd($array);
+                $returnContent .= sAdministrative\Groups::Add($array);
                 break;
             case 'Groups/Edit':
-                $returnContent .= self::actionGroupsEdit($array);
+                $returnContent .= sAdministrative\Groups::Edit($array);
                 break;
             case 'Groups/Delete':
-                $returnContent .= self::actionGroupsDelete($array);
+                $returnContent .= sAdministrative\Groups::Delete($array);
                 break;
             case 'Membership/Edit':
-                $returnContent .= self::actionMembershipEdit($array);
+                $returnContent .= sAdministrative\Membership::Edit($array);
                 break;
         }
 
@@ -106,160 +105,6 @@ class sAdministrative {
         }
 
         return $returnContent;
-    }
-
-/*
- * Returns User adding form
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionUsersAdd(array $array = array()): string
-    {
-        if (! isset($array['Save'])) {
-            return '
-                <form method="post" class="form-group col-12" autocomplete="on">
-                    <div class="form-group col p-0">
-                        <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'nameUser', 'desc' => 'Bejelentkezési név', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'contEmail', 'desc' => 'E-mail cím', 'value' => '', 'type' => 'text'), 'Input').'
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrsAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
-                        </div>
-                    </div>
-                </form>';
-        } else {
-            self::setDUser();
-            return
-                '<h4>'.(
-                    (self::$dUser->Insert($array))
-                        ? sTranslate::ACTION['Success']['content']
-                        : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
-        }
-    }
-
-/*
- * Fires User Password Reset
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionUsersReset(array $array = array()): string
-    {
-        return
-            '<h4>'.(
-                (
-                    self::$dUser->Update(
-                        array(
-                            'userId' => (int)$array['dp']
-                        ),'Reset'
-                    )
-                )
-                ? sTranslate::ACTION['Success']['content']
-                : sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
-    }
-
-/*
- * Fires User Delete
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionUsersDelete(array $array = array()): string
-    {
-        return
-            '<h4>'.(
-                (
-                    self::$dUser->Update(
-                        array(
-                            'userId' => (int)$array['dp'],
-                            'groupId' => 3
-                        ), 'Delete'
-                    )
-                )
-                ? sTranslate::ACTION['Success']['content']
-                : sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Users'), 'Spinner');
-    }
-
-/*
- * Returns Group adding form
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionGroupsAdd(array $array = array()): string
-    {
-        return '
-            <form method="post" class="form-group col-12" autocomplete="on">
-                <div class="form-group col p-0">
-                    <div class="col-12 row">
-                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                        '.sElement::General(array('origo' => 'admGrpAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-12 row">
-                        <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
-                    </div>
-                </div>
-            </form>';
-    }
-
-/*
- * Returns Group Editing form
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionGroupsEdit(array $array = array()): string
-    {
-        return 'Edit, dp: '.$array['dp'];
-    }
-
-/*
- * Fires Group Delete action
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionGroupsDelete(array $array = array()): string
-    {
-        return
-            '<h4>'.(
-                (
-                    self::$dGroup->Delete(
-                        array(
-                            'groupId' => $array['dp']
-                        )
-                    )
-                )
-                    ? sTranslate::ACTION['Success']['content']
-                    : sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
-    }
-
-/*
- * Return Membership Editing form
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.04
- */
-    private static function actionMembershipEdit(array $array = array()): string
-    {
-        return 'Edit, dp: '.$array['dp'];
     }
 
 /*
