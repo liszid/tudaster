@@ -64,6 +64,7 @@ class sTranslate {
                 'text' => '
                     <b>mG</b> - Csoportok kezelése <br />
                     <b>mU</b> - Felhasználók kezelése <br />
+                    <b>mM</b> - Csoport tagságok szerkesztése<br />
                     <b>cUs</b> - Regisztráltak megtekintése  <br />
                     <b>cC</b> - Cégek jogosultság <br />
                     <b>cK</b> - Tudáscikkek jogosultság <br />
@@ -196,57 +197,79 @@ class sTranslate {
         'mngUsers' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',
-    	    'respective' => 'Administrative/Users'
+    	    'respective' => 'Administrative/Users',
+    	    'short' => 'mG',
+    	    'desc' => 'Csoportok kezelése'
     	),
         'mngGroups' => array(
     	    'color' => 'info',
     	    'header' => 'Fejlesztés alatt álló funkció',
-    	    'respective' => 'Administrative/Groups'
+    	    'respective' => 'Administrative/Groups',
+    	    'short' => 'mU',
+    	    'desc' => 'Felhasználók kezelése'
     	),
         'mngMembers' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',
-    	    'respective' => 'Administrative/Membership'
+    	    'respective' => 'Administrative/Membership',
+    	    'short' => 'mM',
+    	    'desc' => 'Csoport tagságok szerkesztése'
     	),
         'canEdit' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',
-    	    'respective' => 'Profile'
+    	    'respective' => 'Profile',
+    	    'short' => 'cE',
+    	    'desc' => 'Profil szerkesztés'
     	),
         'canUsers' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',
-    	    'respective' => 'Users'
+    	    'respective' => 'Users',
+    	    'short' => 'cUs',
+    	    'desc' => 'Regisztráltak megtekintése'
     	),
         'canKnowledge' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Knowledge'
+    	    'respective' => 'Knowledge',
+    	    'short' => 'cK',
+    	    'desc' => 'Tudáscikkek jogosultság'
     	),
         'canUsername' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Accesses'
+    	    'respective' => 'Accesses',
+    	    'short' => 'cUn',
+    	    'desc' => 'Hozzáférések alap jogosultság'
         ),
         'canPassword' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Accesses'
+    	    'respective' => 'Accesses',
+    	    'short' => 'cP',
+    	    'desc' => 'Hozzáférések emelt jogosultság'
     	),
         'canHardware' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Hardware'
+    	    'respective' => 'Hardware',
+    	    'short' => 'cH',
+    	    'desc' => 'Hardver jogosultság'
     	),
         'canSoftware' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Software'
+    	    'respective' => 'Software',
+    	    'short' => 'cS',
+    	    'desc' => 'Szoftver jogosultság'
     	),
         'canCompany' => array(
     	    'color' => 'secondary',
     	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Company'
+    	    'respective' => 'Company',
+    	    'short' => 'cC',
+    	    'desc' => 'Cégek jogosultság'
     	)
     );
 

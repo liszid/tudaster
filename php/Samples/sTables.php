@@ -47,6 +47,7 @@ class sTables {
             "groupDesc" => "Leírás",
             "mngGroups" => "mG",
             "mngUsers" => "mU",
+            "mngMembers" => "mM",
             "canUsers" => "cUs",
             "canCompany" => "cC",
             "canKnowledge" => "cK",
