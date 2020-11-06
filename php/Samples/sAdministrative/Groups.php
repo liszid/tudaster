@@ -79,7 +79,7 @@ class Groups extends \Samples\sAdministrative
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admGrpsAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admGrpsEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
                         </div>
                     </div>
                 </form>';
