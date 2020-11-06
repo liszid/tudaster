@@ -33,7 +33,7 @@ class General
         ) {
             $input = '<select class="custom-select" id="'.$inputId.'">';
             foreach ($array['select'] as $i) {
-                $input .= '<option value="'.$i['id'].'">'.$i['name'].'</option>';
+                $input .= '<option value="'.$i['id'].'"'.(((int)$inputValue === (int)$i['id']) ? ' selected' : '').'>'.$i['name'].'</option>';
             }
             $input .= '</select>';
         } else {
@@ -44,8 +44,8 @@ class General
 
         return '
             <div class="form-group row col-12 p-0">
-                <label for="'.$inputId.'" class="col-sm-3 col-form-label">'.$labelDesc.'</label>
-                <div class="col-sm-9">
+                <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.'</label>
+                <div class="col-sm-6">
                     '.$input.'
                 </div>
             </div>

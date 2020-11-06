@@ -27,7 +27,6 @@ class Groups extends \Samples\sAdministrative
     public static function Add(array $array = array()): string
     {
         self::setDGroup();
-        // sTranslate::ROLE[roleName][short|desc]
         if (! isset($array['Save'])) {
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
@@ -64,13 +63,18 @@ class Groups extends \Samples\sAdministrative
     {
         self::setDGroup();
 
+// sTranslate::ROLE[roleName][short|desc]
+
         if (! isset($array['Save'])) {
+            $Group = self::$dGroup->Select(array('groupId' => (int)$array['dp']), 'byGroupId')[0];
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admGrpsAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'admGrpsAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupId', 'desc' => 'Id', 'value' => $Group['groupId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupName', 'desc' => 'Név', 'value' => $Group['groupName'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => $Group['groupDesc'], 'type' => 'hidden'), 'Input').'
+                            '.self::promptSelect($Group).'
                         </div>
                     </div>
                     <div class="form-group">
@@ -82,13 +86,21 @@ class Groups extends \Samples\sAdministrative
         } else {
             return
                 '<h4>'.(
-                    (self::$dGroup->Insert($array))
+                    (self::$dGroup->Update($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
                 ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
         }
     }
 
+    private static function promptSelect(array $array = array()): string
+    {
+        $returnString = '';
+        foreach (sTranslate::ROLE as $key => $value) {
+            $returnString .= sElement::General(array('origo' => 'admGrpsEdit', 'data' => $key, 'desc' => $value['desc'], 'value' => $array[$key], 'select' => sTranslate::ROLE_SELECT[$value['select_type']], 'type' => 'select'), 'Input');
+        }
+        return $returnString;
+    }
 /*
 * Fires Group Delete action
 * @param $array array

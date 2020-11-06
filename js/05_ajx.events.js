@@ -41,6 +41,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
                     ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"],
                     ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", ["groupName","groupDesc"], "modalDialog"],
+                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", ["mngGroups","mngUsers","mngMembers","canUsers","canCompany","canKnowledge","canUsername","canPassword","canHardware","canSoftware","canEdit","canLogin","groupId"], "modalDialog"],
                     ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", ["groupMemberId","groupId"], "modalDialog"]
                 ];
             }
@@ -198,6 +199,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                 for (let k = 0; k < _self.arrayObject[i][3].length; k++) {
                                     if (! _self.arrayObject[i][3][k].includes("pWord")) {
                                         if (! Array.isArray(_self.arrayObject[i][3][k])) {
+                                        console.log(returnString);
                                             returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=" + document.getElementById(_self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k]).value);
                                         } else {
 //  This part is for checkboxes, each value is seperated by semi-colon
