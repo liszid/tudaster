@@ -41,7 +41,18 @@ const iAjax = (iAjax = Object) => class extends iAjax
             {
                 return location.protocol + '//' + location.host+"/__noLoad/ajax.php";
             }
-        })
+        });
+        Object.defineProperty( this, 'ajaxInterval',
+        {
+            get( )
+            {
+                return this._ajaxInterval;
+            },
+            set(arg)
+            {
+                this._ajaxInterval = arg;
+            }
+        });
     }
 
     setInnerHTML(xhttp, id = "body")
@@ -50,7 +61,7 @@ const iAjax = (iAjax = Object) => class extends iAjax
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             temp = xhttp.responseText;
             if (temp.split('message>').length - 1 === 0) {
-                if (window.stringInnerContent != temp) {
+                if (window.stringInnerContent !== temp) {
                     window.stringInnerContent = temp;
                     z.innerHTML = window.stringInnerContent;
                     this.evntDataTable();
@@ -71,13 +82,11 @@ const iAjax = (iAjax = Object) => class extends iAjax
         }
     }
 
-    initElmnt(param = "x=Home", id = "body", type = "POST")
-    {
-
+    ajaxCall(param, id, type){
         var xhttp = new XMLHttpRequest(), _self = this;
         xhttp.onreadystatechange = function()
         {
-            _self.setInnerHTML(this, id);
+             _self.setInnerHTML(this, id);
         };
         if ( type == "GET") {
             xhttp.open(type, _self.ajaxFile + "?" + param, true);
@@ -88,6 +97,21 @@ const iAjax = (iAjax = Object) => class extends iAjax
             xhttp.send(param);
         }
         return false;
+    }
+
+    initElmnt(param = "x=Home", id = "body", type = "POST")
+    {
+        var _self = this;
+
+        _self.ajaxCall(param, id, type);
+/*
+        if (id !== "modalDialog") {
+            clearInterval(_self.ajaxInterval);
+            _self.ajaxInterval = setInterval(function(){
+                _self.ajaxCall(param, id, type);
+            }, 60000);
+        }
+*/
     }
 
     funcFileExists(url)
