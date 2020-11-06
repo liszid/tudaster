@@ -26,6 +26,7 @@ class Users extends \Samples\sAdministrative
 */
     public static function Add(array $array = array()): string
     {
+        self::setDUser();
         if (! isset($array['Save'])) {
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
@@ -42,7 +43,6 @@ class Users extends \Samples\sAdministrative
                     </div>
                 </form>';
         } else {
-            self::setDUser();
             return
                 '<h4>'.(
                     (self::$dUser->Insert($array))

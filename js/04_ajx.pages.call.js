@@ -47,13 +47,10 @@ const iAjax = (iAjax = Object) => class extends iAjax
     setInnerHTML(xhttp, id = "body")
     {
         var temp, z = document.getElementById(id);
-        if (xhttp.readyState == 4 && xhttp.status == 200)
-        {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             temp = xhttp.responseText;
-            if (temp.split('message>').length - 1 === 0)
-            {
-                if (window.stringInnerContent != temp)
-                {
+            if (temp.split('message>').length - 1 === 0) {
+                if (window.stringInnerContent != temp) {
                     window.stringInnerContent = temp;
                     z.innerHTML = window.stringInnerContent;
                     this.evntDataTable();
@@ -61,17 +58,14 @@ const iAjax = (iAjax = Object) => class extends iAjax
                     this.evntForm(z.getElementsByTagName('button'));
                     this.evntHrefs(z.getElementsByTagName('a'));
                 }
-            }
-            else
-            {
+            } else {
                 let modalD = document.getElementById("modalDialog");
                 window.stringInnerContent = temp;
                 modalD.innerHTML = window.stringInnerContent;
                 $("#modalBox").modal('show');
             }
         }
-        if (xhttp.status == 404)
-        {
+        if (xhttp.status == 404) {
             xhttp.open("GET", window.errorSite, true);
             xhttp.send();
         }
@@ -79,18 +73,16 @@ const iAjax = (iAjax = Object) => class extends iAjax
 
     initElmnt(param = "x=Home", id = "body", type = "POST")
     {
+
         var xhttp = new XMLHttpRequest(), _self = this;
         xhttp.onreadystatechange = function()
         {
             _self.setInnerHTML(this, id);
         };
-        if ( type == "GET")
-        {
+        if ( type == "GET") {
             xhttp.open(type, _self.ajaxFile + "?" + param, true);
             xhttp.send();
-        }
-        else
-        {
+        } else {
             xhttp.open(type, _self.ajaxFile, true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(param);

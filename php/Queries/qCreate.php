@@ -37,7 +37,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             canHardware INT(1) DEFAULT 0,
             canSoftware INT(1) DEFAULT 0,
             canEdit INT(1) DEFAULT 0,
-            canLogin INT(1) DEFAULT 1,
+            canLogin INT(1) DEFAULT 0,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT PKGroup PRIMARY KEY (groupId),
             CONSTRAINT uGroupId UNIQUE (groupId),
