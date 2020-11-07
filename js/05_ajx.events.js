@@ -199,7 +199,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                 for (let k = 0; k < _self.arrayObject[i][3].length; k++) {
                                     if (! _self.arrayObject[i][3][k].includes("pWord")) {
                                         if (! Array.isArray(_self.arrayObject[i][3][k])) {
-                                        console.log(returnString);
                                             returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=" + document.getElementById(_self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k]).value);
                                         } else {
 //  This part is for checkboxes, each value is seperated by semi-colon
