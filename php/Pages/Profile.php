@@ -24,10 +24,8 @@ use Samples\
     sFrame,
     sTranslate
 };
-if (isset($sessionUsr['userId']))
-{
-    if(isset($_POST["Save"]) && $sessionUsr['canEdit'])
-    {
+if (isset($sessionUsr['userId'])) {
+    if(isset($_POST["Save"]) && $sessionUsr['canEdit']) {
         $collectiveArray = array(
                                array(
                                    'type'  =>  'Save',
@@ -43,8 +41,7 @@ if (isset($sessionUsr['userId']))
                                    'desc'  =>  'Update'
                                )
                            );
-        foreach( $collectiveArray as $e )
-        {
+        foreach( $collectiveArray as $e ) {
             if (isset($_POST[$e['type']]))
             {
                 echo sRedirect::Sample(
@@ -61,9 +58,7 @@ if (isset($sessionUsr['userId']))
                 );
             }
         }
-    }
-    elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Profile'))
-    {
+    } elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Profile')) {
         $dCombined = new dCombined();
         $User = ($dCombined->Select($sessionUsr,'User_Full'))[0];
         $urlPaths = array(
@@ -71,21 +66,19 @@ if (isset($sessionUsr['userId']))
                     );
         $modalBody = '
                      <div class="container bootstrap snippet">
-                     <div class="row">
-                     <div class="col-md-8">
-                     '.((! isset($_POST['editProfile']))? sProfile::Prompt($User,'Self') : sProfile::Prompt($User, 'Edit')).'
-                     </div>
-                     <div class="col-md-4">
-                     '.(sActivity::Prompt($sessionAct)).'
-                     <br />
-                     '.(sRoles::Prompt($sessionUsr)).'
-                     </div>
-                     </div>
+                         <div class="row">
+                             <div class="col-md-8">
+                                '.((! isset($_POST['editProfile']))? sProfile::Prompt($User,'Self') : sProfile::Prompt($User, 'Edit')).'
+                             </div>
+                             <div class="col-md-4">
+                                 '.(sActivity::Prompt($sessionAct)).'
+                                 <br />
+                                 '.(sRoles::Prompt($sessionUsr)).'
+                             </div>
+                         </div>
                      </div>';
         echo sFrame::Modal(array('path' => $urlPaths['Root'], 'content' => $modalBody));
-    }
-    else
-    {
+    } else {
         echo sRedirect::Home();
     }
 }

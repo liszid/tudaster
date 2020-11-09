@@ -24,7 +24,18 @@ class dbGroup_Member extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
-            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array('groupId', 'userId'),'vData' => $array))->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Insert'],
+                        'vNames' => array(
+                            'groupId',
+                            'userId'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -37,15 +48,29 @@ class dbGroup_Member extends Table implements iDatabase
         if (strcmp($type, 'All') === 0) {
             $tempArray = array();
         } elseif (strcmp($type, 'byGroupId') === 0) {
-            $tempArray = array('groupId');
+            $tempArray = array(
+                            'groupId'
+                        );
         } elseif (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array('userId');
+            $tempArray = array(
+                            'userId'
+                        );
         } else {
             return array();
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {
-            if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+            if (
+                (
+                    $tempVar = self::qRun(
+                        array(
+                            'query' => self::$classQueries['Select'][$type],
+                            'vNames' => $tempArray,
+                            'vData' => $array
+                        )
+                    )
+                )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
             } else {
                 return array();
@@ -60,15 +85,29 @@ class dbGroup_Member extends Table implements iDatabase
         $tempArray = array();
 
         if (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array('groupId', 'userId');
+            $tempArray = array(
+                            'groupId',
+                            'userId'
+                        );
         } elseif (strcmp($type, 'byGroupMemberId') === 0) {
-            $tempArray = array('groupId', 'groupMemberId');
+            $tempArray = array(
+                            'groupId',
+                            'groupMemberId'
+                        );
         } else {
             return false;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {
-            return (self::qRun(array('query' => self::$classQueries['Update'][$type], 'vNames' => $tempArray, 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Update'][$type],
+                        'vNames' => $tempArray,
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -77,7 +116,17 @@ class dbGroup_Member extends Table implements iDatabase
     public static function Delete(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (self::qRun(array('query' => self::$classQueries['Delete'], 'vNames' => array('groupMemberId'), 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Delete'],
+                        'vNames' => array(
+                            'groupMemberId'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }

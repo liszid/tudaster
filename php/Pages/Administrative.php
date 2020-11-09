@@ -2,12 +2,6 @@
 
 declare(strict_types=1);
 
-use Data\ {
-    dUser,
-    dGroup,
-    dGroup_Member
-};
-
 use PreLoad\ {
     Valid,
     Check,
@@ -25,7 +19,8 @@ if (
     isset($sessionUsr['userId'])
     && (
         (int)$sessionUsr['mngUsers'] > 0
-        && (int)$sessionUsr['mngGroups'] > 0
+        || (int)$sessionUsr['mngGroups'] > 0
+        || (int)$sessionUsr['mngMembers'] > 0
     )
 ) {
     $returnContent = '';

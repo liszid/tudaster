@@ -25,7 +25,19 @@ class dbUser extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
-            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array('nameUser', 'pWord', 'contEmail'),'vData' => $array))->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Insert'],
+                        'vNames' => array(
+                            'nameUser',
+                            'pWord',
+                            'contEmail'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -36,13 +48,22 @@ class dbUser extends Table implements iDatabase
         $tempArray = array();
 
         if (strcmp($type, 'byUserName') === 0) {
-            $tempArray = array('nameUser');
+            $tempArray = array(
+                            'nameUser'
+                        );
         } elseif (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array('userId');
+            $tempArray = array(
+                            'userId'
+                        );
         } elseif (strcmp($type, 'byContEmail') === 0) {
-            $tempArray = array('contEmail');
+            $tempArray = array(
+                            'contEmail'
+                        );
         } elseif (strcmp($type, 'Login') === 0) {
-            $tempArray = array('nameUser', 'pWord');
+            $tempArray = array(
+                            'nameUser',
+                            'pWord'
+                        );
         } elseif (strcmp($type, 'All') === 0) {
             $tempArray = array();
         } else {
@@ -50,7 +71,17 @@ class dbUser extends Table implements iDatabase
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Select'][$type])) {
-            if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+            if (
+                (
+                    $tempVar = self::qRun(
+                        array(
+                            'query' => self::$classQueries['Select'][$type],
+                            'vNames' => $tempArray,
+                            'vData' => $array
+                        )
+                    )
+                )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
             } else {
                 return array();
@@ -65,15 +96,32 @@ class dbUser extends Table implements iDatabase
         $tempArray = array();
 
         if (strcmp($type, 'Reset') === 0) {
-            $tempArray = array('userId');
+            $tempArray = array(
+                            'userId'
+                        );
         } elseif (strcmp($type, 'Profile') === 0) {
-            $tempArray = array('nameFirst', 'nameLast', 'thumbnail', 'contSite', 'contPhone', 'userId');
+            $tempArray = array(
+                            'nameFirst',
+                            'nameLast',
+                            'thumbnail',
+                            'contSite',
+                            'contPhone',
+                            'userId'
+                        );
         } else {
             return array();
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Update'][$type])) {
-            return (self::qRun(array('query' => self::$classQueries['Update'][$type], 'vNames' => $tempArray, 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Update'][$type],
+                        'vNames' => $tempArray,
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -82,7 +130,17 @@ class dbUser extends Table implements iDatabase
     public static function Delete(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (self::qRun(array('query' => self::$classQueries['Delete'], 'vNames' => array('userId'), 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Delete'],
+                        'vNames' => array(
+                            'userId'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }

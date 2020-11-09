@@ -31,7 +31,9 @@ class dbCombined extends Table implements iDatabase
 	$tempArray = array();
 
         if (strcmp($type, 'User_Full') === 0) {
-            $tempArray = array('userId');
+            $tempArray = array(
+                            'userId'
+                        );
         } elseif (strcmp($type, 'Member_Full') === 0) {
     	    $tempArray = array();
         } else {
@@ -39,7 +41,17 @@ class dbCombined extends Table implements iDatabase
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
-    	    if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+    	    if (
+                (
+                    $tempVar = self::qRun(
+                        array(
+                            'query' => self::$classQueries['Select'][$type],
+                            'vNames' => $tempArray,
+                            'vData' => $array
+                        )
+                    )
+                )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
     	    } else {
                 return array();

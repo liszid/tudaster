@@ -203,8 +203,8 @@ class sTranslate {
     	    'select_type' => 'state'
     	),
         'mngGroups' => array(
-    	    'color' => 'info',
-    	    'header' => 'Fejlesztés alatt álló funkció',
+    	    'color' => 'success',
+    	    'header' => 'Elérhet funkció',
     	    'respective' => 'Administrative/Groups',
     	    'short' => 'mU',
     	    'desc' => 'Felhasználók kezelése',
