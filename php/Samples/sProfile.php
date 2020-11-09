@@ -130,6 +130,7 @@ class sProfile
                     <form method="post" class="form-group col-12" autocomplete="on">
                         <div class="form-group col p-0">
                             <div class="col-12 row">
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userId', 'desc' => 'Id', 'value' => $array['userId'], 'type' => 'hidden'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameLast', 'desc' => 'Vezetéknév', 'value' => $array['nameLast'], 'type' => 'text'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameFirst', 'desc' => 'Keresztnév', 'value' => $array['nameFirst'], 'type' => 'text'), 'Input').'

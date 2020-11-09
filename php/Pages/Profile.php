@@ -4,62 +4,49 @@ declare(strict_types=1);
 
 use PreLoad\
 {
-    Valid,
+    Log,
     Check,
-    Log
+    Valid
 };
 
 use Data\
 {
-    dCombined,
-    dUser
+    dUser,
+    dCombined
 };
 
 use Samples\
 {
-    sActivity,
     sRoles,
+    sFrame,
+    sElement,
     sProfile,
     sRedirect,
-    sFrame,
+    sActivity,
     sTranslate
 };
 if (isset($sessionUsr['userId'])) {
-    if(isset($_POST["Save"]) && $sessionUsr['canEdit']) {
-        $collectiveArray = array(
-                               array(
-                                   'type'  =>  'Save',
-                                   'func'  =>  function(array $array): bool {$dUser = new dUser(); return $dUser::Update($array, 'Profile');},
-                                   'array'  =>  array(
-                                       'nameFirst' => $_POST['nameFirst'],
-                                       'nameLast' => $_POST['nameLast'],
-                                       'contPhone' => $_POST['contPhone'],
-                                       'contSite' => $_POST['contSite'],
-                                       'thumbnail' => $_POST['thumbnail'],
-                                       'userId' => $sessionUsr['userId']
-                                   ),
-                                   'desc'  =>  'Update'
-                               )
-                           );
-        foreach( $collectiveArray as $e ) {
-            if (isset($_POST[$e['type']]))
-            {
-                echo sRedirect::Sample(
-                    array(
-                        'bool'      =>  $e['func']($e['array']),
-                        'redirect'  =>  array(
-                            'icon'      =>  sTranslate::TRANSLATE['Profile']['fa'],
-                            'title'     =>  sTranslate::TRANSLATE['Profile']['title'],
-                            'desc'      =>  $e['desc'],
-                            'success'   =>  "Instance.initElmnt('x=Profile', 'modalDialog');",
-                            'fail'      =>  "Instance.initElmnt('x=Profile&editProfile=', 'modalDialog');"
-                        )
-                    )
-                );
-            }
+    $dUser = new dUser();
+    $dCombined = new dCombined();
+
+    if(isset($_POST["Save"]) && (int)$sessionUsr['canEdit'] > 0) {
+        $returnContent = '
+            <div class="text-center justification-centered">
+                <h4>'.sTranslate::ACTION['Fail']['content'].'</h4>
+                '.sElement::General(array('a' => 'Profile', 'reload' => true), 'Spinner').'
+            </div>';
+
+        if ($dUser::Update($_POST, 'Profile')) {
+            sActivity::Set(($dCombined->Select($sessionUsr,'User_Full'))[0]);
+            $returnContent = '
+                <div class="text-center justification-centered">
+                    <h4>'.sTranslate::ACTION['Success']['content'].'</h4>
+                    '.sElement::General(array('a' => 'Profile', 'reload' => true), 'Spinner').'
+                </div>';
         }
+
+        echo sFrame::Modal(array('path' => 'Profile', 'content' => $returnContent));
     } elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Profile')) {
-        $dCombined = new dCombined();
         $User = ($dCombined->Select($sessionUsr,'User_Full'))[0];
         $urlPaths = array(
                         'Root' => 'Profile'
@@ -68,7 +55,14 @@ if (isset($sessionUsr['userId'])) {
                      <div class="container bootstrap snippet">
                          <div class="row">
                              <div class="col-md-8">
-                                '.((! isset($_POST['editProfile']))? sProfile::Prompt($User,'Self') : sProfile::Prompt($User, 'Edit')).'
+                                '.(
+                                    (
+                                        isset($_POST['dp'])
+                                        && ! strcmp($_POST['dp'], 'editProfile')
+                                    )
+                                        ? sProfile::Prompt($User,'Edit')
+                                        : sProfile::Prompt($User, 'Self')
+                                ).'
                              </div>
                              <div class="col-md-4">
                                  '.(sActivity::Prompt($sessionAct)).'

@@ -37,7 +37,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                 return [
 //              "id starts w/", "post", "event id", ["array of items needed to send"], "send into", "special id"
                     ["usrLogin", "x=Login&Login=", "button", ["nameUser", "pWord"], "modalDialog"],
-                    ["usrEdit", "x=Profile&Save=", "button", ["nameFirst", "nameLast", "thumbnail", "contSite", "contPhone"], "modalDialog"],
+                    ["usrEdit", "x=Profile&Save=", "button", ["nameFirst", "nameLast", "thumbnail", "contSite", "contPhone", "userId"], "modalDialog"],
                     ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
                     ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"],
                     ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", ["groupName","groupDesc"], "modalDialog"],
@@ -150,7 +150,14 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                         history.pushState( loc,'', '/' + loc);
                     } else {
                         if(srcLmnt.hasAttribute('data-target')) {
-                            _self.initElmnt('x=' + loc + dataPost, 'modalDialog');
+                            if (dataPost !== '') {
+                            console.log('x=' + loc + '&dp='+ dataPost);
+                                _self.initElmnt('x=' + loc + '&dp='+ dataPost, 'modalDialog');
+                            } else {
+                            console.log('x=' + loc);
+                                _self.initElmnt('x=' + loc, 'modalDialog');
+                            }
+
                         } else {
                             _self.initElmnt('x=' + loc);
                             history.pushState( loc,'', '/' + loc);
