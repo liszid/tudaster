@@ -31,7 +31,7 @@ class General
             ! strcmp($inputType, 'select')
             && isset($array['select'])
         ) {
-            $input = '<select class="selectpicker" id="'.$inputId.'"'.(isset($array['fa'])?' data-icon-base="fa"' : '').'>';
+            $input = '<select class="custom-select" id="'.$inputId.'"'.(isset($array['fa'])?' data-icon-base="fa"' : '').'>';
             foreach ($array['select'] as $i) {
                 $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').''.(isset($array['fa'])?' data-icon="fa fa-'.$i['id'].'"' : '').'>'.$i['name'].'</option>';
             }

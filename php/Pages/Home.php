@@ -23,10 +23,10 @@ if (! isset($sessionUsr['userId']) ) {
 	    '.sCard::Fill($cardArray['hello']).'
 	</div>
 	<div class="card-columns m-3">
-	'.(((int)$sessionUsr['mngUsers'] > 0) ? sCard::Translated('mngUsers', 'Card') :'' ).'
-    '.(((int)$sessionUsr['mngGroups'] > 0) ? sCard::Translated('mngGroups', 'Card') :'' ).'
-    '.(((int)$sessionUsr['mngMembers'] > 0) ? sCard::Translated('mngMembers', 'Card') :'' ).'
-    '.(((int)$sessionUsr['mngTools'] > 0) ? sCard::Translated('mngTools', 'Card') :'' ).'
+	'.(((int)$sessionUsr['mngUsers'] > 0) ? sCard::Translated('mngUsers', 'Linked') :'' ).'
+    '.(((int)$sessionUsr['mngGroups'] > 0) ? sCard::Translated('mngGroups', 'Linked') :'' ).'
+    '.(((int)$sessionUsr['mngMembers'] > 0) ? sCard::Translated('mngMembers', 'Linked') :'' ).'
+    '.(((int)$sessionUsr['mngTools'] > 0) ? sCard::Translated('mngTools', 'Linked') :'' ).'
 	'.sCard::Blank($cardArray['Profile']).'
 	'.(((int)$sessionUsr['canEdit'] > 0) ? sCard::Translated('canEdit', 'Card') :'' ).'
 	'.(((int)$sessionUsr['canUsers'] > 0) ? sCard::Translated('canUsers', 'Linked') :'' ).'

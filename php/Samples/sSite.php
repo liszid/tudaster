@@ -83,7 +83,7 @@ class sSite
     private static function Navbar(): string
     {
         return '
-            <nav id="mainNavBar" class="navbar navbar-expand-lg bg-info navbar-dark">
+            <nav id="mainNavBar" class="navbar navbar-expand-lg bg-info navbar-dark fixed-top">
                 <a class="navbar-brand" data-link="Home">Tudástér</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -296,7 +296,7 @@ class sSite
                             '.self::Navbar().'
                         <!-- NAVBAR END -->
                     </div>
-                    <div id="body" style="min-height:75vh; margin-bottom:5.5rem"></div>
+                    <div id="body" style="min-height:75vh; margin-bottom:5.5rem" class="mt-5"></div>
                     <div id="modalBox" class="modal fade" role="dialog">
                         <div class="modal-dialog" id="modalDialog"></div>
                     </div>
