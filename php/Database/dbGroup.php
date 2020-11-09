@@ -88,6 +88,7 @@ class dbGroup extends Table implements iDatabase
                             'mngGroups',
                             'mngUsers',
                             'mngMembers',
+                            'mngTools',
                             'canUsers',
                             'canCompany',
                             'canKnowledge',

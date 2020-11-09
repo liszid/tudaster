@@ -48,6 +48,7 @@ class sTables {
             "mngGroups" => "mG",
             "mngUsers" => "mU",
             "mngMembers" => "mM",
+            "mngTools" => "mT",
             "canUsers" => "cUs",
             "canCompany" => "cC",
             "canKnowledge" => "cK",

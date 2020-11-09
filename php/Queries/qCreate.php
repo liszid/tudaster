@@ -30,6 +30,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             mngGroups INT(1) DEFAULT 0,
             mngUsers INT(1) DEFAULT 0,
             mngMembers INT(1) DEFAULT 0,
+            mngTools INT(1) DEFAULT 0,
             canUsers INT(1) DEFAULT 0,
             canCompany INT(1) DEFAULT 0,
             canKnowledge INT(1) DEFAULT 0,

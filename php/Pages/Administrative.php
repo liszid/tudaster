@@ -26,12 +26,12 @@ if (
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root"      => "Administrative",
-                    "Users"     => "Administrative/Users",
-                    "Groups"    => "Administrative/Groups",
-                    "Membership"=> "Administrative/Membership"
+                    "Root"      => array("path" => "Administrative"),
+                    "Users"     => array("path" => "Administrative/Users", "role" => "mngUsers"),
+                    "Groups"    => array("path" => "Administrative/Groups", "role" => "mngGroups"),
+                    "Membership"=> array("path" => "Administrative/Membership", "role" => "mngMembers"),
+                    "Tools"     => array("path" => "Administrative/Tools", "role" => "mngTools")
                 );
-
 /*
  * Post action handling and form prompt section
  */
@@ -45,7 +45,7 @@ if (
             $returnContent = sAdministrative::Action($_POST);
         }
 
-        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')], 'content' => $returnContent)) : sRedirect::Home());
+        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent)) : sRedirect::Home());
 /*
  * Page loading section
  */
@@ -54,17 +54,20 @@ if (
 
         switch ($postUrl) {
             case 'Users':
-                $returnContent .= sAdministrative::Users(array('path' => $urlPaths[$postUrl]));
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Users(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
             case 'Groups':
-                $returnContent .= sAdministrative::Groups(array('path' => $urlPaths[$postUrl]));
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Groups(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
             case 'Membership':
-                $returnContent .= sAdministrative::Membership(array('path' => $urlPaths[$postUrl]));
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Membership(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+            case 'Tools':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Tools(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
         }
 
-        echo ((Valid::vString($returnContent))? sFrame::Page(array('path' => $urlPaths[$postUrl], 'content' => $returnContent)) : sRedirect::Home);
+        echo ((Valid::vString($returnContent))? sFrame::Page(array('path' => $urlPaths[$postUrl]['path'], 'content' => $returnContent)) : sRedirect::Home());
 /*
  * Collective page with Cards
  */
@@ -73,13 +76,15 @@ if (
 
         foreach ($urlPaths as $key => $value) {
             if (strcmp(array_key_first($urlPaths), $key)) {
-                $returnContent .= sCard::Translated($value, 'Linked');
+                if (isset($value['role']) && (int)$sessionUsr[$value['role']] > 0) {
+                    $returnContent .= sCard::Translated($value['path'], 'Linked');
+                }
             }
         }
 
         $returnContent .= '</div>';
 
-        echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => $returnContent));
+        echo sFrame::Page(array('path' => $urlPaths['Root']['path'], 'content' => $returnContent));
     }
 
 } else {

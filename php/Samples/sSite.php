@@ -133,7 +133,8 @@ class sSite
                     'dataItems' => array(
                         'Users',
                         'Groups',
-                        'Membership'
+                        'Membership',
+                        'Tools'
                     ),
                     'Desc' => sTranslate::Prompt($navName)
                 );
@@ -242,7 +243,7 @@ class sSite
                     'aClass' => '',
                     'faClass' => sTranslate::Prompt($navName, 'fa'),
                     'dataToggle' => true,
-                    'dataLink' => $temp,
+                    'dataLink' => $navName,
                     'Desc' => sTranslate::Prompt($navName)
                 )
             );
@@ -254,7 +255,7 @@ class sSite
                     'aClass' => '',
                     'faClass' => sTranslate::Prompt($navName, 'fa'),
                     'dataToggle' => true,
-                    'dataLink' => $temp,
+                    'dataLink' => $navName,
                     'Desc' => sTranslate::Prompt($navName)
                 )
             );

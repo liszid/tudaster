@@ -121,7 +121,6 @@ class sAdministrative {
         $returnString = '';
         $Users = self::$dUser->Select(array(), 'All');
         if (isset($array['path'])) {
-//            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
@@ -141,7 +140,6 @@ class sAdministrative {
         $returnString = '';
         $Groups = self::$dGroup->Select(array(), 'All');
         if (Valid::vString($array['path'])) {
-//            $returnString .= sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add');
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');
@@ -164,6 +162,24 @@ class sAdministrative {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Members, 'Admin_Members');
+        return $returnString;
+    }
+
+/*
+ * Used at Administrative Page to display Tools section
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.10.30
+ */
+    public static function Tools(array $array = array()): string
+    {
+        $returnString = '';
+
+        if (Valid::vString($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
         return $returnString;
     }
 }

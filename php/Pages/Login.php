@@ -52,7 +52,7 @@ if ( ! Valid::vArray($sessionUsr) ) {
             }
         }
         echo sFrame::Modal(array('path' => $urlPaths['Root'], 'content' => $returnContent));
-    } elseif (isset($_POST['x']) && $_POST['x'] === 'Login') {
+    } elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Login')) {
         $modalBody = '
             <form class="needs-validation" novalidate autocomplete="on">
                     <div class="form-group col-12 p-1">

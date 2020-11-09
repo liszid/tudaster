@@ -60,6 +60,7 @@ interface TRANSLATE
                     <b>mG</b> - Csoportok kezelése <br />
                     <b>mU</b> - Felhasználók kezelése <br />
                     <b>mM</b> - Csoport tagságok szerkesztése<br />
+                    <b>mT</b> - Adminisztratív eszközök kezelése<br />
                     <b>cUs</b> - Regisztráltak megtekintése  <br />
                     <b>cC</b> - Cégek jogosultság <br />
                     <b>cK</b> - Tudáscikkek jogosultság <br />
@@ -100,7 +101,7 @@ interface TRANSLATE
                 'title' => '',
                 'text' => '
                     <b>Csoport tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
-                )
+            )
     	),
     	"Administrative/Membership/Edit" => array(
             "navbar" => "Tagság szerkesztése",
@@ -116,6 +117,19 @@ interface TRANSLATE
             "help" => "",
             "card" => ""
         ),
+    	"Administrative/Tools" => array(
+    	    "navbar" => "Eszközök",
+    	    "fa" => "wrench",
+    	    "title" => "Segéd eszközök",
+    	    "help" => "",
+            "card" => "Adminisztratív segéd eszközökért kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'title' => '',
+                'text' => ''
+            )
+    	),
     	"Users" => array(
     	    "navbar" => "Felhasználók",
             "fa" => "user",

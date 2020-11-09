@@ -31,6 +31,14 @@ interface ROLE
     	    'desc' => 'Csoport tagságok szerkesztése',
     	    'select_type' => 'state'
     	),
+    	'mngTools' => array(
+    	    'color' => 'info',
+    	    'header' => 'Fejlesztés alatti funkció',
+    	    'respective' => 'Administrative/Tools',
+    	    'short' => 'mT',
+    	    'desc' => 'Adminisztratív eszközök kezelése',
+    	    'select_type' => 'state'
+    	),
         'canEdit' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',

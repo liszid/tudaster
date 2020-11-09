@@ -41,7 +41,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
                     ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"],
                     ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", ["groupName","groupDesc"], "modalDialog"],
-                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", ["mngGroups","mngUsers","mngMembers","canUsers","canCompany","canKnowledge","canUsername","canPassword","canHardware","canSoftware","canEdit","canLogin","groupId"], "modalDialog"],
+                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", ["mngGroups","mngUsers","mngMembers","mngTools","canUsers","canCompany","canKnowledge","canUsername","canPassword","canHardware","canSoftware","canEdit","canLogin","groupId"], "modalDialog"],
                     ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", ["groupMemberId","groupId"], "modalDialog"]
                 ];
             }
@@ -151,10 +151,8 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     } else {
                         if(srcLmnt.hasAttribute('data-target')) {
                             if (dataPost !== '') {
-                            console.log('x=' + loc + '&dp='+ dataPost);
                                 _self.initElmnt('x=' + loc + '&dp='+ dataPost, 'modalDialog');
                             } else {
-                            console.log('x=' + loc);
                                 _self.initElmnt('x=' + loc, 'modalDialog');
                             }
 

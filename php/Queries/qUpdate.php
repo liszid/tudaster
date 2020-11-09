@@ -22,6 +22,7 @@ $GLOBALS['Database']['1']['Update'] = "
         mngGroups=:mngGroups
         ,mngUsers=:mngUsers
         ,mngMembers=:mngMembers
+        ,mngTools=:mngTools
         ,canUsers=:canUsers
         ,canCompany=:canCompany
         ,canKnowledge=:canKnowledge

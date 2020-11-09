@@ -45,11 +45,11 @@ $GLOBALS['Database']['Table']['Insert'][0] = "
         ('admin', '2bd96d900954217a5e04993a74737d8d', 'user-md', 'Admin', 'Ksys', 'teszt@kruppsystem.hu', '0036301234567', 'Törökbálint', 0);";
 
 $GLOBALS['Database']['Table']['Insert'][1] = "
-    INSERT INTO `Group`(groupName, groupDesc, mngGroups, mngUsers, mngMembers, canUsers, canCompany, canKnowledge, canUsername, canPassword, canHardware, canSoftware, canEdit, canLogin, isDelete)
+    INSERT INTO `Group`(groupName, groupDesc, mngGroups, mngUsers, mngMembers, mngTools, canUsers, canCompany, canKnowledge, canUsername, canPassword, canHardware, canSoftware, canEdit, canLogin, isDelete)
     VALUES
-        ('Administrator',	'Super Users on site',		1, 1, 1, 1, 7, 7, 7, 7, 7, 7, 1, 1, 0),
-        ('Default', 		'Default users after creation', 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
-        ('Deleted',         'Group of Deleted users', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
+        ('Administrator',	'Super Users on site',		1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 7, 1, 1, 0),
+        ('Default', 		'Default users after creation', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+        ('Deleted',         'Group of Deleted users', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
 
 $GLOBALS['Database']['Table']['Insert'][2] = "
     INSERT INTO `Group_Member`(userId, groupId)
