@@ -62,9 +62,6 @@ class Groups extends \Samples\sAdministrative
     public static function Edit(array $array = array()): string
     {
         self::setDGroup();
-
-// sTranslate::ROLE[roleName][short|desc]
-
         if (! isset($array['Save'])) {
             $Group = self::$dGroup->Select(array('groupId' => (int)$array['dp']), 'byGroupId')[0];
             return '

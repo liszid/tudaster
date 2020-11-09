@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Samples;
 
-class sProfile
+class sProfile implements sProfile\ICONS
 {
 /*
  * Collective function for Profile display
@@ -115,6 +115,7 @@ class sProfile
  * @author Liszi Dániel
  * @since 2020.10.30
  */
+//'.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text'), 'Input').'
     private static function Edit(array $array = array()):string
     {
         return '
@@ -131,7 +132,7 @@ class sProfile
                         <div class="form-group col p-0">
                             <div class="col-12 row">
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userId', 'desc' => 'Id', 'value' => $array['userId'], 'type' => 'hidden'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'select' => self::ICONS, 'fa'=> true, 'type' => 'select'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameLast', 'desc' => 'Vezetéknév', 'value' => $array['nameLast'], 'type' => 'text'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameFirst', 'desc' => 'Keresztnév', 'value' => $array['nameFirst'], 'type' => 'text'), 'Input').'
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'contPhone', 'desc' => 'Telefon', 'value' => $array['contPhone'], 'type' => 'text'), 'Input').'

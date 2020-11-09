@@ -68,6 +68,7 @@ const iAjax = (iAjax = Object) => class extends iAjax
                     this.evntForm(z.getElementsByTagName('input'));
                     this.evntForm(z.getElementsByTagName('button'));
                     this.evntHrefs(z.getElementsByTagName('a'));
+                    $('.selectpicker').selectpicker();
                 }
             } else {
                 let modalD = document.getElementById("modalDialog");

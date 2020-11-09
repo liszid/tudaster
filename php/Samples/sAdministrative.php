@@ -120,9 +120,11 @@ class sAdministrative {
         self::setDUser();
         $returnString = '';
         $Users = self::$dUser->Select(array(), 'All');
+
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
+
         $returnString .= sTables::Prompt($Users, 'Admin_Users');
         return $returnString;
     }
@@ -139,9 +141,11 @@ class sAdministrative {
         self::setDGroup();
         $returnString = '';
         $Groups = self::$dGroup->Select(array(), 'All');
+
         if (Valid::vString($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
+
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');
         return $returnString;
     }

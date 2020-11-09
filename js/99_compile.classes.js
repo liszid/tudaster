@@ -6,9 +6,9 @@ class Compile extends iAjax(iAjaxEvnts())
 {
     constructor()
     {
-	super();
-	this.evntHrefs();
-	this.loadContent();
+        super();
+        this.evntHrefs();
+        this.loadContent();
     }
 }
 
