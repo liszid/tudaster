@@ -10,8 +10,12 @@ use PreLoad\{
     Log
 };
 
-class sTranslate implements sTranslate\ACTION, sTranslate\ROLE, sTranslate\ROLE_SELECT, sTranslate\TRANSLATE{
-
+class sTranslate implements
+    sTranslate\ACTION,
+    sTranslate\ROLE,
+    sTranslate\ROLE_SELECT,
+    sTranslate\TRANSLATE
+{
 /*
  * Prompts respective name from array[type]
  * @param $string string
