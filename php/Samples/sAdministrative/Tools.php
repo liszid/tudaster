@@ -15,6 +15,8 @@ use Samples\{
     sElement
 };
 
+use Database\Table;
+
 class Tools extends \Samples\sAdministrative
 {
     public static function Delete(array $array = array())
@@ -29,9 +31,17 @@ class Tools extends \Samples\sAdministrative
             unset($_SESSION);
         }
 
-        Log::Export($_SESSION);
+        if (! isset($_SESSION)) {
+            $Table = new Table();
+
+            if (!isset($_SESSION['Database'])) {
+                if ( $Table::initTable() === true) {
+                    $_SESSION['Database'] = true;
+                }
+            }
+        }
 
         return
-            '<h4>'.$returnContent.'</h4>'.sElement::General(array('x' => 'Home'), 'Spinner');
+            '<h4>'.$returnContent.'</h4>'.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner');
     }
 }

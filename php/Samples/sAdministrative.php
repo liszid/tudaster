@@ -196,7 +196,23 @@ class sAdministrative {
         $returnString = '';
         if (Valid::vString($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-            $returnString .= sElement::General(array('color' => 'danger', 'fa' => 'trash', 'text' => ' Adatbázis törlése', 'path' => $array['path'].'/Delete', 'dp' => 'Database'),'Button');
+            $returnString .=
+            sCard::Blank(
+                array(
+                    'color' => 'secondary',
+                    'bool' => true,
+                    'button' => sElement::General(
+                        array(
+                            'color' => 'danger',
+                            'fa' => 'trash',
+                            'text' => ' Adatbázis törlése',
+                            'path' => $array['path'].'/Delete',
+                            'dp' => 'Database'
+                        ),
+                        'Button'
+                    )
+                )
+            );
         }
 
         return $returnString;

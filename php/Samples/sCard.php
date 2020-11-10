@@ -103,12 +103,17 @@ class sCard
  */
     public static function Blank(array $array = array()): string
     {
+        $cardHeader = ((isset($array['header']) && Valid::vString($array['header']))?'<div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>':'');
+        $cardTitle = ((isset($array['title']) && Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'');
+        $cardText = ((isset($array['text']) && Valid::vString($array['text']))?'<p class="card-text">'.$array['text'].'</p>':'');
+        $cardButton = ((isset($array['button']) && Valid::vString($array['button']))?'<center>'.$array['button'].'</center>':'');
         return '
             <div class="card border-'.$array['color'].''.((isset($array['class']))?' '.$array['class']:'').'" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
-                <div class="card-header bg-'.$array['color'].' text-white border-'.$array['color'].'">'.$array['header'].'</div>
+                '.$cardHeader.'
                 <div class="card-body text-'.$array['color'].'">
-                '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
-                <p class="card-text">'.$array['text'].'</p>
+                '.$cardTitle.'
+                '.$cardText.'
+                '.$cardButton.'
                 </div>
             </div>
         ';
@@ -123,12 +128,18 @@ class sCard
  */
     public static function Fill(array $array = array()): string
     {
+        $cardHeader = ((isset($array['header']) && Valid::vString($array['header']))?'<div class="card-header">'.$array['header'].'</div>':'');
+        $cardTitle = ((isset($array['title']) && Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'');
+        $cardText = ((isset($array['text']) && Valid::vString($array['text']))?'<p class="card-text">'.$array['text'].'</p>':'');
+        $cardButton = ((isset($array['button']) && Valid::vString($array['button']))?$array['button']:'');
+
         return '
             <div class="card text-white bg-'.$array['color'].' m-2" '.((isset($array['bool']))?'style="max-width: 18rem;"': '').'>
-                <div class="card-header">'.$array['header'].'</div>
+                '.$cardHeader.'
                 <div class="card-body">
-                '.((Valid::vString($array['title']))?'<h5 class="card-title">'.$array['title'].'</h5>':'').'
-                <p class="card-text">'.$array['text'].'</p>
+                '.$cardTitle.'
+                '.$cardText.'
+                '.$cardButton.'
                 </div>
             </div>
         ';
