@@ -9,19 +9,71 @@ use PreLoad\{
 };
 
 use Samples\{
+    sCard,
+    sFrame,
     sRedirect,
-    sFrame
+    sCompany
 };
 
 if (
     isset($sessionUsr['userId'])
     && (int)$sessionUsr['canCompany'] > 0
 ) {
-    $urlPaths = array(
-        "Root" => "Company"
-    );
 
-    echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => ''));
+    $returnContent = '';
+
+    $urlPaths = array(
+                    "Root"      => array("path" => "Company", "role" => "canCompany"),
+                    "Company"     => array("path" => "Company/Company", "role" => "canCompany"),
+                    "Sites"     => array("path" => "Company/Sites", "role" => "canCompany")
+                );
+/*
+ * Post action handling and form prompt section
+ */
+    if (isset($_POST['y']) && isset($_POST['z'])) {
+        $returnArray = array();
+/*
+        if(
+            Valid::vString(Check::isPost('y'))
+            && Valid::vString(Check::isPost('z'))
+        ) {
+            $returnContent = sCompany::Action($_POST);
+        }
+*/
+        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent)) : sRedirect::Home());
+/*
+ * Page loading section
+ */
+    } elseif (isset($_POST['y']) || isset($_POST['b'])) {
+        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Company'));
+
+        switch ($postUrl) {
+            case 'Company':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sCompany::Company(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+            case 'Sites':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sCompany::Sites(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+        }
+        echo ((Valid::vString($returnContent))? sFrame::Page(array('path' => $urlPaths[$postUrl]['path'], 'content' => $returnContent)) : sRedirect::Home());
+/*
+ * Collective page with Cards
+ */
+    } else {
+        $returnContent .= '<div class="card-deck d-flex justify-content-center">';
+
+        foreach ($urlPaths as $key => $value) {
+            if (strcmp(array_key_first($urlPaths), $key)) {
+                if (isset($value['role']) && (int)$sessionUsr[$value['role']] > 0) {
+                    $returnContent .= sCard::Translated($value['path'], 'Linked');
+                }
+            }
+        }
+
+        $returnContent .= '</div>';
+
+        echo sFrame::Page(array('path' => $urlPaths['Root']['path'], 'content' => $returnContent));
+    }
 
 } else {
     echo sRedirect::Home();

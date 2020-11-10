@@ -197,11 +197,15 @@ class sSite
             if ((int)self::$sessionUsr['canCompany'] > 0) {
                 $navName = "Company";
                 $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
+                    'liClass' => ' dropdown',
+                    'aClass' => ' dropdown-toggle',
                     'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
+                    'dataToggle' => 'dropdown',
                     'dataLink' => $navName,
+                    'dataItems' => array(
+                        'Company',
+                        'Sites'
+                    ),
                     'Desc' => sTranslate::Prompt($navName)
                 );
             }

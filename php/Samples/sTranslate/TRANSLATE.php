@@ -176,8 +176,22 @@ interface TRANSLATE
     	    "navbar" => "Cégek",
     	    "fa" => "building-o",
     	    "title" => "Cég adatok",
+    	    "help" => "Cégekkel kapcsolatos adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
+            "card" => "Cégekkel kapcsolatos adatok megtekintéséhez kattintson a kártyára"
+    	),
+    	"Company/Company" => array(
+    	    "navbar" => "Cég",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok",
     	    "help" => "Céges adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
             "card" => "Céges adatok megtekintéséhez kattintson a kártyára"
+    	),
+    	"Company/Sites" => array(
+    	    "navbar" => "Telephely",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok",
+    	    "help" => "Céges telephely adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
+            "card" => "Céges telephely adatok megtekintéséhez kattintson a kártyára"
     	),
     	"Login" => array(
     	    "navbar" => "Bejelentkezés",
