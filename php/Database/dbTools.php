@@ -10,9 +10,9 @@ use PreLoad\{
     Check
 };
 
-class dbCompany extends Table implements iDatabase
+class dbTools extends Table implements iDatabase
 {
-    const CLASS_ID = 3;
+    const CLASS_ID = 98;
 
     private static $classQueries = array();
 
@@ -62,10 +62,18 @@ class dbCompany extends Table implements iDatabase
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (self::qRun(array('query' => self::$classQueries['Delete'], 'vNames' => array(), 'vData' => $array) )->rowCount() > 0);
+        $tempArray = array();
+
+        if (strcmp($type, 'Database') === 0) {
+            $tempArray = array();
         } else {
             return false;
+        }
+
+        if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Delete'][$type])) {
+    	    return (self::qRun(array('query' => self::$classQueries['Delete'][$type], 'vNames' => $tempArray,'vData' => $array))->rowCount() > 0);
+        } else {
+    	    return false;
         }
     }
 

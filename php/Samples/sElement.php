@@ -32,6 +32,9 @@ class sElement
             case 'Input':
                 return sElement\General::Input($array);
                 break;
+            case 'Button':
+                return sElement\General::Button($array);
+                break;
         }
     }
 

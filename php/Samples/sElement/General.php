@@ -39,7 +39,11 @@ class General
         } else {
             $input = '
                 <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">
-                '.((! strcmp($inputType, 'hidden'))? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>':'');
+                '.(
+                    (! strcmp($inputType, 'hidden'))
+                        ? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>'
+                        :''
+                );
         }
 
         return '
@@ -111,6 +115,27 @@ class General
                     <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
                         <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
                         <span><b>Új hozzáadása</b></span>
+                    </a>
+                </div>';
+        } else {
+            return '';
+        }
+    }
+/*
+ * Used to generate "Add New" button
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    public static function Button(array $array): string
+    {
+        if (isset($array['path'])) {
+            return '
+                <div class="ml-auto">
+                    <a class="btn btn-'.$array['color'].'" role="button" data-link="'.$array['path'].'" data-post="'.$array['dp'].'" data-toggle="modal" data-target="#modalBox">
+                        <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
+                        <span>'.$array['text'].'</span>
                     </a>
                 </div>';
         } else {

@@ -30,11 +30,7 @@ class Queries extends Database
             0 => 'User',
             1 => 'Group',
             2 => 'Group_Member',
-            3 => 'Company',
-            4 => 'Company_Site',
-//            5 => 'Company_Position',
-//            6 => 'Company_Worker',
-            7 => 'Company_Site_Department',
+            98 => 'Tools',
             99 => 'Combined'
         );
         return true;

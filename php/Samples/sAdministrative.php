@@ -13,7 +13,8 @@ use Data\{
     dUser,
     dGroup,
     dGroup_Member,
-    dCombined
+    dCombined,
+    dTools
 };
 
 class sAdministrative {
@@ -21,6 +22,7 @@ class sAdministrative {
     protected static $dGroup;
     protected static $dGroup_Member;
     protected static $dCombined;
+    protected static $dTools;
 
 /*
  * Sets the class variable : dUser
@@ -63,6 +65,16 @@ class sAdministrative {
     }
 
 /*
+ * Sets the class variable : dTools
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDTools()
+    {
+        self::$dTools = new dTools();
+    }
+
+/*
  * Used at Administrative Page for interactions
  * @param $array array
  * @return string
@@ -83,6 +95,9 @@ class sAdministrative {
                 break;
             case 'Membership':
                 $wclass = new sAdministrative\Membership;
+                break;
+            case 'Tools':
+                $wclass = new sAdministrative\Tools;
                 break;
         }
 
@@ -180,8 +195,8 @@ class sAdministrative {
     {
         $returnString = '';
         if (Valid::vString($array['path'])) {
-
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+            $returnString .= sElement::General(array('color' => 'danger', 'fa' => 'trash', 'text' => ' Adatbázis törlése', 'path' => $array['path'].'/Delete', 'dp' => 'Database'),'Button');
         }
 
         return $returnString;

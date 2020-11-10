@@ -4,39 +4,39 @@ declare(strict_types=1);
 
 namespace Data;
 
-use Database\dbCompany;
+use Database\dbTools;
 
-class dCompany implements iData
+class dTools implements iData
 {
-    private static $dbCompany;
+    private static $dbTools;
 
     public function __construct()
     {
-        self::$dbCompany = new dbCompany();
+        self::$dbTools = new dbTools();
     }
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbCompany->Insert($array);
+        return self::$dbTools->Insert($array);
     }
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-        return self::$dbCompany->Select($array, $type);
+        return self::$dbTools->Select($array, $type);
     }
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbCompany->Update($array, $type);
+        return self::$dbTools->Update($array, $type);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbCompany->Delete($array, $type);
+        return self::$dbTools->Delete($array, $type);
     }
 
     public static function Check( ): bool
     {
-        return (self::$dbCompany->Check());
+        return (self::$dbTools->Check());
     }
 }
