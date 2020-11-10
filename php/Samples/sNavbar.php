@@ -35,7 +35,7 @@ class sNavbar
 
         return '
             <li class="nav-item'.$array['liClass'].'">
-                <a class="nav-link'.$array['aClass'].'" id="nav-'.$array['dataLink'].'" '.$dataToggle.'>
+                <a class="nav-link hideOnSmall'.$array['aClass'].'" id="nav-'.$array['dataLink'].'" '.$dataToggle.'>
                     <i class="fa fa-fw fa-'.$array['faClass'].'"></i>
                     <span class="hideThis">'.$array['Desc'].'</span>
                 </a>'.$dataItems .'
