@@ -65,6 +65,7 @@ class dbTools extends Table implements iDatabase
         $tempArray = array();
 
         if (strcmp($type, 'Database') === 0) {
+            self::setConnection();
             $tempArray = array();
         } else {
             return false;

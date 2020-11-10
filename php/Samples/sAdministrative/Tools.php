@@ -10,6 +10,11 @@ use PreLoad\{
     Log
 };
 
+use Samples\{
+    sTranslate,
+    sElement
+};
+
 class Tools extends \Samples\sAdministrative
 {
     public static function Delete(array $array = array())
@@ -23,6 +28,8 @@ class Tools extends \Samples\sAdministrative
         if ($bool) {
             unset($_SESSION);
         }
+
+        Log::Export($_SESSION);
 
         return
             '<h4>'.$returnContent.'</h4>'.sElement::General(array('x' => 'Home'), 'Spinner');
