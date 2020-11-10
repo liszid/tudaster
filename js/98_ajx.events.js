@@ -55,6 +55,11 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         });
     }
 
+/*
+ * Sets DataTables
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     evntDataTable()
     {
         let _self = this;
@@ -107,6 +112,14 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Finds the original element recursively
+ * @param srcTag object
+ * @param srcTagName string
+ * @return on success object, on fail false
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     findSource(srcTag, srcTagName)
     {
         if (srcTag.tagName.toLowerCase() !== 'body') {
@@ -120,6 +133,12 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Sets A::HREF events on all A tags
+ * @param srcTag object
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     evntHrefs(srcTag = this.tagA)
     {
         let _self = this;
@@ -134,12 +153,14 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     _self.enlargenModal(loc);
                     let tempLocation = loc.split("/");
                     let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
-
+/*
+ * Bootstrap Navbar collapse on mobile view
+ *
                     $('a').on('click', function()
                     {
                         $('.navbar-collapse').collapse('hide');
                     });
-
+ */
                     if (tempLocation.length > 1) {
                         let canonicLocation = 'x=' + tempLocation[0] + '&y=' + tempLocation[1] + ((tempLocation[2] !== undefined)? '&z=' + tempLocation[2] : '');
                         if (dataPost !== '') {
@@ -171,6 +192,12 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Sets events on Form elements
+ * @param tag object
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     evntForm (tag)
     {
         let _self = this;
@@ -206,7 +233,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                         if (! Array.isArray(_self.arrayObject[i][3][k])) {
                                             returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=" + document.getElementById(_self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k]).value);
                                         } else {
-//  This part is for checkboxes, each value is seperated by semi-colon
                                             let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k][0]+'"]');
                                             returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=");
                                             for (let l = 0; l < innerArray.length; l++) {
@@ -247,20 +273,15 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Loads content from either canonical or get format
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     loadContent()
     {
         var urlParams = new URLSearchParams(window.location.search);
         let param = "";
-
-        for (let i = 0; i < this.paramGet.length; i++) {
-            if (urlParams.has(this.paramGet[i]) === true && urlParams.get(this.paramGet[i]) !== '') {
-                if(i !== (this.paramGet.length - 1)) {
-                    param += this.paramGet[i] + "=" + urlParams.get(this.paramGet[i]) + "&";
-                } else {
-                    param += this.paramGet[i] + "=" + urlParams.get(this.paramGet[i]);
-                }
-            }
-        }
 
         if (param !== "") {
             if(urlParams.has("p") === true && this.modalPagesForGet.includes(urlParams.get("p"))) {
@@ -293,6 +314,12 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Enlarges specific modals
+ * @param lmnt string
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     enlargenModal(lmnt)
     {
         if (this.enlargeModal.indexOf(lmnt) > -1 && ( ! this.checkTag("errormessage") && ! this.checkTag("modalmessage"))) {
@@ -306,6 +333,13 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
+/*
+ * Checks if element by tagname exists
+ * @param tagname string
+ * @return bool
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     checkTag(tagname)
     {
         return (!document.getElementsByTagName(tagname))? true : false;

@@ -5,56 +5,49 @@ const iAjax = (iAjax = Object) => class extends iAjax
         super();
         Object.defineProperty( this, 'tagA',
         {
-            get( )
-            {
+            get( ) {
                 return document.getElementsByTagName("a");
             }
         } );
         Object.defineProperty( this, 'stringInnerContent',
         {
-            get( )
-            {
+            get( ) {
                 return this._stringInnerContent;
             },
-            set(arg)
-            {
+            set(arg) {
                 this._stringInnerContent = arg;
             }
         } );
         Object.defineProperty( this, 'errorSite',
         {
-            get( )
-            {
+            get( ) {
                 return "404.html";
             }
         } );
-        Object.defineProperty( this, 'paramGet',
-        {
-            get( )
-            {
-                return ['p', 's', 't'];
-            }
-        });
         Object.defineProperty( this, 'ajaxFile',
         {
-            get( )
-            {
+            get( ) {
                 return location.protocol + '//' + location.host+"/__noLoad/ajax.php";
             }
         });
         Object.defineProperty( this, 'ajaxInterval',
         {
-            get( )
-            {
+            get( ) {
                 return this._ajaxInterval;
             },
-            set(arg)
-            {
+            set(arg) {
                 this._ajaxInterval = arg;
             }
         });
     }
 
+/*
+ * Sets the inner HTML of ajax call
+ * @param xhttp object
+ * @param id string
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     setInnerHTML(xhttp, id = "body")
     {
         var temp, z = document.getElementById(id);
@@ -64,6 +57,7 @@ const iAjax = (iAjax = Object) => class extends iAjax
                 if (window.stringInnerContent !== temp) {
                     window.stringInnerContent = temp;
                     z.innerHTML = window.stringInnerContent;
+                    $('.navbar-collapse').collapse('hide');
                     this.evntDataTable();
                     this.evntForm(z.getElementsByTagName('input'));
                     this.evntForm(z.getElementsByTagName('button'));
@@ -82,6 +76,15 @@ const iAjax = (iAjax = Object) => class extends iAjax
         }
     }
 
+/*
+ * Initiates Ajax query
+ * @param param string
+ * @param id string
+ * @param type string
+ * @return bool
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     ajaxCall(param, id, type){
         var xhttp = new XMLHttpRequest(), _self = this;
         xhttp.onreadystatechange = function()
@@ -99,21 +102,28 @@ const iAjax = (iAjax = Object) => class extends iAjax
         return false;
     }
 
+/*
+ * Ajax call goes through this
+ * @param param string
+ * @param id string
+ * @param type string
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     initElmnt(param = "x=Home", id = "body", type = "POST")
     {
         var _self = this;
 
         _self.ajaxCall(param, id, type);
-/*
-        if (id !== "modalDialog") {
-            clearInterval(_self.ajaxInterval);
-            _self.ajaxInterval = setInterval(function(){
-                _self.ajaxCall(param, id, type);
-            }, 60000);
-        }
-*/
     }
 
+/*
+ * Checks if file exists
+ * @param url string
+ * @return bool
+ * @author Liszi Dániel
+ * @since 2020.11.10
+ */
     funcFileExists(url)
     {
         let xhttp = new XMLHttpRequest();
@@ -123,9 +133,9 @@ const iAjax = (iAjax = Object) => class extends iAjax
     }
 
 
-    /**
-     * MD5 String generator source
-     */
+/**
+ * MD5 String generator source
+ */
 
     MD5 (string)
     {
