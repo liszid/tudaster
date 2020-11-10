@@ -70,13 +70,12 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     if(! $.fn.dataTable.isDataTable( 'table' )) {
                         $('[data-toggle="tooltip"]').tooltip();
 
-                        if($(this).attr('id') === 'bkMarks') {
-                            $( this ).DataTable();
-                        } else if($.inArray($(this).attr('id'), _self.tableSearching ) >= 0) {
+                        if($.inArray($(this).attr('id'), _self.tableSearching ) >= 0) {
                             $('#'+$(this).attr('id')+' thead tr:eq(0) th').each( function (i)
                             {
                                 var title = $(this).text();
                                 $(this).html( '<center><input type="text" placeholder="'+title+'" /></center>' );
+                                console.log($( 'input', this).attr('placeholder'));
                                 $( 'input', this).attr('size', $( 'input', this).attr('placeholder').length);
                                 $( 'input', this ).on( 'keyup change', function ()
                                 {
@@ -96,7 +95,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                 "language": {
                                     "url": "plug-ins/datatable.lang.hungarian.json"
                                 }
-                            } );
+                            });
                         } else {
                             $( this ).DataTable(
                             {

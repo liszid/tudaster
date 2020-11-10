@@ -48,22 +48,22 @@ class sTables {
         "tableId" => "tableAdminGroups",
         "tableRoot" => "Administrative/Groups",
         "data" => array(
-            "groupId" => array("text" => "Id", "tooltip" => "Tooltip on top"),
-            "groupName" => array("text" => "Név", "tooltip" => "Tooltip on top"),
-            "groupDesc" => array("text" => "Leírás", "tooltip" => "Tooltip on top"),
-            "mngGroups" => array("text" => "mG", "tooltip" => "Tooltip on top"),
-            "mngUsers" => array("text" => "mU", "tooltip" => "Tooltip on top"),
-            "mngMembers" => array("text" => "mM", "tooltip" => "Tooltip on top"),
-            "mngTools" => array("text" => "mT", "tooltip" => "Tooltip on top"),
-            "canUsers" => array("text" => "cUs", "tooltip" => "Tooltip on top"),
-            "canCompany" => array("text" => "cC", "tooltip" => "Tooltip on top"),
-            "canKnowledge" => array("text" => "cK", "tooltip" => "Tooltip on top"),
-            "canUsername" => array("text" => "cUn", "tooltip" => "Tooltip on top"),
-            "canPassword" => array("text" => "cP", "tooltip" => "Tooltip on top"),
-            "canHardware" => array("text" => "cH", "tooltip" => "Tooltip on top"),
-            "canSoftware" => array("text" => "cS", "tooltip" => "Tooltip on top"),
-            "canEdit" => array("text" => "cE", "tooltip" => "Tooltip on top"),
-            "canLogin" => array("text" => "cL", "tooltip" => "Tooltip on top")
+            "groupId" => array("text" => "Id", "tooltip" => ""),
+            "groupName" => array("text" => "Név", "tooltip" => ""),
+            "groupDesc" => array("text" => "Leírás", "tooltip" => ""),
+            "mngGroups" => array("text" => "mG", "tooltip" => "Csoport kezelési engedély"),
+            "mngUsers" => array("text" => "mU", "tooltip" => "Felhasználó kezelési engedély"),
+            "mngMembers" => array("text" => "mM", "tooltip" => "Csoport tagság kezelési engedély"),
+            "mngTools" => array("text" => "mT", "tooltip" => "Adminisztratív eszköz kezelési engedély"),
+            "canUsers" => array("text" => "cUs", "tooltip" => "Felhasználói adatok megtekintése"),
+            "canCompany" => array("text" => "cC", "tooltip" => "Céges adatok megtekintése/kezelése"),
+            "canKnowledge" => array("text" => "cK", "tooltip" => "Tudáscikkek megtekintése/kezelése"),
+            "canUsername" => array("text" => "cUn", "tooltip" => "Hozzáféréseknél felhasználói nevek megtekintése/kezelése"),
+            "canPassword" => array("text" => "cP", "tooltip" => "Hozzáféréseknél jelszavak megtekintése/kezelése"),
+            "canHardware" => array("text" => "cH", "tooltip" => "Hardver adatok megtekintése/kezelése"),
+            "canSoftware" => array("text" => "cS", "tooltip" => "Szoftver adatok megtekintése/kezelése"),
+            "canEdit" => array("text" => "cE", "tooltip" => "Profil szerkesztési engedély"),
+            "canLogin" => array("text" => "cL", "tooltip" => "Bejelentkezési engedély")
         ),
         "button" => array(
             array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit'),
@@ -126,19 +126,13 @@ class sTables {
     {
 
         $returnString = '
-            <table id="'.$data['tableId'].'" class="table table-striped display responsive" style="width:100%">
-                <thead>
-                    <tr>';
+            <table id="'.$data['tableId'].'" class="table table-striped display responsive" style="width:100%"><thead><tr>';
 
         foreach ($data['data'] as $key => $value) {
             $thTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
             $thClass = ((strcmp($key, array_key_first($data['data'])) === 0)? 'all': 'no-sort');
-            $returnString .= '
-                <th class="'.$thClass.'" '.$thTooltip.'>
-                    <center>
-                        '.$value['text'].'
-                    </center>
-                </th>';
+
+            $returnString .= '<th class="'.$thClass.'" '.$thTooltip.'><center>'.$value['text'].'</center></th>';
         }
 
         if (count($data['button']) > 0) {
@@ -147,10 +141,7 @@ class sTables {
     	    }
         }
 
-        $returnString .= '
-                    </tr>
-                </thead>
-            <tbody>';
+        $returnString .= '</tr></thead><tbody>';
 
         foreach ($array as $i) {
             $returnString .= '<tr>';
@@ -158,12 +149,8 @@ class sTables {
             foreach ($data['data'] as $key => $value) {
                 $tdTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
                 $tdContent = (strcmp($key, 'thumbnail'))? $i[$key] : '<i class="fa fa-'.$i[$key].'" aria-hidden="true"> </i>';
-                $returnString .= '
-                    <td class="align-baseline" '.$tdTooltip.'>
-                        <center>
-                            '.$tdContent.'
-                        </center>
-                    </td>';
+
+                $returnString .= '<td class="align-baseline" '.$tdTooltip.'><center>'.$tdContent.'</center></td>';
             }
 
             if (count($data['button']) > 0) {
@@ -182,19 +169,12 @@ class sTables {
             $returnString .= '</tr>';
         }
 
-        $returnString .= '
-                </tbody>
-                <tfoot>
-                    <tr>';
+        $returnString .= '</tbody><tfoot><tr>';
 
         foreach ($data['data'] as $key => $value) {
             $thTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
-            $returnString .= '
-                <th '.$thTooltip.'>
-                    <center>
-                        '.$value['text'].'
-                    </center>
-                </th>';
+
+            $returnString .= '<th '.$thTooltip.'><center>'.$value['text'].'</center></th>';
         }
 
         if (count($data['button']) > 0) {
@@ -203,10 +183,7 @@ class sTables {
     	    }
         }
 
-        $returnString .= '
-                    </tr>
-                </tfoot>
-            </table>';
+        $returnString .= '</tr></tfoot></table>';
 
         return $returnString;
     }
