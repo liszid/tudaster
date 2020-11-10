@@ -31,9 +31,9 @@ class General
             ! strcmp($inputType, 'select')
             && isset($array['select'])
         ) {
-            $input = '<select class="custom-select" id="'.$inputId.'"'.(isset($array['fa'])?' data-icon-base="fa"' : '').'>';
+            $input = '<select class="custom-select" id="'.$inputId.'">';
             foreach ($array['select'] as $i) {
-                $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').''.(isset($array['fa'])?' data-icon="fa fa-'.$i['id'].'"' : '').'>'.$i['name'].'</option>';
+                $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').'>'.$i['name'].'</option>';
             }
             $input .= '</select>';
         } else {

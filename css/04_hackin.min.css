@@ -1,5 +1,6 @@
-  a{cursor: pointer;}
-  @media (min-width: 992px) and (max-width: 1074px){
-      .hideOnSmall .hideThis{display:none;} 
-      .hideOnSmall:hover .hideThis{display:inline-block;}
-  }
+a{cursor: pointer;}
+@media (min-width: 780px) and (max-width: 1280px){
+  .hideOnSmall .hideThis{display:none;}
+  .hideOnSmall:hover .hideThis{display:inline-block;}
+}
+select{font-family: 'FontAwesome', Verdana;}
