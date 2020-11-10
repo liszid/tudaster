@@ -77,6 +77,9 @@ class sActivity
     public static function Set(array $array = array()): void
     {
         if (Valid::vArray($array)) {
+            if (isset($_SESSION['User'])) {
+                unset($_SESSION['User']);
+            }
             $_SESSION['User'] = $array;
             $_SESSION['User']['Activity'] = self::Activity((int)$array['userId']);
         }

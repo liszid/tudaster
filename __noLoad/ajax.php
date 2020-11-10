@@ -19,6 +19,14 @@ use PreLoad\
     Valid
 };
 
+use Samples\{
+    sActivity
+};
+
+use Data\{
+    dCombined
+};
+
 use Database\Table;
 
 use Load\_RequireOnce;
@@ -29,6 +37,11 @@ $Table = new Table();
 
 $formPage = Check::isEither(array('post' => array('a', 'x'), 'get' => 'p', 'fallBack' => 'Home'));
 
+if (isset($_SESSION['User'])) {
+    $dCombined = new dCombined();
+    $userVar = $dCombined->Select($_SESSION['User'],'User_Full');
+    sActivity::Set($userVar[0]);
+}
 $sessionUsr   = (isset($_SESSION['User']))? $_SESSION['User'] : array();
 $sessionId    = (! empty($sessionUsr))? $sessionUsr['userId'] : 0;
 $sessionAct   = (! empty($sessionUsr))? $sessionUsr['Activity'] : array();
