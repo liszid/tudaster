@@ -88,9 +88,9 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             } );
                             var table = $(this).DataTable(
                             {
-                                "orderCellsTop": true,
+                                "columnDefs":[{"targets": 'no-sort', "orderable" : false}],
                                 "fixedHeader": true,
-                                "order": [[ 0, "asc" ]],
+                                "order": [],
                                 "language": {
                                     "url": "plug-ins/datatable.lang.hungarian.json"
                                 }

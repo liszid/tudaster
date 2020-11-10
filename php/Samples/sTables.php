@@ -122,7 +122,7 @@ class sTables {
 	$returnString = '<table id="'.$data['tableId'].'" class="table table-striped display responsive" style="width:100%"><thead><tr>';
 
         foreach ($data['data'] as $key => $value) {
-            $returnString .= '<th'.((strcmp($key, array_key_first($data['data'])) === 0)? ' class="all"': '').'><center>'.$value.'</center></th>';
+            $returnString .= '<th class="'.((strcmp($key, array_key_first($data['data'])) === 0)? 'all': 'no-sort').'"><center>'.$value.'</center></th>';
         }
 
         if (count($data['button']) > 0) {
