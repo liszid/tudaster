@@ -68,6 +68,8 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                 function()
                 {
                     if(! $.fn.dataTable.isDataTable( 'table' )) {
+                        $('[data-toggle="tooltip"]').tooltip();
+
                         if($(this).attr('id') === 'bkMarks') {
                             $( this ).DataTable();
                         } else if($.inArray($(this).attr('id'), _self.tableSearching ) >= 0) {
@@ -88,7 +90,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             } );
                             var table = $(this).DataTable(
                             {
-                                "columnDefs":[{"targets": 'no-sort', "orderable" : false}],
+                                "columnDefs":[{"targets": 'no-sort', "orderable": false, "visible": true}],
                                 "fixedHeader": true,
                                 "order": [],
                                 "language": {
