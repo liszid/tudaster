@@ -55,47 +55,5 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT gmGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
             CONSTRAINT gmUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
-    3 => "
-        CREATE TABLE IF NOT EXISTS `Company`(
-            companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            companyName VARCHAR(32) NOT NULL,
-            CONSTRAINT PKCompany PRIMARY KEY (companyId)
-        );",
-    4 => "
-        CREATE TABLE IF NOT EXISTS `Company_Site`(
-            companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            companyId INT(6) UNSIGNED NOT NULL,
-            companySiteName VARCHAR(32) NOT NULL,
-            companySiteLocation VARCHAR(128) NULL,
-            CONSTRAINT PKCompanySite PRIMARY KEY (companySiteId),
-            CONSTRAINT csCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE
-        );",
-    5 => "
-        CREATE TABLE IF NOT EXISTS `Company_Position`(
-            companyPositionId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            companyId INT(6) UNSIGNED NOT NULL,
-            companyPositionName VARCHAR(32) NOT NULL,
-            companyPositionDesc VARCHAR(256) NULL,
-            CONSTRAINT PKCompanyPosition PRIMARY KEY (companyPositionId),
-            CONSTRAINT cpCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE
-        );",
-    6 => "
-        CREATE TABLE IF NOT EXISTS `Company_Worker`(
-            companyWorkerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            companyId INT(6) UNSIGNED NOT NULL,
-            companySiteId INT(6) UNSIGNED NOT NULL,
-            companyPositionId INT(6) UNSIGNED NOT NULL,
-            companyWorkerName VARCHAR(32) NOT NULL,
-            companyWorkerEmail VARCHAR(64) NULL,
-            companyWorkerPhone VARCHAR(32) NULL,
-            CONSTRAINT PKCompanyWorker PRIMARY KEY (companyWorkerId),
-            CONSTRAINT cwCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE,
-            CONSTRAINT cwCompanySiteCascade FOREIGN KEY (companySiteId) REFERENCES `Company_Site` (companySiteId),
-            CONSTRAINT cwCompanyPositionCascade FOREIGN KEY (companyPositionId) REFERENCES `Company_Position` (companyPositionId)
-        );",
-    7 => "
-        CREATE TABLE IF NOT EXISTS `Company_Site_Department`(
-            companySiteDepartmentId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            CONSTRAINT PKCompanySiteDepartment PRIMARY KEY (companySiteDepartmentId)
-        );"
+
 );

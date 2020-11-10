@@ -32,23 +32,3 @@ $GLOBALS['Database'][2]['Select'] = array(
     'byUserId' => "SELECT * FROM `Group_Member` WHERE userId=:userId",
     'byGroupId' => "SELECT * FROM `Group_Member` WHERE groupId=:groupId"
 );
-
-$GLOBALS['Database'][3]['Select'] = array(
-    'All' => "SELECT * FROM `Company`",
-    'byCompanyId' => "SELECT * FROM `Company` WHERE companyId=:companyId"
-);
-
-$GLOBALS['Database'][4]['Select'] = array(
-    'All' => "SELECT * FROM `Company_Site`",
-    'byCompanyId' => "SELECT * FROM `Company_Site` WHERE companyId=:companyId"
-);
-
-$GLOBALS['Database'][5]['Select'] = array(
-    'All' => "SELECT * FROM `Company_Position`",
-    'byCompanyId' => "SELECT * FROM `Company_Position` WHERE companyId=:companyId"
-);
-
-$GLOBALS['Database'][6]['Select'] = array(
-    'All' => "SELECT * FROM `Company_Worker`",
-    'byCompanyId' => "SELECT * FROM `Company_Worker` WHERE companyId=:companyId"
-);
