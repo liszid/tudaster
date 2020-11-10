@@ -179,8 +179,8 @@ class sAdministrative {
     public static function Tools(array $array = array()): string
     {
         $returnString = '';
-
         if (Valid::vString($array['path'])) {
+
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 

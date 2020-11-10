@@ -33,7 +33,7 @@ if (isset($sessionUsr['userId'])) {
         $returnContent = '
             <div class="text-center justification-centered">
                 <h4>'.sTranslate::ACTION['Fail']['content'].'</h4>
-                '.sElement::General(array('a' => 'Profile', 'reload' => true), 'Spinner').'
+                '.sElement::General(array('x' => 'Profile', 'reload' => true), 'Spinner').'
             </div>';
 
         if ($dUser::Update($_POST, 'Profile')) {
@@ -41,7 +41,7 @@ if (isset($sessionUsr['userId'])) {
             $returnContent = '
                 <div class="text-center justification-centered">
                     <h4>'.sTranslate::ACTION['Success']['content'].'</h4>
-                    '.sElement::General(array('a' => 'Profile', 'reload' => true), 'Spinner').'
+                    '.sElement::General(array('x' => 'Profile', 'reload' => true), 'Spinner').'
                 </div>';
         }
 
