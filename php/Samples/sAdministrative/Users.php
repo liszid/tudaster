@@ -92,7 +92,7 @@ class Users extends \Samples\sAdministrative
                     self::$dUser->Update(
                         array(
                             'userId' => (int)$array['dp'],
-                            'groupId' => 3
+                            'groupId' => (int)$GLOBALS['groupDelete']
                         ), 'Delete'
                     )
                 )
