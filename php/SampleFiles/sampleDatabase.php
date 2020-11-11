@@ -24,7 +24,15 @@ class db extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
-            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array(),'vData' => $array))->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Insert'],
+                        'vNames' => array(),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -54,7 +62,15 @@ class db extends Table implements iDatabase
     public static function Update(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Update'])) {
-            return (self::qRun(array('query' => self::$classQueries['Update'], 'vNames' => array(), 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Update'],
+                        'vNames' => array(),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -63,7 +79,15 @@ class db extends Table implements iDatabase
     public static function Delete(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (self::qRun(array('query' => self::$classQueries['Delete'], 'vNames' => array(), 'vData' => $array) )->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Delete'],
+                        'vNames' => array(),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
