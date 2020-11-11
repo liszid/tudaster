@@ -14,7 +14,10 @@ class sTables implements
     sTables\HOME_USERS,
     sTables\ADMIN_USERS,
     sTables\ADMIN_GROUPS,
-    sTables\ADMIN_MEMBERSHIP{
+    sTables\ADMIN_MEMBERSHIP,
+    sTables\COMPANY_COMPANY,
+    sTables\COMPANY_SITE
+{
 
 /*
  * Displays Table using external data
@@ -39,6 +42,12 @@ class sTables implements
                 break;
             case 'Home_Users':
                 return self::Generate($array, self::HOME_USERS);
+                break;
+            case 'Company_Company':
+                return self::Generate($array, self::COMPANY_COMPANY);
+                break;
+            case 'Company_Site':
+                return self::Generate($array, self::COMPANY_SITE);
                 break;
             default:
                 break;
