@@ -17,7 +17,7 @@ interface TRANSLATE
         "Administrative/Users" => array(
     	    "navbar" => "Felhasználók",
     	    "fa" => "user",
-    	    "title" => "Felhasználók",
+    	    "title" => "Felhasználók kezelése",
     	    "help" => "A Felhasználók kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Felhasználók' menüpontot",
     	    "card" => "Felhasználók szerkesztéséhez kattintson a kártyára",
     	    "info" => array(
@@ -48,7 +48,7 @@ interface TRANSLATE
         "Administrative/Groups" => array(
     	    "navbar" => "Csoportok",
     	    "fa" => "users",
-    	    "title" => "Csoportok",
+    	    "title" => "Csoportok kezelése",
     	    "help" => "A Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot",
     	    "card" => "Csoportok szerkesztéséhez kattintson a kártyára",
     	    "info" => array(
@@ -92,7 +92,7 @@ interface TRANSLATE
     	"Administrative/Membership" => array(
     	    "navbar" => "Tagságok",
     	    "fa" => "vcard",
-    	    "title" => "Csoport tagságok",
+    	    "title" => "Csoport tagságok kezelése",
     	    "help" => "A Csoport tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot",
             "card" => "Csoport tagságok szerkesztéséhez kattintson a kártyára",
             "info" => array(
@@ -135,7 +135,7 @@ interface TRANSLATE
     	"Users" => array(
     	    "navbar" => "Felhasználók",
             "fa" => "user",
-            "title" => "Felhasználók",
+            "title" => "Felhasználók megtekintése",
             "help" => "Regisztrált felhasználók megtekintéséhez kattintson a menüsorban a 'Felhasználók' gombra",
             "card" => "Regisztrált felhasználók megtekintéséhez kattintson a kártyára"
     	),
@@ -191,7 +191,7 @@ interface TRANSLATE
     	"Company/Sites" => array(
     	    "navbar" => "Telephely",
     	    "fa" => "building-o",
-    	    "title" => "Cég adatok",
+    	    "title" => "Telephely adatok",
     	    "help" => "Céges telephely adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
             "card" => "Céges telephely adatok megtekintéséhez kattintson a kártyára"
     	),
