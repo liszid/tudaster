@@ -18,9 +18,9 @@ $GLOBALS['Database']['Table']['Create'] = array(
             userThumbnail VARCHAR(255) DEFAULT 'user',
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT PKUser PRIMARY KEY (userId),
-            CONSTRAINT uUserId UNIQUE (userId),
-            CONSTRAINT uUserName UNIQUE (userName),
-            CONSTRAINT uUserEmail UNIQUE (userContEmail)
+            CONSTRAINT userUserIdUnique UNIQUE (userId),
+            CONSTRAINT userUserNameUnique UNIQUE (userName),
+            CONSTRAINT userUserContEmailUnique UNIQUE (userContEmail)
         );",
     1 => "
         CREATE TABLE IF NOT EXISTS `Group`(
@@ -41,9 +41,9 @@ $GLOBALS['Database']['Table']['Create'] = array(
             canEdit INT(1) DEFAULT 0,
             canLogin INT(1) DEFAULT 0,
             isDelete INT(1) DEFAULT 1,
-            CONSTRAINT PKGroup PRIMARY KEY (groupId),
-            CONSTRAINT uGroupId UNIQUE (groupId),
-            CONSTRAINT uGroupName UNIQUE (groupName)
+            CONSTRAINT primaryKeyGroup PRIMARY KEY (groupId),
+            CONSTRAINT groupGroupIdUnique UNIQUE (groupId),
+            CONSTRAINT groupGroupNameUnique UNIQUE (groupName)
         );",
     2 => "
         CREATE TABLE IF NOT EXISTS `Group_Member`(
@@ -51,13 +51,14 @@ $GLOBALS['Database']['Table']['Create'] = array(
             userId INT(6) UNSIGNED NOT NULL,
             groupId INT(6) UNSIGNED NOT NULL,
             isDelete INT(6) UNSIGNED DEFAULT 1,
-            CONSTRAINT PKGroup_Member PRIMARY KEY (groupMemberId),
-            CONSTRAINT gmGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
-            CONSTRAINT gmUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
+            CONSTRAINT primaryKeyGroup_Member PRIMARY KEY (groupMemberId),
+            CONSTRAINT groupMemberGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
+            CONSTRAINT groupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
     3 => "
         CREATE TABLE IF NOT EXISTS `Company`(
             companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            userId INT(6) UNSIGNED NOT NULL,
             companyName VARCHAR(128) NOT NULL,
             companyDesc VARCHAR(256) NULL,
             companyOwnerFirstName VARCHAR(64) NULL,
@@ -65,12 +66,15 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companyAddressCity VARCHAR(64) NULL,
             companyAddressPostcode INT(4) NULL,
             companyAddressStreet VARCHAR(128) NULL,
-            CONSTRAINT PKCompany PRIMARY KEY (companyId)
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyCompany PRIMARY KEY (companyId),
+            CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
     4 => "
         CREATE TABLE IF NOT EXISTS `Company_Site`(
             companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companyId INT(6) UNSIGNED NOT NULL,
+            userId INT(6) UNSIGNED NOT NULL,
             companySiteName VARCHAR(128) NOT NULL,
             companySiteDesc VARCHAR(256) NULL,
             companySiteOwnerFirstName VARCHAR(64) NULL,
@@ -87,7 +91,9 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companySiteEmail VARCHAR(128) NULL,
             companySitePhone VARCHAR(32) NULL,
             companySiteType VARCHAR(128) NULL,
-            CONSTRAINT PKCompanySite PRIMARY KEY (companySiteId),
-            CONSTRAINT csCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyCompanySite PRIMARY KEY (companySiteId),
+            CONSTRAINT companySiteCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE,
+            CONSTRAINT companySiteUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
 );
