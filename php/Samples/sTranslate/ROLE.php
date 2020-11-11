@@ -32,8 +32,8 @@ interface ROLE
     	    'select_type' => 'state'
     	),
     	'mngTools' => array(
-    	    'color' => 'info',
-    	    'header' => 'Fejlesztés alatti funkció',
+    	    'color' => 'success',
+    	    'header' => 'Bövíthetö funkció',
     	    'respective' => 'Administrative/Tools',
     	    'short' => 'mT',
     	    'desc' => 'Adminisztratív eszközök kezelése',
@@ -104,8 +104,8 @@ interface ROLE
     	    'select_type' => 'access'
     	),
         'canCompany' => array(
-    	    'color' => 'secondary',
-    	    'header' => 'Jövendőbeli funkció',
+    	    'color' => 'info',
+    	    'header' => 'Fejlesztés alatti funkció',
     	    'respective' => 'Company',
     	    'short' => 'cC',
     	    'desc' => 'Cégek jogosultság',
