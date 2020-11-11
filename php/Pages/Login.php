@@ -32,25 +32,22 @@ if ( ! Valid::vArray($sessionUsr) ) {
         $dCombined = new dCombined();
 
         $selectLogin = $dUser->Select($_POST, 'Login');
-        $returnContent = '
-            <div class="text-center justification-centered">
-                <h4>'.sTranslate::ACTION['Fail']['content'].'</h4>
-                '.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner').'
-            </div>';
+        $returnText = sTranslate::ACTION['Fail']['content'];
 
         if (isset($selectLogin[0]) && Valid::vArray($selectLogin[0])) {
             $userVar = $dCombined->Select($selectLogin[0],'User_Full');
             if (isset($userVar[0]) && Valid::vArray($userVar[0])) {
                 if ($userVar[0]['canLogin'] > 0) {
                     sActivity::Set($userVar[0]);
-                    $returnContent = '
-                        <div class="text-center justification-centered">
-                            <h4>'.sTranslate::ACTION['Success']['content'].'</h4>
-                            '.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner').'
-                        </div>';
+                    $returnText = sTranslate::ACTION['Success']['content'];
                 }
             }
         }
+        $returnContent = '
+            <div class="text-center justification-centered">
+                <h4>'.$returnText.'</h4>
+                '.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner').'
+            </div>';
         echo sFrame::Modal(array('path' => $urlPaths['Root'], 'content' => $returnContent));
     } elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Login')) {
         $modalBody = '
@@ -60,7 +57,7 @@ if ( ! Valid::vArray($sessionUsr) ) {
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="text" class="form-control" id="usrLogin-nameUser" '.((isset($_POST['nameUser']) && Valid::vString($_POST['nameUser']))?'value="'.$_POST['nameUser'].'"':'placeholder="Felhasználónév"').' autocomplete="username" required>
+                            <input type="text" class="form-control" id="usrLogin-userName" '.((isset($_POST['userName']) && Valid::vString($_POST['userName']))?'value="'.$_POST['userName'].'"':'placeholder="Felhasználónév"').' autocomplete="username" required>
                         </div>
                         <div class="input-group pb-1">
                             <input type="password" class="form-control" id="usrLogin-pWord" placeholder="Jelszó" autocomplete="current-password" required>

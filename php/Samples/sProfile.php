@@ -42,8 +42,8 @@ class sProfile implements sProfile\ICONS
         return '
             <div class="col-md-12">
                 <div class="text-center">
-            	    <h1>'.$array['nameUser'].'</h1>
-                    <i class="fa fa-'.$array['thumbnail'].' fa-5x"></i>
+            	    <h1>'.$array['userName'].'</h1>
+                    <i class="fa fa-'.$array['userThumbnail'].' fa-5x"></i>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active" id="home">
@@ -55,11 +55,11 @@ class sProfile implements sProfile\ICONS
                     	    </div>
                     	    <hr />
                             <div class = "col-12 row m-1">
-                                '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['nameLast'])).'
-                                '.self::Property(array('desc' => "Keresztnév", 'value' => $array['nameFirst'])).'
-                                '.self::Property(array('desc' => "Telephely", 'value' => $array['contSite'])).'
-                                '.self::Property(array('desc' => "E-mail", 'value' => $array['contEmail'])).'
-                                '.self::Property(array('desc' => "Telefon", 'value' => $array['contPhone'])).'
+                                '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['userLastName'])).'
+                                '.self::Property(array('desc' => "Keresztnév", 'value' => $array['userFirstName'])).'
+                                '.self::Property(array('desc' => "Telephely", 'value' => $array['userContSite'])).'
+                                '.self::Property(array('desc' => "E-mail", 'value' => $array['userContEmail'])).'
+                                '.self::Property(array('desc' => "Telefon", 'value' => $array['userContPhone'])).'
                             </div>
                         </div>
                         '.self::Button($array, $bool).'
@@ -115,14 +115,13 @@ class sProfile implements sProfile\ICONS
  * @author Liszi Dániel
  * @since 2020.10.30
  */
-//'.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'type' => 'text'), 'Input').'
     private static function Edit(array $array = array()):string
     {
         return '
         <div class="col-md-12">
             <div class="text-center">
-        	<h1>'.$array['nameUser'].'</h1>
-                <i class="fa fa-'.$array['thumbnail'].' fa-5x"></i>
+        	<h1>'.$array['userName'].'</h1>
+                <i class="fa fa-'.$array['userThumbnail'].' fa-5x"></i>
                 <!-- <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Ikonok keresése</a></p> -->
             </div>
             <div class="tab-content">
@@ -132,11 +131,11 @@ class sProfile implements sProfile\ICONS
                         <div class="form-group col p-0">
                             <div class="col-12 row">
                                 '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userId', 'desc' => 'Id', 'value' => $array['userId'], 'type' => 'hidden'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'thumbnail', 'desc' => 'Ikon', 'value' => $array['thumbnail'], 'select' => self::ICONS, 'fa'=> true, 'type' => 'select'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameLast', 'desc' => 'Vezetéknév', 'value' => $array['nameLast'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'nameFirst', 'desc' => 'Keresztnév', 'value' => $array['nameFirst'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'contPhone', 'desc' => 'Telefon', 'value' => $array['contPhone'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'contSite', 'desc' => 'Telephely', 'value' => $array['contSite'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userThumbnail', 'desc' => 'Ikon', 'value' => $array['userThumbnail'], 'select' => self::ICONS, 'fa'=> true, 'type' => 'select'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userLastName', 'desc' => 'Vezetéknév', 'value' => $array['userLastName'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userFirstName', 'desc' => 'Keresztnév', 'value' => $array['userFirstName'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContPhone', 'desc' => 'Telefon', 'value' => $array['userContPhone'], 'type' => 'text'), 'Input').'
+                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContSite', 'desc' => 'Telephely', 'value' => $array['userContSite'], 'type' => 'text'), 'Input').'
                             </div>
                         </div>
                         <div class="form-group">

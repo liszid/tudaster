@@ -9,16 +9,16 @@ $GLOBALS['Database']['Select'] = array(
 
 $GLOBALS['Database'][99]['Select'] = array(
     'User_Full' => "SELECT `User`.* ,`Group`.* FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId) WHERE `User`.userId=:userId",
-    'Member_Full' => "SELECT `Group_Member`.groupMemberId ,`Group`.groupName ,`Group`.groupDesc ,`User`.nameUser ,`Group_Member`.isDelete FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId)",
+    'Member_Full' => "SELECT `Group_Member`.groupMemberId ,`Group`.groupName ,`Group`.groupDesc ,`User`.userName ,`Group_Member`.isDelete FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId)",
     'Table_Create_Export' => "SHOW CREATE TABLE :Table" //$array['Create Table']
 );
 
 $GLOBALS['Database'][0]['Select'] = array(
     'All' => "SELECT * FROM `User`",
-    'byUserName' => "SELECT * FROM `User` WHERE nameUser=:nameUser",
+    'byUserName' => "SELECT * FROM `User` WHERE userName=:userName",
     'byUserId' => "SELECT * FROM `User` WHERE userId=:userId",
-    'byContEmail' => "SELECT * FROM `User` WHERE contEmail=:contEmail",
-    'Login' => "SELECT userId FROM `User` WHERE nameUser=:nameUser AND pWord=:pWord"
+    'byContEmail' => "SELECT * FROM `User` WHERE userContEmail=:userContEmail",
+    'Login' => "SELECT userId FROM `User` WHERE userName=:userName AND pWord=:pWord"
 );
 
 $GLOBALS['Database'][1]['Select'] = array(

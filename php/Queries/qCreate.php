@@ -8,19 +8,19 @@ $GLOBALS['Database']['Table']['Create'] = array(
     0 => "
         CREATE TABLE IF NOT EXISTS `User`(
             userId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            nameUser VARCHAR(32) NOT NULL UNIQUE,
+            userName VARCHAR(32) NOT NULL UNIQUE,
             pWord VARCHAR(32) NOT NULL,
-            nameFirst VARCHAR(64) NULL,
-            nameLast VARCHAR(64) NULL,
-            contEmail VARCHAR(64) NOT NULL UNIQUE,
-            contPhone VARCHAR(32) NULL,
-            contSite VARCHAR(64) NULL,
-            thumbnail VARCHAR(255) DEFAULT 'user',
+            userFirstName VARCHAR(64) NULL,
+            userLastName VARCHAR(64) NULL,
+            userContEmail VARCHAR(64) NOT NULL UNIQUE,
+            userContPhone VARCHAR(32) NULL,
+            userContSite VARCHAR(64) NULL,
+            userThumbnail VARCHAR(255) DEFAULT 'user',
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT PKUser PRIMARY KEY (userId),
             CONSTRAINT uUserId UNIQUE (userId),
-            CONSTRAINT uUserName UNIQUE (nameUser),
-            CONSTRAINT uUserEmail UNIQUE (contEmail)
+            CONSTRAINT uUserName UNIQUE (userName),
+            CONSTRAINT uUserEmail UNIQUE (userContEmail)
         );",
     1 => "
         CREATE TABLE IF NOT EXISTS `Group`(
@@ -55,5 +55,21 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT gmGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
             CONSTRAINT gmUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
+    3 => "
+        CREATE TABLE IF NOT EXISTS `Company`(
+            companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            companyName VARCHAR(128) NOT NULL,
+            companyDesc VARCHAR(256) NULL,
+            companyOwnerFirstName VARCHAR(64) NULL,
+            companyOwnerLastName VARCHAR(64) NULL,
+            companyAddressCity VARCHAR(64) NULL,
+            companyAddressPostcode INT(4) NULL,
+            companyAddressStreet VARCHAR(128) NULL,
 
+        );",
+    4 => "
+        CREATE TABLE IF NOT EXISTS `Company_Site`(
+            companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            companyId INT(6) UNSIGNED NOT NULL,
+        );",
 );

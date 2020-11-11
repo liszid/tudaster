@@ -5,15 +5,15 @@ declare(strict_types=1);
 $GLOBALS['Database']['0']['Update'] = array(
     "Profile" => "
         UPDATE `User` SET
-            nameFirst=:nameFirst
-            ,nameLast=:nameLast
-            ,contSite=:contSite
-            ,contPhone=:contPhone
-            ,thumbnail=:thumbnail
+            userFirstName=:userFirstName
+            ,userLastName=:userLastName
+            ,userContSite=:userContSite
+            ,userContPhone=:userContPhone
+            ,userThumbnail=:userThumbnail
         WHERE userId=:userId",
     "Reset" => "
         UPDATE `User` SET
-            pWord=MD5(nameUser)
+            pWord=MD5(userName)
         WHERE userId=:userId"
 );
 

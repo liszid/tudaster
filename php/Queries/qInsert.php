@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 $GLOBALS['Database'][0]['Insert'] = "
-    INSERT INTO `User`(nameUser, pWord,  contEmail)
+    INSERT INTO `User`(userName, pWord,  userContEmail)
     VALUES
-	(:nameUser, :pWord, :contEmail);";
+	(:userName, :pWord, :userContEmail);";
 
 $GLOBALS['Database'][1]['Insert'] = "
     INSERT INTO `Group`(groupName, groupDesc)

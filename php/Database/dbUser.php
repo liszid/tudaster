@@ -30,9 +30,9 @@ class dbUser extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
-                            'nameUser',
+                            'userName',
                             'pWord',
-                            'contEmail'
+                            'userContEmail'
                         ),
                         'vData' => $array
                     )
@@ -49,7 +49,7 @@ class dbUser extends Table implements iDatabase
 
         if (strcmp($type, 'byUserName') === 0) {
             $tempArray = array(
-                            'nameUser'
+                            'userName'
                         );
         } elseif (strcmp($type, 'byUserId') === 0) {
             $tempArray = array(
@@ -57,11 +57,11 @@ class dbUser extends Table implements iDatabase
                         );
         } elseif (strcmp($type, 'byContEmail') === 0) {
             $tempArray = array(
-                            'contEmail'
+                            'userContEmail'
                         );
         } elseif (strcmp($type, 'Login') === 0) {
             $tempArray = array(
-                            'nameUser',
+                            'userName',
                             'pWord'
                         );
         } elseif (strcmp($type, 'All') === 0) {
@@ -101,11 +101,11 @@ class dbUser extends Table implements iDatabase
                         );
         } elseif (strcmp($type, 'Profile') === 0) {
             $tempArray = array(
-                            'nameFirst',
-                            'nameLast',
-                            'thumbnail',
-                            'contSite',
-                            'contPhone',
+                            'userFirstName',
+                            'userLastName',
+                            'userThumbnail',
+                            'userContSite',
+                            'userContPhone',
                             'userId'
                         );
         } else {

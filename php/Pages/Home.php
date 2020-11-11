@@ -15,7 +15,7 @@ if (! isset($sessionUsr['userId']) ) {
 } else {
     $returnContent .= '
         <div class="card-group m-3">
-            '.sCard::Fill(array('color' => 'success', 'header' => 'Köszöntő', 'title' => 'Üdv újra, '.$sessionUsr['nameUser'], 'text' => 'A Tudástér a rendelkezésedre áll')).'
+            '.sCard::Fill(array('color' => 'success', 'header' => 'Köszöntő', 'title' => 'Üdv újra, '.$sessionUsr['userName'], 'text' => 'A Tudástér a rendelkezésedre áll')).'
         </div>
         <div class="card-columns m-3">
             '.(((int)$sessionUsr['mngUsers'] > 0) ? sCard::Translated('mngUsers', 'Linked') :'' ).'

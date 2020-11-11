@@ -23,10 +23,10 @@ class dUser implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        if (isset($array['nameUser']) && isset($array['contEmail'])) {
-            if (Valid::vInput($array['contEmail'], 4) && Valid::vInput($array['nameUser'], 0)) {
+        if (isset($array['userName']) && isset($array['userContEmail'])) {
+            if (Valid::vInput($array['userContEmail'], 4) && Valid::vInput($array['nameUser'], 0)) {
                 if(empty(self::Select($array, 'byUserName')) && empty(self::Select($array, 'byContEmail'))) {
-                    $array['pWord'] = md5($array['nameUser']);
+                    $array['pWord'] = md5($array['userName']);
                     $bool_1 = self::$dbUser->Insert($array);
                     if ($bool_1) {
                         $dGroup_Member = new dGroup_Member();

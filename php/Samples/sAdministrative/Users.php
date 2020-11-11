@@ -32,8 +32,8 @@ class Users extends \Samples\sAdministrative
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'nameUser', 'desc' => 'Bejelentkezési név', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'contEmail', 'desc' => 'E-mail cím', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'userName', 'desc' => 'Bejelentkezési név', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admUsrsAdd', 'data' => 'userContEmail', 'desc' => 'E-mail cím', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">

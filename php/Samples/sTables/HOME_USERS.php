@@ -11,12 +11,12 @@ interface HOME_USERS
         "tableRoot" => "Users",
         "data" => array(
             "userId" => array("text" => "Id", "tooltip" => ""),
-            "thumbnail" => array("text" => "Ikon", "tooltip" => ""),
-            "nameLast" => array("text" => "Vezetéknév", "tooltip" => ""),
-            "nameFirst" => array("text" => "Keresztnév", "tooltip" => ""),
-            "contSite" => array("text" => "Telephely", "tooltip" => ""),
-            "contEmail" => array("text" => "E-mail", "tooltip" => ""),
-            "contPhone" => array("text" => "Telefon", "tooltip" => "")
+            "userThumbnail" => array("text" => "Ikon", "tooltip" => ""),
+            "userLastName" => array("text" => "Vezetéknév", "tooltip" => ""),
+            "userFirstName" => array("text" => "Keresztnév", "tooltip" => ""),
+            "userContSite" => array("text" => "Telephely", "tooltip" => ""),
+            "userContEmail" => array("text" => "E-mail", "tooltip" => ""),
+            "userContPhone" => array("text" => "Telefon", "tooltip" => "")
         ),
         "button" => array()
     );
