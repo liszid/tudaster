@@ -44,3 +44,32 @@ $GLOBALS['Database']['2']['Update'] = array(
             groupId=:groupId
         WHERE groupMemberId=:groupMemberId"
 );
+
+$GLOBALS['Database']['3']['Update'] = "
+    UPDATE `Group` SET
+        companyDesc=:companyDesc
+        ,companyOwnerFirstName=:companyOwnerFirstName
+        ,companyOwnerLastName=:companyOwnerLastName
+        ,companyAddressCity=:companyAddressCity
+        ,companyAddressPostcode=:companyAddressPostcode
+        ,companyAddressStreet=:companyAddressStreet
+    WHERE companyId=:companyId";
+
+$GLOBALS['Database']['4']['Update'] = "
+    UPDATE `Group` SET
+        companySiteDesc=:companySiteDesc
+        ,companySiteOwnerFirstName=:companySiteOwnerFirstName
+        ,companySiteOwnerLastName=:companySiteOwnerLastName
+        ,companySiteOwnerEmail=:companySiteOwnerEmail
+        ,companySiteOwnerPhone=:companySiteOwnerPhone
+        ,companySiteSubOwnerFirstName=:companySiteSubOwnerFirstName
+        ,companySiteSubOwnerLastName=:companySiteSubOwnerLastName
+        ,companySiteSubOwnerEmail=:companySiteSubOwnerEmail
+        ,companySiteSubOwnerPhone=:companySiteSubOwnerPhone
+        ,companySiteAddressCity=:companySiteAddressCity
+        ,companySiteAddressPostcode=:companySiteAddressPostcode
+        ,companySiteAddressStreet=:companySiteAddressStreet
+        ,companySiteEmail=:companySiteEmail
+        ,companySitePhone=:companySitePhone
+        ,companySiteType=:companySiteType
+    WHERE companySiteId=:companySiteId";

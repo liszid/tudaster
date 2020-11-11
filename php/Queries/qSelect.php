@@ -28,7 +28,16 @@ $GLOBALS['Database'][1]['Select'] = array(
 );
 
 $GLOBALS['Database'][2]['Select'] = array(
-    'All' => "SELECT * FROM Group_Member",
+    'All' => "SELECT * FROM `Group_Member`",
     'byUserId' => "SELECT * FROM `Group_Member` WHERE userId=:userId",
     'byGroupId' => "SELECT * FROM `Group_Member` WHERE groupId=:groupId"
+);
+
+$GLOBALS['Database'][3]['Select'] = array(
+    'All' => "SELECT * FROM `Company`"
+);
+
+$GLOBALS['Database'][4]['Select'] = array(
+    'All' => "SELECT * FROM `Company_Site`",
+    'byCompanyId' => "SELECT * FROM `Company_Site` WHERE companyId=:companyId"
 );

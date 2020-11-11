@@ -30,6 +30,8 @@ class Queries extends Database
             0 => 'User',
             1 => 'Group',
             2 => 'Group_Member',
+            3 => 'Company',
+            4 => 'Company_Site',
             98 => 'Tools',
             99 => 'Combined'
         );

@@ -12,7 +12,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             pWord VARCHAR(32) NOT NULL,
             userFirstName VARCHAR(64) NULL,
             userLastName VARCHAR(64) NULL,
-            userContEmail VARCHAR(64) NOT NULL UNIQUE,
+            userContEmail VARCHAR(128) NOT NULL UNIQUE,
             userContPhone VARCHAR(32) NULL,
             userContSite VARCHAR(64) NULL,
             userThumbnail VARCHAR(255) DEFAULT 'user',
@@ -65,11 +65,29 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companyAddressCity VARCHAR(64) NULL,
             companyAddressPostcode INT(4) NULL,
             companyAddressStreet VARCHAR(128) NULL,
-
+            CONSTRAINT PKCompany PRIMARY KEY (companyId)
         );",
     4 => "
         CREATE TABLE IF NOT EXISTS `Company_Site`(
             companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companyId INT(6) UNSIGNED NOT NULL,
+            companySiteName VARCHAR(128) NOT NULL,
+            companySiteDesc VARCHAR(256) NULL,
+            companySiteOwnerFirstName VARCHAR(64) NULL,
+            companySiteOwnerLastName VARCHAR(64) NULL,
+            companySiteOwnerEmail VARCHAR(128) NULL,
+            companySiteOwnerPhone VARCHAR(32) NULL,
+            companySiteSubOwnerFirstName VARCHAR(64) NULL,
+            companySiteSubOwnerLastName VARCHAR(64) NULL,
+            companySiteSubOwnerEmail VARCHAR(128) NULL,
+            companySiteSubOwnerPhone VARCHAR(32) NULL,
+            companySiteAddressCity VARCHAR(64) NULL,
+            companySiteAddressPostcode INT(4) NULL,
+            companySiteAddressStreet VARCHAR(128) NULL,
+            companySiteEmail VARCHAR(128) NULL,
+            companySitePhone VARCHAR(32) NULL,
+            companySiteType VARCHAR(128) NULL,
+            CONSTRAINT PKCompanySite PRIMARY KEY (companySiteId),
+            CONSTRAINT csCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE
         );",
 );
