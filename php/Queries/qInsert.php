@@ -33,6 +33,7 @@ $GLOBALS['Database'][2]['Insert'] = "
 
 $GLOBALS['Database'][3]['Insert'] = "
     INSERT INTO `Company`(
+        userId,
         companyName,
         companyDesc,
         companyOwnerFirstName,
@@ -41,6 +42,7 @@ $GLOBALS['Database'][3]['Insert'] = "
         companyAddressPostcode,
         companyAddressStreet
     ) VALUES (
+        :userId,
         :companyName,
         :companyDesc,
         :companyOwnerFirstName,
@@ -53,6 +55,7 @@ $GLOBALS['Database'][3]['Insert'] = "
 $GLOBALS['Database'][4]['Insert'] = "
     INSERT INTO `Company_Site`(
         companyId,
+        userId,
         companySiteName,
         companySiteDesc,
         companySiteOwnerFirstName,
@@ -71,6 +74,7 @@ $GLOBALS['Database'][4]['Insert'] = "
         companySiteType
     ) VALUES (
         :companyId,
+        :userId,
         :companySiteName,
         :companySiteDesc,
         :companySiteOwnerFirstName,

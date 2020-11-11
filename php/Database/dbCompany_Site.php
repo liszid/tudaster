@@ -30,6 +30,7 @@ class dbCompany_Site extends Table implements iDatabase
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
                             "companyId",
+                            "userId",
                             "companySiteName",
                             "companySiteDesc",
                             "companySiteOwnerFirstName",

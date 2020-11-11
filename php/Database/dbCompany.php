@@ -29,6 +29,7 @@ class dbCompany extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
+                            "userId",
                             "companyName",
                             "companyDesc",
                             "companyOwnerFirstName",
