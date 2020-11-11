@@ -123,7 +123,7 @@ class sProfile implements sProfile\ICONS
             <div class="text-center">
         	<h1>'.$array['nameUser'].'</h1>
                 <i class="fa fa-'.$array['thumbnail'].' fa-5x"></i>
-                <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Ikonok keresése</a></p>
+                <!-- <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Ikonok keresése</a></p> -->
             </div>
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
