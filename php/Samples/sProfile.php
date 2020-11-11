@@ -98,7 +98,7 @@ class sProfile implements sProfile\ICONS
             return '
         	<div class="form-group">
                 <div class="col-12 row text-center justify-content-center">
-                    <a href="#" class="btn btn-lg btn-info'.(((int)$array['canEdit'] === 0)?' disabled':'').'" role="button" data-link="Profile" href="#" data-target="#modalBox" data-post="editProfile">
+                    <a href="#" class="btn btn-lg btn-info'.(((int)$array['canEdit'] === 0)?' disabled':'').'" role="button" data-link="Profile" href="#" data-target="#modalBox" data-post="Edit">
                         <i class="fa fa-pencil"></i> Szerkesztés
                     </a>
                 </div>

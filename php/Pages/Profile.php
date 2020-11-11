@@ -28,41 +28,44 @@ use Samples\
 if (isset($sessionUsr['userId'])) {
     $dUser = new dUser();
     $dCombined = new dCombined();
+    $urlPaths = array(
+        'Root' => 'Profile'
+    );
 
     if(isset($_POST["Save"]) && (int)$sessionUsr['canEdit'] > 0) {
-        $returnContent = '
-            <div class="text-center justification-centered">
-                <h4>'.sTranslate::ACTION['Fail']['content'].'</h4>
-                '.sElement::General(array('x' => 'Profile', 'reload' => true), 'Spinner').'
-            </div>';
+        $returnText = sTranslate::ACTION['Fail']['content'];
 
         if ($dUser::Update($_POST, 'Profile')) {
             sActivity::Set(($dCombined->Select($sessionUsr,'User_Full'))[0]);
-            $returnContent = '
+            $returnText = sTranslate::ACTION['Success']['content'];
+        }
+
+        $returnContent = '
                 <div class="text-center justification-centered">
-                    <h4>'.sTranslate::ACTION['Success']['content'].'</h4>
+                    <h4>'.$returnText.'</h4>
                     '.sElement::General(array('x' => 'Profile', 'reload' => true), 'Spinner').'
                 </div>';
-        }
 
         echo sFrame::Modal(array('path' => 'Profile', 'content' => $returnContent));
     } elseif (isset($_POST['x']) && ! strcmp($_POST['x'], 'Profile')) {
         $User = ($dCombined->Select($sessionUsr,'User_Full'))[0];
-        $urlPaths = array(
-                        'Root' => 'Profile'
-                    );
+        $modalText = '';
+
+        if (isset($_POST['dp'])) {
+            if (! strcmp($_POST['dp'], 'Edit')) {
+                $modalText = sProfile::Prompt($User,'Edit');
+            } elseif (! strcmp($_POST['dp'], 'Password')) {
+                $modalText = sProfile::Prompt($User,'Edit');
+            }
+        } else {
+            $modalText = sProfile::Prompt($User,'Self');
+        }
+
         $modalBody = '
                      <div class="container bootstrap snippet">
                          <div class="row">
                              <div class="col-md-8">
-                                '.(
-                                    (
-                                        isset($_POST['dp'])
-                                        && ! strcmp($_POST['dp'], 'editProfile')
-                                    )
-                                        ? sProfile::Prompt($User,'Edit')
-                                        : sProfile::Prompt($User, 'Self')
-                                ).'
+                                '.$modalText.'
                              </div>
                              <div class="col-md-4">
                                  '.(sActivity::Prompt($sessionAct)).'
