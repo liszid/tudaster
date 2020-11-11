@@ -9,7 +9,7 @@ $GLOBALS['Database']['Select'] = array(
 
 $GLOBALS['Database'][99]['Select'] = array(
     'User_Full' => "SELECT `User`.* ,`Group`.* FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId) WHERE `User`.userId=:userId",
-    'Member_Full' => "SELECT `Group_Member`.groupMemberId ,`Group`.groupName ,`Group`.groupDesc ,`User`.nameUser FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId)",
+    'Member_Full' => "SELECT `Group_Member`.groupMemberId ,`Group`.groupName ,`Group`.groupDesc ,`User`.nameUser ,`Group_Member`.isDelete FROM ((`User` INNER JOIN `Group_Member` ON `User`.userId = `Group_Member`.userId) INNER JOIN `Group` ON `Group`.groupId = `Group_Member`.groupId)",
     'Table_Create_Export' => "SHOW CREATE TABLE :Table" //$array['Create Table']
 );
 
