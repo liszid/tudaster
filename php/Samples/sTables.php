@@ -155,10 +155,16 @@ class sTables {
 
             if (count($data['button']) > 0) {
                 foreach ($data['button'] as $b) {
+                    $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
+                    if (isset($i['isDelete'])) {
+                        if ((int)$i['isDelete'] === 0) {
+                            $aData = '<a class="btn btn-secondary" role="button">';
+                        }
+                    }
                     $returnString .= '
                         <td class="align-baseline">
                             <center>
-                                <a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">
+                                '.$aData.'
                                     <i class="fa fa-'.$b['fa'].'" aria-hidden="true"></i>
                                 </a>
                             </center>
