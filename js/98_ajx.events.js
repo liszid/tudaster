@@ -70,7 +70,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             {
                                 var title = $(this).text();
                                 $(this).html( '<center><input type="text" placeholder="'+title+'" /></center>' );
-                                console.log($( 'input', this).attr('placeholder'));
                                 $( 'input', this).attr('size', $( 'input', this).attr('placeholder').length);
                                 $( 'input', this ).on( 'keyup change', function ()
                                 {
@@ -258,36 +257,25 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
     loadContent()
     {
         var urlParams = new URLSearchParams(window.location.search);
-        let param = "";
 
-        if (param !== "") {
-            if(urlParams.has("p") === true && this.modalPagesForGet.includes(urlParams.get("p"))) {
-                this.enlargenModal(urlParams.get("p"));
-                this.initElmnt("a=Home");
-                this.initElmnt("a="+urlParams.get("p"), "modalDialog");
-            } else {
-                this.initElmnt(param,"body","GET");
+        var urlCanonical = window.location.pathname;
+        urlCanonical = urlCanonical.split("/");
+        urlCanonical.shift();
+
+        if (urlCanonical[0] !== null && urlCanonical[0] !== "" && urlCanonical[0] !== undefined) {
+            let canonical = "a="+urlCanonical[0];
+
+            if(urlCanonical[1] !== null && urlCanonical[1] !== "" && urlCanonical[1] !== undefined) {
+                canonical += "&b="+urlCanonical[1];
             }
+
+            if(urlCanonical[2] !== null && urlCanonical[2] !== "" && urlCanonical[2] !== undefined) {
+                canonical += "&c="+urlCanonical[2];
+            }
+
+            this.initElmnt(canonical);
         } else {
-            var urlCanonical = window.location.pathname;
-            urlCanonical = urlCanonical.split("/");
-            urlCanonical.shift();
-
-            if (urlCanonical[0] !== null && urlCanonical[0] !== "" && urlCanonical[0] !== undefined) {
-                let canonical = "a="+urlCanonical[0];
-
-                if(urlCanonical[1] !== null && urlCanonical[1] !== "" && urlCanonical[1] !== undefined) {
-                    canonical += "&b="+urlCanonical[1];
-                }
-
-                if(urlCanonical[2] !== null && urlCanonical[2] !== "" && urlCanonical[2] !== undefined) {
-                    canonical += "&c="+urlCanonical[2];
-                }
-
-                this.initElmnt(canonical);
-            } else {
-                this.initElmnt("d=Home");
-            }
+            this.initElmnt("d=Home");
         }
     }
 
