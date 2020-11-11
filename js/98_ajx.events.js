@@ -5,8 +5,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         super();
         Object.defineProperty( this, 'enlargeModal',
         {
-            get( )
-            {
+            get( ) {
                 return [
                     "Profile",
                     "Administrative/Users/Add",
@@ -18,45 +17,41 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         } );
         Object.defineProperty( this, 'modalPagesForGet',
         {
-            get( )
-            {
+            get( ) {
                 return ["Login", "Logout", "Profile"];
             }
         } );
         Object.defineProperty( this, 'modalDialogElement',
         {
-            get( )
-            {
+            get( ) {
                 return document.getElementById("modalDialog");
             }
         } );
         Object.defineProperty( this, 'arrayObject',
         {
-            get( )
-            {
+            get( ) {
                 return [
 //              "id starts w/", "post", "event id", ["array of items needed to send"], "send into", "special id"
-                    ["usrLogin", "x=Login&Login=", "button", ["nameUser", "pWord"], "modalDialog"],
-                    ["usrEdit", "x=Profile&Save=", "button", ["nameFirst", "nameLast", "thumbnail", "contSite", "contPhone", "userId"], "modalDialog"],
+                    ["usrLogin", "x=Login&Login=", "button", [], "modalDialog"],
+                    ["usrEdit", "x=Profile&Save=", "button", [], "modalDialog"],
                     ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
-                    ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", ["nameUser","contEmail"], "modalDialog"],
-                    ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", ["groupName","groupDesc"], "modalDialog"],
-                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", ["mngGroups","mngUsers","mngMembers","mngTools","canUsers","canCompany","canKnowledge","canUsername","canPassword","canHardware","canSoftware","canEdit","canLogin","groupId"], "modalDialog"],
-                    ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", ["groupMemberId","groupId"], "modalDialog"]
+                    ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", [], "modalDialog"],
+                    ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", [], "modalDialog"],
+                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", [], "modalDialog"],
+                    ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", [], "modalDialog"]
                 ];
             }
         } );
         Object.defineProperty( this, 'tableSearching',
         {
-            get( )
-            {
+            get( ) {
                 return["tableAdminUsers", "tableAdminMembership", "tableHomeUsers"];
             }
         });
     }
 
 /*
- * Sets DataTables
+ * Sets DataTables, jQuery used
  * @author Liszi Dániel
  * @since 2020.11.10
  */
@@ -154,14 +149,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     _self.enlargenModal(loc);
                     let tempLocation = loc.split("/");
                     let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
-/*
- * Bootstrap Navbar collapse on mobile view
- *
-                    $('a').on('click', function()
-                    {
-                        $('.navbar-collapse').collapse('hide');
-                    });
- */
                     if (tempLocation.length > 1) {
                         let canonicLocation = 'x=' + tempLocation[0] + '&y=' + tempLocation[1] + ((tempLocation[2] !== undefined)? '&z=' + tempLocation[2] : '');
                         if (dataPost !== '') {
@@ -195,6 +182,13 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
 
 /*
  * Sets events on Form elements
+ * Dynamic workaround
+ * Only works with
+ * - hidden
+ * - text
+ * - select
+ * types of inputs
+ *
  * @param tag object
  * @author Liszi Dániel
  * @since 2020.11.10
@@ -205,52 +199,34 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         if (tag.length > 0) {
             var addEvent = (e) =>
             {
-                let lmnt = (
-                    (e.target.tagName.toLowerCase() === 'button')
-                        ? e.target
-                        :(
-                            (e.target.parentElement.tagName.toLowerCase() === 'button')
-                                ? e.target.parentElement
-                                :(
-                                    (e.target.tagName.toLowerCase() === 'input')
-                                        ?e.target
-                                        :(
-                                            (e.target.parentElement.tagName.toLowerCase() === 'input')
-                                                ?e.target.parentElement
-                                                : null
-                                        )
-                                )
-                        )
-                );
+                let tempSrcLmnt = _self.findSource(e.target, 'input');
+                if (tempSrcLmnt === undefined || tempSrcLmnt === false) {
+                    tempSrcLmnt = _self.findSource(e.target, 'button');
+                }
+                let srcLmnt = (tempSrcLmnt !== undefined)?((tempSrcLmnt !== false)? tempSrcLmnt: null):null;
+
                 e.preventDefault();
-                if (lmnt.hasAttribute('id')) {
+                if (srcLmnt.hasAttribute('id')) {
                     for (let i = 0; i < _self.arrayObject.length; i++) {
-                        if (lmnt.getAttribute('id').startsWith(_self.arrayObject[i][0]+"-"+_self.arrayObject[i][2])) {
+                        if (srcLmnt.getAttribute('id').startsWith(_self.arrayObject[i][0]+"-"+_self.arrayObject[i][2])) {
                             let returnString = _self.arrayObject[i][1];
                             _self.enlargenModal(((returnString.split("&"))[0].split("="))[1]);
-                            if (_self.arrayObject[i][3].length > 0) {
-                                for (let k = 0; k < _self.arrayObject[i][3].length; k++) {
-                                    if (! _self.arrayObject[i][3][k].includes("pWord")) {
-                                        if (! Array.isArray(_self.arrayObject[i][3][k])) {
-                                            returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=" + document.getElementById(_self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k]).value);
-                                        } else {
-                                            let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k][0]+'"]');
-                                            returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=");
-                                            for (let l = 0; l < innerArray.length; l++) {
-                                                if (innerArray[l].checked) {
-                                                    returnString = returnString.concat( innerArray[l].value + ",");
-                                                }
-                                            }
-                                        }
+                            let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + '-"]');
+                            if (innerArray.length > 0) {
+                                for (let k = 0; k < innerArray.length; k++) {
+                                    let innerArrayObjectName = (innerArray[k].id.split("-"))[1];
+                                    if (! innerArrayObjectName.includes("pWord")) {
+                                        returnString = returnString.concat("&" + innerArrayObjectName + "=" + innerArray[k].value);
                                     } else {
-                                        returnString = returnString.concat("&" + _self.arrayObject[i][3][k] + "=" + _self.MD5(document.getElementById(_self.arrayObject[i][0] + "-" + _self.arrayObject[i][3][k]).value));
+                                        returnString = returnString.concat("&" + innerArrayObjectName + "=" + _self.MD5(innerArray[k].value));
                                     }
                                 }
-                            } else if (lmnt.hasAttribute('data-id')) {
+                            } else if (srcLmnt.hasAttribute('data-id')) {
                                 if (_self.arrayObject[i][5]) {
-                                    returnString = returnString.concat("&" + _self.arrayObject[i][5] + "=" + lmnt.getAttribute('data-id'));
+                                    returnString = returnString.concat("&" + _self.arrayObject[i][5] + "=" + srcLmnt.getAttribute('data-id'));
                                 }
-                            } if (_self.arrayObject[i][4]) {
+                            }
+                            if (_self.arrayObject[i][4]) {
                                 _self.initElmnt(returnString, _self.arrayObject[i][4]);
                             } else {
                                 _self.initElmnt(returnString);
