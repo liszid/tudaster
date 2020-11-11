@@ -69,21 +69,24 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             $('#'+$(this).attr('id')+' thead tr:eq(0) th').each( function (i)
                             {
                                 var title = $(this).text();
-                                $(this).html( '<center><input type="text" placeholder="'+title+'" /></center>' );
-                                $( 'input', this).attr('size', $( 'input', this).attr('placeholder').length);
-                                $( 'input', this ).on( 'keyup change', function ()
-                                {
-                                    if ( table.column(i).search() !== this.value ) {
-                                        table
-                                        .column(i)
-                                        .search( this.value )
-                                        .draw();
-                                    }
-                                } );
+                                if(title !== "") {
+                                    $(this).html( '<center><input type="text" placeholder="'+title+'" /></center>' );
+                                    $( 'input', this).attr('size', $( 'input', this).attr('placeholder').length);
+                                    $( 'input', this ).on( 'keyup change', function ()
+                                    {
+                                        if ( table.column(i).search() !== this.value ) {
+                                            table
+                                            .column(i)
+                                            .search( this.value )
+                                            .draw();
+                                        }
+                                    } );
+                                }
                             } );
                             var table = $(this).DataTable(
                             {
                                 "columnDefs":[{"targets": 'no-sort', "orderable": false, "visible": true}],
+                                "order": [[ 0, "asc" ]],
                                 "fixedHeader": true,
                                 "order": [],
                                 "language": {

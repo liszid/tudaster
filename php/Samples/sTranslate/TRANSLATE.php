@@ -127,7 +127,9 @@ interface TRANSLATE
                 'color' => 'success',
                 'header' => 'Információ',
                 'title' => '',
-                'text' => ''
+                'text' => '
+                    <b>Adatbázis törlése: </b> Eldobja az aktuális adatbázist, és újra építi
+                '
             )
     	),
     	"Users" => array(

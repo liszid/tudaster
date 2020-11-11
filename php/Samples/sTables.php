@@ -68,7 +68,7 @@ class sTables implements
 
         if (count($data['button']) > 0) {
     	    foreach ($data['button'] as $b) {
-                $returnString .= '<th class="all">&nbsp;</th>';
+                $returnString .= '<th class="all"></th>';
     	    }
         }
 
@@ -116,7 +116,7 @@ class sTables implements
 
         if (count($data['button']) > 0) {
     	    foreach ($data['button'] as $b) {
-                $returnString .= '<th>&nbsp;</th>';
+                $returnString .= '<th></th>';
     	    }
         }
 
