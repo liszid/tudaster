@@ -40,7 +40,11 @@ $formPage = Check::isEither(array('post' => array('a', 'x'), 'get' => 'p', 'fall
 if (isset($_SESSION['User'])) {
     $dCombined = new dCombined();
     $userVar = $dCombined->Select($_SESSION['User'],'User_Full');
-    sActivity::Set($userVar[0]);
+    if (isset($userVar[0])) {
+        sActivity::Set($userVar[0]);
+    } else {
+        Log::Export($userVar);
+    }
 }
 $sessionUsr   = (isset($_SESSION['User']))? $_SESSION['User'] : array();
 $sessionId    = (! empty($sessionUsr))? $sessionUsr['userId'] : 0;
