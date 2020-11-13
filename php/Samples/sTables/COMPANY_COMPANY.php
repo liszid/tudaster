@@ -11,13 +11,13 @@ interface COMPANY_COMPANY
         "tableRoot" => "Users",
         "data" => array(
             "companyId" => array("text" => "Id", "tooltip" => ""),
-            "companyName" => array("text" => "Id", "tooltip" => ""),
-            "companyDesc" => array("text" => "Id", "tooltip" => ""),
-            "companyOwnerFirstName" => array("text" => "Id", "tooltip" => ""),
-            "companyOwnerLastName" => array("text" => "Id", "tooltip" => ""),
-            "companyAddressCity" => array("text" => "Id", "tooltip" => ""),
-            "companyAddressPostcode" => array("text" => "Id", "tooltip" => ""),
-            "companyAddressStreet" => array("text" => "Id", "tooltip" => "")
+            "companyName" => array("text" => "Név", "tooltip" => "Cég neve"),
+            "companyDesc" => array("text" => "Leírás", "tooltip" => "Cég leírása"),
+            "companyOwnerFirstName" => array("text" => "T. K. Név", "tooltip" => "Cég tulajdonos keresztneve"),
+            "companyOwnerLastName" => array("text" => "T. V. Név", "tooltip" => "Cég tulajdonos vezetékneve"),
+            "companyAddressCity" => array("text" => "Város", "tooltip" => "Cég központ címe: Város"),
+            "companyAddressPostcode" => array("text" => "IRSZ", "tooltip" => "Cég központ címe: Irányítószám"),
+            "companyAddressStreet" => array("text" => "Utca", "tooltip" => "Cég központ címe: Utca, házszám")
         ),
         "button" => array()
     );

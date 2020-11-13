@@ -30,12 +30,14 @@ class dbCombined extends Table implements iDatabase
     {
 	$tempArray = array();
 
-        if (strcmp($type, 'User_Full') === 0) {
+        if (! strcmp($type, 'User_Full')) {
             $tempArray = array(
-                            'userId'
-                        );
-        } elseif (strcmp($type, 'Member_Full') === 0) {
+                'userId'
+            );
+        } elseif (! strcmp($type, 'Member_Full')) {
     	    $tempArray = array();
+        } elseif (! strcmp($type, 'Company_Site_Table')){
+            $tempArray = array();
         } else {
             return array();
         }
@@ -53,12 +55,10 @@ class dbCombined extends Table implements iDatabase
                 )->rowCount() > 0
             ) {
                 return $tempVar->fetchAll();
-    	    } else {
-                return array();
     	    }
-        } else {
-    	    return array();
         }
+
+        return array();
     }
 
     public static function Update(array $array = array(), string $type = ''): bool

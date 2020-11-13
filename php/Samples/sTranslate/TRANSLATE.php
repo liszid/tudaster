@@ -186,14 +186,42 @@ interface TRANSLATE
     	    "fa" => "building-o",
     	    "title" => "Cég adatok",
     	    "help" => "Céges adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
-            "card" => "Céges adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Céges adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'text' => '
+                    <b>T. K. Név:</b> Cég tulajdonos keresztneve<br />
+                    <b>T. V. Név:</b> Cég tulajdonos vezetékneve<br />
+                    <b>Város:</b> Cég központ címe: Város<br />
+                    <b>IRSZ:</b> Cég központ címe: Irányítószám<br />
+                    <b>Utca:</b> Cég központ címe: Utca, házszám
+                '
+            )
     	),
     	"Company/Sites" => array(
     	    "navbar" => "Telephely",
     	    "fa" => "building-o",
     	    "title" => "Telephely adatok",
     	    "help" => "Céges telephely adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban",
-            "card" => "Céges telephely adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Céges telephely adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'text' => '
+                    <b>T.hely név:</b> Telephely neve<br />
+                    <b>T.hely típus:</b> Telephely típusa<br />
+                    <b>Város: Telephely címe:</b> Város<br />
+                    <b>IRSZ: Telephely címe:</b> Irányítószám<br />
+                    <b>Utca: Telephely címe:</b> Utca, házszám<br />
+                    <b>Telefonszám:</b> Telephely telefonszáma<br />
+                    <b>E-mail:</b> Telephely e-mail címe
+                '
+            )
     	),
     	"Login" => array(
     	    "navbar" => "Bejelentkezés",

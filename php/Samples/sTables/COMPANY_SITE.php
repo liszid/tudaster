@@ -11,14 +11,14 @@ interface COMPANY_SITE
         "tableRoot" => "Users",
         "data" => array(
             "companySiteId" => array("text" => "Id", "tooltip" => ""),
-            "companyName" => array("text" => "Id", "tooltip" => ""),
-            "companySiteName" => array("text" => "Id", "tooltip" => ""),
-            "companySiteType" => array("text" => "Id", "tooltip" => ""),
-            "companySiteAddressCity" => array("text" => "Id", "tooltip" => ""),
-            "companySiteAddressPostcode" => array("text" => "Id", "tooltip" => ""),
-            "companySiteAddressStreet" => array("text" => "Id", "tooltip" => ""),
-            "companySitePhone" => array("text" => "Id", "tooltip" => ""),
-            "companySiteEmail" => array("text" => "Id", "tooltip" => "")
+            "companyName" => array("text" => "Cég név", "tooltip" => "Cég neve"),
+            "companySiteName" => array("text" => "T.hely név", "tooltip" => "Telephely neve"),
+            "companySiteType" => array("text" => "T.hely típus", "tooltip" => "Telephely típusa"),
+            "companySiteAddressCity" => array("text" => "Város", "tooltip" => "Telephely címe: Város"),
+            "companySiteAddressPostcode" => array("text" => "IRSZ", "tooltip" => "Telephely címe: Irányítószám"),
+            "companySiteAddressStreet" => array("text" => "Utca", "tooltip" => "Telephely címe: Utca, házszám"),
+            "companySitePhone" => array("text" => "Telefonszám", "tooltip" => "Telephely telefonszáma"),
+            "companySiteEmail" => array("text" => "E-mail", "tooltip" => "Telephely e-mail címe")
         ),
         "button" => array()
     );
