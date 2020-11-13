@@ -31,12 +31,7 @@ class dbCompany extends Table implements iDatabase
                         'vNames' => array(
                             "userId",
                             "companyName",
-                            "companyDesc",
-                            "companyOwnerFirstName",
-                            "companyOwnerLastName",
-                            "companyAddressCity",
-                            "companyAddressPostcode",
-                            "companyAddressStreet"
+                            "companyDesc"
                         ),
                         'vData' => $array
                     )

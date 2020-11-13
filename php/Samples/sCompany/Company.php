@@ -32,6 +32,7 @@ class Company extends \Samples\sCompany
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
+                            '.sElement::General(array('origo' => 'cmpAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
                             '.sElement::General(array('origo' => 'cmpAdd', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => '', 'type' => 'text'), 'Input').'
                             '.sElement::General(array('origo' => 'cmpAdd', 'data' => 'companyDesc', 'desc' => 'Cég leírása', 'value' => '', 'type' => 'text'), 'Input').'
 
@@ -39,7 +40,7 @@ class Company extends \Samples\sCompany
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admUsrsAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="cmpAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
                         </div>
                     </div>
                 </form>';
@@ -110,6 +111,7 @@ class Company extends \Samples\sCompany
 */
     public static function Delete(array $array = array()): string
     {
+        Log::Export($array);
         self::setDCompany();
         return
             '<h4>'.(

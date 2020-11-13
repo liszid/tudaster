@@ -38,22 +38,21 @@ class General
             $input .= '</select>';
         } else {
             $input = '
-                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">
-                '.(
-                    (! strcmp($inputType, 'hidden'))
-                        ? '<label for="'.$inputId.'" class="col-form-label">'.$inputValue.'</label>'
-                        :''
-                );
+                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">';
         }
 
-        return '
-            <div class="form-group row col-12 p-0">
-                <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.'</label>
-                <div class="col-sm-6">
-                    '.$input.'
-                </div>
-            </div>
-        ';
+        return (
+                (! strcmp($inputType, 'hidden'))
+                    ?
+                        $input
+                    :'
+                        <div class="form-group row col-12 p-0">
+                            <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.'</label>
+                            <div class="col-sm-6">
+                                '.$input.'
+                            </div>
+                        </div>'
+        );
     }
 /*
  * Used to generate modal redirect spinner

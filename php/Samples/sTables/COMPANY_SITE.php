@@ -7,8 +7,8 @@ namespace Samples\sTables;
 interface COMPANY_SITE
 {
     const COMPANY_SITE = array(
-        "tableId" => "tableHomeUsers",
-        "tableRoot" => "Users",
+        "tableId" => "tableCompanySite",
+        "tableRoot" => "Company/Site",
         "data" => array(
             "companySiteId" => array("text" => "Id", "tooltip" => ""),
             "companyName" => array("text" => "Cég név", "tooltip" => "Cég neve"),

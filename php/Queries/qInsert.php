@@ -44,14 +44,14 @@ $GLOBALS['Database'][3]['Insert'] = "
 
 $GLOBALS['Database'][4]['Insert'] = "
     INSERT INTO `Company_Site`(
-        companyId,
         userId,
+        companyId,
         companySiteName,
         companySiteDesc,
         companySiteType
     ) VALUES (
-        :companyId,
         :userId,
+        :companyId,
         :companySiteName,
         :companySiteDesc,
         :companySiteType

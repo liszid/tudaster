@@ -29,23 +29,10 @@ class dbCompany_Site extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
-                            "companyId",
                             "userId",
+                            "companyId",
                             "companySiteName",
                             "companySiteDesc",
-                            "companySiteOwnerFirstName",
-                            "companySiteOwnerLastName",
-                            "companySiteOwnerEmail",
-                            "companySiteOwnerPhone",
-                            "companySiteSubOwnerFirstName",
-                            "companySiteSubOwnerLastName",
-                            "companySiteSubOwnerEmail",
-                            "companySiteSubOwnerPhone",
-                            "companySiteAddressCity",
-                            "companySiteAddressPostcode",
-                            "companySiteAddressStreet",
-                            "companySiteEmail",
-                            "companySitePhone",
                             "companySiteType"
                         ),
                         'vData' => $array
