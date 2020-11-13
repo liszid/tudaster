@@ -7,11 +7,17 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         {
             get( ) {
                 return [
-                    "Profile",
-                    "Administrative/Users/Add",
-                    "Administrative/Groups/Add",
-                    "Administrative/Groups/Edit",
-                    "Administrative/Membership/Edit"
+                    "Profile"
+                    ,"Administrative/Users/Add"
+                    ,"Administrative/Groups/Add"
+                    ,"Administrative/Groups/Edit"
+                    ,"Administrative/Membership/Edit"
+                    ,"Company/Company/Add"
+                    ,"Company/Company/Edit"
+                    ,"Company/Company/View"
+                    ,"Company/Site/Add"
+                    ,"Company/Site/Edit"
+                    ,"Company/Site/View"
                 ];
             }
         } );

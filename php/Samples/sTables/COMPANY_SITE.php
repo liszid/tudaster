@@ -20,6 +20,10 @@ interface COMPANY_SITE
             "companySitePhone" => array("text" => "Telefonszám", "tooltip" => "Telephely telefonszáma"),
             "companySiteEmail" => array("text" => "E-mail", "tooltip" => "Telephely e-mail címe")
         ),
-        "button" => array()
+        "button" => array(
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'View'),
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit'),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete')
+        )
     );
 }

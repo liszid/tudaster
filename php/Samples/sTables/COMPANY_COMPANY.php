@@ -19,6 +19,10 @@ interface COMPANY_COMPANY
             "companyAddressPostcode" => array("text" => "IRSZ", "tooltip" => "Cég központ címe: Irányítószám"),
             "companyAddressStreet" => array("text" => "Utca", "tooltip" => "Cég központ címe: Utca, házszám")
         ),
-        "button" => array()
+        "button" => array(
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'View'),
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit'),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete')
+        )
     );
 }

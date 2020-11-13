@@ -201,7 +201,7 @@ interface TRANSLATE
                 '
             )
     	),
-    	"Company/Sites" => array(
+    	"Company/Site" => array(
     	    "navbar" => "Telephely",
     	    "fa" => "building-o",
     	    "title" => "Telephely adatok",

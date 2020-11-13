@@ -12,11 +12,88 @@ use PreLoad\{
 
 use Data\{
     dCompany,
+    dCompany_Site,
     dCombined
 };
 
 class sCompany
 {
+    protected static $dCompany;
+    protected static $dCompany_Site;
+    protected static $dCombined;
+
+/*
+ * Sets the class variable : dUser
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDCompany()
+    {
+        self::$dCompany = new dCompany();
+    }
+
+/*
+ * Sets the class variable : dGroup
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDCompany_Site()
+    {
+        self::$dCompany_Site = new dCompany_Site();
+    }
+
+/*
+ * Sets the class variable : dCombined
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDCombined()
+    {
+        self::$dCombined = new dCombined();
+    }
+
+/*
+ * Used at Administrative Page for interactions
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    public static function Action(array $array = array()): string
+    {
+        $wclass;
+        $returnContent = '';
+
+        switch($array['y']) {
+            case 'Company':
+                $wclass = new sCompany\Company;
+                break;
+            case 'Site':
+                $wclass = new sCompany\Site;
+                break;
+        }
+
+        switch ($array['z']) {
+            case 'Add':
+                $returnContent .= $wclass::Add($array);
+                break;
+            case 'Reset':
+                $returnContent .= $wclass::View($array);
+                break;
+            case 'Delete':
+                $returnContent .= $wclass::Delete($array);
+                break;
+            case 'Edit':
+                $returnContent .= $wclass::Edit($array);
+                break;
+        }
+
+        if (Valid::vString($returnContent)) {
+            $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
+        }
+
+        return $returnContent;
+    }
 /*
  * Used at Administrative Page to display Users section
  * @param $array array
@@ -26,9 +103,9 @@ class sCompany
  */
     public static function Company(array $array = array()): string
     {
-        $returnString = 'Company';
-        $dCompany = new dCompany();
-        $Company = $dCompany->Select(array(), 'All');
+        self::setDCompany();
+        $returnString = '';
+        $Company = self::$dCompany->Select(array(), 'All');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -45,11 +122,11 @@ class sCompany
  * @author Liszi Dániel
  * @since 2020.11.13
  */
-    public static function Sites(array $array = array()): string
+    public static function Site(array $array = array()): string
     {
-        $returnString = 'Sites';
-        $dCombined = new dCombined();
-        $Company_Sites = $dCombined->Select(array(), 'Company_Site_Table');
+        self::setDCombined();
+        $returnString = '';
+        $Company_Sites = self::$dCombined->Select(array(), 'Company_Site_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));

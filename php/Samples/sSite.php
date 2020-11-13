@@ -204,7 +204,7 @@ class sSite
                     'dataLink' => $navName,
                     'dataItems' => array(
                         'Company',
-                        'Sites'
+                        'Site'
                     ),
                     'Desc' => sTranslate::Prompt($navName)
                 );
