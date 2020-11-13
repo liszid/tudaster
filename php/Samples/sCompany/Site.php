@@ -26,13 +26,16 @@ class Site extends \Samples\sCompany
 */
     public static function Add(array $array = array()): string
     {
-        self::setDCompanySite();
+        self::setDCompany_Site();
         if (! isset($array['Save'])) {
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
+                            '.sElement::General(array('origo' => 'cmpSiteAdd', 'data' => 'companyId', 'desc' => 'Cég', 'value' => '', 'type' => 'text'), 'Input').'
                             '.sElement::General(array('origo' => 'cmpSiteAdd', 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'cmpSiteAdd', 'data' => 'companySiteDesc', 'desc' => 'Telephely leírása', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'cmpSiteAdd', 'data' => 'companySiteType', 'desc' => 'Telephely típusa', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,7 +63,7 @@ class Site extends \Samples\sCompany
 */
     public static function View(array $array = array()): string
     {
-        self::setDCompanySite();
+        self::setDCompany_Site();
         return
             '<h4>'.(
                 (
@@ -84,7 +87,7 @@ class Site extends \Samples\sCompany
 */
     public static function Edit(array $array = array()): string
     {
-        self::setDCompanySite();
+        self::setDCompany_Site();
         return
             '<h4>'.(
                 (
@@ -108,7 +111,7 @@ class Site extends \Samples\sCompany
 */
     public static function Delete(array $array = array()): string
     {
-        self::setDCompanySite();
+        self::setDCompany_Site();
         return
             '<h4>'.(
                 (

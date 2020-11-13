@@ -35,21 +35,11 @@ $GLOBALS['Database'][3]['Insert'] = "
     INSERT INTO `Company`(
         userId,
         companyName,
-        companyDesc,
-        companyOwnerFirstName,
-        companyOwnerLastName,
-        companyAddressCity,
-        companyAddressPostcode,
-        companyAddressStreet
+        companyDesc
     ) VALUES (
         :userId,
         :companyName,
-        :companyDesc,
-        :companyOwnerFirstName,
-        :companyOwnerLastName,
-        :companyAddressCity,
-        :companyAddressPostcode,
-        :companyAddressStreet
+        :companyDesc
     );";
 
 $GLOBALS['Database'][4]['Insert'] = "
@@ -58,37 +48,11 @@ $GLOBALS['Database'][4]['Insert'] = "
         userId,
         companySiteName,
         companySiteDesc,
-        companySiteOwnerFirstName,
-        companySiteOwnerLastName,
-        companySiteOwnerEmail,
-        companySiteOwnerPhone,
-        companySiteSubOwnerFirstName,
-        companySiteSubOwnerLastName,
-        companySiteSubOwnerEmail,
-        companySiteSubOwnerPhone,
-        companySiteAddressCity,
-        companySiteAddressPostcode,
-        companySiteAddressStreet,
-        companySiteEmail,
-        companySitePhone,
         companySiteType
     ) VALUES (
         :companyId,
         :userId,
         :companySiteName,
         :companySiteDesc,
-        :companySiteOwnerFirstName,
-        :companySiteOwnerLastName,
-        :companySiteOwnerEmail,
-        :companySiteOwnerPhone,
-        :companySiteSubOwnerFirstName,
-        :companySiteSubOwnerLastName,
-        :companySiteSubOwnerEmail,
-        :companySiteSubOwnerPhone,
-        :companySiteAddressCity,
-        :companySiteAddressPostcode,
-        :companySiteAddressStreet,
-        :companySiteEmail,
-        :companySitePhone,
         :companySiteType
     );";

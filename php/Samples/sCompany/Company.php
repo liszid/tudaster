@@ -32,7 +32,9 @@ class Company extends \Samples\sCompany
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'cmpSiteAdd', 'data' => 'companySiteName', 'desc' => 'Cég neve', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'cmpAdd', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'cmpAdd', 'data' => 'companyDesc', 'desc' => 'Cég leírása', 'value' => '', 'type' => 'text'), 'Input').'
+
                         </div>
                     </div>
                     <div class="form-group">
