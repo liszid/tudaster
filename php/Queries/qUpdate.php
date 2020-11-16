@@ -4,21 +4,30 @@ declare(strict_types=1);
 
 $GLOBALS['Database']['0']['Update'] = array(
     "Profile" => "
-        UPDATE `User` SET
+        UPDATE
+            `User`
+        SET
             userFirstName=:userFirstName
             ,userLastName=:userLastName
             ,userContSite=:userContSite
             ,userContPhone=:userContPhone
             ,userThumbnail=:userThumbnail
-        WHERE userId=:userId",
+        WHERE
+            userId=:userId",
+
     "Reset" => "
-        UPDATE `User` SET
+        UPDATE
+            `User`
+        SET
             pWord=MD5(userName)
-        WHERE userId=:userId"
+        WHERE
+            userId=:userId"
 );
 
 $GLOBALS['Database']['1']['Update'] = "
-    UPDATE `Group` SET
+    UPDATE
+        `Group`
+    SET
         mngGroups=:mngGroups
         ,mngUsers=:mngUsers
         ,mngMembers=:mngMembers
@@ -32,21 +41,29 @@ $GLOBALS['Database']['1']['Update'] = "
         ,canSoftware=:canSoftware
         ,canEdit=:canEdit
         ,canLogin=:canLogin
-    WHERE groupId=:groupId";
+    WHERE
+        groupId=:groupId";
 
 $GLOBALS['Database']['2']['Update'] = array(
     "byUserId" => "
-        UPDATE `Group_Member` SET
+        UPDATE
+            `Group_Member`
+        SET
             groupId=:groupId
         WHERE userId=:userId",
+
     "byGroupMemberId" => "
-        UPDATE `Group_Member` SET
+        UPDATE
+            `Group_Member`
+        SET
             groupId=:groupId
         WHERE groupMemberId=:groupMemberId"
 );
 
 $GLOBALS['Database']['3']['Update'] = "
-    UPDATE `Company` SET
+    UPDATE
+        `Company`
+    SET
         companyDesc=:companyDesc
         ,companyOwnerFirstName=:companyOwnerFirstName
         ,companyOwnerLastName=:companyOwnerLastName
@@ -57,8 +74,10 @@ $GLOBALS['Database']['3']['Update'] = "
         companyId=:companyId
         AND userId=:userId";
 
-$GLOBALS['Database']['4']['Update'] = "
-    UPDATE `Company_Site` SET
+$GLOBALS['Database']['5']['Update'] = "
+    UPDATE
+        `Company_Site`
+    SET
         companySiteDesc=:companySiteDesc
         ,companySiteOwnerFirstName=:companySiteOwnerFirstName
         ,companySiteOwnerLastName=:companySiteOwnerLastName
@@ -73,5 +92,7 @@ $GLOBALS['Database']['4']['Update'] = "
         ,companySiteAddressStreet=:companySiteAddressStreet
         ,companySiteEmail=:companySiteEmail
         ,companySitePhone=:companySitePhone
-        ,companySiteType=:companySiteType
-    WHERE companySiteId=:companySiteId";
+        ,companySiteTypeId=:companySiteTypeId
+    WHERE
+        companySiteId=:companySiteId
+        AND userId=:userId";

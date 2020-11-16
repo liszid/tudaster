@@ -10,4 +10,6 @@ $GLOBALS['Database'][2]['Delete'] = "DELETE FROM `Group_Member` WHERE userId=:us
 
 $GLOBALS['Database'][3]['Delete'] = "DELETE FROM `Company` WHERE companyId=:companyId";
 
-$GLOBALS['Database'][4]['Delete'] = "DELETE FROM `Company_Site` WHERE companySiteId=:companySiteId";
+$GLOBALS['Database'][4]['Delete'] = "DELETE FROM `Company_Site_Type` WHERE companySiteTypeId=:companySiteTypeId";
+
+$GLOBALS['Database'][5]['Delete'] = "DELETE FROM `Company_Site` WHERE companySiteId=:companySiteId";

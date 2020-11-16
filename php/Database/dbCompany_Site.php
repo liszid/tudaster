@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbCompany_Site extends Table implements iDatabase
 {
-    const CLASS_ID = 4;
+    const CLASS_ID = 5;
 
     private static $classQueries = array();
 
@@ -33,7 +33,7 @@ class dbCompany_Site extends Table implements iDatabase
                             "companyId",
                             "companySiteName",
                             "companySiteDesc",
-                            "companySiteType"
+                            "companySiteTypeId"
                         ),
                         'vData' => $array
                     )
@@ -75,6 +75,8 @@ class dbCompany_Site extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
+                            "userId",
+                            "companySiteId",
                             "companySiteDesc",
                             "companySiteOwnerFirstName",
                             "companySiteOwnerLastName",
@@ -89,7 +91,7 @@ class dbCompany_Site extends Table implements iDatabase
                             "companySiteAddressStreet",
                             "companySiteEmail",
                             "companySitePhone",
-                            "companySiteType"
+                            "companySiteTypeId"
                         ),
                         'vData' => $array
                     )

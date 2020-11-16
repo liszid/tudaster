@@ -13,6 +13,7 @@ use PreLoad\{
 use Data\{
     dCompany,
     dCompany_Site,
+    dCompany_Site_Type,
     dCombined
 };
 
@@ -20,6 +21,7 @@ class sCompany
 {
     protected static $dCompany;
     protected static $dCompany_Site;
+    protected static $dCompany_Site_Type;
     protected static $dCombined;
 
 /*
@@ -40,6 +42,16 @@ class sCompany
     protected static function setDCompany_Site()
     {
         self::$dCompany_Site = new dCompany_Site();
+    }
+
+/*
+ * Sets the class variable : dGroup
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDCompany_Site_Type()
+    {
+        self::$dCompany_Site_Type = new dCompany_Site_Type();
     }
 
 /*

@@ -71,6 +71,14 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );",
     4 => "
+        CREATE TABLE IF NOT EXISTS `Company_Site_Type`(
+            companySiteTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            companySiteTypeName VARCHAR(128) NOT NULL,
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyCompanySiteType PRIMARY KEY (companySiteTypeId)
+        );
+    ",
+    5 => "
         CREATE TABLE IF NOT EXISTS `Company_Site`(
             companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companyId INT(6) UNSIGNED NOT NULL,
@@ -86,14 +94,16 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companySiteSubOwnerEmail VARCHAR(128) NULL,
             companySiteSubOwnerPhone VARCHAR(32) NULL,
             companySiteAddressCity VARCHAR(64) NULL,
-            companySiteAddressPostcode INT(4) NULL,
+            companySiteAddressPostcode VARCHAR(4) NULL,
             companySiteAddressStreet VARCHAR(128) NULL,
             companySiteEmail VARCHAR(128) NULL,
             companySitePhone VARCHAR(32) NULL,
-            companySiteType VARCHAR(128) NULL,
+            companySiteTypeId INT(6) UNSIGNED NOT NULL DEFAULT 1,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompanySite PRIMARY KEY (companySiteId),
             CONSTRAINT companySiteCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE,
-            CONSTRAINT companySiteUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
+            CONSTRAINT companySiteUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE,
+            CONSTRAINT companySiteTypeCascade FOREIGN KEY (companySiteTypeId) REFERENCES `Company_Site_Type` (companySiteTypeId) ON DELETE CASCADE
         );",
+
 );

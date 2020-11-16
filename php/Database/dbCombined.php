@@ -38,6 +38,8 @@ class dbCombined extends Table implements iDatabase
     	    $tempArray = array();
         } elseif (! strcmp($type, 'Company_Site_Table')){
             $tempArray = array();
+        } elseif (! strcmp($type, 'Company_Site_View')){
+            $tempArray = array('companySiteId');
         } else {
             return array();
         }

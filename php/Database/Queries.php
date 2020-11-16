@@ -31,7 +31,8 @@ class Queries extends Database
             1 => 'Group',
             2 => 'Group_Member',
             3 => 'Company',
-            4 => 'Company_Site',
+            4 => 'Company_Site_Type',
+            5 => 'Company_Site',
             98 => 'Tools',
             99 => 'Combined'
         );

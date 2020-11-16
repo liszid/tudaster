@@ -52,6 +52,8 @@ class dbCompany extends Table implements iDatabase
             $tempArray = array(
                 'companyId'
             );
+        } elseif (! strcmp($type, 'forCompanySelect')) {
+            $tempArray = array();
         } else {
             return array();
         }

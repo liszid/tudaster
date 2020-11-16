@@ -223,9 +223,9 @@ interface TRANSLATE
                     <b>Utca: Telephely címe:</b> Utca, házszám<br />
                     <b>Telefonszám:</b> Telephely telefonszáma<br />
                     <b>E-mail:</b> Telephely e-mail címe<br />
-                    <b>Megtekintés:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
-                    <b>Szerkesztés:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
-                    <b>Törlés:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                    <b>Adatok megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Telephely szerkesztése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítás:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
                 '
             )
     	),

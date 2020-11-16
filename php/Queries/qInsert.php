@@ -43,16 +43,25 @@ $GLOBALS['Database'][3]['Insert'] = "
     );";
 
 $GLOBALS['Database'][4]['Insert'] = "
+    INSERT INTO `Company_Site_Type`(
+        companySiteTypeId,
+        companySiteTypeName
+    ) VALUES (
+        :companySiteTypeId,
+        :companySiteTypeName
+    );";
+
+$GLOBALS['Database'][5]['Insert'] = "
     INSERT INTO `Company_Site`(
         userId,
         companyId,
         companySiteName,
         companySiteDesc,
-        companySiteType
+        companySiteTypeId
     ) VALUES (
         :userId,
         :companyId,
         :companySiteName,
         :companySiteDesc,
-        :companySiteType
+        :companySiteTypeId
     );";

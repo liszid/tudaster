@@ -47,3 +47,10 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
         isDelete
     ) VALUES
         (1, 1, 0);";
+
+$GLOBALS['Database']['Table']['Insert'][4] = "
+    INSERT INTO `Company_Site_Type`(
+        companySiteTypeName,
+        isDelete
+    ) VALUES
+        ('Alapértelmezett', 0);";

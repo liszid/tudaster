@@ -48,7 +48,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ["usrCmpCmpAdd", "x=Company&y=Company&z=Add&Save=", "button", [], "modalDialog"],
                     ["usrCmpCmpEdit", "x=Company&y=Company&z=Edit&Save=", "button", [], "modalDialog"],
                     ["usrCmpSiteAdd", "x=Company&y=Site&z=Add&Save=", "button", [], "modalDialog"],
-                    ["usrCmpSiteEdit", "x=Company&y=Company&z=Edit&Save=", "button", [], "modalDialog"],
+                    ["usrCmpSiteEdit", "x=Company&y=Site&z=Edit&Save=", "button", [], "modalDialog"],
                 ];
             }
         } );

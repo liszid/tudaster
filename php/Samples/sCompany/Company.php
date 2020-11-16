@@ -72,9 +72,9 @@ class Company extends \Samples\sCompany
                         '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company['companyName'], 'type' => 'text', 'disabled' => true), 'Input').'
                         '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'value' => $Company['companyOwnerLastName'], 'type' => 'text', 'disabled' => true), 'Input').'
                         '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'value' => $Company['companyOwnerFirstName'], 'type' => 'text', 'disabled' => true), 'Input').'
-                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressCity', 'desc' => 'Cég címe: Város', 'value' => $Company['companyAddressCity'], 'type' => 'text', 'disabled' => true), 'Input').'
-                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressPostcode', 'desc' => 'Cég címe: Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text', 'disabled' => true), 'Input').'
-                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressStreet', 'desc' => 'Cég címe: Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text', 'disabled' => true), 'Input').'
+                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressCity', 'desc' => 'Város', 'value' => $Company['companyAddressCity'], 'type' => 'text', 'disabled' => true), 'Input').'
+                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text', 'disabled' => true), 'Input').'
+                        '.sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text', 'disabled' => true), 'Input').'
 
                     </div>
                 </div>
@@ -103,9 +103,9 @@ class Company extends \Samples\sCompany
                             '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyDesc', 'desc' => 'Cég leírása', 'value' => $Company['companyDesc'], 'type' => 'text'), 'Input').'
                             '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'value' => $Company['companyOwnerLastName'], 'type' => 'text'), 'Input').'
                             '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'value' => $Company['companyOwnerFirstName'], 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressCity', 'desc' => 'Cég címe: Város', 'value' => $Company['companyAddressCity'], 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressPostcode', 'desc' => 'Cég címe: Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressStreet', 'desc' => 'Cég címe: Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressCity', 'desc' => 'Város', 'value' => $Company['companyAddressCity'], 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text'), 'Input').'
 
                         </div>
                     </div>
