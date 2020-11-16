@@ -108,10 +108,12 @@ $GLOBALS['Database'][2]['Select'] = array(
 );
 
 $GLOBALS['Database'][3]['Select'] = array(
-    'All' => "SELECT * FROM `Company`"
+    'All' => "SELECT * FROM `Company`",
+    'byCompanyId' => "SELECT * FROM `Company` WHERE companyId=:companyId"
 );
 
 $GLOBALS['Database'][4]['Select'] = array(
     'All' => "SELECT * FROM `Company_Site`",
-    'byCompanyId' => "SELECT * FROM `Company_Site` WHERE companyId=:companyId"
+    'byCompanyId' => "SELECT * FROM `Company_Site` WHERE companyId=:companyId",
+    'byCompanySiteId' => "SELECT * FROM `Company_Site` WHERE companySiteId=:companySiteId"
 );

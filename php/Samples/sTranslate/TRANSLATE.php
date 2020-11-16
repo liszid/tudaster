@@ -197,7 +197,10 @@ interface TRANSLATE
                     <b>T. V. Név:</b> Cég tulajdonos vezetékneve<br />
                     <b>Város:</b> Cég központ címe: Város<br />
                     <b>IRSZ:</b> Cég központ címe: Irányítószám<br />
-                    <b>Utca:</b> Cég központ címe: Utca, házszám
+                    <b>Utca:</b> Cég központ címe: Utca, házszám<br />
+                    <b>Adatok megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Cég szerkesztése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítás:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
                 '
             )
     	),
@@ -219,7 +222,10 @@ interface TRANSLATE
                     <b>IRSZ: Telephely címe:</b> Irányítószám<br />
                     <b>Utca: Telephely címe:</b> Utca, házszám<br />
                     <b>Telefonszám:</b> Telephely telefonszáma<br />
-                    <b>E-mail:</b> Telephely e-mail címe
+                    <b>E-mail:</b> Telephely e-mail címe<br />
+                    <b>Megtekintés:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Szerkesztés:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Törlés:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
                 '
             )
     	),

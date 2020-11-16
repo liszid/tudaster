@@ -25,6 +25,7 @@ class General
         $labelDesc = (isset($array['desc'])) ? $array['desc'] : '';
         $inputValue = (isset($array['value'])) ? $array['value'] : '';
         $inputType = (isset($array['type'])) ? $array['type'] : '';
+        $inputDisabled = (isset($array['disabled'])) ? ' disabled': '';
         $input = '';
 
         if (
@@ -33,12 +34,12 @@ class General
         ) {
             $input = '<select class="custom-select" id="'.$inputId.'">';
             foreach ($array['select'] as $i) {
-                $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').'>'.$i['name'].'</option>';
+                $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').''.$inputDisabled.'>'.$i['name'].'</option>';
             }
             $input .= '</select>';
         } else {
             $input = '
-                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'">';
+                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.'>';
         }
 
         return (

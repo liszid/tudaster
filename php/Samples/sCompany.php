@@ -77,7 +77,7 @@ class sCompany
             case 'Add':
                 $returnContent .= $wclass::Add($array);
                 break;
-            case 'Reset':
+            case 'View':
                 $returnContent .= $wclass::View($array);
                 break;
             case 'Delete':
@@ -87,7 +87,6 @@ class sCompany
                 $returnContent .= $wclass::Edit($array);
                 break;
         }
-
         if (Valid::vString($returnContent)) {
             $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
         }

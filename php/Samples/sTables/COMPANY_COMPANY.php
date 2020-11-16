@@ -20,7 +20,7 @@ interface COMPANY_COMPANY
             "companyAddressStreet" => array("text" => "Utca", "tooltip" => "Cég központ címe: Utca, házszám")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'View'),
+            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View'),
             array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit'),
             array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete')
         )
