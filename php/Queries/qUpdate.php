@@ -46,17 +46,19 @@ $GLOBALS['Database']['2']['Update'] = array(
 );
 
 $GLOBALS['Database']['3']['Update'] = "
-    UPDATE `Group` SET
+    UPDATE `Company` SET
         companyDesc=:companyDesc
         ,companyOwnerFirstName=:companyOwnerFirstName
         ,companyOwnerLastName=:companyOwnerLastName
         ,companyAddressCity=:companyAddressCity
         ,companyAddressPostcode=:companyAddressPostcode
         ,companyAddressStreet=:companyAddressStreet
-    WHERE companyId=:companyId";
+    WHERE
+        companyId=:companyId
+        AND userId=:userId";
 
 $GLOBALS['Database']['4']['Update'] = "
-    UPDATE `Group` SET
+    UPDATE `Company_Site` SET
         companySiteDesc=:companySiteDesc
         ,companySiteOwnerFirstName=:companySiteOwnerFirstName
         ,companySiteOwnerLastName=:companySiteOwnerLastName

@@ -74,7 +74,16 @@ class dbCompany extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'userId',
+                            'companyId',
+                            'companyDesc',
+                            'companyOwnerLastName',
+                            'companyOwnerFirstName',
+                            'companyAddressCity',
+                            'companyAddressPostcode',
+                            'companyAddressStreet'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
