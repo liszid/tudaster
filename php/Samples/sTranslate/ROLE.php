@@ -104,8 +104,8 @@ interface ROLE
     	    'select_type' => 'access'
     	),
         'canCompany' => array(
-    	    'color' => 'info',
-    	    'header' => 'Fejlesztés alatti funkció',
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
     	    'respective' => 'Company',
     	    'short' => 'cC',
     	    'desc' => 'Cégek jogosultság',
