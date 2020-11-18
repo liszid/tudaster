@@ -16,7 +16,7 @@ interface ADMIN_MEMBERSHIP
             "userName" => array("text" => "Felhasználónév", "tooltip" => "")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit')
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés')
         )
     );
 }

@@ -18,6 +18,8 @@ class sTables implements
     sTables\COMPANY_COMPANY,
     sTables\COMPANY_SITE
 {
+    const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
+    const ENABLED_ACTIONS = array('View');
 
 /*
  * Displays Table using external data
@@ -95,20 +97,20 @@ class sTables implements
 
             if (count($data['button']) > 0) {
                 foreach ($data['button'] as $b) {
+                    $aTooltip = (isset($b['tooltip']) && Valid::vString($b['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$b['tooltip']."'" : "";
                     $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
-                    if (isset($i['isDelete'])) {
-                        if ((int)$i['isDelete'] === 0) {
-                            $aData = '<a class="btn btn-secondary" role="button">';
-                        }
+                    if (
+                        (
+                            ! in_array($b['action'], self::ACTIONS)
+                        ) || (
+                            isset($i['isDelete'])
+                            && ! (int)$i['isDelete']
+                            && ! in_array($b['action'], self::ENABLED_ACTIONS)
+                        )
+                    ) {
+                        $aData = '<a class="btn btn-secondary" role="button">';
                     }
-                    $returnString .= '
-                        <td class="align-baseline">
-                            <center>
-                                '.$aData.'
-                                    <i class="fa fa-'.$b['fa'].'" aria-hidden="true"></i>
-                                </a>
-                            </center>
-                        </td>';
+                    $returnString .= '<td class="align-baseline" '.$aTooltip.'><center>'.$aData.'<i class="fa fa-'.$b['fa'].'" aria-hidden="true"></i></a></center></td>';
                 }
             }
 

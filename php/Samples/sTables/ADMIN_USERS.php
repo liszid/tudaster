@@ -19,8 +19,8 @@ interface ADMIN_USERS
             "userContPhone" => array("text" => "Telefon", "tooltip" => "")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'undo', 'action' => 'Reset'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete')
+            array('color' => 'warning', 'fa' => 'undo', 'action' => 'Reset', 'tooltip' => 'Jelszó helyreállítás'),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
         )
     );
 }

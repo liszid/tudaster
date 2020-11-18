@@ -107,8 +107,8 @@ class Site extends \Samples\sCompany
                 <div class="form-group col p-0">
                     <div class="col-12 row">
                         '.sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content)).'
-                        '.sCard::Collapsible(array('header' => 'Vezető adatok', 'content' => $Company_Site_Owner_Content)).'
-                        '.sCard::Collapsible(array('header' => 'Vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
+                        '.sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content)).'
+                        '.sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
                     </div>
                 </div>
             </form>';
@@ -164,8 +164,8 @@ class Site extends \Samples\sCompany
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Vezető adatok', 'content' => $Company_Site_Owner_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
+                            '.sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content)).'
+                            '.sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
                         </div>
                     </div>
                     <div class="form-group">

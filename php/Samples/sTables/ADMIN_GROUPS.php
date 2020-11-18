@@ -28,8 +28,8 @@ interface ADMIN_GROUPS
             "canLogin" => array("text" => "cL", "tooltip" => "Bejelentkezési engedély")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete')
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés'),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
         )
     );
 }

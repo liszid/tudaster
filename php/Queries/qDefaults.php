@@ -47,10 +47,31 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
         isDelete
     ) VALUES
         (1, 1, 0);";
-
+$GLOBALS['Database']['Table']['Insert'][3] = "
+    INSERT INTO `Company`(
+        userId,
+        companyName,
+        companyDesc,
+        companyOwnerFirstName,
+        companyOwnerLastName,
+        companyAddressCity,
+        companyAddressPostcode,
+        companyAddressStreet,
+        isDelete
+    ) VALUES
+        (1, 'Krupp-System Kft.', 'Munkahely', 'Péter', 'Krupp', 'Törökbálint', '2045', 'Depo 062/32', 0);
+    ";
 $GLOBALS['Database']['Table']['Insert'][4] = "
     INSERT INTO `Company_Site_Type`(
         companySiteTypeName,
         isDelete
     ) VALUES
-        ('Alapértelmezett', 0);";
+        ('Alapértelmezett', 0),
+        ('Cég központ', 0),
+        ('Iroda', 0),
+        ('Szolgáltató', 0),
+        ('Dohány bolt', 0),
+        ('Élelmiszer bolt', 0),
+        ('Bisztró/ Étterem', 0),
+        ('Pékség', 0),
+        ('Raktár', 0);";
