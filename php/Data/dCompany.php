@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Data;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 use Database\dbCompany;
 
 class dCompany implements iData
