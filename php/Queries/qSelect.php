@@ -69,6 +69,7 @@ $GLOBALS['Database'][99]['Select'] = array(
     'Company_Site_Table' => "
         SELECT
             `Company_Site`.companySiteId
+            ,`Company_Site`.userId
             ,`Company`.companyName
             ,`Company_Site`.companySiteName
             ,`Company_Site_Type`.companySiteTypeName

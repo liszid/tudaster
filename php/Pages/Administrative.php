@@ -17,11 +17,7 @@ use Samples\ {
 
 if (
     isset($sessionUsr['userId'])
-    && (
-        (int)$sessionUsr['mngUsers'] > 0
-        || (int)$sessionUsr['mngGroups'] > 0
-        || (int)$sessionUsr['mngMembers'] > 0
-    )
+    && (int)$sessionUsr['canAdministrative'] > 0
 ) {
     $returnContent = '';
 

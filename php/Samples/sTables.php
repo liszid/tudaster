@@ -101,12 +101,19 @@ class sTables implements
                     $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
                     if (
                         (
-                            ! in_array($b['action'], self::ACTIONS)
-                        ) || (
-                            isset($i['isDelete'])
-                            && ! (int)$i['isDelete']
-                            && ! in_array($b['action'], self::ENABLED_ACTIONS)
+                            (
+                                ! in_array($b['action'], self::ACTIONS)
+                            ) || (
+                                isset($i['isDelete'])
+                                && ! (int)$i['isDelete']
+                            ) || (
+                                isset($i['userId'])
+                                && isset($_SESSION['User']['userId'])
+                                && $i['userId'] != $_SESSION['User']['userId']
+                                && ! $_SESSION['User']['canAdministrative']
+                            )
                         )
+                        && ! in_array($b['action'], self::ENABLED_ACTIONS)
                     ) {
                         $aData = '<a class="btn btn-secondary" role="button">';
                     }

@@ -85,6 +85,7 @@ class dbGroup extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
+                            'canAdministrative',
                             'mngGroups',
                             'mngUsers',
                             'mngMembers',

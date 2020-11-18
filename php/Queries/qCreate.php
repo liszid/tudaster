@@ -27,6 +27,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             groupId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             groupName VARCHAR(32) NOT NULL,
             groupDesc VARCHAR(256) NOT NULL,
+            canAdministrative INT(1) DEFAULT 0,
             mngGroups INT(1) DEFAULT 0,
             mngUsers INT(1) DEFAULT 0,
             mngMembers INT(1) DEFAULT 0,

@@ -57,9 +57,10 @@ interface TRANSLATE
                 'addButton' => true,
                 'title' => '',
                 'content' => '
-                    <b>mG</b> - Csoportok kezelése <br />
-                    <b>mU</b> - Felhasználók kezelése <br />
-                    <b>mM</b> - Csoport tagságok szerkesztése<br />
+                    <b>cA</b> - Adminisztrativ engedély<br />
+                    <b>mG</b> - Felhasználói csoportok kezelése<br />
+                    <b>mU</b> - Felhasználók kezelése<br />
+                    <b>mM</b> - Felhasználói csoport tagságok szerkesztése<br />
                     <b>mT</b> - Adminisztratív eszközök kezelése<br />
                     <b>cUs</b> - Regisztráltak megtekintése  <br />
                     <b>cC</b> - Cégek jogosultság <br />

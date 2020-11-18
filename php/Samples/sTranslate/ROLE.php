@@ -7,6 +7,14 @@ namespace Samples\sTranslate;
 interface ROLE
 {
     const ROLE = array(
+        'canAdministrative' => array(
+            'color' => 'success',
+    	    'header' => 'Elérhető funkció',
+    	    'respective' => 'Administrative',
+    	    'short' => 'cA',
+    	    'desc' => 'Adminisztrativ engedély',
+    	    'select_type' => 'state'
+        ),
         'mngUsers' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',

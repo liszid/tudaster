@@ -28,7 +28,8 @@ $GLOBALS['Database']['1']['Update'] = "
     UPDATE
         `Group`
     SET
-        mngGroups=:mngGroups
+        canAdministrative=:canAdministrative
+        ,mngGroups=:mngGroups
         ,mngUsers=:mngUsers
         ,mngMembers=:mngMembers
         ,mngTools=:mngTools

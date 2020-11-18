@@ -13,6 +13,7 @@ interface ADMIN_GROUPS
             "groupId" => array("text" => "Id", "tooltip" => ""),
             "groupName" => array("text" => "Név", "tooltip" => ""),
             "groupDesc" => array("text" => "Leírás", "tooltip" => ""),
+            "canAdministrative" => array("text" => "cA", "tooltip" => "Adminisztrativ engedély"),
             "mngGroups" => array("text" => "mG", "tooltip" => "Csoport kezelési engedély"),
             "mngUsers" => array("text" => "mU", "tooltip" => "Felhasználó kezelési engedély"),
             "mngMembers" => array("text" => "mM", "tooltip" => "Csoport tagság kezelési engedély"),
