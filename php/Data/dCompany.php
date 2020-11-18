@@ -23,7 +23,22 @@ class dCompany implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbCompany->Insert($array);
+        if (
+            isset($array['companyName'])
+            && (
+                Valid::vString($array['companyName'])
+                && Valid::vInput($array['companyName'], 2)
+            )
+            && isset($array['companyDesc'])
+            && (
+                ! Valid::vString($array['companyDesc'])
+                || Valid::vInput($array['companyDesc'], 2)
+            )
+        ) {
+            return self::$dbCompany->Insert($array);
+        }
+
+        return false;
     }
 
     public static function Select(array $array = array(), string $type = ''): array

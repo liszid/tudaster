@@ -53,7 +53,37 @@ class dCompany_Site implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbCompany_Site->Update($array, $type);
+        $checkBool = true;
+        $checkArray = array(
+            array('key' => 'companySiteDesc', 'type' => 2),
+            array('key' => 'companySiteAddressCity', 'type' => 2),
+            array('key' => 'companySiteAddressPostcode', 'type' => 2),
+            array('key' => 'companySiteAddressStreet', 'type' => 2),
+            array('key' => 'companySiteEmail', 'type' => 4),
+            array('key' => 'companySitePhone', 'type' => 3),
+            array('key' => 'companySiteOwnerLastName', 'type' => 2),
+            array('key' => 'companySiteOwnerFirstName', 'type' => 2),
+            array('key' => 'companySiteOwnerEmail', 'type' => 4),
+            array('key' => 'companySiteOwnerPhone', 'type' => 3),
+            array('key' => 'companySiteSubOwnerLastName', 'type' => 2),
+            array('key' => 'companySiteSubOwnerFirstName', 'type' => 2),
+            array('key' => 'companySiteSubOwnerEmail', 'type' => 4),
+            array('key' => 'companySiteSubOwnerPhone', 'type' => 3)
+        );
+
+        foreach ($checkArray as $i) {
+            if (
+                ! isset($array[$i['key']])
+                || (
+                    ! Valid::vInput($array[$i['key']], $i['type'])
+                    && Valid::vString($array[$i['key']])
+                )
+            ) {
+                $checkBool = false;
+            }
+        }
+
+        return ($checkBool) ? self::$dbCompany_Site->Update($array, $type) : false;
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

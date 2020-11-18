@@ -63,9 +63,12 @@ class Site extends \Samples\sCompany
         } else {
             return
                 '<h4>'.(
-                    (self::$dCompany_Site->Insert($array))
-                        ? sTranslate::ACTION['Success']['content']
-                        : sTranslate::ACTION['Fail']['content']
+                    (
+                        isset($array['dp'])
+                        && self::$dCompany_Site->Insert($array)
+                    )
+                    ? sTranslate::ACTION['Success']['content']
+                    : sTranslate::ACTION['Fail']['content']
                 ).'</h4>'.sElement::General(array('x' => 'Company', 'y' => 'Site'), 'Spinner');
         }
     }
@@ -137,8 +140,6 @@ class Site extends \Samples\sCompany
             }
 
             $Company_Site_Content =
-                 sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteId', 'desc' => '', 'value' => $array['dp'], 'type' => 'hidden'), 'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company_Site['companyName'], 'type' => 'text', 'disabled' => true),'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteName', 'desc' => 'Név', 'value' => $Company_Site['companySiteName'], 'type' => 'text', 'disabled' => true),'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteTypeId', 'desc' => 'Típus', 'value' => '', 'select' => $companySiteType, 'type' => 'select'), 'Input')
@@ -162,11 +163,13 @@ class Site extends \Samples\sCompany
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
-                        <div class="col-12 row">
-                            '.sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
-                        </div>
+                        <div class="col-12 row">'
+                            .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
+                            .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteId', 'desc' => '', 'value' => $array['dp'], 'type' => 'hidden'), 'Input')
+                            .sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content))
+                            .sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content))
+                            .sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).
+                        '</div>
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
@@ -178,7 +181,8 @@ class Site extends \Samples\sCompany
             return
                 '<h4>'.(
                     (
-                        self::$dCompany_Site->Update($array)
+                        isset($array['dp'])
+                        && self::$dCompany_Site->Update($array)
                     )
                     ? sTranslate::ACTION['Success']['content']
                     : sTranslate::ACTION['Fail']['content']
@@ -199,7 +203,8 @@ class Site extends \Samples\sCompany
         return
             '<h4>'.(
                 (
-                    self::$dCompany_Site->Delete(
+                    isset($array['dp'])
+                    && self::$dCompany_Site->Delete(
                         array(
                             'companySiteId' => (int)$array['dp']
                         )
