@@ -64,8 +64,7 @@ class Site extends \Samples\sCompany
             return
                 '<h4>'.(
                     (
-                        isset($array['dp'])
-                        && self::$dCompany_Site->Insert($array)
+                        self::$dCompany_Site->Insert($array)
                     )
                     ? sTranslate::ACTION['Success']['content']
                     : sTranslate::ACTION['Fail']['content']
@@ -140,7 +139,7 @@ class Site extends \Samples\sCompany
             }
 
             $Company_Site_Content =
-                .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company_Site['companyName'], 'type' => 'text', 'disabled' => true),'Input')
+                 sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company_Site['companyName'], 'type' => 'text', 'disabled' => true),'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteName', 'desc' => 'Név', 'value' => $Company_Site['companySiteName'], 'type' => 'text', 'disabled' => true),'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteTypeId', 'desc' => 'Típus', 'value' => '', 'select' => $companySiteType, 'type' => 'select'), 'Input')
                 .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteDesc', 'desc' => 'Leírás', 'value' => $Company_Site['companySiteDesc'], 'type' => 'text'),'Input')
@@ -181,8 +180,7 @@ class Site extends \Samples\sCompany
             return
                 '<h4>'.(
                     (
-                        isset($array['dp'])
-                        && self::$dCompany_Site->Update($array)
+                        self::$dCompany_Site->Update($array)
                     )
                     ? sTranslate::ACTION['Success']['content']
                     : sTranslate::ACTION['Fail']['content']

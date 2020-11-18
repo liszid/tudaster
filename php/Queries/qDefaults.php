@@ -62,7 +62,7 @@ $GLOBALS['Database']['Table']['Insert'][3] = "
         companyAddressStreet,
         isDelete
     ) VALUES
-        (1, 'Krupp-System Kft.', 'Munkahely', 'Péter', 'Krupp', 'Törökbálint', '2045', 'Depo 062/32', 0);
+        (1, 'Krupp-System Kft.', 'Munkahely', 'Péter', 'Krupp', 'Törökbálint', '2045', 'Depo 062/32', 1);
     ";
 $GLOBALS['Database']['Table']['Insert'][4] = "
     INSERT INTO `Company_Site_Type`(
@@ -78,3 +78,28 @@ $GLOBALS['Database']['Table']['Insert'][4] = "
         ('Bisztró/ Étterem', 0),
         ('Pékség', 0),
         ('Raktár', 0);";
+$GLOBALS['Database']['Table']['Insert'][5] = "
+    INSERT INTO `Company_Site`(
+        companyId,
+        userId,
+        companySiteName,
+        companySiteDesc,
+        companySiteOwnerFirstName,
+        companySiteOwnerLastName,
+        companySiteOwnerEmail,
+        companySiteOwnerPhone,
+        companySiteSubOwnerFirstName,
+        companySiteSubOwnerLastName,
+        companySiteSubOwnerEmail,
+        companySiteSubOwnerPhone,
+        companySiteAddressCity,
+        companySiteAddressPostcode,
+        companySiteAddressStreet,
+        companySiteEmail,
+        companySitePhone,
+        companySiteTypeId,
+        isDelete
+    ) VALUES
+    (1, 1, 'Központ', 'Központi telephely', 'Péter', 'Krupp', 'krupp.peter@kruppsystem.hu', 06301234567,'Mária','Szabó', 'szabo.maria@kruppsystem.hu', 06301234567,'Törökbálint', 2045, 'Depo 062/32', 'iroda@kruppsystem.hu', 06301234567, 2, 1);
+
+";

@@ -136,7 +136,6 @@ class Company extends \Samples\sCompany
 */
     public static function Delete(array $array = array()): string
     {
-        Log::Export($array);
         self::setDCompany();
         return
             '<h4>'.(
