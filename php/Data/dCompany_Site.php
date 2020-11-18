@@ -26,10 +26,7 @@ class dCompany_Site implements iData
         if (Valid::vArray($array)){
             if (
                 isset($array['companySiteName'])
-                && (
-                    Valid::vInput($array['companySiteName'], 2)
-                    || ! Valid::vString($array['companySiteName'])
-                )
+                && Valid::vInput($array['companySiteName'], 2)
                 && isset ($array['companySiteDesc'])
                 && (
                     Valid::vInput($array['companySiteDesc'], 2)

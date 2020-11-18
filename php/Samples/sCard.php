@@ -158,13 +158,13 @@ class sCard
         $headingId = 'heading-'.md5('heading-'.rand());
         $collapseId = 'collapse-'.md5('collapse-'.rand());
         $contHeader = ((isset($array['header'])) ? $array['header'] : '');
-        $contText = ((isset($array['text'])) ? $array['text'] : '');
+        $contText = ((isset($array['content'])) ? $array['content'] : '');
 // Optional Contents
         $contAddButton = ((isset($array['path']) && isset($array['addButton']) && $array['addButton'])? sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add') : '');
 
         if (Valid::vArray($array)) {
             return '
-                <div id="'.$accordionId.'" class="mb-2">
+                <div id="'.$accordionId.'" class="mb-2 col-12">
                     <div class="card">
                         <div class="card-header d-flex" id="'.$headingId.'">
                             <h5 class="mb-0">

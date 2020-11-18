@@ -25,7 +25,7 @@ interface TRANSLATE
                 'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
-                'text' => '
+                'content' => '
                     <p>Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve csoportja a 2-es ID-val rendelkezö "Default" csoport</p>
                     <b>Felhasználói jelszó alaphelyzetbe állítása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-undo" aria-hidden="true"></i></a><br />
                     <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
@@ -56,7 +56,7 @@ interface TRANSLATE
                 'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
-                'text' => '
+                'content' => '
                     <b>mG</b> - Csoportok kezelése <br />
                     <b>mU</b> - Felhasználók kezelése <br />
                     <b>mM</b> - Csoport tagságok szerkesztése<br />
@@ -99,7 +99,7 @@ interface TRANSLATE
                 'color' => 'success',
                 'header' => 'Információ',
                 'title' => '',
-                'text' => '
+                'content' => '
                     <b>Csoport tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
             )
     	),
@@ -127,7 +127,7 @@ interface TRANSLATE
                 'color' => 'success',
                 'header' => 'Információ',
                 'title' => '',
-                'text' => '
+                'content' => '
                     <b>Adatbázis törlése: </b> Eldobja az aktuális adatbázist, és újra építi
                 '
             )
@@ -192,7 +192,7 @@ interface TRANSLATE
                 'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
-                'text' => '
+                'content' => '
                     <b>T. K. Név:</b> Cég tulajdonos keresztneve<br />
                     <b>T. V. Név:</b> Cég tulajdonos vezetékneve<br />
                     <b>Város:</b> Cég központ címe: Város<br />
@@ -215,7 +215,7 @@ interface TRANSLATE
                 'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
-                'text' => '
+                'content' => '
                     <b>T.hely név:</b> Telephely neve<br />
                     <b>T.hely típus:</b> Telephely típusa<br />
                     <b>Város: Telephely címe:</b> Város<br />
