@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Data;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 use Database\dbCompany_Site;
 
 class dCompany_Site implements iData
@@ -17,7 +23,30 @@ class dCompany_Site implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbCompany_Site->Insert($array);
+        if (Valid::vArray($array)){
+            if (
+                isset($array['companySiteName'])
+                && (
+                    Valid::vInput($array['companySiteName'], 2)
+                    || ! Valid::vString($array['companySiteName'])
+                )
+                && isset ($array['companySiteDesc'])
+                && (
+                    Valid::vInput($array['companySiteDesc'], 2)
+                    || ! Valid::vString($array['companySiteDesc'])
+                )
+            ) {
+                if (
+                    isset ($array['companyId'])
+                    && Valid::vInput($array['companyId'], 3)
+                    && isset ($array['companySiteTypeId'])
+                    && Valid::vInput($array['companySiteTypeId'], 3)
+                ) {
+                     return self::$dbCompany_Site->Insert($array);
+                }
+            }
+        }
+        return false;
     }
 
     public static function Select(array $array = array(), string $type = ''): array
