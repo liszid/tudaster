@@ -57,7 +57,7 @@ class dCompany_Site implements iData
         $checkArray = array(
             array('key' => 'companySiteDesc', 'type' => 2),
             array('key' => 'companySiteAddressCity', 'type' => 2),
-            array('key' => 'companySiteAddressPostcode', 'type' => 2),
+            array('key' => 'companySiteAddressPostcode', 'type' => 3),
             array('key' => 'companySiteAddressStreet', 'type' => 2),
             array('key' => 'companySiteEmail', 'type' => 4),
             array('key' => 'companySitePhone', 'type' => 3),

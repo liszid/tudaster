@@ -48,7 +48,28 @@ class dCompany implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbCompany->Update($array, $type);
+        $checkBool = true;
+        $checkArray = array(
+            array('key' => 'companyDesc', 'type' => 2),
+            array('key' => 'companyOwnerLastName', 'type' => 2),
+            array('key' => 'companyOwnerFirstName', 'type' => 2),
+            array('key' => 'companyAddressCity', 'type' => 2),
+            array('key' => 'companyAddressPostcode', 'type' => 3),
+            array('key' => 'companyAddressStreet', 'type' => 2),
+        );
+        foreach ($checkArray as $i) {
+            if (
+                ! isset($array[$i['key']])
+                || (
+                    ! Valid::vInput($array[$i['key']], $i['type'])
+                    && Valid::vString($array[$i['key']])
+                )
+            ) {
+                $checkBool = false;
+            }
+        }
+
+        return (($checkBool) ? self::$dbCompany->Update($array, $type) : false);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
