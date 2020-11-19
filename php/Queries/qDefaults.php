@@ -100,6 +100,6 @@ $GLOBALS['Database']['Table']['Insert'][5] = "
         companySiteTypeId,
         isDelete
     ) VALUES
-    (1, 1, 'Központ', 'Központi telephely', 'Péter', 'Krupp', 'krupp.peter@kruppsystem.hu', 06301234567,'Mária','Szabó', 'szabo.maria@kruppsystem.hu', 06301234567,'Törökbálint', 2045, 'Depo 062/32', 'iroda@kruppsystem.hu', 06301234567, 2, 1);
+    (1, 1, 'Központ', 'Központi telephely', 'Péter', 'Krupp', 'krupp.peter@kruppsystem.hu', 36301234567,'Mária','Szabó', 'szabo.maria@kruppsystem.hu', 36301234567,'Törökbálint', 2045, 'Depo 062/32', 'iroda@kruppsystem.hu', 36301234567, 2, 1);
 
 ";

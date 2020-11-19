@@ -34,7 +34,7 @@ class General
         ) {
             $input = '<select class="custom-select" id="'.$inputId.'">';
             foreach ($array['select'] as $i) {
-                $input .= '<option value="'.$i['id'].'"'.(((string)$inputValue === (string)$i['id']) ? ' selected' : '').''.$inputDisabled.'>'.$i['name'].'</option>';
+                $input .= '<option value="'.$i['id'].'"'.((! strcmp((string)$inputValue, (string)$i['id'])) ? ' selected' : '').$inputDisabled.'>'.$i['name'].'</option>';
             }
             $input .= '</select>';
         } else {

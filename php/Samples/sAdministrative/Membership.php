@@ -41,7 +41,7 @@ class Membership extends \Samples\sAdministrative
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupMemberId', 'desc' => 'Csoport tag Id', 'value' => $array['dp'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupId', 'desc' => 'Csoport Id', 'value' => '', 'select' => $selectTag, 'type' => 'select'), 'Input').'
+                            '.sElement::General(array('origo' => 'admMemsEdit', 'data' => 'groupId', 'desc' => 'Csoport Id', 'value' => (self::$dGroup_Member->Select(array('groupMemberId' => $array['dp']), 'byGroupMemberId'))[0]['groupId'], 'select' => $selectTag, 'type' => 'select'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">

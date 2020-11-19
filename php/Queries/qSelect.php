@@ -99,6 +99,7 @@ $GLOBALS['Database'][99]['Select'] = array(
             `Company_Site`.companySiteId
             ,`Company`.companyName
             ,`Company_Site`.companySiteName
+            ,`Company_Site`.companySiteTypeId
             ,`Company_Site_Type`.companySiteTypeName
             ,`Company_Site`.companySiteDesc
             ,`Company_Site`.companySitePhone
@@ -220,7 +221,14 @@ $GLOBALS['Database'][2]['Select'] = array(
         FROM
             `Group_Member`
         WHERE
-            groupId=:groupId"
+            groupId=:groupId",
+    'byGroupMemberId' => "
+        SELECT
+            *
+        FROM
+            `Group_Member`
+        WHERE
+            groupMemberId=:groupMemberId"
 );
 
 $GLOBALS['Database'][3]['Select'] = array(

@@ -51,6 +51,10 @@ class dbGroup_Member extends Table implements iDatabase
             $tempArray = array(
                             'groupId'
                         );
+        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
+            $tempArray = array(
+                            'groupMemberId'
+                        );
         } elseif (strcmp($type, 'byUserId') === 0) {
             $tempArray = array(
                             'userId'
