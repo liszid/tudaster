@@ -75,11 +75,14 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     if(! $.fn.dataTable.isDataTable( 'table' )) {
                         $('[data-toggle="tooltip"]').tooltip();
 
-                        if($.inArray($(this).attr('id'), _self.tableSearching ) >= 0) {
+                        if( $.inArray($(this).attr('id'), _self.tableSearching ) >= 0 ) {
                             $('#'+$(this).attr('id')+' thead tr:eq(0) th').each( function (i)
                             {
                                 var title = $(this).text();
-                                if(title !== "") {
+                                if(
+                                    title !== ""
+                                    && ! $(this).hasClass('never')
+                                ) {
                                     $(this).html( '<center><input type="text" placeholder="'+title+'" /></center>' );
                                     $( 'input', this).attr('size', $( 'input', this).attr('placeholder').length);
                                     $( 'input', this ).on( 'keyup change', function ()
@@ -95,7 +98,9 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             } );
                             var table = $(this).DataTable(
                             {
-                                "columnDefs":[{"targets": 'no-sort', "orderable": false, "visible": true}],
+                                "columnDefs":[{"targets": 'no-sort', "orderable": false}],
+                                "columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}],
+                                "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]],
                                 "order": [[ 0, "asc" ]],
                                 "fixedHeader": true,
                                 "order": [],
@@ -107,6 +112,9 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             $( this ).DataTable(
                             {
                                 "order": [[ 0, "asc" ]],
+                                "columnDefs":[{"targets": 'no-sort', "orderable": false}],
+                                "columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}],
+                                "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]],
                                 "paging": false,
                                 "searching": false,
                                 "language": {

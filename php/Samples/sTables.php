@@ -66,14 +66,13 @@ class sTables implements
  */
     private static function Generate(array $array, array $data): string
     {
-
+        $selectedKeys = array();
         $returnString = '
             <table id="'.$data['tableId'].'" class="table table-striped display responsive" style="width:100%"><thead><tr>';
 
         foreach ($data['data'] as $key => $value) {
             $thTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
             $thClass = ((strcmp($key, array_key_first($data['data'])) === 0)? 'all': 'no-sort');
-
             $returnString .= '<th class="'.$thClass.'" '.$thTooltip.'><center>'.$value['text'].'</center></th>';
         }
 
@@ -81,6 +80,17 @@ class sTables implements
     	    foreach ($data['button'] as $b) {
                 $returnString .= '<th class="all"></th>';
     	    }
+        }
+
+        if (count($array) > 0) {
+            $diffKeys = array_diff(array_keys($array[0]), array_keys($data['data']));
+            foreach ($diffKeys as $i) {
+                if (! is_numeric($i)) {
+                    $selectedKeys[] = $i;
+                    $returnString .= '<th class="never"><center>'.$i.'</center></th>';
+                }
+            }
+
         }
 
         $returnString .= '</tr></thead><tbody>';
@@ -121,6 +131,12 @@ class sTables implements
                 }
             }
 
+            if (count($selectedKeys) > 0) {
+                foreach ($selectedKeys as $k) {
+                    $returnString .= '<td class="align-baseline"><center>'.$i[$k].'</center></td>';
+                }
+            }
+
             $returnString .= '</tr>';
         }
 
@@ -136,6 +152,13 @@ class sTables implements
     	    foreach ($data['button'] as $b) {
                 $returnString .= '<th></th>';
     	    }
+        }
+
+        if (count($selectedKeys) > 0) {
+            foreach ($selectedKeys as $i) {
+                $returnString .= '<th class="hidden-column"><center>'.$i.'</center></th>';
+            }
+
         }
 
         $returnString .= '</tr></tfoot></table>';
