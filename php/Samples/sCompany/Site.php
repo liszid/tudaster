@@ -83,11 +83,17 @@ class Site extends \Samples\sCompany
     {
         self::setDCombined();
         $Company_Site = (self::$dCombined->Select(array('companySiteId' => (int)$array['dp']), 'Company_Site_View'))[0];
+        $Company_Company_Content =
+            sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company_Site['companyName'], 'type' => 'text', 'disabled' => true), 'Input')
+            .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'value' => $Company_Site['companyOwnerLastName'], 'type' => 'text', 'disabled' => true), 'Input')
+            .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'value' => $Company_Site['companyOwnerFirstName'], 'type' => 'text', 'disabled' => true), 'Input')
+            .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressCity', 'desc' => 'Város', 'value' => $Company_Site['companyAddressCity'], 'type' => 'text', 'disabled' => true), 'Input')
+            .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company_Site['companyAddressPostcode'], 'type' => 'text', 'disabled' => true), 'Input')
+            .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company_Site['companyAddressStreet'], 'type' => 'text', 'disabled' => true), 'Input');
         $Company_Site_Content =
-            sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company_Site['companyName'], 'type' => 'text', 'disabled' => true),'Input')
-            .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteName', 'desc' => 'Név', 'value' => $Company_Site['companySiteName'], 'type' => 'text', 'disabled' => true),'Input')
-            .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteTypeName', 'desc' => 'Típus', 'value' => $Company_Site['companySiteTypeName'], 'type' => 'text', 'disabled' => true),'Input')
-            .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteDesc', 'desc' => 'Leírás', 'value' => $Company_Site['companySiteDesc'], 'type' => 'text', 'disabled' => true),'Input')
+            sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'value' => $Company_Site['companySiteName'], 'type' => 'text', 'disabled' => true),'Input')
+            .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteTypeName', 'desc' => 'Telephely típusa', 'value' => $Company_Site['companySiteTypeName'], 'type' => 'text', 'disabled' => true),'Input')
+            .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteDesc', 'desc' => 'Telephely leírása', 'value' => $Company_Site['companySiteDesc'], 'type' => 'text', 'disabled' => true),'Input')
             .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteAddressCity', 'desc' => 'Város', 'value' => $Company_Site['companySiteAddressCity'], 'type' => 'text', 'disabled' => true),'Input')
             .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company_Site['companySiteAddressPostcode'], 'type' => 'text', 'disabled' => true),'Input')
             .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'companySiteAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company_Site['companySiteAddressStreet'], 'type' => 'text', 'disabled' => true),'Input')
@@ -107,11 +113,13 @@ class Site extends \Samples\sCompany
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
-                    <div class="col-12 row">
-                        '.sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content)).'
-                        '.sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content)).'
-                        '.sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).'
-                    </div>
+                    <div class="col-12 row">'
+                        .sCard::Collapsible(array('header' => 'Cég adatok', 'content' => $Company_Company_Content))
+                        .sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content))
+                        .sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content))
+                        .sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content))
+                        .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'userName', 'desc' => 'Hozzáadta', 'value' => $Company_Site['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                    .'</div>
                 </div>
             </form>';
     }
@@ -166,8 +174,8 @@ class Site extends \Samples\sCompany
                             .sElement::General( array( 'origo' => 'usrCmpSiteEdit', 'data' => 'companySiteId', 'desc' => '', 'value' => $array['dp'], 'type' => 'hidden'), 'Input')
                             .sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => $Company_Site_Content))
                             .sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => $Company_Site_Owner_Content))
-                            .sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content)).
-                        '</div>
+                            .sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => $Company_Site_Sub_Owner_Content))
+                        .'</div>
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">

@@ -47,7 +47,7 @@ class General
                     ?
                         $input
                     :'
-                        <div class="form-group row col-12 p-0">
+                        <div class="form-group row col-12 mx-0">
                             <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.'</label>
                             <div class="col-sm-6">
                                 '.$input.'
