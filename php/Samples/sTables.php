@@ -52,6 +52,9 @@ class sTables implements
             case 'Company_Site':
                 return self::Generate($array, self::COMPANY_SITE);
                 break;
+            case 'Company_Site_Filter':
+                return self::Generate($array, self::COMPANY_SITE_FILTER);
+                break;
             default:
                 break;
         }
@@ -103,7 +106,10 @@ class sTables implements
             foreach ($data['data'] as $key => $value) {
                 $tdTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
                 $tdContent = (strcmp($key, 'userThumbnail'))? $i[$key] : '<i class="fa fa-'.$i[$key].'" aria-hidden="true"> </i>';
-
+                if (isset($value['action'])) {
+                    $tdAData = '<a class="badge badge-primary" role="button" data-link="'.$data['tableRoot'].'/'.$value['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
+                    $tdContent = $tdAData . $tdContent . '</a>';
+                }
                 $returnString .= '<td class="align-baseline" '.$tdTooltip.'><center>'.$tdContent.'</center></td>';
             }
 

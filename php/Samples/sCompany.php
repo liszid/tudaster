@@ -70,6 +70,7 @@ class sCompany
  * @return string
  * @author Liszi Dániel
  * @since 2020.11.03
+ * @update 2020.11.23
  */
     public static function Action(array $array = array()): string
     {
@@ -97,6 +98,9 @@ class sCompany
                 break;
             case 'Edit':
                 $returnContent .= $wclass::Edit($array);
+                break;
+            case 'Filter':
+                $returnContent .= $wclass::Filter($array);
                 break;
         }
         if (Valid::vString($returnContent)) {

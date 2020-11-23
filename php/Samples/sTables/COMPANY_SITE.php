@@ -26,4 +26,17 @@ interface COMPANY_SITE
             array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
         )
     );
+
+    const COMPANY_SITE_FILTER = array(
+        "tableId" => "tableCompanySite",
+        "tableRoot" => "Company/Site",
+        "data" => array(
+            "companySiteId" => array("text" => "Id", "tooltip" => ""),
+            "companySiteName" => array("text" => "Név", "tooltip" => "Telephely neve"),
+            "companySiteTypeName" => array("text" => "Típus", "tooltip" => "Telephely típusa")
+        ),
+        "button" => array(
+            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés')
+        )
+    );
 }

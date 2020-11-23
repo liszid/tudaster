@@ -141,6 +141,36 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             companySiteId=:companySiteId
+    ",
+
+    'Company_Site_Filter' => "
+        SELECT
+            `Company_Site`.*
+            ,`Company`.*
+            ,`Company_Site_Type`.companySiteTypeName
+            ,`User`.userName
+        FROM
+        (
+            (
+                (
+                    `Company_Site`
+                    INNER JOIN
+                        `User`
+                    ON
+                        `Company_Site`.userId = `User`.userId
+                )
+                INNER JOIN
+                    `Company_Site_Type`
+                ON
+                    `Company_Site`.companySiteTypeId = `Company_Site_Type`.companySiteTypeId
+            )
+            INNER JOIN
+                `Company`
+            ON
+                `Company`.companyId = `Company_Site`.companyId
+        )
+        WHERE
+            `Company_Site`.companyId=:companyId
     "
 );
 

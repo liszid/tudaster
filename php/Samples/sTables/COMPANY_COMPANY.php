@@ -11,7 +11,7 @@ interface COMPANY_COMPANY
         "tableRoot" => "Company/Company",
         "data" => array(
             "companyId" => array("text" => "Id", "tooltip" => ""),
-            "companyName" => array("text" => "Név", "tooltip" => "Cég neve"),
+            "companyName" => array("text" => "Név", "tooltip" => "Cég neve", 'action' => 'Filter'),
             "companyDesc" => array("text" => "Leírás", "tooltip" => "Cég leírása"),
             "companyOwnerFirstName" => array("text" => "T. K. Név", "tooltip" => "Cég tulajdonos keresztneve"),
             "companyOwnerLastName" => array("text" => "T. V. Név", "tooltip" => "Cég tulajdonos vezetékneve"),

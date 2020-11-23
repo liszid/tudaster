@@ -15,6 +15,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ,"Company/Company/Add"
                     ,"Company/Company/Edit"
                     ,"Company/Company/View"
+                    ,"Company/Company/Filter"
                     ,"Company/Site/Add"
                     ,"Company/Site/Edit"
                     ,"Company/Site/View"
@@ -96,7 +97,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                     } );
                                 }
                             } );
-                            var table = $(this).DataTable(
+                            var table = $( this ).DataTable(
                             {
                                 "columnDefs":[{"targets": 'no-sort', "orderable": false}],
                                 "columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}],

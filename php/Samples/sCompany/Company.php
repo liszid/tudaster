@@ -12,11 +12,18 @@ use PreLoad\{
 
 use Samples\{
     sElement,
-    sTranslate
+    sTranslate,
+    sTables
 };
 
 class Company extends \Samples\sCompany
 {
+    public static function Filter(array $array = array()): string
+    {
+        self::setDCombined();
+        return sTables::Prompt((self::$dCombined->Select(array('companyId' => (int)$array['dp']), 'Company_Site_Filter')), 'Company_Site_Filter');
+    }
+
 /*
 * Returns Company Adding form
 * @param $array array
