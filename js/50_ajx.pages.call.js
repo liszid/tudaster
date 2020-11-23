@@ -63,10 +63,6 @@ const iAjax = (iAjax = Object) => class extends iAjax
             this.evntForm(z.getElementsByTagName('input'));
             this.evntForm(z.getElementsByTagName('button'));
             this.evntHrefs(z.getElementsByTagName('a'));
-//  Set modal to be shown
-            if (id === 'modalDialog') {
-                $('#modalBox').modal('show');
-            }
         }
         if (xhttp.status == 404) {
             xhttp.open("GET", window.errorSite, true);
@@ -112,8 +108,11 @@ const iAjax = (iAjax = Object) => class extends iAjax
     initElmnt(param = "x=Home", id = "body", type = "POST")
     {
         var _self = this;
-
         _self.ajaxCall(param, id, type);
+//  Set modal to be shown
+        if (id === 'modalDialog') {
+            $('#modalBox').modal({ show: true});
+        }
     }
 
 /*
