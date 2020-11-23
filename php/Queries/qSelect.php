@@ -25,7 +25,16 @@ $GLOBALS['Database']['Select'] = array(
 $GLOBALS['Database'][99]['Select'] = array(
     'User_Full' => "
         SELECT
-            `User`.*
+            `User`.userId
+            ,`User`.userId
+            ,`User`.userName
+            ,`User`.userFirstName
+            ,`User`.userLastName
+            ,`User`.userContEmail
+            ,`User`.userContPhone
+            ,`User`.userContSite
+            ,`User`.userThumbnail
+            ,`User`.isDelete
             ,`Group`.*
         FROM
         (
@@ -65,19 +74,27 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Group`.groupId = `Group_Member`.groupId
         )
     ",
-/*
-`Company_Site`.companySiteId
-,`Company_Site`.companySiteName
-,`Company_Site`.userId
-,`Company_Site`.companySiteAddressCity
-,`Company_Site`.companySiteAddressPostcode
-,`Company_Site`.companySiteAddressStreet
-,`Company_Site`.companySitePhone
-,`Company_Site`.companySiteEmail
-*/
     'Company_Site_Table' => "
         SELECT
-            `Company_Site`.*
+            `Company_Site`.companySiteId
+            ,`Company_Site`.companyId
+            ,`Company_Site`.userId
+            ,`Company_Site`.companySiteName
+            ,`Company_Site`.companySiteTypeId
+            ,`Company_Site`.companySiteDesc
+            ,`Company_Site`.companySitePhone
+            ,`Company_Site`.companySiteEmail
+            ,`Company_Site`.companySiteAddressCity
+            ,`Company_Site`.companySiteAddressPostcode
+            ,`Company_Site`.companySiteAddressStreet
+            ,`Company_Site`.companySiteOwnerFirstName
+            ,`Company_Site`.companySiteOwnerLastName
+            ,`Company_Site`.companySiteOwnerEmail
+            ,`Company_Site`.companySiteOwnerPhone
+            ,`Company_Site`.companySiteSubOwnerFirstName
+            ,`Company_Site`.companySiteSubOwnerLastName
+            ,`Company_Site`.companySiteSubOwnerEmail
+            ,`Company_Site`.companySiteSubOwnerPhone
             ,`Company`.companyName
             ,`Company_Site_Type`.companySiteTypeName
         FROM
@@ -95,28 +112,35 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Company`.companyId = `Company_Site`.companyId
         )
     ",
-/*
-,`Company_Site`.companySiteName
-,`Company_Site`.companySiteTypeId
-,`Company_Site`.companySiteDesc
-,`Company_Site`.companySitePhone
-,`Company_Site`.companySiteEmail
-,`Company_Site`.companySiteAddressCity
-,`Company_Site`.companySiteAddressPostcode
-,`Company_Site`.companySiteAddressStreet
-,`Company_Site`.companySiteOwnerFirstName
-,`Company_Site`.companySiteOwnerLastName
-,`Company_Site`.companySiteOwnerEmail
-,`Company_Site`.companySiteOwnerPhone
-,`Company_Site`.companySiteSubOwnerFirstName
-,`Company_Site`.companySiteSubOwnerLastName
-,`Company_Site`.companySiteSubOwnerEmail
-,`Company_Site`.companySiteSubOwnerPhone
-*/
     'Company_Site_View' => "
         SELECT
-            `Company_Site`.*
-            ,`Company`.*
+            `Company_Site`.companySiteId
+            ,`Company_Site`.companyId
+            ,`Company_Site`.userId
+            ,`Company_Site`.companySiteName
+            ,`Company_Site`.companySiteTypeId
+            ,`Company_Site`.companySiteDesc
+            ,`Company_Site`.companySitePhone
+            ,`Company_Site`.companySiteEmail
+            ,`Company_Site`.companySiteAddressCity
+            ,`Company_Site`.companySiteAddressPostcode
+            ,`Company_Site`.companySiteAddressStreet
+            ,`Company_Site`.companySiteOwnerFirstName
+            ,`Company_Site`.companySiteOwnerLastName
+            ,`Company_Site`.companySiteOwnerEmail
+            ,`Company_Site`.companySiteOwnerPhone
+            ,`Company_Site`.companySiteSubOwnerFirstName
+            ,`Company_Site`.companySiteSubOwnerLastName
+            ,`Company_Site`.companySiteSubOwnerEmail
+            ,`Company_Site`.companySiteSubOwnerPhone
+            ,`Company`.companyId
+            ,`Company`.companyName
+            ,`Company`.companyDesc
+            ,`Company`.companyOwnerFirstName
+            ,`Company`.companyOwnerLastName
+            ,`Company`.companyAddressCity
+            ,`Company`.companyAddressPostcode
+            ,`Company`.companyAddressStreet
             ,`Company_Site_Type`.companySiteTypeName
             ,`User`.userName
         FROM
@@ -145,8 +169,34 @@ $GLOBALS['Database'][99]['Select'] = array(
 
     'Company_Site_Filter' => "
         SELECT
-            `Company_Site`.*
-            ,`Company`.*
+            `Company_Site`.companySiteId
+            ,`Company_Site`.companyId
+            ,`Company_Site`.userId
+            ,`Company_Site`.companySiteName
+            ,`Company_Site`.companySiteTypeId
+            ,`Company_Site`.companySiteDesc
+            ,`Company_Site`.companySitePhone
+            ,`Company_Site`.companySiteEmail
+            ,`Company_Site`.companySiteAddressCity
+            ,`Company_Site`.companySiteAddressPostcode
+            ,`Company_Site`.companySiteAddressStreet
+            ,`Company_Site`.companySiteOwnerFirstName
+            ,`Company_Site`.companySiteOwnerLastName
+            ,`Company_Site`.companySiteOwnerEmail
+            ,`Company_Site`.companySiteOwnerPhone
+            ,`Company_Site`.companySiteSubOwnerFirstName
+            ,`Company_Site`.companySiteSubOwnerLastName
+            ,`Company_Site`.companySiteSubOwnerEmail
+            ,`Company_Site`.companySiteSubOwnerPhone
+            ,`Company_Site`.isDelete
+            ,`Company`.companyId
+            ,`Company`.companyName
+            ,`Company`.companyDesc
+            ,`Company`.companyOwnerFirstName
+            ,`Company`.companyOwnerLastName
+            ,`Company`.companyAddressCity
+            ,`Company`.companyAddressPostcode
+            ,`Company`.companyAddressStreet
             ,`Company_Site_Type`.companySiteTypeName
             ,`User`.userName
         FROM
@@ -177,13 +227,31 @@ $GLOBALS['Database'][99]['Select'] = array(
 $GLOBALS['Database'][0]['Select'] = array(
     'All' => "
         SELECT
-            *
+            `User`.userId
+            ,`User`.userId
+            ,`User`.userName
+            ,`User`.userFirstName
+            ,`User`.userLastName
+            ,`User`.userContEmail
+            ,`User`.userContPhone
+            ,`User`.userContSite
+            ,`User`.userThumbnail
+            ,`User`.isDelete
         FROM
             `User`",
 
     'byUserName' => "
         SELECT
-            *
+            `User`.userId
+            ,`User`.userId
+            ,`User`.userName
+            ,`User`.userFirstName
+            ,`User`.userLastName
+            ,`User`.userContEmail
+            ,`User`.userContPhone
+            ,`User`.userContSite
+            ,`User`.userThumbnail
+            ,`User`.isDelete
         FROM
             `User`
         WHERE
@@ -191,7 +259,16 @@ $GLOBALS['Database'][0]['Select'] = array(
 
     'byUserId' => "
         SELECT
-            *
+            `User`.userId
+            ,`User`.userId
+            ,`User`.userName
+            ,`User`.userFirstName
+            ,`User`.userLastName
+            ,`User`.userContEmail
+            ,`User`.userContPhone
+            ,`User`.userContSite
+            ,`User`.userThumbnail
+            ,`User`.isDelete
         FROM
             `User`
         WHERE
@@ -199,7 +276,16 @@ $GLOBALS['Database'][0]['Select'] = array(
 
     'byContEmail' => "
         SELECT
-            *
+            `User`.userId
+            ,`User`.userId
+            ,`User`.userName
+            ,`User`.userFirstName
+            ,`User`.userLastName
+            ,`User`.userContEmail
+            ,`User`.userContPhone
+            ,`User`.userContSite
+            ,`User`.userThumbnail
+            ,`User`.isDelete
         FROM
             `User`
         WHERE
