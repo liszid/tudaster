@@ -107,7 +107,7 @@ class sTables implements
                 $tdTooltip = (isset($value['tooltip']) && Valid::vString($value['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$value['tooltip']."'" : "";
                 $tdContent = (strcmp($key, 'userThumbnail'))? $i[$key] : '<i class="fa fa-'.$i[$key].'" aria-hidden="true"> </i>';
                 if (isset($value['action'])) {
-                    $tdAData = '<a class="badge badge-primary" role="button" data-link="'.$data['tableRoot'].'/'.$value['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
+                    $tdAData = '<a class="badge badge-primary" role="button" data-link="'.$data['tableRoot'].'/'.$value['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-target="#modalBox">';
                     $tdContent = $tdAData . $tdContent . '</a>';
                 }
                 $returnString .= '<td class="align-baseline" '.$tdTooltip.'><center>'.$tdContent.'</center></td>';
@@ -116,7 +116,7 @@ class sTables implements
             if (count($data['button']) > 0) {
                 foreach ($data['button'] as $b) {
                     $aTooltip = (isset($b['tooltip']) && Valid::vString($b['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$b['tooltip']."'" : "";
-                    $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-toggle="modal" data-target="#modalBox">';
+                    $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-target="#modalBox">';
                     if (
                         (
                             (
