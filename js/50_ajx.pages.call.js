@@ -47,27 +47,25 @@ const iAjax = (iAjax = Object) => class extends iAjax
  * @param id string
  * @author Liszi Dániel
  * @since 2020.11.10
+ * @update 2020.11.23
  */
     setInnerHTML(xhttp, id = "body")
     {
         var temp, z = document.getElementById(id);
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            temp = xhttp.responseText;
-            if (temp.split('message>').length - 1 === 0) {
-                if (window.stringInnerContent !== temp) {
-                    window.stringInnerContent = temp;
-                    z.innerHTML = window.stringInnerContent;
-                    $('.navbar-collapse').collapse('hide');
-                    this.evntDataTable();
-                    this.evntForm(z.getElementsByTagName('input'));
-                    this.evntForm(z.getElementsByTagName('button'));
-                    this.evntHrefs(z.getElementsByTagName('a'));
-                }
-            } else {
-                let modalD = document.getElementById("modalDialog");
-                window.stringInnerContent = temp;
-                modalD.innerHTML = window.stringInnerContent;
-                $("#modalBox").modal('show');
+//  Setting inner content
+            window.stringInnerContent = xhttp.responseText;
+            document.getElementById(id).innerHTML = window.stringInnerContent;
+//  Hiding navbar
+            $('.navbar-collapse').collapse('hide');
+//  Init event handlers
+            this.evntDataTable();
+            this.evntForm(z.getElementsByTagName('input'));
+            this.evntForm(z.getElementsByTagName('button'));
+            this.evntHrefs(z.getElementsByTagName('a'));
+//  Set modal to be shown
+            if (id === 'modalDialog') {
+                $('#modalBox').modal('show');
             }
         }
         if (xhttp.status == 404) {
@@ -84,6 +82,7 @@ const iAjax = (iAjax = Object) => class extends iAjax
  * @return bool
  * @author Liszi Dániel
  * @since 2020.11.10
+ * @update 2020.11.23
  */
     ajaxCall(param, id, type){
         var xhttp = new XMLHttpRequest(), _self = this;
