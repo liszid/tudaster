@@ -22,7 +22,8 @@ class sTables implements
     const ENABLED_ACTIONS = array('View');
 
 /*
- * Displays Table using external data
+ * Displays Table using constants as visible data
+ * , and all others are invisible but searchable
  * @param $array array
  * @param $type string
  * @return string
@@ -57,12 +58,13 @@ class sTables implements
     }
 
 /*
- * Generates Table using both external and internal data
+ * Generates Table using both external and constant data
  * @param $array array
  * @param $data array
  * @return string
  * @author Liszi Dániel
  * @since 2020.10.27
+ * @update 2020.11.20
  */
     private static function Generate(array $array, array $data): string
     {
