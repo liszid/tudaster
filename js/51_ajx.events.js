@@ -73,9 +73,8 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
             $('table').each(
                 function()
                 {
-                    if(! $.fn.dataTable.isDataTable( 'table' )) {
+                    if(! $.fn.dataTable.isDataTable( this )) {
                         $('[data-toggle="tooltip"]').tooltip();
-
                         if( $.inArray($(this).attr('id'), _self.tableSearching ) >= 0 ) {
                             $('#'+$(this).attr('id')+' thead tr:eq(0) th').each( function (i)
                             {
