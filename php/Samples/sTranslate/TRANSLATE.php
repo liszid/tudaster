@@ -205,6 +205,41 @@ interface TRANSLATE
                 '
             )
     	),
+    	"Company/Company/Filter" => array(
+            "navbar" => "Cég szűrése",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok szűrése",
+    	    "help" => "",
+            "card" => ""
+        ),
+    	"Company/Company/Add" => array(
+            "navbar" => "Cég hozzáadása",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok hozzáadása",
+    	    "help" => "",
+            "card" => ""
+        ),
+    	"Company/Company/Edit" => array(
+            "navbar" => "Cég szerkesztése",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok szerkesztése",
+    	    "help" => "",
+            "card" => ""
+        ),
+        "Company/Company/View" => array(
+            "navbar" => "Cég megtekintése",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok megtekintése",
+    	    "help" => "",
+            "card" => ""
+        ),
+    	"Company/Company/Delete" => array(
+            "navbar" => "Cég törlése",
+    	    "fa" => "building-o",
+    	    "title" => "Cég adatok törlése",
+    	    "help" => "",
+            "card" => ""
+        ),
     	"Company/Site" => array(
     	    "navbar" => "Telephely",
     	    "fa" => "building-o",
@@ -230,6 +265,34 @@ interface TRANSLATE
                 '
             )
     	),
+    	"Company/Site/Add" => array(
+            "navbar" => "Telephely hozzáadása",
+    	    "fa" => "building-o",
+    	    "title" => "Telephely adatok hozzáadása",
+    	    "help" => "",
+            "card" => ""
+        ),
+    	"Company/Site/Edit" => array(
+            "navbar" => "Telephely szerkesztése",
+    	    "fa" => "building-o",
+    	    "title" => "Telephely adatok szerkesztése",
+    	    "help" => "",
+            "card" => ""
+        ),
+        "Company/Site/View" => array(
+            "navbar" => "Telephely megtekintése",
+    	    "fa" => "building-o",
+    	    "title" => "Telephely adatok megtekintése",
+    	    "help" => "",
+            "card" => ""
+        ),
+    	"Company/Site/Delete" => array(
+            "navbar" => "Telephely törlése",
+    	    "fa" => "building-o",
+    	    "title" => "Telephely adatok törlése",
+    	    "help" => "",
+            "card" => ""
+        ),
     	"Login" => array(
     	    "navbar" => "Bejelentkezés",
     	    "fa" => "sign-in",

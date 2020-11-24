@@ -15,10 +15,17 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     ,"Company/Company/Add"
                     ,"Company/Company/Edit"
                     ,"Company/Company/View"
-                    ,"Company/Company/Filter"
                     ,"Company/Site/Add"
                     ,"Company/Site/Edit"
                     ,"Company/Site/View"
+                ];
+            }
+        } );
+        Object.defineProperty( this, 'notModalActions',
+        {
+            get( ) {
+                return [
+                    "Company/Company/Filter"
                 ];
             }
         } );
@@ -172,7 +179,14 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     if (tempLocation.length > 1) {
                         let canonicLocation = 'x=' + tempLocation[0] + '&y=' + tempLocation[1] + ((tempLocation[2] !== undefined)? '&z=' + tempLocation[2] : '');
                         if (dataPost !== '') {
-                            _self.initElmnt(canonicLocation + '&dp=' + dataPost, "modalDialog");
+                            if (
+                                tempLocation[2] !== undefined
+                                && _self.notModalActions.indexOf(loc) >= 0
+                            ) {
+                                _self.initElmnt(canonicLocation + '&dp=' + dataPost, "body");
+                            } else {
+                                _self.initElmnt(canonicLocation + '&dp=' + dataPost, "modalDialog");
+                            }
                         } else {
                             _self.initElmnt(canonicLocation);
                         }

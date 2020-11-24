@@ -40,7 +40,16 @@ if (
             $returnContent = sCompany::Action($_POST);
         }
 
-        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent)) : sRedirect::Home());
+        if (Valid::vString($returnContent)) {
+            if (! strcmp(Check::isPost('z'), 'Filter')) {
+                echo $returnContent;
+            } else {
+                echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent));
+            }
+
+        } else {
+            echo sRedirect::Home();
+        }
 /*
  * Page loading section
  */
