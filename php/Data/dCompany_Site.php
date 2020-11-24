@@ -84,7 +84,15 @@ class dCompany_Site implements iData
                 isset($array[$i['key']])
                 && ! Valid::vString($array[$i['key']])
             ) {
-                $array[$i['key']] = 0;
+                switch ($i['type']) {
+                    case 2:
+                    case 4:
+                        $array[$i['key']] = '-';
+                        break;
+                    case 3:
+                        $array[$i['key']] = 0;
+                        break;
+                }
             }
         }
 
