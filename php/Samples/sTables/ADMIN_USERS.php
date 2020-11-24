@@ -9,6 +9,7 @@ interface ADMIN_USERS
     const ADMIN_USERS = array(
         "tableId" => "tableAdminUsers",
         "tableRoot" => "Administrative/Users",
+        "tableRole" => "mngUsers",
         "data" => array(
             "userId" => array("text" => "Id", "tooltip" => ""),
             "userName" => array("text" => "Felhasználó", "tooltip" => ""),
@@ -19,8 +20,8 @@ interface ADMIN_USERS
             "userContPhone" => array("text" => "Telefon", "tooltip" => "")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'undo', 'action' => 'Reset', 'tooltip' => 'Jelszó helyreállítás'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
+            array('color' => 'warning', 'fa' => 'undo', 'action' => 'Reset', 'tooltip' => 'Jelszó helyreállítás', 'level' => 1),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 1)
         )
     );
 }

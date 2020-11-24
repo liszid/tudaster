@@ -129,9 +129,12 @@ class sTables implements
                                 && isset($_SESSION['User']['userId'])
                                 && $i['userId'] != $_SESSION['User']['userId']
                                 && ! $_SESSION['User']['canAdministrative']
+                            ) || (
+                                isset($data['tableRole'])
+                                && isset($b['level'])
+                                && $_SESSION['User'][$data['tableRole']] < $b['level']
                             )
-                        )
-                        && ! in_array($b['action'], self::ENABLED_ACTIONS)
+                        ) && ! in_array($b['action'], self::ENABLED_ACTIONS)
                     ) {
                         $aData = '<a class="btn btn-secondary" role="button">';
                     }

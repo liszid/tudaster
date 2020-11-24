@@ -9,6 +9,7 @@ interface COMPANY_SITE
     const COMPANY_SITE = array(
         "tableId" => "tableCompanySite",
         "tableRoot" => "Company/Site",
+        "tableRole" => "canCompany",
         "data" => array(
             "companySiteId" => array("text" => "Id", "tooltip" => ""),
             "companyName" => array("text" => "Cég név", "tooltip" => "Cég neve"),
@@ -21,22 +22,23 @@ interface COMPANY_SITE
             "companySiteEmail" => array("text" => "E-mail", "tooltip" => "Telephely e-mail címe")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés'),
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
+            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 3),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 7)
         )
     );
 
     const COMPANY_SITE_FILTER = array(
         "tableId" => "tableCompanySite",
         "tableRoot" => "Company/Site",
+        "tableRole" => "canCompany",
         "data" => array(
             "companySiteId" => array("text" => "Id", "tooltip" => ""),
             "companySiteName" => array("text" => "Név", "tooltip" => "Telephely neve"),
             "companySiteTypeName" => array("text" => "Típus", "tooltip" => "Telephely típusa")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés')
+            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1)
         )
     );
 }

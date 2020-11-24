@@ -9,6 +9,7 @@ interface ADMIN_GROUPS
     const ADMIN_GROUPS = array(
         "tableId" => "tableAdminGroups",
         "tableRoot" => "Administrative/Groups",
+        "tableRole" => "mngGroups",
         "data" => array(
             "groupId" => array("text" => "Id", "tooltip" => ""),
             "groupName" => array("text" => "Név", "tooltip" => ""),
@@ -29,8 +30,8 @@ interface ADMIN_GROUPS
             "canLogin" => array("text" => "cL", "tooltip" => "Bejelentkezési engedély")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 1),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 1)
         )
     );
 }

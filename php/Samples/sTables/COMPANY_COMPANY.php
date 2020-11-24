@@ -9,6 +9,7 @@ interface COMPANY_COMPANY
     const COMPANY_COMPANY = array(
         "tableId" => "tableCompanyCompany",
         "tableRoot" => "Company/Company",
+        "tableRole" => "canCompany",
         "data" => array(
             "companyId" => array("text" => "Id", "tooltip" => ""),
             "companyName" => array("text" => "Név", "tooltip" => "Cég neve", 'action' => 'Filter'),
@@ -20,9 +21,9 @@ interface COMPANY_COMPANY
             "companyAddressStreet" => array("text" => "Utca", "tooltip" => "Cég központ címe: Utca, házszám")
         ),
         "button" => array(
-            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés'),
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés'),
-            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés')
+            array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 3),
+            array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 7)
         )
     );
 }
