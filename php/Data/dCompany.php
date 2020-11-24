@@ -66,6 +66,11 @@ class dCompany implements iData
                 )
             ) {
                 $checkBool = false;
+            } elseif (
+                isset($array[$i['key']])
+                && ! Valid::vString($array[$i['key']])
+            ) {
+                $array[$i['key']] = 0;
             }
         }
 
