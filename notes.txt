@@ -9,14 +9,12 @@ MUST modify these parameters according to the modifications of the post
  data:
     -> php/Queries/Insert.php -> $GLOBALS['Database'][{classId}]['Insert']
     -> php/Database/{dbName}.php -> Insert() -> vArray[]
-    -> php/Pages/{pageName}.php -> $collectiveArray['array'][]
-    -> js/05_ajx.events.js -> arrayObject[[]]
 
 Errors still may occur, refer to error.log
 
 #-------------------------------------------------------------------------#
 
-For adding new page, use the precompiled {sampleFiles} at php/SampleFiles
+For adding new file, use the precompiled {sampleFiles} at php/SampleFiles
 
 #-------------------------------------------------------------------------#
 
@@ -28,7 +26,7 @@ Links are categorized by functionality.
     data-link : Tells which page to be loaded
     data-post : Sends specific post data (mostly ids)
     data-toggle : implies special action (modal, dropdown)
-    
+
 Functionality is autocompiled from 05_ajx.events.js
 
 #-------------------------------------------------------------------------#

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $GLOBALS['root']	= '';
-$GLOBALS['Path']	= 'http://localhost:49156/';
+$GLOBALS['Path']	= 'http://127.0.0.1:49156/';
 $GLOBALS['rootCss']	= $GLOBALS['root'].'css/';
 $GLOBALS['rootJs']	= $GLOBALS['root'].'js/';
 $GLOBALS['rootFavicon']	= $GLOBALS['root'];
