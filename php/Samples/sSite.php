@@ -175,11 +175,17 @@ class sSite
             if ((int)self::$sessionUsr['canHardware'] > 0) {
                 $navName = "Hardware";
                 $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
+                    'liClass' => ' dropdown',
+                    'aClass' => ' dropdown-toggle',
                     'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
+                    'dataToggle' => 'dropdown',
                     'dataLink' => $navName,
+                    'dataItems' => array(
+                        'Laptop',
+                        'PC',
+                        'Printer',
+                        'Networking'
+                    ),
                     'Desc' => sTranslate::Prompt($navName)
                 );
             }

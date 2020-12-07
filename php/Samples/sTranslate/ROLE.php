@@ -96,8 +96,8 @@ interface ROLE
     	    'select_type' => 'access'
     	),
         'canHardware' => array(
-    	    'color' => 'secondary',
-    	    'header' => 'Jövendőbeli funkció',
+    	    'color' => 'primary',
+    	    'header' => 'Fejlesztés alatti funkció',
     	    'respective' => 'Hardware',
     	    'short' => 'cH',
     	    'desc' => 'Hardver jogosultság',

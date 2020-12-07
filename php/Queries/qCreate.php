@@ -21,7 +21,8 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT userUserIdUnique UNIQUE (userId),
             CONSTRAINT userUserNameUnique UNIQUE (userName),
             CONSTRAINT userUserContEmailUnique UNIQUE (userContEmail)
-        );",
+        );
+    ",
     1 => "
         CREATE TABLE IF NOT EXISTS `Group`(
             groupId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -45,7 +46,8 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyGroup PRIMARY KEY (groupId),
             CONSTRAINT groupGroupIdUnique UNIQUE (groupId),
             CONSTRAINT groupGroupNameUnique UNIQUE (groupName)
-        );",
+        );
+    ",
     2 => "
         CREATE TABLE IF NOT EXISTS `Group_Member`(
             groupMemberId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -55,7 +57,8 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyGroup_Member PRIMARY KEY (groupMemberId),
             CONSTRAINT groupMemberGroupCascade FOREIGN KEY (groupId) REFERENCES `Group` (groupId) ON DELETE CASCADE,
             CONSTRAINT groupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
-        );",
+        );
+    ",
     3 => "
         CREATE TABLE IF NOT EXISTS `Company`(
             companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -70,7 +73,8 @@ $GLOBALS['Database']['Table']['Create'] = array(
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompany PRIMARY KEY (companyId),
             CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
-        );",
+        );
+    ",
     4 => "
         CREATE TABLE IF NOT EXISTS `Company_Site_Type`(
             companySiteTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -105,6 +109,102 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companySiteCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE,
             CONSTRAINT companySiteUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE,
             CONSTRAINT companySiteTypeCascade FOREIGN KEY (companySiteTypeId) REFERENCES `Company_Site_Type` (companySiteTypeId) ON DELETE CASCADE
-        );",
-
+        );
+    ",
+    6 => "
+        CREATE TABLE IF NOT EXISTS `Hardware`(
+            hardwareId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareName VARCHAR(64) NULL,
+            hardwareDesc VARCHAR(256) NULL,
+            userId INT(6) UNSIGNED NOT NULL,
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyHardware PRIMARY KEY (hardwareId),
+            CONSTRAINT hardwareUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
+        );
+    ",
+    7 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_Laptop`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwareLaptopId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareLaptopUser VARCHAR(64) NULL,
+            hardwareLaptopType VARCHAR(128) NOT NULL,
+            hardwareLaptopSerial VARCHAR(128) NOT NULL,
+            hardwareLaptopOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareLaptopMAC VARCHAR(64) NULL DEFAULT 0,
+            hardwareLaptopIP VARCHAR(64) NULL DEFAULT 0,
+            hardwareLaptopHDD VARCHAR(16) NULL DEFAULT 0,
+            hardwareLaptopMEM VARCHAR(16) NULL DEFAULT 0,
+            hardwareLaptopPROC VARCHAR(16) NULL DEFAULT 0,
+            hardwareLaptopOperator VARCHAR(64) NULL DEFAULT 0,
+            hardwareLaptopDateIncome VARCHAR(64) NULL DEFAULT 0,
+            hardwareLaptopDateOutcome VARCHAR(64) NULL DEFAULT 0,
+            hardwareLaptopCompanySiteId INT(6) UNSIGNED NOT NULL DEFAULT 1,
+            CONSTRAINT primaryKeyHardwareLaptop PRIMARY KEY (hardwareLaptopId),
+            CONSTRAINT hardwareLaptopHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
+            CONSTRAINT hardwareLaptopCompanySiteCascade FOREIGN KEY (hardwareLaptopCompanySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
+        );
+    ",
+    8 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_PC`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwarePCId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwarePCUser VARCHAR(64) NULL,
+            hardwarePCType VARCHAR(128) NOT NULL,
+            hardwarePCUse VARCHAR(128) NOT NULL,
+            hardwarePCSerial VARCHAR(128) NOT NULL,
+            hardwarePCOS VARCHAR(128) NULL DEFAULT 0,
+            hardwarePCMAC VARCHAR(64) NULL DEFAULT 0,
+            hardwarePCIP VARCHAR(64) NULL DEFAULT 0,
+            hardwarePCHDD VARCHAR(16) NULL DEFAULT 0,
+            hardwarePCMEM VARCHAR(16) NULL DEFAULT 0,
+            hardwarePCPROC VARCHAR(16) NULL DEFAULT 0,
+            hardwarePCNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwarePCOperator VARCHAR(64) NULL DEFAULT 0,
+            hardwarePCDateIncome VARCHAR(64) NULL DEFAULT 0,
+            hardwarePCDateOutcome VARCHAR(64) NULL DEFAULT 0,
+            hardwarePCCompanySiteId INT(6) UNSIGNED NOT NULL DEFAULT 1,
+            CONSTRAINT primaryKeyHardwarePC PRIMARY KEY (hardwarePCId),
+            CONSTRAINT hardwarePCHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
+            CONSTRAINT hardwarePCCompanySiteCascade FOREIGN KEY (hardwarePCCompanySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
+        );
+    ",
+    9 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_Printer`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwarePrinterId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwarePrinterUse VARCHAR(64) NULL,
+            hardwarePrinterType VARCHAR(128) NOT NULL,
+            hardwarePrinterToner VARCHAR(128) NOT NULL,
+            hardwarePrinterSerial VARCHAR(128) NOT NULL,
+            hardwarePrinterMAC VARCHAR(64) NULL DEFAULT 0,
+            hardwarePrinterIP VARCHAR(64) NULL DEFAULT 0,
+            hardwarePrinterOperator VARCHAR(64) NULL DEFAULT 0,
+            hardwarePrinterDateIncome VARCHAR(64) NULL DEFAULT 0,
+            hardwarePrinterDateOutcome VARCHAR(64) NULL DEFAULT 0,
+            hardwarePrinterCompanySiteId INT(6) UNSIGNED NOT NULL DEFAULT 1,
+            CONSTRAINT primaryKeyHardwarePrinter PRIMARY KEY (hardwarePrinterId),
+            CONSTRAINT hardwarePrinterHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
+            CONSTRAINT hardwarePrinterCompanySiteCascade FOREIGN KEY (hardwarePrinterCompanySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
+        );
+    ",
+    10 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_Networking`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwareNetworkingId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareNetworkingType VARCHAR(128) NOT NULL,
+            hardwareNetworkingUse VARCHAR(128) NOT NULL,
+            hardwareNetworkingSerial VARCHAR(128) NOT NULL,
+            hardwareNetworkingOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareNetworkingMAC VARCHAR(64) NULL DEFAULT 0,
+            hardwareNetworkingIP VARCHAR(64) NULL DEFAULT 0,
+            hardwareNetworkingNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwareNetworkingOperator VARCHAR(64) NULL DEFAULT 0,
+            hardwareNetworkingDateIncome VARCHAR(64) NULL DEFAULT 0,
+            hardwareNetworkingDateOutcome VARCHAR(64) NULL DEFAULT 0,
+            hardwareNetworkingCompanySiteId INT(6) UNSIGNED NOT NULL DEFAULT 1,
+            CONSTRAINT primaryKeyHardwareNetworking PRIMARY KEY (hardwareNetworkingId),
+            CONSTRAINT hardwareNetworkingHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
+            CONSTRAINT hardwareNetworkingCompanySiteCascade FOREIGN KEY (hardwareNetworkingCompanySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
+        );
+    ",
 );
