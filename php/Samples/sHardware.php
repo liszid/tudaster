@@ -11,49 +11,73 @@ use PreLoad\{
 };
 
 use Data\{
-    dCompany,
-    dCompany_Site,
-    dCompany_Site_Type,
+    dHardware,
+    dHardware_Laptop,
+    dHardware_PC,
+    dHardware_Printer,
+    dHardware_Networking,
     dCombined
 };
 
-class sCompany
+class sHardware
 {
-    protected static $dCompany;
-    protected static $dCompany_Site;
-    protected static $dCompany_Site_Type;
+    protected static $dHardware;
+    protected static $dHardware_Laptop;
+    protected static $dHardware_PC;
+    protected static $dHardware_Printer;
+    protected static $dHardware_Networking;
     protected static $dCombined;
 
+
 /*
- * Sets the class variable : dUser
+ * Sets the class variable : dHardware
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    protected static function setDCompany()
+    protected static function setDHardware()
     {
-        self::$dCompany = new dCompany();
+        self::$dHardware= new dHardware();
     }
 
 /*
- * Sets the class variable : dGroup
+ * Sets the class variable : dHardware_Laptop
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    protected static function setDCompany_Site()
+    protected static function setDHardware_Laptop()
     {
-        self::$dCompany_Site = new dCompany_Site();
+        self::$dHardware_Laptop= new dHardware_Laptop();
     }
 
 /*
- * Sets the class variable : dGroup
+ * Sets the class variable : dHardware_PC
  * @author Liszi Dániel
  * @since 2020.11.03
  */
-    protected static function setDCompany_Site_Type()
+    protected static function setDHardware_PC()
     {
-        self::$dCompany_Site_Type = new dCompany_Site_Type();
+        self::$dHardware_PC= new dHardware_PC();
     }
 
+/*
+ * Sets the class variable : dHardware_Printer
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDHardware_Printer()
+    {
+        self::$dHardware_Printer= new dHardware_Printer();
+    }
+
+/*
+ * Sets the class variable : dHardware_Networking
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDHardware_Networking()
+    {
+        self::$dHardware_Networking= new dHardware_Networking();
+    }
 /*
  * Sets the class variable : dCombined
  * @author Liszi Dániel
@@ -65,7 +89,6 @@ class sCompany
     }
 
 /*
- * Used at Administrative Page for interactions
  * @param $array array
  * @return string
  * @author Liszi Dániel
@@ -78,11 +101,17 @@ class sCompany
         $returnContent = '';
 
         switch($array['y']) {
-            case 'Company':
-                $wclass = new sCompany\Company;
+            case 'Laptop':
+                $wclass = new sHardware\Laptop;
                 break;
-            case 'Site':
-                $wclass = new sCompany\Site;
+            case 'PC':
+                $wclass = new sHardware\PC;
+                break;
+            case 'Printer':
+                $wclass = new sHardware\Printer;
+                break;
+            case 'Networking':
+                $wclass = new sHardware\Networking;
                 break;
         }
 
@@ -99,9 +128,6 @@ class sCompany
             case 'Edit':
                 $returnContent .= $wclass::Edit($array);
                 break;
-            case 'Filter':
-                $returnContent .= $wclass::Filter($array);
-                break;
         }
         if (Valid::vString($returnContent)) {
             $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
@@ -110,44 +136,87 @@ class sCompany
         return $returnContent;
     }
 /*
- * Used at Administrative Page to display Users section
  * @param $array array
  * @return string
  * @author Liszi Dániel
  * @since 2020.11.13
  */
-    public static function Company(array $array = array()): string
-    {
-        self::setDCompany();
-        $returnString = '';
-        $Company = self::$dCompany->Select(array(), 'All');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Company, 'Company_Company');
-        return $returnString;
-    }
-
-/*
- * Used at Administrative Page to display Users section
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.11.13
- */
-    public static function Site(array $array = array()): string
+    public static function Laptop(array $array = array()): string
     {
         self::setDCombined();
-        $returnString = '';
-        $Company_Sites = self::$dCombined->Select(array(), 'Company_Site_Table');
+        $returnString = 'Laptop';
+        /*
+        $Laptop = self::$dCombined->Select(array(), 'All');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Company_Sites, 'Company_Site');
+        $returnString .= sTables::Prompt($Laptop, 'Company_Company');
+        */
+        return $returnString;
+    }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.13
+ */
+    public static function PC(array $array = array()): string
+    {
+        self::setDCombined();
+        $returnString = 'PC';
+        /*
+        $PC = self::$dCombined->Select(array(), 'All');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($PC, 'Company_Company');
+        */
+        return $returnString;
+    }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.13
+ */
+    public static function Printer(array $array = array()): string
+    {
+        self::setDCombined();
+        $returnString = 'Printer';
+        /*
+        $Printer = self::$dCombined->Select(array(), 'All');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Printer, 'Company_Company');
+        */
+        return $returnString;
+    }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.13
+ */
+    public static function Networking(array $array = array()): string
+    {
+        self::setDCombined();
+        $returnString = 'Networking';
+        /*
+        $Networking = self::$dCombined->Select(array(), 'All');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Networking, 'Company_Company');
+        */
         return $returnString;
     }
 }
