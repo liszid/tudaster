@@ -113,6 +113,9 @@ class sHardware
             case 'Networking':
                 $wclass = new sHardware\Networking;
                 break;
+            case 'Hardware':
+                $wclass = new sHardware\Networking;
+                break;
         }
 
         switch ($array['z']) {
@@ -141,10 +144,29 @@ class sHardware
  * @author Liszi Dániel
  * @since 2020.11.13
  */
+    public static function Hardware(array $array = array()): string
+    {
+        self::setDHardware();
+        $returnString = '';
+        $Hardware = self::$dHardware->Select(array(), 'All');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Hardware, 'Hardware_Hardware');
+        return $returnString;
+    }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.11.13
+ */
     public static function Laptop(array $array = array()): string
     {
         self::setDCombined();
-        $returnString = 'Laptop';
+        $returnString = '';
         $Laptop = self::$dCombined->Select(array(), 'Hardware_Laptop_Table');
 
         if (isset($array['path'])) {
@@ -163,7 +185,7 @@ class sHardware
     public static function PC(array $array = array()): string
     {
         self::setDCombined();
-        $returnString = 'PC';
+        $returnString = '';
         $PC = self::$dCombined->Select(array(), 'Hardware_PC_Table');
 
         if (isset($array['path'])) {
@@ -182,7 +204,7 @@ class sHardware
     public static function Printer(array $array = array()): string
     {
         self::setDCombined();
-        $returnString = 'Printer';
+        $returnString = '';
         $Printer = self::$dCombined->Select(array(), 'Hardware_Printer_Table');
 
         if (isset($array['path'])) {
@@ -201,7 +223,7 @@ class sHardware
     public static function Networking(array $array = array()): string
     {
         self::setDCombined();
-        $returnString = 'Networking';
+        $returnString = '';
         $Networking = self::$dCombined->Select(array(), 'Hardware_Networking_Table');
 
         if (isset($array['path'])) {

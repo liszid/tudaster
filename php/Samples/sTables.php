@@ -21,6 +21,7 @@ class sTables implements
     sTables\HARDWARE_PC,
     sTables\HARDWARE_PRINTER,
     sTables\HARDWARE_NETWORKING,
+    sTables\HARDWARE_HARDWARE
 {
     const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
     const ENABLED_ACTIONS = array('View');
@@ -70,6 +71,9 @@ class sTables implements
                 break;
             case 'Hardware_Networking':
                 return self::Generate($array, self::HARDWARE_NETWORKING);
+                break;
+            case 'Hardware_Hardware':
+                return self::Generate($array, self::HARDWARE_HARDWARE);
                 break;
             default:
                 break;

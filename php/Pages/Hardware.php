@@ -24,6 +24,7 @@ if (
 
     $urlPaths = array(
                     "Root"          => array("path" => "Hardware",              "role" => "canHardware"),
+                    "Hardware"      => array("path" => "Hardware/Hardware",     "role" => "canHardware"),
                     "Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware"),
                     "PC"            => array("path" => "Hardware/PC",           "role" => "canHardware"),
                     "Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware"),
@@ -59,6 +60,9 @@ if (
         $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Company'));
 
         switch ($postUrl) {
+            case 'Hardware':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Hardware(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
             case 'Laptop':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Laptop(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
@@ -77,7 +81,7 @@ if (
  * Collective page with Cards
  */
     } else {
-        $returnContent .= '<div class="card-deck d-flex justify-content-center">';
+        $returnContent .= '<div class="card-columns  m-2">';
 
         foreach ($urlPaths as $key => $value) {
             if (strcmp(array_key_first($urlPaths), $key)) {

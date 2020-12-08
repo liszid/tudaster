@@ -168,33 +168,74 @@ interface TRANSLATE
     	    "help" => "Hardver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
             "card" => "Hardver adatok megtekintéséhez kattintson a kártyára"
     	),
+    	"Hardware/Hardware" => array(
+    	    "navbar" => "Minden eszköz",
+    	    "fa" => "hdd-o",
+    	    "title" => "Minden eszköz adata",
+    	    "help" => "Minden eszköz adatának olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
+            "card" => "Minden eszköz adatának megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'title' => '',
+                'content' => ''
+            )
+    	),
     	"Hardware/Laptop" => array(
     	    "navbar" => "Laptopok",
     	    "fa" => "hdd-o",
     	    "title" => "Laptop adatok",
     	    "help" => "Laptop adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Laptop adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Laptop adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
     	),
     	"Hardware/PC" => array(
-    	    "navbar" => "Számítógépek/Szerverek",
+    	    "navbar" => "Számítógépek",
     	    "fa" => "hdd-o",
-    	    "title" => "Számítógép/Szerver adatok",
+    	    "title" => "Számítógép adatok",
     	    "help" => "Számítógép/Szerver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Számítógép/Szerver adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Számítógép/Szerver adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
     	),
     	"Hardware/Printer" => array(
     	    "navbar" => "Nyomtatók",
     	    "fa" => "hdd-o",
     	    "title" => "Nyomtató adatok",
     	    "help" => "Nyomtató adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Nyomtató adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Nyomtató adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
     	),
     	"Hardware/Networking" => array(
     	    "navbar" => "Hálózati eszközök",
     	    "fa" => "hdd-o",
     	    "title" => "Hálózati eszköz adatok",
     	    "help" => "Hálózati eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Hálózati eszköz adatok megtekintéséhez kattintson a kártyára"
+            "card" => "Hálózati eszköz adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'color' => 'success',
+                'header' => 'Információ',
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
     	),
         "Software" => array(
     	    "navbar" => "Szoftverek",
