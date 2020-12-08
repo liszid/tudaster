@@ -145,15 +145,13 @@ class sHardware
     {
         self::setDCombined();
         $returnString = 'Laptop';
-        /*
-        $Laptop = self::$dCombined->Select(array(), 'All');
+        $Laptop = self::$dCombined->Select(array(), 'Hardware_Laptop_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Laptop, 'Company_Company');
-        */
+        $returnString .= sTables::Prompt($Laptop, 'Hardware_Laptop');
         return $returnString;
     }
 /*
@@ -166,15 +164,13 @@ class sHardware
     {
         self::setDCombined();
         $returnString = 'PC';
-        /*
-        $PC = self::$dCombined->Select(array(), 'All');
+        $PC = self::$dCombined->Select(array(), 'Hardware_PC_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($PC, 'Company_Company');
-        */
+        $returnString .= sTables::Prompt($PC, 'Hardware_PC');
         return $returnString;
     }
 /*
@@ -187,15 +183,13 @@ class sHardware
     {
         self::setDCombined();
         $returnString = 'Printer';
-        /*
-        $Printer = self::$dCombined->Select(array(), 'All');
+        $Printer = self::$dCombined->Select(array(), 'Hardware_Printer_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Printer, 'Company_Company');
-        */
+        $returnString .= sTables::Prompt($Printer, 'Hardware_Printer');
         return $returnString;
     }
 /*
@@ -208,15 +202,13 @@ class sHardware
     {
         self::setDCombined();
         $returnString = 'Networking';
-        /*
-        $Networking = self::$dCombined->Select(array(), 'All');
+        $Networking = self::$dCombined->Select(array(), 'Hardware_Networking_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Networking, 'Company_Company');
-        */
+        $returnString .= sTables::Prompt($Networking, 'Hardware_Networking');
         return $returnString;
     }
 }

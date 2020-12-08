@@ -16,7 +16,11 @@ class sTables implements
     sTables\ADMIN_GROUPS,
     sTables\ADMIN_MEMBERSHIP,
     sTables\COMPANY_COMPANY,
-    sTables\COMPANY_SITE
+    sTables\COMPANY_SITE,
+    sTables\HARDWARE_LAPTOP,
+    sTables\HARDWARE_PC,
+    sTables\HARDWARE_PRINTER,
+    sTables\HARDWARE_NETWORKING,
 {
     const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
     const ENABLED_ACTIONS = array('View');
@@ -54,6 +58,18 @@ class sTables implements
                 break;
             case 'Company_Site_Filter':
                 return self::Generate($array, self::COMPANY_SITE_FILTER);
+                break;
+            case 'Hardware_Laptop':
+                return self::Generate($array, self::HARDWARE_LAPTOP);
+                break;
+            case 'Hardware_PC':
+                return self::Generate($array, self::HARDWARE_PC);
+                break;
+            case 'Hardware_Printer':
+                return self::Generate($array, self::HARDWARE_PRINTER);
+                break;
+            case 'Hardware_Networking':
+                return self::Generate($array, self::HARDWARE_NETWORKING);
                 break;
             default:
                 break;

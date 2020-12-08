@@ -221,7 +221,115 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Company_Site`.companyId=:companyId
-    "
+    ",
+    'Hardware_Laptop_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Laptop`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Laptop`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Laptop`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
+    'Hardware_PC_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_PC`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_PC`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_PC`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
+    'Hardware_Printer_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Printer`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Printer`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Printer`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
+    'Hardware_Networking_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Networking`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Networking`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Networking`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
 );
 
 $GLOBALS['Database'][0]['Select'] = array(
@@ -410,4 +518,45 @@ $GLOBALS['Database'][5]['Select'] = array(
             `Company_Site`
         WHERE
             companySiteId=:companySiteId"
+);
+
+
+$GLOBALS['Database'][6]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware`"
+);
+
+$GLOBALS['Database'][7]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Laptop`"
+);
+
+$GLOBALS['Database'][8]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_PC`"
+);
+
+$GLOBALS['Database'][9]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Printer`"
+);
+
+$GLOBALS['Database'][10]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Networking`"
 );

@@ -31,12 +31,15 @@ class dbCombined extends Table implements iDatabase
 	$tempArray = array();
 
         if (! strcmp($type, 'User_Full')) {
-            $tempArray = array(
-                'userId'
-            );
-        } elseif (! strcmp($type, 'Member_Full')) {
-    	    $tempArray = array();
-        } elseif (! strcmp($type, 'Company_Site_Table')){
+            $tempArray = array('userId');
+        } elseif (
+            ! strcmp($type, 'Member_Full')
+            || ! strcmp($type, 'Company_Site_Table')
+            || ! strcmp($type, 'Hardware_Laptop_Table')
+            || ! strcmp($type, 'Hardware_PC_Table')
+            || ! strcmp($type, 'Hardware_Printer_Table')
+            || ! strcmp($type, 'Hardware_Networking_Table')
+        ){
             $tempArray = array();
         } elseif (! strcmp($type, 'Company_Site_View')){
             $tempArray = array('companySiteId');
