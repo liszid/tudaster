@@ -74,7 +74,6 @@ $GLOBALS['Database'][5]['Insert'] = "
 
 $GLOBALS['Database'][6]['Insert'] = "
     INSERT INTO `Hardware`(
-        hardwareId,
         hardwareName,
         hardwareDesc,
         hardwareSerial,
@@ -83,7 +82,6 @@ $GLOBALS['Database'][6]['Insert'] = "
         userId,
         companySiteId
     ) VALUES (
-        :hardwareId,
         :hardwareName,
         :hardwareDesc,
         :hardwareSerial,
