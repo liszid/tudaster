@@ -11,7 +11,8 @@ $GLOBALS['Database'][0]['Insert'] = "
         :userName,
         :pWord,
         :userContEmail
-    );";
+    );
+";
 
 $GLOBALS['Database'][1]['Insert'] = "
     INSERT INTO `Group`(
@@ -20,7 +21,8 @@ $GLOBALS['Database'][1]['Insert'] = "
     ) VALUES (
         :groupName,
         :groupDesc
-    );";
+    );
+";
 
 $GLOBALS['Database'][2]['Insert'] = "
     INSERT INTO `Group_Member`(
@@ -29,7 +31,8 @@ $GLOBALS['Database'][2]['Insert'] = "
     ) VALUES (
         :userId,
         :groupId
-    );";
+    );
+";
 
 $GLOBALS['Database'][3]['Insert'] = "
     INSERT INTO `Company`(
@@ -40,7 +43,8 @@ $GLOBALS['Database'][3]['Insert'] = "
         :userId,
         :companyName,
         :companyDesc
-    );";
+    );
+";
 
 $GLOBALS['Database'][4]['Insert'] = "
     INSERT INTO `Company_Site_Type`(
@@ -49,7 +53,8 @@ $GLOBALS['Database'][4]['Insert'] = "
     ) VALUES (
         :companySiteTypeId,
         :companySiteTypeName
-    );";
+    );
+";
 
 $GLOBALS['Database'][5]['Insert'] = "
     INSERT INTO `Company_Site`(
@@ -64,4 +69,27 @@ $GLOBALS['Database'][5]['Insert'] = "
         :companySiteName,
         :companySiteDesc,
         :companySiteTypeId
-    );";
+    );
+";
+
+$GLOBALS['Database'][6]['Insert'] = "
+    INSERT INTO `Hardware`(
+        hardwareId,
+        hardwareName,
+        hardwareDesc,
+        hardwareSerial,
+        hardwareMAC,
+        hardwareIP,
+        userId,
+        companySiteId
+    ) VALUES (
+        :hardwareId,
+        :hardwareName,
+        :hardwareDesc,
+        :hardwareSerial,
+        :hardwareMAC,
+        :hardwareIP,
+        :userId,
+        :companySiteId
+    );
+";

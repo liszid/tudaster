@@ -96,4 +96,26 @@ $GLOBALS['Database']['5']['Update'] = "
         ,companySiteTypeId=:companySiteTypeId
     WHERE
         companySiteId=:companySiteId
-        AND userId=:userId";
+        AND userId=:userId
+";
+
+$GLOBALS['Database']['6']['Update'] = "
+    UPDATE
+        `Hardware`
+    SET
+        hardwareName=:hardwareName
+        ,hardwareDesc=:hardwareDesc
+        ,hardwareSerial=:hardwareSerial
+        ,hardwareMAC=:hardwareMAC
+        ,hardwareIP=:hardwareIP
+        ,hardwareSwitch=:hardwareSwitch
+        ,hardwareSwitchPort=:hardwareSwitchPort
+        ,hardwareVLANName=:hardwareVLANName
+        ,hardwareVLANNum=:hardwareVLANNum
+        ,hardwareDateIn=:hardwareDateIn
+        ,hardwareDateOut=:hardwareDateOut
+        ,companySiteId=:companySiteId
+    WHERE
+        hardwareId=:hardwareId
+        AND userId=:userId
+";
