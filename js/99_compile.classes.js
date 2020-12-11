@@ -2,7 +2,7 @@
 *   JavaScript Part
 */
 
-class Compile extends iAjax(iAjaxEvnts())
+class Compile extends iAjax(iAjaxEvnts(iAjaxParams(iAjaxFunctions(iMD5Hash()))))
 {
     constructor()
     {
