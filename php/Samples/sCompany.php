@@ -103,9 +103,9 @@ class sCompany
                 $returnContent .= $wclass::Filter($array);
                 break;
         }
-        if (Valid::vString($returnContent)) {
+        /*if (Valid::vString($returnContent)) {
             $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
-        }
+        }*/
 
         return $returnContent;
     }
