@@ -39,7 +39,6 @@ $GLOBALS['Database']['1']['Update'] = "
         ,canUsername=:canUsername
         ,canPassword=:canPassword
         ,canHardware=:canHardware
-        ,canSoftware=:canSoftware
         ,canEdit=:canEdit
         ,canLogin=:canLogin
     WHERE

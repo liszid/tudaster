@@ -16,6 +16,7 @@ use Samples\{
 if (
     isset($sessionUsr['userId'])
     && (int)$sessionUsr['canSoftware'] > 0
+    && false
 ) {
     $urlPaths = array(
         "Root" => "Software"

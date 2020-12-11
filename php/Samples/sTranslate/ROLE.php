@@ -103,14 +103,6 @@ interface ROLE
     	    'desc' => 'Hardver jogosultság',
     	    'select_type' => 'access'
     	),
-        'canSoftware' => array(
-    	    'color' => 'secondary',
-    	    'header' => 'Jövendőbeli funkció',
-    	    'respective' => 'Software',
-    	    'short' => 'cS',
-    	    'desc' => 'Szoftver jogosultság',
-    	    'select_type' => 'access'
-    	),
         'canCompany' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',

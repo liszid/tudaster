@@ -26,9 +26,7 @@ if (! isset($sessionUsr['userId']) ) {
             '.(((int)$sessionUsr['canUsers'] > 0) ? sCard::Translated('canUsers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canKnowledge'] > 0) ? sCard::Translated('canKnowledge', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canUsername'] > 0) ? sCard::Translated('canUsername', 'Linked') :'' ).'
-            '.(((int)$sessionUsr['canPassword'] > 0) ? sCard::Translated('canPassword', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canHardware'] > 0) ? sCard::Translated('canHardware', 'Linked') :'' ).'
-            '.(((int)$sessionUsr['canSoftware'] > 0) ? sCard::Translated('canSoftware', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canCompany'] > 0) ? sCard::Translated('canCompany', 'Linked') :'' ).'
         </div>';
 }

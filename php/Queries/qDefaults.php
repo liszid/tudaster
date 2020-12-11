@@ -32,15 +32,14 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
         canUsername,
         canPassword,
         canHardware,
-        canSoftware,
         canEdit,
         canLogin,
         isDelete
     ) VALUES
-        ('Adminisztrátor',	'Adminisztratív csoport teljes hozzáféréssel',  1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 7, 1, 1, 0),
-        ('Alapértelmezett', 'Alapértelmezett felhasználói csoport',         0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 1, 1, 0),
-        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö csoport', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0),
-        ('Törölt',          'Törölt felhasználók csoportja',                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
+        ('Adminisztrátor',	'Adminisztratív csoport teljes hozzáféréssel',  1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 1, 1, 0),
+        ('Alapértelmezett', 'Alapértelmezett felhasználói csoport',         0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 1, 1, 0),
+        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö csoport', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0),
+        ('Törölt',          'Törölt felhasználók csoportja',                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
 
 $GLOBALS['Database']['Table']['Insert'][2] = "
     INSERT INTO `Group_Member`(

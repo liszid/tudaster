@@ -39,7 +39,6 @@ $GLOBALS['Database']['Table']['Create'] = array(
             canPassword INT(1) DEFAULT 0,
             canUsername INT(1) DEFAULT 0,
             canHardware INT(1) DEFAULT 0,
-            canSoftware INT(1) DEFAULT 0,
             canEdit INT(1) DEFAULT 0,
             canLogin INT(1) DEFAULT 0,
             isDelete INT(1) DEFAULT 1,

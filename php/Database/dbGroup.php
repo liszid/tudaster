@@ -96,7 +96,6 @@ class dbGroup extends Table implements iDatabase
                             'canUsername',
                             'canPassword',
                             'canHardware',
-                            'canSoftware',
                             'canEdit',
                             'canLogin',
                             'groupId'

@@ -189,17 +189,6 @@ class sSite
                     'Desc' => sTranslate::Prompt($navName)
                 );
             }
-            if ((int)self::$sessionUsr['canSoftware'] > 0) {
-                $navName = "Software";
-                $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
-                    'dataLink' => $navName,
-                    'Desc' => sTranslate::Prompt($navName)
-                );
-            }
             if ((int)self::$sessionUsr['canCompany'] > 0) {
                 $navName = "Company";
                 $navArray[] = array(
