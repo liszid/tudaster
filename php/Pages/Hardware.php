@@ -40,7 +40,7 @@ if (
             Valid::vString(Check::isPost('y'))
             && Valid::vString(Check::isPost('z'))
         ) {
-            $returnContent = sCompany::Action($_POST);
+            $returnContent = sHardware::Action($_POST);
         }
 
         if (Valid::vString($returnContent)) {

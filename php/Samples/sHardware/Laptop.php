@@ -27,7 +27,39 @@ class Laptop extends \Samples\sHardware
 */
     public static function Add(array $array = array()): string
     {
-        return 'Add';
+        self::setDHardware();
+        if (! isset($array['Save']) || true) {
+            return '
+                <form method="post" class="form-group col-12" autocomplete="on">
+                    <div class="form-group col p-0">
+                        <div class="col-12 row">
+                            <h4>SZÜKSÉGES MEZŐK</h4>
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '', 'type' => 'text'), 'Input').'
+                            <hr />
+                            <h4>OPCIONÁLIS MEZŐK</h4>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 row">
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwLaptopAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        </div>
+                    </div>
+                </form>';
+        } else {
+            return
+                '<h4>'.(
+                    (self::$dHardware->Insert($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Laptop'), 'Spinner');
+        }
     }
 
 /*
