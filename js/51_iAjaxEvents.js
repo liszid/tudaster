@@ -3,69 +3,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
     constructor()
     {
         super();
-        Object.defineProperty( this, 'enlargeModal',
-        {
-            get( ) {
-                return [
-                    "Profile"
-                    ,"Administrative/Users/Add"
-                    ,"Administrative/Groups/Add"
-                    ,"Administrative/Groups/Edit"
-                    ,"Administrative/Membership/Edit"
-                    ,"Company/Company/Add"
-                    ,"Company/Company/Edit"
-                    ,"Company/Company/View"
-                    ,"Company/Site/Add"
-                    ,"Company/Site/Edit"
-                    ,"Company/Site/View"
-                ];
-            }
-        } );
-        Object.defineProperty( this, 'notModalActions',
-        {
-            get( ) {
-                return [
-                    "Company/Company/Filter"
-                ];
-            }
-        } );
-        Object.defineProperty( this, 'modalPagesForGet',
-        {
-            get( ) {
-                return ["Login", "Logout", "Profile"];
-            }
-        } );
-        Object.defineProperty( this, 'modalDialogElement',
-        {
-            get( ) {
-                return document.getElementById("modalDialog");
-            }
-        } );
-        Object.defineProperty( this, 'arrayObject',
-        {
-            get( ) {
-                return [
-//              "id starts w/", "post", "event id", ["array of items needed to send"], "send into", "special id"
-                    ["usrLogin", "x=Login&Login=", "button", [], "modalDialog"],
-                    ["usrEdit", "x=Profile&Save=", "button", [], "modalDialog"],
-                    ["usrEdit", "x=Profile", "cancel", [], "modalDialog"],
-                    ["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", [], "modalDialog"],
-                    ["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", [], "modalDialog"],
-                    ["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", [], "modalDialog"],
-                    ["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", [], "modalDialog"],
-                    ["usrCmpCmpAdd", "x=Company&y=Company&z=Add&Save=", "button", [], "modalDialog"],
-                    ["usrCmpCmpEdit", "x=Company&y=Company&z=Edit&Save=", "button", [], "modalDialog"],
-                    ["usrCmpSiteAdd", "x=Company&y=Site&z=Add&Save=", "button", [], "modalDialog"],
-                    ["usrCmpSiteEdit", "x=Company&y=Site&z=Edit&Save=", "button", [], "modalDialog"],
-                ];
-            }
-        } );
-        Object.defineProperty( this, 'tableSearching',
-        {
-            get( ) {
-                return["tableAdminUsers", "tableAdminMembership", "tableHomeUsers", "tableCompanyCompany", "tableCompanySite"];
-            }
-        });
     }
 
 /*
@@ -132,27 +69,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     }
                 }
             );
-        }
-    }
-
-/*
- * Finds the original element recursively
- * @param srcTag object
- * @param srcTagName string
- * @return on success object, on fail false
- * @author Liszi Dániel
- * @since 2020.11.10
- */
-    findSource(srcTag, srcTagName)
-    {
-        if (srcTag.tagName.toLowerCase() !== 'body') {
-            if (srcTag.tagName.toLowerCase() === srcTagName) {
-                return srcTag;
-            } else {
-                return this.findSource(srcTag.parentElement, srcTagName);
-            }
-        } else {
-            return false;
         }
     }
 
@@ -284,64 +200,5 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         }
     }
 
-/*
- * Loads content from either canonical or get format
- * @author Liszi Dániel
- * @since 2020.11.10
- */
-    loadContent()
-    {
-        var urlParams = new URLSearchParams(window.location.search);
 
-        var urlCanonical = window.location.pathname;
-        urlCanonical = urlCanonical.split("/");
-        urlCanonical.shift();
-
-        if (urlCanonical[0] !== null && urlCanonical[0] !== "" && urlCanonical[0] !== undefined) {
-            let canonical = "a="+urlCanonical[0];
-
-            if(urlCanonical[1] !== null && urlCanonical[1] !== "" && urlCanonical[1] !== undefined) {
-                canonical += "&b="+urlCanonical[1];
-            }
-
-            if(urlCanonical[2] !== null && urlCanonical[2] !== "" && urlCanonical[2] !== undefined) {
-                canonical += "&c="+urlCanonical[2];
-            }
-
-            this.initElmnt(canonical);
-        } else {
-            this.initElmnt("d=Home");
-        }
-    }
-
-/*
- * Enlarges specific modals
- * @param lmnt string
- * @author Liszi Dániel
- * @since 2020.11.10
- */
-    enlargenModal(lmnt)
-    {
-        if (this.enlargeModal.indexOf(lmnt) > -1 && ( ! this.checkTag("errormessage") && ! this.checkTag("modalmessage"))) {
-            if(! this.modalDialogElement.classList.contains("modal-lg")) {
-                this.modalDialogElement.classList.add("modal-lg");
-            }
-        } else {
-            if (this.modalDialogElement.classList.contains("modal-lg")) {
-                this.modalDialogElement.classList.remove("modal-lg");
-            }
-        }
-    }
-
-/*
- * Checks if element by tagname exists
- * @param tagname string
- * @return bool
- * @author Liszi Dániel
- * @since 2020.11.10
- */
-    checkTag(tagname)
-    {
-        return (!document.getElementsByTagName(tagname))? true : false;
-    }
 };
