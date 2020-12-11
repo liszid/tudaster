@@ -35,15 +35,20 @@ class Networking extends \Samples\sHardware
                         <div class="col-12 row">
                             <h4>SZÜKSÉGES MEZŐK</h4>
                             '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '-', 'type' => 'text'), 'Input').'
                             <hr />
                             <h4>OPCIONÁLIS MEZŐK</h4>
-
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingNetworkPorts', 'desc' => 'Hálózati portok', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'value' => '-', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">

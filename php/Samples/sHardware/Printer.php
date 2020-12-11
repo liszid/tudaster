@@ -43,7 +43,10 @@ class Printer extends \Samples\sHardware
                             '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '', 'type' => 'text'), 'Input').'
                             <hr />
                             <h4>OPCIONÁLIS MEZŐK</h4>
-
+                            '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'hardwarePrinterUse', 'desc' => 'Használat', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'hardwarePrinterType', 'desc' => 'Márka,típus', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'hardwarePrinterToner', 'desc' => 'Toner', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'hardwarePrinterOperator', 'desc' => 'Beállító', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">

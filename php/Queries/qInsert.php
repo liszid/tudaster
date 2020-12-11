@@ -16,11 +16,11 @@ $GLOBALS['Database'][0]['Insert'] = "
 
 $GLOBALS['Database'][1]['Insert'] = "
     INSERT INTO `Group`(
-        groupName,
-        groupDesc
+        groupName
+        ,groupDesc
     ) VALUES (
-        :groupName,
-        :groupDesc
+        :groupName
+        ,:groupDesc
     );
 ";
 
@@ -74,20 +74,108 @@ $GLOBALS['Database'][5]['Insert'] = "
 
 $GLOBALS['Database'][6]['Insert'] = "
     INSERT INTO `Hardware`(
-        hardwareName,
-        hardwareDesc,
-        hardwareSerial,
-        hardwareMAC,
-        hardwareIP,
-        userId,
-        companySiteId
+        hardwareName
+        ,hardwareDesc
+        ,hardwareSerial
+        ,hardwareMAC
+        ,hardwareIP
+        ,userId
+        ,companySiteId
     ) VALUES (
-        :hardwareName,
-        :hardwareDesc,
-        :hardwareSerial,
-        :hardwareMAC,
-        :hardwareIP,
-        :userId,
-        :companySiteId
+        :hardwareName
+        ,:hardwareDesc
+        ,:hardwareSerial
+        ,:hardwareMAC
+        ,:hardwareIP
+        ,:userId
+        ,:companySiteId
+    );
+";
+
+$GLOBALS['Database'][7]['Insert'] = "
+    INSERT INTO `Hardware_Laptop`(
+        hardwareId
+        ,hardwareLaptopUser
+        ,hardwareLaptopType
+        ,hardwareLaptopOS
+        ,hardwareLaptopOSVer
+        ,hardwareLaptopHDD
+        ,hardwareLaptopMEM
+        ,hardwareLaptopPROC
+        ,hardwareLaptopOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwareLaptopUser
+        ,:hardwareLaptopType
+        ,:hardwareLaptopOS
+        ,:hardwareLaptopOSVer
+        ,:hardwareLaptopHDD
+        ,:hardwareLaptopMEM
+        ,:hardwareLaptopPROC
+        ,:hardwareLaptopOperator
+    );
+";
+
+$GLOBALS['Database'][8]['Insert'] = "
+    INSERT INTO `Hardware_PC`(
+        hardwareId
+        ,hardwarePCUser
+        ,hardwarePCType
+        ,hardwarePCUse
+        ,hardwarePCOS
+        ,hardwarePCOSVer
+        ,hardwarePCHDD
+        ,hardwarePCMEM
+        ,hardwarePCPROC
+        ,hardwarePCNetworkPorts
+        ,hardwarePCOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwarePCUser
+        ,:hardwarePCType
+        ,:hardwarePCUse
+        ,:hardwarePCOS
+        ,:hardwarePCOSVer
+        ,:hardwarePCHDD
+        ,:hardwarePCMEM
+        ,:hardwarePCPROC
+        ,:hardwarePCNetworkPorts
+        ,:hardwarePCOperator
+    );
+";
+
+$GLOBALS['Database'][9]['Insert'] = "
+    INSERT INTO `Hardware_Printer`(
+        hardwareId
+        ,hardwarePrinterUse
+        ,hardwarePrinterType
+        ,hardwarePrinterToner
+        ,hardwarePrinterOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwarePrinterUse
+        ,:hardwarePrinterType
+        ,:hardwarePrinterToner
+        ,:hardwarePrinterOperator
+    );
+";
+
+$GLOBALS['Database'][10]['Insert'] = "
+    INSERT INTO `Hardware_Networking`(
+        hardwareId
+        ,hardwareNetworkingType
+        ,hardwareNetworkingUse
+        ,hardwareNetworkingOS
+        ,hardwareNetworkingOSVer
+        ,hardwareNetworkingNetworkPorts
+        ,hardwareNetworkingOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwareNetworkingType
+        ,:hardwareNetworkingUse
+        ,:hardwareNetworkingOS
+        ,:hardwareNetworkingOSVer
+        ,:hardwareNetworkingNetworkPorts
+        ,:hardwareNetworkingOperator
     );
 ";

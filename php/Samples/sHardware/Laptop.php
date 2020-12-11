@@ -35,15 +35,22 @@ class Laptop extends \Samples\sHardware
                         <div class="col-12 row">
                             <h4>SZÜKSÉGES MEZŐK</h4>
                             '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '', 'type' => 'text'), 'Input').'
-                            <hr />
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '-', 'type' => 'text'), 'Input').'
+                            <hr>
                             <h4>OPCIONÁLIS MEZŐK</h4>
-
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopUser', 'desc' => 'Kezelő', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopType', 'desc' => 'Márka, típus', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopOS', 'desc' => 'Op. rendszer', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopOSVer', 'desc' => 'Op. rendszer verzió', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopHDD', 'desc' => 'Tárhely', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopMEM', 'desc' => 'Memória', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopPROC', 'desc' => 'Processzor', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareLaptopOperator', 'desc' => 'Beállító', 'value' => '-', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">

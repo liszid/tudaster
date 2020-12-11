@@ -43,7 +43,16 @@ class PC extends \Samples\sHardware
                             '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '', 'type' => 'text'), 'Input').'
                             <hr />
                             <h4>OPCIONÁLIS MEZŐK</h4>
-
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCUser', 'desc' => 'Kezelő', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCType', 'desc' => 'Márka, típus', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCUse', 'desc' => 'Használati cél', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCOS', 'desc' => 'Op. Rendszer', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCOSVer', 'desc' => 'Op. Rendszer verzió', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCHDD', 'desc' => 'Tárhely', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCMEM', 'desc' => 'Memória', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCPROC', 'desc' => 'Processzor', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCNetworkPorts', 'desc' => 'Portok száma', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPCAdd', 'data' => 'hardwarePCOperator', 'desc' => 'Beállító', 'value' => '-', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
