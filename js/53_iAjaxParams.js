@@ -141,6 +141,11 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHomeUsers"
                     ,"tableCompanyCompany"
                     ,"tableCompanySite"
+                    ,"tableHardwareHardware"
+                    ,"tableHardwareLaptop"
+                    ,"tableHardwareNetworking"
+                    ,"tableHardwarePC"
+                    ,"tableHardwarePrinter"
                 ];
             }
         });
