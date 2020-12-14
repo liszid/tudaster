@@ -526,7 +526,16 @@ $GLOBALS['Database'][6]['Select'] = array(
         SELECT
             *
         FROM
-            `Hardware`"
+            `Hardware`",
+    'byUserId_Last' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware`
+        WHERE
+            userId=:userId
+        ORDER BY hardwareId DESC LIMIT 1
+    "
 );
 
 $GLOBALS['Database'][7]['Select'] = array(

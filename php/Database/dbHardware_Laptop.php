@@ -28,7 +28,17 @@ class dbHardware_Laptop extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareId"
+                            ,"hardwareLaptopUser"
+                            ,"hardwareLaptopType"
+                            ,"hardwareLaptopOS"
+                            ,"hardwareLaptopOSVer"
+                            ,"hardwareLaptopHDD"
+                            ,"hardwareLaptopMEM"
+                            ,"hardwareLaptopPROC"
+                            ,"hardwareLaptopOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0

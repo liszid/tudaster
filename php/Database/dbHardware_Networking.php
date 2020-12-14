@@ -28,7 +28,15 @@ class dbHardware_Networking extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareId"
+                            ,"hardwareNetworkingType"
+                            ,"hardwareNetworkingUse"
+                            ,"hardwareNetworkingOS"
+                            ,"hardwareNetworkingOSVer"
+                            ,"hardwareNetworkingNetworkPorts"
+                            ,"hardwareNetworkingOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0

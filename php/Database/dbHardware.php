@@ -28,7 +28,15 @@ class dbHardware extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareName"
+                            ,"hardwareDesc"
+                            ,"hardwareSerial"
+                            ,"hardwareMAC"
+                            ,"hardwareIP"
+                            ,"userId"
+                            ,"companySiteId"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -44,6 +52,8 @@ class dbHardware extends Table implements iDatabase
 
         if (strcmp($type, 'All') === 0) {
             $tempArray = array();
+        } elseif (strcmp($type, 'byUserId_Last') === 0) {
+            $tempArray = array('userId');
         } else {
             return array();
         }

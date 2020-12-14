@@ -28,7 +28,13 @@ class dbHardware_Printer extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareId"
+                            ,"hardwarePrinterUse"
+                            ,"hardwarePrinterType"
+                            ,"hardwarePrinterToner"
+                            ,"hardwarePrinterOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0

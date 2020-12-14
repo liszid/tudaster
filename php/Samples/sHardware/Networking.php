@@ -14,7 +14,8 @@ use Samples\{
     sElement,
     sTranslate,
     sTables,
-    sFrame
+    sFrame,
+    sCard
 };
 
 class Networking extends \Samples\sHardware
@@ -27,28 +28,30 @@ class Networking extends \Samples\sHardware
 */
     public static function Add(array $array = array()): string
     {
-        self::setDHardware();
-        if (! isset($array['Save']) || true) {
+        self::setDHardware_Networking();
+        if (! isset($array['Save'])) {
+            $Hardware_Hardware_Content =
+                sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => 'Hálózati eszköz teszt', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => 'Hálózati eszköz teszt mező', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => 'AAA-1234567', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => 'MM:MM:MM:SS:SS:SS', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '127.0.0.1', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '1', 'type' => 'text'), 'Input');
+            $Hardware_Networking_Content =
+                sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'value' => '-', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'value' => '-', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'value' => '-', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'value' => '-', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingNetworkPorts', 'desc' => 'Hálózati portok', 'value' => '-', 'type' => 'text'), 'Input')
+                .sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'value' => '-', 'type' => 'text'), 'Input');
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            <h4>SZÜKSÉGES MEZŐK</h4>
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareName', 'desc' => 'Megnevezés', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareDesc', 'desc' => 'Leírás', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareSerial', 'desc' => 'Serial', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareIP', 'desc' => 'IP-cím', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'companySiteId', 'desc' => 'Telephely', 'value' => '-', 'type' => 'text'), 'Input').'
-                            <hr />
-                            <h4>OPCIONÁLIS MEZŐK</h4>
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingNetworkPorts', 'desc' => 'Hálózati portok', 'value' => '-', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'value' => '-', 'type' => 'text'), 'Input').'
+                            '.sCard::Collapsible(array('header' => 'SZÜKSÉGES MEZŐK', 'content' => $Hardware_Hardware_Content)).'
+                            <hr>
+                            '.sCard::Collapsible(array('header' => 'OPCIONÁLIS MEZŐK', 'content' => $Hardware_Networking_Content)).'
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,10 +63,10 @@ class Networking extends \Samples\sHardware
         } else {
             return
                 '<h4>'.(
-                    (self::$dHardware->Insert($array))
+                    (self::$dHardware_Networking->Insert($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Laptop'), 'Spinner');
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Networking'), 'Spinner');
         }
     }
 

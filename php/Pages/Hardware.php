@@ -76,7 +76,13 @@ if (
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Networking(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
         }
-        echo ((Valid::vString($returnContent))? sFrame::Page(array('path' => $urlPaths[$postUrl]['path'], 'content' => $returnContent)) : sRedirect::Home());
+        echo (
+            (
+                Valid::vString($returnContent)
+            )
+            ? sFrame::Page(array('path' => $urlPaths[$postUrl]['path'], 'content' => $returnContent))
+            : sRedirect::Home()
+        );
 /*
  * Collective page with Cards
  */

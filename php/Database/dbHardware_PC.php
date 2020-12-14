@@ -28,7 +28,19 @@ class dbHardware_PC extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareId"
+                            ,"hardwarePCUser"
+                            ,"hardwarePCType"
+                            ,"hardwarePCUse"
+                            ,"hardwarePCOS"
+                            ,"hardwarePCOSVer"
+                            ,"hardwarePCHDD"
+                            ,"hardwarePCMEM"
+                            ,"hardwarePCPROC"
+                            ,"hardwarePCNetworkPorts"
+                            ,"hardwarePCOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
