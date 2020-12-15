@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Samples\sAdministrative;
+namespace Page_Handlers\sAdministrative;
 
 use PreLoad\{
     Valid,
@@ -15,7 +15,7 @@ use Samples\{
     sTranslate
 };
 
-class Users extends \Samples\sAdministrative
+class Users extends \Page_Handlers\sAdministrative
 {
 /*
 * Returns User adding form

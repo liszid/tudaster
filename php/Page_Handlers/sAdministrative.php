@@ -2,19 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Samples;
+namespace Page_Handlers;
+
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Data\{
-    dUser,
-    dGroup,
-    dGroup_Member,
-    dCombined,
-    dTools
+    dUser
+    ,dGroup
+    ,dGroup_Member
+    ,dCombined
+    ,dTools
+};
+
+use Samples\{
+    sCard
+    ,sTables
+    ,sTranslate
+    ,sElement
 };
 
 class sAdministrative {

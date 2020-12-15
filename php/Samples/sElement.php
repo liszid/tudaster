@@ -35,6 +35,9 @@ class sElement
             case 'Button':
                 return sElement\General::Button($array);
                 break;
+            case 'Generate_Form':
+                return sElement\General::Generate_Form($array);
+                break;
         }
     }
 

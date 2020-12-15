@@ -249,6 +249,35 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
     ",
+    'Hardware_Laptop_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Laptop`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Laptop`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Laptop`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_Laptop`.hardwareLaptopId =:hardwareLaptopId
+    ",
     'Hardware_PC_Table' => "
         SELECT
             `Hardware`.*
@@ -275,6 +304,35 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
+    ",
+    'Hardware_PC_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_PC`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_PC`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_PC`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_PC`.hardwarePCId =:hardwarePCId
     ",
     'Hardware_Printer_Table' => "
         SELECT
@@ -303,6 +361,35 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
     ",
+    'Hardware_Printer_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Printer`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Printer`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Printer`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_Printer`.hardwarePrinterId =:hardwarePrinterId
+    ",
     'Hardware_Networking_Table' => "
         SELECT
             `Hardware`.*
@@ -329,6 +416,35 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
+    ",
+    'Hardware_Networking_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Networking`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Networking`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Networking`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_Networking`.hardwareNetworkingId =:hardwareNetworkingId
     ",
 );
 

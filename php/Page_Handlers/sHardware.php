@@ -2,21 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Samples;
+namespace Page_Handlers;
 
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Data\{
-    dHardware,
-    dHardware_Laptop,
-    dHardware_PC,
-    dHardware_Printer,
-    dHardware_Networking,
-    dCombined
+    dHardware
+    ,dHardware_Laptop
+    ,dHardware_PC
+    ,dHardware_Printer
+    ,dHardware_Networking
+    ,dCombined
+};
+
+use Samples\{
+    sCard
+    ,sTables
+    ,sTranslate
 };
 
 class sHardware
@@ -28,6 +34,60 @@ class sHardware
     protected static $dHardware_Networking;
     protected static $dCombined;
 
+    const HARDWARE = array(
+        array('data' => 'hardwareName', 'desc' => 'Megnevezés', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareDesc', 'desc' => 'Leírás', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSerial', 'desc' => 'Serial', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareIP', 'desc' => 'IP-cím', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'companySiteId', 'desc' => 'Telephely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSwitch', 'desc' => 'Switch IP', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'hardwareSwitchPort', 'desc' => 'Switch Port', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'hardwareVLANName', 'desc' => 'VLAN Név', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'hardwareVLANNum', 'desc' => 'VLAN Száma', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'hardwareDateIn', 'desc' => 'Beszerzés dátuma', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'hardwareDateOut', 'desc' => 'Kivitel dátuma', 'type' => 'text', 'tags' => 'View,Edit')
+    );
+
+    const LAPTOP = array(
+        array('data' => 'hardwareLaptopUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareLaptopOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
+    const PC = array(
+        array('data' => 'hardwarePCUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePCOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
+    const PRINTER = array(
+        array('data' => 'hardwarePrinterUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePrinterType', 'desc' => 'Márka,típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePrinterToner', 'desc' => 'Toner', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwarePrinterOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
+    const NETWORKING = array(
+        array('data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareNetworkingNetworkPorts', 'desc' => 'Hálózati portok', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
 
 /*
  * Sets the class variable : dHardware

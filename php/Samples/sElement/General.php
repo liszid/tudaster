@@ -12,6 +12,39 @@ use PreLoad\{
 
 class General
 {
+    public static function Generate_Form(array $array):string
+    {
+        $returnString = '';
+        $constData = (isset($array['constData'])) ? $array['constData'] : '';
+        $staticData = (isset($array['staticData']))? $array['staticData'] : '';
+        $valueData = (isset($array['valueData']))? $array['valueData'] : '';
+        if ( is_array($constData) && is_array($staticData)) {
+            foreach($constData as $i) {
+                 if (stristr($i['tags'],$staticData['tag'])) {
+                    $tempArray = array_merge($i, $staticData);
+                    if (
+                        (
+                            ! strcmp($tempArray['tag'], 'Edit')
+                            || ! strcmp($tempArray['tag'], 'View')
+                        )
+                        && is_array($valueData)
+                    ) {
+                        $tempArray['value'] = (isset($valueData[$i['data']]))? $valueData[$i['data']] : '';
+                    } else {
+                        if ( ! strcmp($tempArray['tag'], 'Add')) {
+                            $tempArray['value'] = '';
+                        }
+                    }
+                    if ( ! strcmp($tempArray['tag'], 'View')) {
+                        $tempArray['disabled'] = true;
+                    }
+                    $returnString .= self::Input($tempArray);
+                }
+            }
+        }
+        return $returnString;
+    }
+
 /*
  * Adds input element on Editor
  * @param $array array

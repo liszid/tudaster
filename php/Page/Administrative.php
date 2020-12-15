@@ -3,17 +3,18 @@
 declare(strict_types=1);
 
 use PreLoad\ {
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Samples\ {
-    sCard,
-    sFrame,
-    sRedirect,
-    sAdministrative
+    sCard
+    ,sFrame
+    ,sRedirect
 };
+
+use Page_Handlers\sAdministrative;
 
 if (
     isset($sessionUsr['userId'])

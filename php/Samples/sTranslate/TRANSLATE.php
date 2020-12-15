@@ -68,7 +68,6 @@ interface TRANSLATE
                     <b>cUn</b> - Hozzáférések alap jogosultság <br />
                     <b>cP</b> - Hozzáférések emelt jogosultság <br />
                     <b>cH</b> - Hardver jogosultság <br />
-                    <b>cS</b> - Szoftver jogosultság <br />
                     <b>cE</b> - Profil szerkesztés <br />
                     <b>cL</b> - Bejelentkezés <br />
                     <br />
@@ -84,7 +83,7 @@ interface TRANSLATE
             "card" => ""
         ),
         "Administrative/Groups/Delete" => array(
-            "navbar" => "Csoport törlése",
+        "navbar" => "Csoport törlése",
             "fa" => "users",
             "title" => "Csoport törlése",
             "help" => "",

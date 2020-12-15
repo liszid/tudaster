@@ -3,17 +3,18 @@
 declare(strict_types=1);
 
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Samples\{
-    sCard,
-    sFrame,
-    sRedirect,
-    sCompany
+    sCard
+    ,sFrame
+    ,sRedirect
 };
+
+use Page_Handlers\sCompany;
 
 if (
     isset($sessionUsr['userId'])
@@ -24,8 +25,8 @@ if (
 
     $urlPaths = array(
                     "Root"      => array("path" => "Company", "role" => "canCompany"),
-                    "Company"     => array("path" => "Company/Company", "role" => "canCompany"),
-                    "Site"     => array("path" => "Company/Site", "role" => "canCompany")
+                    "Company"   => array("path" => "Company/Company", "role" => "canCompany"),
+                    "Site"      => array("path" => "Company/Site", "role" => "canCompany")
                 );
 /*
  * Post action handling and form prompt section

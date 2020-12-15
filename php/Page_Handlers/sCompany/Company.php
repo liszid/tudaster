@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Samples\sCompany;
+namespace Page_Handlers\sCompany;
 
 use PreLoad\{
     Valid,
@@ -17,7 +17,7 @@ use Samples\{
     sFrame
 };
 
-class Company extends \Samples\sCompany
+class Company extends \Page_Handlers\sCompany
 {
     public static function Filter(array $array = array()): string
     {

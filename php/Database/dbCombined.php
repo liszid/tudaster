@@ -45,6 +45,14 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('companySiteId');
         } elseif (! strcmp($type, 'Company_Site_Filter')){
             $tempArray = array('companyId');
+        } elseif (! strcmp($type, 'Hardware_Laptop_View')){
+            $tempArray = array('hardwareLaptopId');
+        } elseif (! strcmp($type, 'Hardware_PC_View')){
+            $tempArray = array('hardwarePCId');
+        } elseif (! strcmp($type, 'Hardware_Printer_View')){
+            $tempArray = array('hardwarePrinterId');
+        } elseif (! strcmp($type, 'Hardware_Networking_View')){
+            $tempArray = array('hardwareNetworkingId');
         } else {
             return array();
         }

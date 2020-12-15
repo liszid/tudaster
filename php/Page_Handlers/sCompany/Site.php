@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Samples\sCompany;
+namespace Page_Handlers\sCompany;
 
 use PreLoad\{
     Valid,
@@ -16,7 +16,7 @@ use Samples\{
     sTranslate
 };
 
-class Site extends \Samples\sCompany
+class Site extends \Page_Handlers\sCompany
 {
 /*
  * Returns Company Site Adding form

@@ -2,19 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Samples;
+namespace Page_Handlers;
 
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Data\{
-    dCompany,
-    dCompany_Site,
-    dCompany_Site_Type,
-    dCombined
+    dCompany
+    ,dCompany_Site
+    ,dCompany_Site_Type
+    ,dCombined
+};
+
+use Samples\{
+    sCard
+    ,sTables
+    ,sTranslate
 };
 
 class sCompany
