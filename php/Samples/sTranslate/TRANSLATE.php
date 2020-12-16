@@ -172,13 +172,7 @@ interface TRANSLATE
     	    "fa" => "hdd-o",
     	    "title" => "Minden eszköz adata",
     	    "help" => "Minden eszköz adatának olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Minden eszköz adatának megtekintéséhez kattintson a kártyára",
-            "info" => array(
-                'color' => 'success',
-                'header' => 'Információ',
-                'title' => '',
-                'content' => ''
-            )
+            "card" => "Minden eszköz adatának megtekintéséhez kattintson a kártyára"
     	),
     	"Hardware/Laptop" => array(
     	    "navbar" => "Laptopok",
@@ -187,8 +181,6 @@ interface TRANSLATE
     	    "help" => "Laptop adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
             "card" => "Laptop adatok megtekintéséhez kattintson a kártyára",
             "info" => array(
-                'color' => 'success',
-                'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
                 'content' => ''
@@ -201,8 +193,6 @@ interface TRANSLATE
     	    "help" => "Számítógép/Szerver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
             "card" => "Számítógép/Szerver adatok megtekintéséhez kattintson a kártyára",
             "info" => array(
-                'color' => 'success',
-                'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
                 'content' => ''
@@ -215,8 +205,6 @@ interface TRANSLATE
     	    "help" => "Nyomtató adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
             "card" => "Nyomtató adatok megtekintéséhez kattintson a kártyára",
             "info" => array(
-                'color' => 'success',
-                'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
                 'content' => ''
@@ -229,8 +217,6 @@ interface TRANSLATE
     	    "help" => "Hálózati eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
             "card" => "Hálózati eszköz adatok megtekintéséhez kattintson a kártyára",
             "info" => array(
-                'color' => 'success',
-                'header' => 'Információ',
                 'addButton' => true,
                 'title' => '',
                 'content' => ''
