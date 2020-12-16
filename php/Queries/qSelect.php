@@ -166,7 +166,6 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE
             companySiteId=:companySiteId
     ",
-
     'Company_Site_Filter' => "
         SELECT
             `Company_Site`.companySiteId
@@ -221,6 +220,18 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Company_Site`.companyId=:companyId
+    ",
+    'Company_Site_Select' => "
+        SELECT
+            `Company_Site`.companySiteId
+            ,`Company_Site`.companySiteName
+            ,`Company`.companyName
+        FROM
+            `Company_Site`
+        INNER JOIN
+            `Company`
+        ON
+            `Company`.companyId = `Company_Site`.companyId
     ",
     'Hardware_Laptop_Table' => "
         SELECT

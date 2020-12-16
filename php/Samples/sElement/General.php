@@ -12,12 +12,20 @@ use PreLoad\{
 
 class General
 {
+/*
+ * Generates a form of input elements using multiple arrays
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.12.16
+ */
     public static function Generate_Form(array $array):string
     {
         $returnString = '';
         $constData = (isset($array['constData'])) ? $array['constData'] : '';
         $staticData = (isset($array['staticData']))? $array['staticData'] : '';
         $valueData = (isset($array['valueData']))? $array['valueData'] : '';
+        $selectData = (isset($array['selectData']))? $array['selectData'] : '';
         if ( is_array($constData) && is_array($staticData)) {
             foreach($constData as $i) {
                  if (stristr($i['tags'],$staticData['tag'])) {
@@ -29,7 +37,7 @@ class General
                         )
                         && is_array($valueData)
                     ) {
-                        $tempArray['value'] = (isset($valueData[$i['data']]))? $valueData[$i['data']] : '';
+                        $tempArray['value'] = (isset($valueData[$tempArray['data']]))? $valueData[$tempArray['data']] : '';
                     } else {
                         if ( ! strcmp($tempArray['tag'], 'Add')) {
                             $tempArray['value'] = '';
@@ -37,6 +45,11 @@ class General
                     }
                     if ( ! strcmp($tempArray['tag'], 'View')) {
                         $tempArray['disabled'] = true;
+                    }
+                    if (! strcmp($tempArray['type'],'select') && is_array($selectData)) {
+                        if (isset($selectData[$tempArray['data']])) {
+                            $tempArray['select'] = $selectData[$tempArray['data']];
+                        }
                     }
                     $returnString .= self::Input($tempArray);
                 }
@@ -50,7 +63,7 @@ class General
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.16
  */
     public static function Input(array $array): string
     {
@@ -65,9 +78,9 @@ class General
             ! strcmp($inputType, 'select')
             && isset($array['select'])
         ) {
-            $input = '<select class="custom-select" id="'.$inputId.'">';
+            $input = '<select class="custom-select" id="'.$inputId.'"'.$inputDisabled.'>';
             foreach ($array['select'] as $i) {
-                $input .= '<option value="'.$i['id'].'"'.((! strcmp((string)$inputValue, (string)$i['id'])) ? ' selected' : '').$inputDisabled.'>'.$i['name'].'</option>';
+                $input .= '<option value="'.$i['id'].'"'.((! strcmp((string)$inputValue, (string)$i['id'])) ? ' selected' : '').'>'.$i['name'].'</option>';
             }
             $input .= '</select>';
         } else {

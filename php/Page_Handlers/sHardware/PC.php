@@ -30,8 +30,8 @@ class PC extends \Page_Handlers\sHardware
     {
         self::setDHardware_PC();
         if (! isset($array['Save'])) {
-            $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPCAdd', 'tag' => 'Add')),'Generate_Form');
-            $Hardware_Optional_Content = sElement::General(array('constData' => self::PC, 'staticData' => array('origo' => 'usrHardwPCAdd', 'tag' => 'Add')),'Generate_Form');
+            $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPCAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
+            $Hardware_Optional_Content = sElement::General(array('constData' => self::PC, 'staticData' => array('origo' => 'usrHardwPCAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
@@ -67,8 +67,8 @@ class PC extends \Page_Handlers\sHardware
     {
         self::setDCombined();
         $Hardware_PC = (self::$dCombined->Select(array('hardwarePCId' => (int)$array['dp']), 'Hardware_PC_View'))[0];
-        $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPCView', 'tag' => 'View'), 'valueData' => $Hardware_PC),'Generate_Form');
-        $Hardware_Optional_Content = sElement::General(array('constData' => self::PC, 'staticData' => array('origo' => 'usrHardwPCView', 'tag' => 'View'), 'valueData' => $Hardware_PC),'Generate_Form');
+        $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPCView', 'tag' => 'View'), 'valueData' => $Hardware_PC,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
+        $Hardware_Optional_Content = sElement::General(array('constData' => self::PC, 'staticData' => array('origo' => 'usrHardwPCView', 'tag' => 'View'), 'valueData' => $Hardware_PC,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">

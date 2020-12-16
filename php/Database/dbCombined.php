@@ -39,6 +39,7 @@ class dbCombined extends Table implements iDatabase
             || ! strcmp($type, 'Hardware_PC_Table')
             || ! strcmp($type, 'Hardware_Printer_Table')
             || ! strcmp($type, 'Hardware_Networking_Table')
+            || ! strcmp($type, 'Company_Site_Select')
         ){
             $tempArray = array();
         } elseif (! strcmp($type, 'Company_Site_View')){

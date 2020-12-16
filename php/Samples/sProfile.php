@@ -40,32 +40,24 @@ class sProfile implements sProfile\ICONS
     private static function Profile(array $array = array(), bool $bool = false): string
     {
         return '
-            <div class="col-md-12">
+            <div class="col-md-12 m-0 p-1">
                 <div class="text-center">
             	    <h1>'.$array['userName'].'</h1>
                     <i class="fa fa-'.$array['userThumbnail'].' fa-5x"></i>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                    <hr>
-                        <div class="form-group col">
-                    	    <div class = "col-12 row m-1">
-                                '.self::Property(array('desc' => "Szerepkör", 'value' => $array['groupName'])).'
-                                '.self::Property(array('desc' => "Leírás", 'value' => $array['groupDesc'])).'
-                    	    </div>
-                    	    <hr />
-                            <div class = "col-12 row m-1">
-                                '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['userLastName'])).'
-                                '.self::Property(array('desc' => "Keresztnév", 'value' => $array['userFirstName'])).'
-                                '.self::Property(array('desc' => "Telephely", 'value' => $array['userContSite'])).'
-                                '.self::Property(array('desc' => "E-mail", 'value' => $array['userContEmail'])).'
-                                '.self::Property(array('desc' => "Telefon", 'value' => $array['userContPhone'])).'
-                            </div>
-                        </div>
-                        '.self::Button($array, $bool).'
-                        <hr />
+                <hr>
+                <div class="form-group col m-0 p-0">
+                    <div class = "col-12 row m-0 p-0">
+                        '.self::Property(array('desc' => "Szerepkör", 'value' => $array['groupName'])).'
+                        '.self::Property(array('desc' => "Leírás", 'value' => $array['groupDesc'])).'
+                        '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['userLastName'])).'
+                        '.self::Property(array('desc' => "Keresztnév", 'value' => $array['userFirstName'])).'
+                        '.self::Property(array('desc' => "Telephely", 'value' => $array['userContSite'])).'
+                        '.self::Property(array('desc' => "E-mail", 'value' => $array['userContEmail'])).'
+                        '.self::Property(array('desc' => "Telefon", 'value' => $array['userContPhone'])).'
                     </div>
                 </div>
+                '.self::Button($array, $bool).'
             </div>';
     }
 
@@ -79,7 +71,7 @@ class sProfile implements sProfile\ICONS
     private static function Property(array $array): string
     {
 	return '
-	    <div class="container p-1 my-1 border col-12  m-1">
+	    <div class="container col-12 my-2 p-1 border-bottom border-right">
             <b>'.$array['desc'].'</b><span class="float-right">'.$array['value'].'</span>
         </div>';
     }
@@ -118,36 +110,31 @@ class sProfile implements sProfile\ICONS
     private static function Edit(array $array = array()):string
     {
         return '
-        <div class="col-md-12">
+        <div class="col-md-12 m-0 p-0">
             <div class="text-center">
         	<h1>'.$array['userName'].'</h1>
                 <i class="fa fa-'.$array['userThumbnail'].' fa-5x"></i>
-                <!-- <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Ikonok keresése</a></p> -->
             </div>
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <hr>
-                    <form method="post" class="form-group col-12" autocomplete="on">
-                        <div class="form-group col p-0">
-                            <div class="col-12 row">
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userId', 'desc' => 'Id', 'value' => $array['userId'], 'type' => 'hidden'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userThumbnail', 'desc' => 'Ikon', 'value' => $array['userThumbnail'], 'select' => self::ICONS, 'fa'=> true, 'type' => 'select'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userLastName', 'desc' => 'Vezetéknév', 'value' => $array['userLastName'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userFirstName', 'desc' => 'Keresztnév', 'value' => $array['userFirstName'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContPhone', 'desc' => 'Telefon', 'value' => $array['userContPhone'], 'type' => 'text'), 'Input').'
-                                '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContSite', 'desc' => 'Telephely', 'value' => $array['userContSite'], 'type' => 'text'), 'Input').'
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-12 row">
-                                <button class="btn btn-lg btn-success col-12 col-md-6" type="submit" id="usrEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
-                                <button class="btn btn-lg col-12 col-md-6" type="submit" id="usrEdit-cancel"><i class="fa fa-ban"></i> Vissza</button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr />
+            <hr />
+            <form method="post" class="form-group col-12 m-0 p-0" autocomplete="on">
+                <div class="form-group col m-0 p-0">
+                    <div class="col-12 row m-0 p-0">
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userId', 'desc' => 'Id', 'value' => $array['userId'], 'type' => 'hidden'), 'Input').'
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userThumbnail', 'desc' => 'Ikon', 'value' => $array['userThumbnail'], 'select' => self::ICONS, 'fa'=> true, 'type' => 'select'), 'Input').'
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userLastName', 'desc' => 'Vezetéknév', 'value' => $array['userLastName'], 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userFirstName', 'desc' => 'Keresztnév', 'value' => $array['userFirstName'], 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContPhone', 'desc' => 'Telefon', 'value' => $array['userContPhone'], 'type' => 'text'), 'Input').'
+                        '.sElement::General(array('origo' => 'usrEdit', 'data' => 'userContSite', 'desc' => 'Telephely', 'value' => $array['userContSite'], 'type' => 'text'), 'Input').'
+                    </div>
                 </div>
-            </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-12 row">
+                        <button class="btn btn-lg btn-success col-12 col-md-6" type="submit" id="usrEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        <button class="btn btn-lg col-12 col-md-6" type="submit" id="usrEdit-cancel"><i class="fa fa-ban"></i> Vissza</button>
+                    </div>
+                </div>
+            </form>
         </div>';
     }
 }

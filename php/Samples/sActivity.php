@@ -30,10 +30,10 @@ class sActivity
         if (isset($array)) {
             $prompt = '';
             $elementArray = array(
-                array("desc" => "Tudáscikk", "data" => $array['actKnow']),
-                array("desc" => "Jelszó", "data" => $array['actPass']),
-                array("desc" => "Hardver", "data" => $array['actHard']),
-                array("desc" => "Szoftver", "data" => $array['actSoft'])
+                array("desc" => "Tudáscikk", "data" => $array['actKnow'])
+                ,array("desc" => "Hozzáférés", "data" => $array['actPass'])
+                ,array("desc" => "Hardver", "data" => $array['actHard'])
+                ,array("desc" => "Ügyfél", "data" => $array['actComp'])
             );
             foreach ($elementArray as $e) {
                 $prompt .= sElement::User( $e, "Activity");
@@ -64,7 +64,7 @@ class sActivity
             'actKnow' => '0',
             'actPass' => '0',
             'actHard' => '0',
-            'actSoft' => '0',
+            'actComp' => '0',
         );
     }
 

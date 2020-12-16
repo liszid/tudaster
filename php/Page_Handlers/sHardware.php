@@ -40,7 +40,7 @@ class sHardware
         ,array('data' => 'hardwareSerial', 'desc' => 'Serial', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareIP', 'desc' => 'IP-cím', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'companySiteId', 'desc' => 'Telephely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'companySiteId', 'desc' => 'Telephely', 'type' => 'select', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareSwitch', 'desc' => 'Switch IP', 'type' => 'text', 'tags' => 'View,Edit')
         ,array('data' => 'hardwareSwitchPort', 'desc' => 'Switch Port', 'type' => 'text', 'tags' => 'View,Edit')
         ,array('data' => 'hardwareVLANName', 'desc' => 'VLAN Név', 'type' => 'text', 'tags' => 'View,Edit')
@@ -92,7 +92,7 @@ class sHardware
 /*
  * Sets the class variable : dHardware
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDHardware()
     {
@@ -102,7 +102,7 @@ class sHardware
 /*
  * Sets the class variable : dHardware_Laptop
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDHardware_Laptop()
     {
@@ -112,7 +112,7 @@ class sHardware
 /*
  * Sets the class variable : dHardware_PC
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDHardware_PC()
     {
@@ -122,7 +122,7 @@ class sHardware
 /*
  * Sets the class variable : dHardware_Printer
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDHardware_Printer()
     {
@@ -132,7 +132,7 @@ class sHardware
 /*
  * Sets the class variable : dHardware_Networking
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDHardware_Networking()
     {
@@ -141,7 +141,7 @@ class sHardware
 /*
  * Sets the class variable : dCombined
  * @author Liszi Dániel
- * @since 2020.11.03
+ * @since 2020.12.07
  */
     protected static function setDCombined()
     {
@@ -152,8 +152,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.03
- * @update 2020.11.23
+ * @since 2020.12.07
  */
     public static function Action(array $array = array()): string
     {
@@ -202,7 +201,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.13
+ * @since 2020.12.09
  */
     public static function Hardware(array $array = array()): string
     {
@@ -221,7 +220,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.13
+ * @since 2020.12.09
  */
     public static function Laptop(array $array = array()): string
     {
@@ -240,7 +239,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.13
+ * @since 2020.12.09
  */
     public static function PC(array $array = array()): string
     {
@@ -259,7 +258,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.13
+ * @since 2020.12.09
  */
     public static function Printer(array $array = array()): string
     {
@@ -278,7 +277,7 @@ class sHardware
  * @param $array array
  * @return string
  * @author Liszi Dániel
- * @since 2020.11.13
+ * @since 2020.12.13
  */
     public static function Networking(array $array = array()): string
     {
@@ -292,5 +291,20 @@ class sHardware
 
         $returnString .= sTables::Prompt($Networking, 'Hardware_Networking');
         return $returnString;
+    }
+
+/*
+ * @return array
+ * @author Liszi Dániel
+ * @since 2020.12.16
+ */
+    protected static function Company_Site_Select(): array
+    {
+        self::setDCombined();
+        $tempArray = array();
+        foreach(self::$dCombined->Select(array(), 'Company_Site_Select') as $i) {
+            $tempArray[] = array('id' => $i['companySiteId'], 'name' => $i['companyName'].' - '.$i['companySiteName']);
+        }
+        return $tempArray;
     }
 }

@@ -17,7 +17,7 @@ class sRoles
     {
         if (isset($array)) {
             $prompt = '';
-            $elementArray = array('canKnowledge', 'canUsername', 'canPassword', 'canHardware', 'canSoftware', 'canCompany', 'canEdit');
+            $elementArray = array('canKnowledge', 'canUsername', 'canHardware', 'canCompany');
 
             foreach ($elementArray as $e) {
                 $prompt .= sElement::User( array("desc" => sTranslate::TRANSLATE[sTranslate::ROLE[$e]['respective']]['navbar'], "data" => $array[$e]), "Activity");
