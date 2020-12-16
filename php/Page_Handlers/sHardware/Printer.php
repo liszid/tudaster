@@ -21,10 +21,11 @@ use Samples\{
 class Printer extends \Page_Handlers\sHardware
 {
 /*
+* Generates Hardware::Printer->Add modal
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.11.13
+* @since 2020.12.16
 */
     public static function Add(array $array = array()): string
     {
@@ -56,10 +57,11 @@ class Printer extends \Page_Handlers\sHardware
     }
 
 /*
+* Generates Hardware::Printer->View modal
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.11.13
+* @since 2020.12.16
 */
     public static function View(array $array = array()): string
     {
@@ -77,10 +79,11 @@ class Printer extends \Page_Handlers\sHardware
     }
 
 /*
+* Generates Hardware::Printer->Edit modal
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.11.13
+* @since 2020.12.16
 */
     public static function Edit(array $array = array()): string
     {
@@ -88,10 +91,11 @@ class Printer extends \Page_Handlers\sHardware
     }
 
 /*
+* Deletes selected Hardware
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.11.13
+* @since 2020.12.16
 */
     public static function Delete(array $array = array()): string
     {
