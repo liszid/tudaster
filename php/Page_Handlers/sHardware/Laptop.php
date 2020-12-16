@@ -87,22 +87,32 @@ class Laptop extends \Page_Handlers\sHardware
 */
     public static function Edit(array $array = array()): string
     {
-        self::setDCombined();
-        $Hardware_Laptop = (self::$dCombined->Select(array('hardwareLaptopId' => (int)$array['dp']), 'Hardware_Laptop_View'))[0];
-        return '
-            <form method="post" class="form-group col-12" autocomplete="on">
-                <div class="form-group col p-0">
-                    <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopEdit','tag' => 'Edit'),'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
-                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
-                    .'</div>
-                </div>
-                <div class="form-group">
-                    <div class="col-12 row">
-                        <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwLaptopEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+        if (! isset($array['Save']) || true) {
+            self::setDCombined();
+            $Hardware_Laptop = (self::$dCombined->Select(array('hardwareLaptopId' => (int)$array['dp']), 'Hardware_Laptop_View'))[0];
+            return '
+                <form method="post" class="form-group col-12" autocomplete="on">
+                    <div class="form-group col p-0">
+                        <div class="col-12 row">'
+                            .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopEdit','tag' => 'Edit'),'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .'</div>
                     </div>
-                </div>
-            </form>';
+                    <div class="form-group">
+                        <div class="col-12 row">
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwLaptopEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        </div>
+                    </div>
+                </form>';
+        } else {
+            self::setDHardware_Laptop();
+            return
+                '<h4>'.(
+                    (self::$dHardware_Laptop->Update($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Laptop'), 'Spinner');
+        }
     }
 
 /*
