@@ -25,22 +25,19 @@ class Laptop extends \Page_Handlers\sHardware
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.12.13
+* @since 2020.12.15
 */
     public static function Add(array $array = array()): string
     {
         self::setDHardware_Laptop();
         if (! isset($array['Save'])) {
-            $Hardware_Hardware_Content =sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopAdd','tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-            $Hardware_Optional_Content = sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => $Hardware_Hardware_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => $Hardware_Optional_Content)).'
+                            '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopAdd','tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
+                            '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                         </div>
                     </div>
                     <div class="form-group">
@@ -64,20 +61,18 @@ class Laptop extends \Page_Handlers\sHardware
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.12.13
+* @since 2020.12.15
 */
     public static function View(array $array = array()): string
     {
         self::setDCombined();
         $Hardware_Laptop = (self::$dCombined->Select(array('hardwareLaptopId' => (int)$array['dp']), 'Hardware_Laptop_View'))[0];
-        $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwLaptopView', 'tag' => 'View'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-        $Hardware_Optional_Content = sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopView', 'tag' => 'View'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => $Hardware_Hardware_Content))
-                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => $Hardware_Optional_Content))
+                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwLaptopView', 'tag' => 'View'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopView', 'tag' => 'View'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                     .'</div>
                 </div>
             </form>';
@@ -88,20 +83,18 @@ class Laptop extends \Page_Handlers\sHardware
 * @param $array array
 * @return string
 * @author Liszi Dániel
-* @since 2020.12.13
+* @since 2020.12.15
 */
     public static function Edit(array $array = array()): string
     {
         self::setDCombined();
         $Hardware_Laptop = (self::$dCombined->Select(array('hardwareLaptopId' => (int)$array['dp']), 'Hardware_Laptop_View'))[0];
-        $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwLaptopEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-        $Hardware_Laptop_Content = sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => $Hardware_Hardware_Content))
-                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => $Hardware_Laptop_Content))
+                        .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopEdit','tag' => 'Edit'),'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Laptop,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                     .'</div>
                 </div>
                 <div class="form-group">

@@ -30,15 +30,13 @@ class Networking extends \Page_Handlers\sHardware
     {
         self::setDHardware_Networking();
         if (! isset($array['Save'])) {
-            $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-            $Hardware_Optional_Content = sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => $Hardware_Hardware_Content)).'
-                            '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => $Hardware_Optional_Content)).'
+                            '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
+                            '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                         </div>
                     </div>
                     <div class="form-group">
@@ -67,14 +65,12 @@ class Networking extends \Page_Handlers\sHardware
     {
         self::setDCombined();
         $Hardware_Networking = (self::$dCombined->Select(array('hardwareNetworkingId' => (int)$array['dp']), 'Hardware_Networking_View'))[0];
-        $Hardware_Hardware_Content = sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwNetworkingView', 'tag' => 'View'), 'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
-        $Hardware_Optional_Content = sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingView', 'tag' => 'View'), 'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form');
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => $Hardware_Hardware_Content))
-                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => $Hardware_Optional_Content))
+                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwNetworkingView', 'tag' => 'View'), 'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingView', 'tag' => 'View'), 'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                     .'</div>
                 </div>
             </form>';
