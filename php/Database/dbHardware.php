@@ -76,7 +76,21 @@ class dbHardware extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'hardwareName'
+                            ,'hardwareDesc'
+                            ,'hardwareSerial'
+                            ,'hardwareMAC'
+                            ,'hardwareIP'
+                            ,'hardwareSwitch'
+                            ,'hardwareSwitchPort'
+                            ,'hardwareVLANName'
+                            ,'hardwareVLANNum'
+                            ,'hardwareDateIn'
+                            ,'hardwareDateOut'
+                            ,'companySiteId'
+                            ,'hardwareId'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -93,7 +107,9 @@ class dbHardware extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Delete'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'hardwareId'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0

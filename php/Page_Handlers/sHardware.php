@@ -35,7 +35,8 @@ class sHardware
     protected static $dCombined;
 
     const HARDWARE = array(
-        array('data' => 'hardwareName', 'desc' => 'Megnevezés', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareName', 'desc' => 'Megnevezés', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareDesc', 'desc' => 'Leírás', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareSerial', 'desc' => 'Serial', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareMAC', 'desc' => 'MAC-cím', 'type' => 'text', 'tags' => 'Add,View,Edit')
@@ -50,7 +51,8 @@ class sHardware
     );
 
     const LAPTOP = array(
-        array('data' => 'hardwareLaptopUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareLaptopId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareLaptopUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareLaptopType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareLaptopOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareLaptopOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
@@ -61,7 +63,8 @@ class sHardware
     );
 
     const PC = array(
-        array('data' => 'hardwarePCUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwarePCId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwarePCUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePCType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePCUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePCOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
@@ -74,14 +77,16 @@ class sHardware
     );
 
     const PRINTER = array(
-        array('data' => 'hardwarePrinterUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwarePrinterId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwarePrinterUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePrinterType', 'desc' => 'Márka,típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePrinterToner', 'desc' => 'Toner', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwarePrinterOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
     const NETWORKING = array(
-        array('data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareNetworkingId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
         ,array('data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')

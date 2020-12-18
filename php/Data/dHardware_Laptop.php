@@ -12,19 +12,31 @@ use PreLoad\{
     Valid
 };
 
-class dHardware_Laptop implements iData
+class dHardware_Laptop extends Data implements iData
 {
     private static $dbHardware_Laptop;
     private static $dHardware;
 
-    const CHECKARRAY = array(
+    const INSERT = array(
         array('key' => 'hardwareName', 'type' => 2)
         ,array('key' => 'hardwareDesc', 'type' => 2)
         ,array('key' => 'hardwareSerial', 'type' => 2)
         ,array('key' => 'hardwareMAC', 'type' => 2)
         ,array('key' => 'hardwareIP', 'type' => 2)
         ,array('key' => 'companySiteId', 'type' => 3)
-        ,array('key' => 'hardwareLaptopUser', 'type' => 2)
+    );
+
+    const UPDATE = array(
+        array('key' => 'hardwareSwitch', 'type' => 2)
+        ,array('key' => 'hardwareSwitchPort', 'type' => 2)
+        ,array('key' => 'hardwareVLANName', 'type' => 2)
+        ,array('key' => 'hardwareVLANNum', 'type' => 2)
+        ,array('key' => 'hardwareDateIn', 'type' => 2)
+        ,array('key' => 'hardwareDateOut', 'type' => 2)
+    );
+
+    const LAPTOP = array(
+        array('key' => 'hardwareLaptopUser', 'type' => 2)
         ,array('key' => 'hardwareLaptopType', 'type' => 2)
         ,array('key' => 'hardwareLaptopOS', 'type' => 2)
         ,array('key' => 'hardwareLaptopOSVer', 'type' => 2)
@@ -34,35 +46,6 @@ class dHardware_Laptop implements iData
         ,array('key' => 'hardwareLaptopOperator', 'type' => 2)
     );
 
-    private static function CheckBool(array $array, array $checkArray): bool
-    {
-        $checkBool = true;
-        foreach ($checkArray as $i) {
-            if (
-                ! isset($array[$i['key']])
-                || (
-                    ! Valid::vInput($array[$i['key']], $i['type'])
-                    && Valid::vString($array[$i['key']])
-                )
-            ) {
-                $checkBool = false;
-            } elseif (
-                isset($array[$i['key']])
-                && ! Valid::vString($array[$i['key']])
-            ) {
-                switch ($i['type']) {
-                    case 2:
-                        $array[$i['key']] = '-';
-                        break;
-                    case 3:
-                        $array[$i['key']] = '1';
-                        break;
-                }
-            }
-        }
-        return $checkBool;
-    }
-
     public function __construct()
     {
         self::$dbHardware_Laptop = new dbHardware_Laptop();
@@ -71,7 +54,10 @@ class dHardware_Laptop implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        if (self::CheckBool($array, self::CHECKARRAY)) {
+        if (
+            self::CheckBool($array, self::INSERT)
+            && self::CheckBool($array, self::LAPTOP)
+        ) {
             if (self::$dHardware->Insert($array)) {
                 $array['hardwareId'] = (self::$dHardware->Select($array,'byUserId_Last'))[0][0];
                 return self::$dbHardware_Laptop->Insert($array);
@@ -87,12 +73,21 @@ class dHardware_Laptop implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbHardware_Laptop->Update($array, $type);
+        if (
+            self::CheckBool($array, self::INSERT)
+            && self::CheckBool($array, self::UPDATE)
+            && self::CheckBool($array, self::LAPTOP)
+        ) {
+            return (self::$dHardware->Update($array, $type) || self::$dbHardware_Laptop->Update($array, $type));
+        }else {
+            return false;
+         }
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbHardware_Laptop->Delete($array, $type);
+        $hardwareId = (self::$dHardware_Laptop->Select($array,'byHardwareLaptopId'))[0];
+        return self::$dbHardware->Delete($hardwareId, $type);
     }
 
     public static function Check( ): bool

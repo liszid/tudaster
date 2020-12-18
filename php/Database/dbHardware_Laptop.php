@@ -52,8 +52,10 @@ class dbHardware_Laptop extends Table implements iDatabase
     {
 	$tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
+        if (! strcmp($type, 'All')) {
             $tempArray = array();
+        } elseif (! strcmp($type, 'byHardwareLaptopId')){
+            $tempArray = array('hardwareLaptopId');
         } else {
             return array();
         }
@@ -76,7 +78,17 @@ class dbHardware_Laptop extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwareLaptopId"
+                            ,"hardwareLaptopUser"
+                            ,"hardwareLaptopType"
+                            ,"hardwareLaptopOS"
+                            ,"hardwareLaptopOSVer"
+                            ,"hardwareLaptopHDD"
+                            ,"hardwareLaptopMEM"
+                            ,"hardwareLaptopPROC"
+                            ,"hardwareLaptopOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -88,19 +100,7 @@ class dbHardware_Laptop extends Table implements iDatabase
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (
-                self::qRun(
-                    array(
-                        'query' => self::$classQueries['Delete'],
-                        'vNames' => array(),
-                        'vData' => $array
-                    )
-                )->rowCount() > 0
-            );
-        } else {
-            return false;
-        }
+        return false;
     }
 
     public static function Check( ): bool

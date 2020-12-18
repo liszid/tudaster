@@ -87,7 +87,7 @@ class Laptop extends \Page_Handlers\sHardware
 */
     public static function Edit(array $array = array()): string
     {
-        if (! isset($array['Save']) || true) {
+        if (! isset($array['Save'])) {
             self::setDCombined();
             $Hardware_Laptop = (self::$dCombined->Select(array('hardwareLaptopId' => (int)$array['dp']), 'Hardware_Laptop_View'))[0];
             return '

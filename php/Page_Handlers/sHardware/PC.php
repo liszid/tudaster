@@ -87,7 +87,32 @@ class PC extends \Page_Handlers\sHardware
 */
     public static function Edit(array $array = array()): string
     {
-        return 'Edit';
+        if (! isset($array['Save'])) {
+            self::setDCombined();
+            $Hardware_PC = (self::$dCombined->Select(array('hardwarePCId' => (int)$array['dp']), 'Hardware_PC_View'))[0];
+            return '
+                <form method="post" class="form-group col-12" autocomplete="on">
+                    <div class="form-group col p-0">
+                        <div class="col-12 row">'
+                            .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwPCEdit','tag' => 'Edit'),'valueData' => $Hardware_PC,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::PC, 'staticData' => array('origo' => 'usrHardwPCEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_PC,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .'</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 row">
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwPCEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        </div>
+                    </div>
+                </form>';
+        } else {
+            self::setDHardware_PC();
+            return
+                '<h4>'.(
+                    (self::$dHardware_PC->Update($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'PC'), 'Spinner');
+        }
     }
 
 /*

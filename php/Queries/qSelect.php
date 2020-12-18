@@ -671,6 +671,14 @@ $GLOBALS['Database'][7]['Select'] = array(
             *
         FROM
             `Hardware_Laptop`"
+    ,'byHardwareLaptopId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_Laptop`
+        WHERE
+            hardwareLaptopId=:hardwareLaptopId
+    "
 );
 
 $GLOBALS['Database'][8]['Select'] = array(
@@ -679,6 +687,14 @@ $GLOBALS['Database'][8]['Select'] = array(
             *
         FROM
             `Hardware_PC`"
+    ,'byHardwarePCId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_PC`
+        WHERE
+            hardwarePCId=:hardwarePCId
+    "
 );
 
 $GLOBALS['Database'][9]['Select'] = array(
@@ -687,6 +703,14 @@ $GLOBALS['Database'][9]['Select'] = array(
             *
         FROM
             `Hardware_Printer`"
+    ,'byHardwarePrinterId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_Printer`
+        WHERE
+            hardwarePrinterId=:hardwarePrinterId
+    "
 );
 
 $GLOBALS['Database'][10]['Select'] = array(
@@ -695,4 +719,12 @@ $GLOBALS['Database'][10]['Select'] = array(
             *
         FROM
             `Hardware_Networking`"
+    ,'byHardwareNetworkingId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_Networking`
+        WHERE
+            hardwareNetworkingId=:hardwareNetworkingId
+    "
 );

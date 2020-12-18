@@ -50,6 +50,8 @@ class dbHardware_Printer extends Table implements iDatabase
 
         if (strcmp($type, 'All') === 0) {
             $tempArray = array();
+        } elseif (strcmp($type, 'All') === 0) {
+            $tempArray = array();
         } else {
             return array();
         }
@@ -72,7 +74,13 @@ class dbHardware_Printer extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            "hardwarePrinterId"
+                            ,"hardwarePrinterUse"
+                            ,"hardwarePrinterType"
+                            ,"hardwarePrinterToner"
+                            ,"hardwarePrinterOperator"
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -84,19 +92,7 @@ class dbHardware_Printer extends Table implements iDatabase
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
-            return (
-                self::qRun(
-                    array(
-                        'query' => self::$classQueries['Delete'],
-                        'vNames' => array(),
-                        'vData' => $array
-                    )
-                )->rowCount() > 0
-            );
-        } else {
-            return false;
-        }
+        return false;
     }
 
     public static function Check( ): bool

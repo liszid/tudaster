@@ -72,7 +72,7 @@ $GLOBALS['Database']['3']['Update'] = "
         ,companyAddressStreet=:companyAddressStreet
     WHERE
         companyId=:companyId
-        AND userId=:userId";
+";
 
 $GLOBALS['Database']['5']['Update'] = "
     UPDATE
@@ -95,7 +95,6 @@ $GLOBALS['Database']['5']['Update'] = "
         ,companySiteTypeId=:companySiteTypeId
     WHERE
         companySiteId=:companySiteId
-        AND userId=:userId
 ";
 
 $GLOBALS['Database']['6']['Update'] = "
@@ -116,5 +115,64 @@ $GLOBALS['Database']['6']['Update'] = "
         ,companySiteId=:companySiteId
     WHERE
         hardwareId=:hardwareId
-        AND userId=:userId
+";
+
+$GLOBALS['Database'][7]['Update'] = "
+    UPDATE
+        `Hardware_Laptop`
+    SET
+        hardwareLaptopUser=:hardwareLaptopUser
+        ,hardwareLaptopType=:hardwareLaptopType
+        ,hardwareLaptopOS=:hardwareLaptopOS
+        ,hardwareLaptopOSVer=:hardwareLaptopOSVer
+        ,hardwareLaptopHDD=:hardwareLaptopHDD
+        ,hardwareLaptopMEM=:hardwareLaptopMEM
+        ,hardwareLaptopPROC=:hardwareLaptopPROC
+        ,hardwareLaptopOperator=:hardwareLaptopOperator
+    WHERE
+        hardwareLaptopId=:hardwareLaptopId
+";
+
+$GLOBALS['Database'][8]['Update'] = "
+    UPDATE
+        `Hardware_PC`
+    SET
+        hardwarePCUser=:hardwarePCUser
+        ,hardwarePCType=:hardwarePCType
+        ,hardwarePCUse=:hardwarePCUse
+        ,hardwarePCOS=:hardwarePCOS
+        ,hardwarePCOSVer=:hardwarePCOSVer
+        ,hardwarePCHDD=:hardwarePCHDD
+        ,hardwarePCMEM=:hardwarePCMEM
+        ,hardwarePCPROC=:hardwarePCPROC
+        ,hardwarePCNetworkPorts=:hardwarePCNetworkPorts
+        ,hardwarePCOperator=:hardwarePCOperator
+    WHERE
+        hardwarePCId=:hardwarePCId
+";
+
+$GLOBALS['Database'][9]['Update'] = "
+    UPDATE
+        `Hardware_Printer`
+    SET
+        hardwarePrinterUse=:hardwarePrinterUse
+        ,hardwarePrinterType=:hardwarePrinterType
+        ,hardwarePrinterToner=:hardwarePrinterToner
+        ,hardwarePrinterOperator=:hardwarePrinterOperator
+    WHERE
+        hardwarePrinterId=:hardwarePrinterId
+";
+
+$GLOBALS['Database'][10]['Update'] = "
+    UPDATE
+        `Hardware_Networking`
+    SET
+        hardwareNetworkingType=:hardwareNetworkingType
+        ,hardwareNetworkingUse=:hardwareNetworkingUse
+        ,hardwareNetworkingOS=:hardwareNetworkingOS
+        ,hardwareNetworkingOSVer=:hardwareNetworkingOSVer
+        ,hardwareNetworkingNetworkPorts=:hardwareNetworkingNetworkPorts
+        ,hardwareNetworkingOperator=:hardwareNetworkingOperator
+    WHERE
+        hardwareNetworkingId=:hardwareNetworkingId
 ";
