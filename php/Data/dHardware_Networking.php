@@ -15,6 +15,7 @@ use PreLoad\{
 class dHardware_Networking extends Data implements iData
 {
     private static $dbHardware_Networking;
+    private static $dHardware;
 
     const INSERT = array(
         array('key' => 'hardwareName', 'type' => 2)
@@ -46,6 +47,7 @@ class dHardware_Networking extends Data implements iData
     public function __construct()
     {
         self::$dbHardware_Networking = new dbHardware_Networking();
+        self::$dHardware = new dHardware();
     }
 
     public static function Insert(array $array = array()): bool

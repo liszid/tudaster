@@ -15,6 +15,7 @@ use PreLoad\{
 class dHardware_Printer extends Data implements iData
 {
     private static $dbHardware_Printer;
+    private static $dHardware;
 
     const INSERT = array(
         array('key' => 'hardwareName', 'type' => 2)
@@ -44,6 +45,7 @@ class dHardware_Printer extends Data implements iData
     public function __construct()
     {
         self::$dbHardware_Printer = new dbHardware_Printer();
+        self::$dHardware = new dHardware();
     }
 
     public static function Insert(array $array = array()): bool

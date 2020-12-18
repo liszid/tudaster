@@ -15,6 +15,7 @@ use PreLoad\{
 class dHardware_PC extends Data implements iData
 {
     private static $dbHardware_PC;
+    private static $dHardware;
 
     const INSERT = array(
         array('key' => 'hardwareName', 'type' => 2)
@@ -50,6 +51,7 @@ class dHardware_PC extends Data implements iData
     public function __construct()
     {
         self::$dbHardware_PC = new dbHardware_PC();
+        self::$dHardware = new dHardware();
     }
 
     public static function Insert(array $array = array()): bool
