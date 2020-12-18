@@ -124,6 +124,16 @@ class PC extends \Page_Handlers\sHardware
 */
     public static function Delete(array $array = array()): string
     {
-        return 'Delete';
+            self::setDHardware_PC();
+            return
+                '<h4>'.(
+                    (self::$dHardware_PC->Delete(
+                        array(
+                            'hardwarePCId' => (int)$array['dp']
+                        )
+                    ))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'PC'), 'Spinner');
     }
 }

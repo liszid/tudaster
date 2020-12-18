@@ -85,7 +85,8 @@ class dHardware_Networking extends Data implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbHardware_Networking->Delete($array, $type);
+        $hardwareId = (self::Select($array,'byHardwareNetworkingId'))[0];
+        return self::$dHardware->Delete($hardwareId, $type);
     }
 
     public static function Check( ): bool

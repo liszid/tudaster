@@ -123,6 +123,16 @@ class Laptop extends \Page_Handlers\sHardware
 */
     public static function Delete(array $array = array()): string
     {
-        return 'Delete';
+        self::setDHardware_Laptop();
+        return
+            '<h4>'.(
+                (self::$dHardware_Laptop->Delete(
+                    array(
+                        'hardwareLaptopId' => (int)$array['dp']
+                    )
+                ))
+                    ? sTranslate::ACTION['Success']['content']
+                    : sTranslate::ACTION['Fail']['content']
+            ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Laptop'), 'Spinner');
     }
 }

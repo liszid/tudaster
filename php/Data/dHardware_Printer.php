@@ -83,7 +83,8 @@ class dHardware_Printer extends Data implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbHardware_Printer->Delete($array, $type);
+        $hardwareId = (self::Select($array,'byHardwarePrinterId'))[0];
+        return self::$dHardware->Delete($hardwareId, $type);
     }
 
     public static function Check( ): bool

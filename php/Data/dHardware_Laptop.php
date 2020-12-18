@@ -86,8 +86,8 @@ class dHardware_Laptop extends Data implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        $hardwareId = (self::$dHardware_Laptop->Select($array,'byHardwareLaptopId'))[0];
-        return self::$dbHardware->Delete($hardwareId, $type);
+        $hardwareId = (self::Select($array,'byHardwareLaptopId'))[0];
+        return self::$dHardware->Delete($hardwareId, $type);
     }
 
     public static function Check( ): bool

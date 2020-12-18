@@ -124,6 +124,16 @@ class Printer extends \Page_Handlers\sHardware
 */
     public static function Delete(array $array = array()): string
     {
-        return 'Delete';
+            self::setDHardware_Printer();
+            return
+                '<h4>'.(
+                    (self::$dHardware_Printer->Delette(
+                        array(
+                            'hardwarePrinterId' => (int)$array['dp']
+                        )
+                    ))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Printer'), 'Spinner');
     }
 }
