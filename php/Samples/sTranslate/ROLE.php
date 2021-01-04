@@ -80,24 +80,24 @@ interface ROLE
     	    'select_type' => 'access'
     	),
         'canUsername' => array(
-    	    'color' => 'secondary',
-    	    'header' => 'Jövendőbeli funkció',
+    	    'color' => 'primary',
+    	    'header' => 'Fejlesztés alatti funkció',
     	    'respective' => 'Accesses',
     	    'short' => 'cUn',
     	    'desc' => 'Hozzáférések alap jogosultság',
     	    'select_type' => 'access'
         ),
         'canPassword' => array(
-    	    'color' => 'secondary',
-    	    'header' => 'Jövendőbeli funkció',
+    	    'color' => 'primary',
+    	    'header' => 'Fejlesztés alatti funkció',
     	    'respective' => 'Accesses',
     	    'short' => 'cP',
     	    'desc' => 'Hozzáférések emelt jogosultság',
     	    'select_type' => 'access'
     	),
         'canHardware' => array(
-    	    'color' => 'primary',
-    	    'header' => 'Fejlesztés alatti funkció',
+    	    'color' => 'success',
+    	    'header' => 'Elérhető funkció',
     	    'respective' => 'Hardware',
     	    'short' => 'cH',
     	    'desc' => 'Hardver jogosultság',

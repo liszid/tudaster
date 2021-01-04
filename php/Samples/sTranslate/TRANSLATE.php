@@ -222,13 +222,6 @@ interface TRANSLATE
                 'content' => ''
             )
     	),
-        "Software" => array(
-    	    "navbar" => "Szoftverek",
-    	    "fa" => "file-o",
-    	    "title" => "Szoftver adatok",
-    	    "help" => "Szoftver olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Szoftver' gombra kattintva a menüsávban",
-            "card" => "Szoftver adatok megtekintéséhez kattintson a kártyára"
-    	),
         "Company" => array(
     	    "navbar" => "Ügyfelek",
     	    "fa" => "building-o",
