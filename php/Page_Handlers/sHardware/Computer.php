@@ -49,7 +49,7 @@ class Computer extends \Page_Handlers\sHardware
         } else {
             return
                 '<h4>'.(
-                    (self::$Hardware_Computer->Insert($array))
+                    (self::$dHardware_Computer->Insert($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
                 ).'</h4>'.sElement::General(array('x' => 'Hardware', 'y' => 'Computer'), 'Spinner');
