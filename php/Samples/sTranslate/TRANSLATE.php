@@ -199,7 +199,7 @@ interface TRANSLATE
             )
     	),
     	"Hardware/Server" => array(
-    	    "navbar" => "Számítógépek",
+    	    "navbar" => "Szerverek",
     	    "fa" => "hdd-o",
     	    "title" => "Szerver adatok",
     	    "help" => "Szerver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",

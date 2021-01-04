@@ -72,6 +72,12 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"Hardware/Networking/Add"
                     ,"Hardware/Networking/Edit"
                     ,"Hardware/Networking/View"
+                    ,"Hardware/Server/Add"
+                    ,"Hardware/Server/Edit"
+                    ,"Hardware/Server/View"
+                    ,"Hardware/Security/Add"
+                    ,"Hardware/Security/Edit"
+                    ,"Hardware/Security/View"
                     ,"Hardware/Hardware/View"
                 ];
             }
@@ -128,6 +134,10 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["usrHardwPrinterEdit", "x=Hardware&y=Printer&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwNetworkingAdd", "x=Hardware&y=Networking&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwNetworkingEdit", "x=Hardware&y=Networking&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwSecurityAdd", "x=Hardware&y=Security&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwSecurityEdit", "x=Hardware&y=Security&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwServerAdd", "x=Hardware&y=Server&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwServerEdit", "x=Hardware&y=Server&z=Edit&Save=", "button", [], "modalDialog"]
                 ];
             }
         } );
@@ -146,6 +156,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwareNetworking"
                     ,"tableHardwareComputer"
                     ,"tableHardwarePrinter"
+                    ,"tableHardwareServer"
+                    ,"tableHardwareSecurity"
                 ];
             }
         });

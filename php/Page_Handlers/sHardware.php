@@ -94,6 +94,30 @@ class sHardware
         ,array('data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
+    const SERVER = array(
+        array('data' => 'hardwareServerId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareServerUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareServerOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
+    const SECURITY = array(
+        array('data' => 'hardwareSecurityId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareSecurityType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSecurityUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSecurityOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSecurityOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSecurityNetworkPorts', 'desc' => 'Hálózati portok', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSecurityOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
 /*
  * Sets the class variable : dHardware
  * @author Liszi Dániel
@@ -143,6 +167,27 @@ class sHardware
     {
         self::$dHardware_Networking= new dHardware_Networking();
     }
+
+/*
+ * Sets the class variable : dHardware_Security
+ * @author Liszi Dániel
+ * @since 2020.12.07
+ */
+    protected static function setDHardware_Security()
+    {
+        self::$dHardware_Security= new dHardware_Security();
+    }
+
+/*
+ * Sets the class variable : dHardware_Server
+ * @author Liszi Dániel
+ * @since 2020.12.07
+ */
+    protected static function setDHardware_Server()
+    {
+        self::$dHardware_Server= new dHardware_Server();
+    }
+
 /*
  * Sets the class variable : dCombined
  * @author Liszi Dániel
@@ -178,7 +223,13 @@ class sHardware
                 $wclass = new sHardware\Networking;
                 break;
             case 'Hardware':
-                $wclass = new sHardware\Networking;
+                $wclass = new sHardware\Hardware;
+                break;
+            case 'Server':
+                $wclass = new sHardware\Server;
+                break;
+            case 'Security':
+                $wclass = new sHardware\Security;
                 break;
         }
 

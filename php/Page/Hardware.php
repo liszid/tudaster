@@ -29,7 +29,9 @@ if (
                     "Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware"),
                     "Computer"      => array("path" => "Hardware/Computer",     "role" => "canHardware"),
                     "Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware"),
-                    "Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware")
+                    "Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware"),
+                    "Security"      => array("path" => "Hardware/Security",     "role" => "canHardware"),
+                    "Server"        => array("path" => "Hardware/Server",       "role" => "canHardware")
                 );
 /*
  * Post action handling and form prompt section
@@ -75,6 +77,12 @@ if (
                 break;
             case 'Networking':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Networking(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+            case 'Server':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Server(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+            case 'Security':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Security(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
         }
         echo (

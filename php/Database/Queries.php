@@ -38,6 +38,8 @@ class Queries extends Database
             8 => 'Hardware_Computer',
             9 => 'Hardware_Printer',
             10 => 'Hardware_Networking',
+            11 => 'Hardware_Server',
+            12 => 'Hardware_Security',
             98 => 'Tools',
             99 => 'Combined'
         );
