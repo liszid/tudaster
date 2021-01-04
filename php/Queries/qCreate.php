@@ -192,5 +192,37 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyHardwareNetworking PRIMARY KEY (hardwareNetworkingId),
             CONSTRAINT hardwareNetworkingHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
+    ",
+    11 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_Server`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwareServerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareServerUser VARCHAR(64) NULL,
+            hardwareServerType VARCHAR(128) NULL,
+            hardwareServerUse VARCHAR(128) NULL,
+            hardwareServerOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareServerOSVer VARCHAR(128) NULL DEFAULT 0,
+            hardwareServerHDD VARCHAR(16) NULL DEFAULT 0,
+            hardwareServerMEM VARCHAR(16) NULL DEFAULT 0,
+            hardwareServerPROC VARCHAR(16) NULL DEFAULT 0,
+            hardwareServerNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwareServerOperator VARCHAR(64) NULL DEFAULT 0,
+            CONSTRAINT primaryKeyhardwareServer PRIMARY KEY (hardwareServerId),
+            CONSTRAINT hardwareServerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
+        );
+    ",
+    12 => "
+        CREATE TABLE IF NOT EXISTS `Hardware_Security`(
+            hardwareId INT(6) UNSIGNED NOT NULL,
+            hardwareSecurityId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareSecurityType VARCHAR(128) NULL,
+            hardwareSecurityUse VARCHAR(128) NULL,
+            hardwareSecurityOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareSecurityOSVer VARCHAR(128) NULL DEFAULT 0,
+            hardwareSecurityNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwareSecurityOperator VARCHAR(64) NULL DEFAULT 0,
+            CONSTRAINT primaryKeyhardwareSecurity PRIMARY KEY (hardwareSecurityId),
+            CONSTRAINT hardwareSecurityHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
+        );
     "
 );

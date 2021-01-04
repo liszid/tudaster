@@ -179,3 +179,51 @@ $GLOBALS['Database'][10]['Insert'] = "
         ,:hardwareNetworkingOperator
     );
 ";
+
+$GLOBALS['Database'][11]['Insert'] = "
+    INSERT INTO `Hardware_Server`(
+        hardwareId
+        ,hardwareServerUser
+        ,hardwareServerType
+        ,hardwareServerUse
+        ,hardwareServerOS
+        ,hardwareServerOSVer
+        ,hardwareServerHDD
+        ,hardwareServerMEM
+        ,hardwareServerPROC
+        ,hardwareServerNetworkPorts
+        ,hardwareServerOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwareServerUser
+        ,:hardwareServerType
+        ,:hardwareServerUse
+        ,:hardwareServerOS
+        ,:hardwareServerOSVer
+        ,:hardwareServerHDD
+        ,:hardwareServerMEM
+        ,:hardwareServerPROC
+        ,:hardwareServerNetworkPorts
+        ,:hardwareServerOperator
+    );
+";
+
+$GLOBALS['Database'][12]['Insert'] = "
+    INSERT INTO `Hardware_Security`(
+        hardwareId
+        ,hardwareSecurityType
+        ,hardwareSecurityUse
+        ,hardwareSecurityOS
+        ,hardwareSecurityOSVer
+        ,hardwareSecurityNetworkPorts
+        ,hardwareSecurityOperator
+    ) VALUES (
+        :hardwareId
+        ,:hardwareSecurityType
+        ,:hardwareSecurityUse
+        ,:hardwareSecurityOS
+        ,:hardwareSecurityOSVer
+        ,:hardwareSecurityNetworkPorts
+        ,:hardwareSecurityOperator
+    );
+";

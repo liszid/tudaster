@@ -457,6 +457,118 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE
             `Hardware_Networking`.hardwareNetworkingId =:hardwareNetworkingId
     ",
+    'Hardware_Server_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Server`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Server`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Server`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
+    'Hardware_Server_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Server`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Server`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Server`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_Server`.hardwareServerId =:hardwareServerId
+    ",
+    'Hardware_Security_Table' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Security`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Security`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Security`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
+    'Hardware_Security_View' => "
+        SELECT
+            `Hardware`.*
+            ,`Hardware_Security`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Hardware`
+                    INNER JOIN
+                        `Hardware_Security`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Security`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+        WHERE
+            `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId
+    ",
 );
 
 $GLOBALS['Database'][0]['Select'] = array(
@@ -726,5 +838,37 @@ $GLOBALS['Database'][10]['Select'] = array(
             `Hardware_Networking`
         WHERE
             hardwareNetworkingId=:hardwareNetworkingId
+    "
+);
+
+$GLOBALS['Database'][11]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Server`"
+    ,'byHardwareServerId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_Server`
+        WHERE
+            hardwareServerId=:hardwareServerId
+    "
+);
+
+$GLOBALS['Database'][12]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Security`"
+    ,'byHardwareSecurityId' => "
+        SELECT
+            hardwareId
+        FROM
+            `Hardware_Security`
+        WHERE
+            hardwareSecurityId=:hardwareSecurityId
     "
 );

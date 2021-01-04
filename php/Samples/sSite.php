@@ -184,8 +184,10 @@ class sSite
                         'Hardware',
                         'Laptop',
                         'Computer',
+                        'Server',
                         'Printer',
-                        'Networking'
+                        'Networking',
+                        'Security'
                     ),
                     'Desc' => sTranslate::Prompt($navName)
                 );

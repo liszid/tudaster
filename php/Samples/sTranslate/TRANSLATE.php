@@ -190,8 +190,32 @@ interface TRANSLATE
     	    "navbar" => "Számítógépek",
     	    "fa" => "hdd-o",
     	    "title" => "Számítógép adatok",
-    	    "help" => "Számítógép/Szerver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
-            "card" => "Számítógép/Szerver adatok megtekintéséhez kattintson a kártyára",
+    	    "help" => "Számítógép adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
+            "card" => "Számítógép adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
+    	),
+    	"Hardware/Server" => array(
+    	    "navbar" => "Számítógépek",
+    	    "fa" => "hdd-o",
+    	    "title" => "Szerver adatok",
+    	    "help" => "Szerver adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
+            "card" => "Szerver adatok megtekintéséhez kattintson a kártyára",
+            "info" => array(
+                'addButton' => true,
+                'title' => '',
+                'content' => ''
+            )
+    	),
+    	"Hardware/Security" => array(
+    	    "navbar" => "Vagyonvédelmi eszközök",
+    	    "fa" => "hdd-o",
+    	    "title" => "Vagyonvédelmi eszköz adatok",
+    	    "help" => "Vagyonvédelmi eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban",
+            "card" => "Vagyonvédelmi eszköz adatok megtekintéséhez kattintson a kártyára",
             "info" => array(
                 'addButton' => true,
                 'title' => '',

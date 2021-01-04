@@ -265,6 +265,25 @@ class sHardware
  * @author Liszi Dániel
  * @since 2020.12.09
  */
+    public static function Server(array $array = array()): string
+    {
+        self::setDCombined();
+        $returnString = '';
+        $Server = self::$dCombined->Select(array(), 'Hardware_Server_Table');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Server, 'Hardware_Server');
+        return $returnString;
+    }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.12.09
+ */
     public static function Printer(array $array = array()): string
     {
         self::setDCombined();
@@ -297,7 +316,25 @@ class sHardware
         $returnString .= sTables::Prompt($Networking, 'Hardware_Networking');
         return $returnString;
     }
+/*
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2020.12.13
+ */
+    public static function Security(array $array = array()): string
+    {
+        self::setDCombined();
+        $returnString = '';
+        $Security = self::$dCombined->Select(array(), 'Hardware_Security_Table');
 
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Security, 'Hardware_Security');
+        return $returnString;
+    }
 /*
  * @return array
  * @author Liszi Dániel

@@ -39,6 +39,8 @@ class dbCombined extends Table implements iDatabase
             || ! strcmp($type, 'Hardware_Computer_Table')
             || ! strcmp($type, 'Hardware_Printer_Table')
             || ! strcmp($type, 'Hardware_Networking_Table')
+            || ! strcmp($type, 'Hardware_Server_Table')
+            || ! strcmp($type, 'Hardware_Security_Table')
             || ! strcmp($type, 'Company_Site_Select')
         ){
             $tempArray = array();
@@ -54,6 +56,10 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('hardwarePrinterId');
         } elseif (! strcmp($type, 'Hardware_Networking_View')){
             $tempArray = array('hardwareNetworkingId');
+        } elseif (! strcmp($type, 'Hardware_Server_View')){
+            $tempArray = array('hardwareServerId');
+        } elseif (! strcmp($type, 'Hardware_Security_View')){
+            $tempArray = array('hardwareSecurityId');
         } else {
             return array();
         }

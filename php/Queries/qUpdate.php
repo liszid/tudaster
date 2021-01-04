@@ -176,3 +176,35 @@ $GLOBALS['Database'][10]['Update'] = "
     WHERE
         hardwareNetworkingId=:hardwareNetworkingId
 ";
+
+$GLOBALS['Database'][11]['Update'] = "
+    UPDATE
+        `Hardware_Server`
+    SET
+        hardwareServerUser=:hardwareServerUser
+        ,hardwareServerType=:hardwareServerType
+        ,hardwareServerUse=:hardwareServerUse
+        ,hardwareServerOS=:hardwareServerOS
+        ,hardwareServerOSVer=:hardwareServerOSVer
+        ,hardwareServerHDD=:hardwareServerHDD
+        ,hardwareServerMEM=:hardwareServerMEM
+        ,hardwareServerPROC=:hardwareServerPROC
+        ,hardwareServerNetworkPorts=:hardwareServerNetworkPorts
+        ,hardwareServerOperator=:hardwareServerOperator
+    WHERE
+        hardwareServerId=:hardwareServerId
+";
+
+$GLOBALS['Database'][12]['Update'] = "
+    UPDATE
+        `Hardware_Security`
+    SET
+        hardwareSecurityType=:hardwareSecurityType
+        ,hardwareSecurityUse=:hardwareSecurityUse
+        ,hardwareSecurityOS=:hardwareSecurityOS
+        ,hardwareSecurityOSVer=:hardwareSecurityOSVer
+        ,hardwareSecurityNetworkPorts=:hardwareSecurityNetworkPorts
+        ,hardwareSecurityOperator=:hardwareSecurityOperator
+    WHERE
+        hardwareSecurityId=:hardwareSecurityId
+";
