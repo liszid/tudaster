@@ -181,8 +181,9 @@ class sSite
                     'dataToggle' => 'dropdown',
                     'dataLink' => $navName,
                     'dataItems' => array(
+                        'Hardware',
                         'Laptop',
-                        'PC',
+                        'Computer',
                         'Printer',
                         'Networking'
                     ),

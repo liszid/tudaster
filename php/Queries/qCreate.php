@@ -124,6 +124,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             hardwareVLANNum VARCHAR(4) NULL DEFAULT 0,
             hardwareDateIn VARCHAR(64) NULL DEFAULT 0,
             hardwareDateOut VARCHAR(64) NULL DEFAULT 0,
+            hardwareGroupTags VARCHAR(256) NULL DEFAULT 0,
             userId INT(6) UNSIGNED NOT NULL,
             companySiteId INT(6) UNSIGNED NOT NULL,
             isDelete INT(1) DEFAULT 1,
@@ -149,21 +150,21 @@ $GLOBALS['Database']['Table']['Create'] = array(
         );
     ",
     8 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_PC`(
+        CREATE TABLE IF NOT EXISTS `Hardware_Computer`(
             hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwarePCId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwarePCUser VARCHAR(64) NULL,
-            hardwarePCType VARCHAR(128) NULL,
-            hardwarePCUse VARCHAR(128) NULL,
-            hardwarePCOS VARCHAR(128) NULL DEFAULT 0,
-            hardwarePCOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwarePCHDD VARCHAR(16) NULL DEFAULT 0,
-            hardwarePCMEM VARCHAR(16) NULL DEFAULT 0,
-            hardwarePCPROC VARCHAR(16) NULL DEFAULT 0,
-            hardwarePCNetworkPorts VARCHAR(32) NULL DEFAULT 0,
-            hardwarePCOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyHardwarePC PRIMARY KEY (hardwarePCId),
-            CONSTRAINT hardwarePCHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
+            hardwareComputerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            hardwareComputerUser VARCHAR(64) NULL,
+            hardwareComputerType VARCHAR(128) NULL,
+            hardwareComputerUse VARCHAR(128) NULL,
+            hardwareComputerOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareComputerOSVer VARCHAR(128) NULL DEFAULT 0,
+            hardwareComputerHDD VARCHAR(16) NULL DEFAULT 0,
+            hardwareComputerMEM VARCHAR(16) NULL DEFAULT 0,
+            hardwareComputerPROC VARCHAR(16) NULL DEFAULT 0,
+            hardwareComputerNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwareComputerOperator VARCHAR(64) NULL DEFAULT 0,
+            CONSTRAINT primaryKeyhardwareComputer PRIMARY KEY (hardwareComputerId),
+            CONSTRAINT hardwareComputerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
     9 => "

@@ -63,9 +63,9 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"Hardware/Laptop/Add"
                     ,"Hardware/Laptop/Edit"
                     ,"Hardware/Laptop/View"
-                    ,"Hardware/PC/Add"
-                    ,"Hardware/PC/Edit"
-                    ,"Hardware/PC/View"
+                    ,"Hardware/Computer/Add"
+                    ,"Hardware/Computer/Edit"
+                    ,"Hardware/Computer/View"
                     ,"Hardware/Printer/Add"
                     ,"Hardware/Printer/Edit"
                     ,"Hardware/Printer/View"
@@ -122,8 +122,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["usrCmpSiteEdit", "x=Company&y=Site&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwLaptopAdd", "x=Hardware&y=Laptop&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwLaptopEdit", "x=Hardware&y=Laptop&z=Edit&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwPCAdd", "x=Hardware&y=PC&z=Add&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwPCEdit", "x=Hardware&y=PC&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwComputerAdd", "x=Hardware&y=Computer&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwComputerEdit", "x=Hardware&y=Computer&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwPrinterAdd", "x=Hardware&y=Printer&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwPrinterEdit", "x=Hardware&y=Printer&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwNetworkingAdd", "x=Hardware&y=Networking&z=Add&Save=", "button", [], "modalDialog"]
@@ -144,7 +144,7 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwareHardware"
                     ,"tableHardwareLaptop"
                     ,"tableHardwareNetworking"
-                    ,"tableHardwarePC"
+                    ,"tableHardwareComputer"
                     ,"tableHardwarePrinter"
                 ];
             }

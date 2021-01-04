@@ -117,30 +117,30 @@ $GLOBALS['Database'][7]['Insert'] = "
 ";
 
 $GLOBALS['Database'][8]['Insert'] = "
-    INSERT INTO `Hardware_PC`(
+    INSERT INTO `Hardware_Computer`(
         hardwareId
-        ,hardwarePCUser
-        ,hardwarePCType
-        ,hardwarePCUse
-        ,hardwarePCOS
-        ,hardwarePCOSVer
-        ,hardwarePCHDD
-        ,hardwarePCMEM
-        ,hardwarePCPROC
-        ,hardwarePCNetworkPorts
-        ,hardwarePCOperator
+        ,hardwareComputerUser
+        ,hardwareComputerType
+        ,hardwareComputerUse
+        ,hardwareComputerOS
+        ,hardwareComputerOSVer
+        ,hardwareComputerHDD
+        ,hardwareComputerMEM
+        ,hardwareComputerPROC
+        ,hardwareComputerNetworkPorts
+        ,hardwareComputerOperator
     ) VALUES (
         :hardwareId
-        ,:hardwarePCUser
-        ,:hardwarePCType
-        ,:hardwarePCUse
-        ,:hardwarePCOS
-        ,:hardwarePCOSVer
-        ,:hardwarePCHDD
-        ,:hardwarePCMEM
-        ,:hardwarePCPROC
-        ,:hardwarePCNetworkPorts
-        ,:hardwarePCOperator
+        ,:hardwareComputerUser
+        ,:hardwareComputerType
+        ,:hardwareComputerUse
+        ,:hardwareComputerOS
+        ,:hardwareComputerOSVer
+        ,:hardwareComputerHDD
+        ,:hardwareComputerMEM
+        ,:hardwareComputerPROC
+        ,:hardwareComputerNetworkPorts
+        ,:hardwareComputerOperator
     );
 ";
 

@@ -10,7 +10,7 @@ use PreLoad\{
     Check
 };
 
-class dbHardware_PC extends Table implements iDatabase
+class dbHardware_Computer extends Table implements iDatabase
 {
     const CLASS_ID = 8;
 
@@ -30,16 +30,16 @@ class dbHardware_PC extends Table implements iDatabase
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
                             "hardwareId"
-                            ,"hardwarePCUser"
-                            ,"hardwarePCType"
-                            ,"hardwarePCUse"
-                            ,"hardwarePCOS"
-                            ,"hardwarePCOSVer"
-                            ,"hardwarePCHDD"
-                            ,"hardwarePCMEM"
-                            ,"hardwarePCPROC"
-                            ,"hardwarePCNetworkPorts"
-                            ,"hardwarePCOperator"
+                            ,"hardwareComputerUser"
+                            ,"hardwareComputerType"
+                            ,"hardwareComputerUse"
+                            ,"hardwareComputerOS"
+                            ,"hardwareComputerOSVer"
+                            ,"hardwareComputerHDD"
+                            ,"hardwareComputerMEM"
+                            ,"hardwareComputerPROC"
+                            ,"hardwareComputerNetworkPorts"
+                            ,"hardwareComputerOperator"
                         ),
                         'vData' => $array
                     )
@@ -56,8 +56,8 @@ class dbHardware_PC extends Table implements iDatabase
 
         if (! strcmp($type, 'All')) {
             $tempArray = array();
-        } elseif (! strcmp($type, 'byHardwarePCId')) {
-            $tempArray = array("hardwarePCId");
+        } elseif (! strcmp($type, 'byHardwareComputerId')) {
+            $tempArray = array("hardwareComputerId");
         } else {
             return array();
         }
@@ -81,17 +81,17 @@ class dbHardware_PC extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
-                            "hardwarePCId"
-                            ,"hardwarePCUser"
-                            ,"hardwarePCType"
-                            ,"hardwarePCUse"
-                            ,"hardwarePCOS"
-                            ,"hardwarePCOSVer"
-                            ,"hardwarePCHDD"
-                            ,"hardwarePCMEM"
-                            ,"hardwarePCPROC"
-                            ,"hardwarePCNetworkPorts"
-                            ,"hardwarePCOperator"
+                            "hardwareComputerId"
+                            ,"hardwareComputerUser"
+                            ,"hardwareComputerType"
+                            ,"hardwareComputerUse"
+                            ,"hardwareComputerOS"
+                            ,"hardwareComputerOSVer"
+                            ,"hardwareComputerHDD"
+                            ,"hardwareComputerMEM"
+                            ,"hardwareComputerPROC"
+                            ,"hardwareComputerNetworkPorts"
+                            ,"hardwareComputerOperator"
                         ),
                         'vData' => $array
                     )

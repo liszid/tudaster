@@ -35,7 +35,7 @@ class Queries extends Database
             5 => 'Company_Site',
             6 => 'Hardware',
             7 => 'Hardware_Laptop',
-            8 => 'Hardware_PC',
+            8 => 'Hardware_Computer',
             9 => 'Hardware_Printer',
             10 => 'Hardware_Networking',
             98 => 'Tools',

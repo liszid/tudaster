@@ -13,7 +13,7 @@ use PreLoad\{
 use Data\{
     dHardware
     ,dHardware_Laptop
-    ,dHardware_PC
+    ,dHardware_Computer
     ,dHardware_Printer
     ,dHardware_Networking
     ,dCombined
@@ -29,7 +29,7 @@ class sHardware
 {
     protected static $dHardware;
     protected static $dHardware_Laptop;
-    protected static $dHardware_PC;
+    protected static $dHardware_Computer;
     protected static $dHardware_Printer;
     protected static $dHardware_Networking;
     protected static $dCombined;
@@ -62,18 +62,18 @@ class sHardware
         ,array('data' => 'hardwareLaptopOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
-    const PC = array(
-        array('data' => 'hardwarePCId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwarePCUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePCOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    const COMPUTER = array(
+        array('data' => 'hardwareComputerId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'hardwareComputerUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareComputerOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
     const PRINTER = array(
@@ -115,13 +115,13 @@ class sHardware
     }
 
 /*
- * Sets the class variable : dHardware_PC
+ * Sets the class variable : dHardware_Computer
  * @author Liszi Dániel
  * @since 2020.12.07
  */
-    protected static function setDHardware_PC()
+    protected static function setDHardware_Computer()
     {
-        self::$dHardware_PC= new dHardware_PC();
+        self::$dHardware_Computer= new dHardware_Computer();
     }
 
 /*
@@ -168,8 +168,8 @@ class sHardware
             case 'Laptop':
                 $wclass = new sHardware\Laptop;
                 break;
-            case 'PC':
-                $wclass = new sHardware\PC;
+            case 'Computer':
+                $wclass = new sHardware\Computer;
                 break;
             case 'Printer':
                 $wclass = new sHardware\Printer;
@@ -246,17 +246,17 @@ class sHardware
  * @author Liszi Dániel
  * @since 2020.12.09
  */
-    public static function PC(array $array = array()): string
+    public static function Computer(array $array = array()): string
     {
         self::setDCombined();
         $returnString = '';
-        $PC = self::$dCombined->Select(array(), 'Hardware_PC_Table');
+        $Computer = self::$dCombined->Select(array(), 'Hardware_Computer_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($PC, 'Hardware_PC');
+        $returnString .= sTables::Prompt($Computer, 'Hardware_Computer');
         return $returnString;
     }
 /*

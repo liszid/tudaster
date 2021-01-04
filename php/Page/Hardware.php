@@ -27,7 +27,7 @@ if (
                     "Root"          => array("path" => "Hardware",              "role" => "canHardware"),
                     "Hardware"      => array("path" => "Hardware/Hardware",     "role" => "canHardware"),
                     "Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware"),
-                    "PC"            => array("path" => "Hardware/PC",           "role" => "canHardware"),
+                    "Computer"      => array("path" => "Hardware/Computer",     "role" => "canHardware"),
                     "Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware"),
                     "Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware")
                 );
@@ -67,8 +67,8 @@ if (
             case 'Laptop':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Laptop(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
-            case 'PC':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::PC(array('path' => $urlPaths[$postUrl]['path'])) : '';
+            case 'Computer':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Computer(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
             case 'Printer':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Printer(array('path' => $urlPaths[$postUrl]['path'])) : '';

@@ -12,7 +12,7 @@ interface COMPANY_COMPANY
         "tableRole" => "canCompany",
         "data" => array(
             "companyId" => array("text" => "Id", "tooltip" => ""),
-            "companyName" => array("text" => "Név", "tooltip" => "Cég neve", 'action' => 'Filter'),
+            "companyName" => array("text" => "Név", 'action' => 'Filter'),
             "companyDesc" => array("text" => "Leírás", "tooltip" => "Cég leírása"),
             "companyOwnerFirstName" => array("text" => "T. K. Név", "tooltip" => "Cég tulajdonos keresztneve"),
             "companyOwnerLastName" => array("text" => "T. V. Név", "tooltip" => "Cég tulajdonos vezetékneve"),

@@ -135,20 +135,20 @@ $GLOBALS['Database'][7]['Update'] = "
 
 $GLOBALS['Database'][8]['Update'] = "
     UPDATE
-        `Hardware_PC`
+        `Hardware_Computer`
     SET
-        hardwarePCUser=:hardwarePCUser
-        ,hardwarePCType=:hardwarePCType
-        ,hardwarePCUse=:hardwarePCUse
-        ,hardwarePCOS=:hardwarePCOS
-        ,hardwarePCOSVer=:hardwarePCOSVer
-        ,hardwarePCHDD=:hardwarePCHDD
-        ,hardwarePCMEM=:hardwarePCMEM
-        ,hardwarePCPROC=:hardwarePCPROC
-        ,hardwarePCNetworkPorts=:hardwarePCNetworkPorts
-        ,hardwarePCOperator=:hardwarePCOperator
+        hardwareComputerUser=:hardwareComputerUser
+        ,hardwareComputerType=:hardwareComputerType
+        ,hardwareComputerUse=:hardwareComputerUse
+        ,hardwareComputerOS=:hardwareComputerOS
+        ,hardwareComputerOSVer=:hardwareComputerOSVer
+        ,hardwareComputerHDD=:hardwareComputerHDD
+        ,hardwareComputerMEM=:hardwareComputerMEM
+        ,hardwareComputerPROC=:hardwareComputerPROC
+        ,hardwareComputerNetworkPorts=:hardwareComputerNetworkPorts
+        ,hardwareComputerOperator=:hardwareComputerOperator
     WHERE
-        hardwarePCId=:hardwarePCId
+        hardwareComputerId=:hardwareComputerId
 ";
 
 $GLOBALS['Database'][9]['Update'] = "

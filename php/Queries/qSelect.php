@@ -289,10 +289,10 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE
             `Hardware_Laptop`.hardwareLaptopId =:hardwareLaptopId
     ",
-    'Hardware_PC_Table' => "
+    'Hardware_Computer_Table' => "
         SELECT
             `Hardware`.*
-            ,`Hardware_PC`.*
+            ,`Hardware_Computer`.*
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM
@@ -301,9 +301,9 @@ $GLOBALS['Database'][99]['Select'] = array(
                 (
                     `Hardware`
                     INNER JOIN
-                        `Hardware_PC`
+                        `Hardware_Computer`
                     ON
-                        `Hardware`.hardwareId = `Hardware_PC`.hardwareId
+                        `Hardware`.hardwareId = `Hardware_Computer`.hardwareId
                 )
                 INNER JOIN
                     `User`
@@ -316,10 +316,10 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
     ",
-    'Hardware_PC_View' => "
+    'Hardware_Computer_View' => "
         SELECT
             `Hardware`.*
-            ,`Hardware_PC`.*
+            ,`Hardware_Computer`.*
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM
@@ -328,9 +328,9 @@ $GLOBALS['Database'][99]['Select'] = array(
                 (
                     `Hardware`
                     INNER JOIN
-                        `Hardware_PC`
+                        `Hardware_Computer`
                     ON
-                        `Hardware`.hardwareId = `Hardware_PC`.hardwareId
+                        `Hardware`.hardwareId = `Hardware_Computer`.hardwareId
                 )
                 INNER JOIN
                     `User`
@@ -343,7 +343,7 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
         WHERE
-            `Hardware_PC`.hardwarePCId =:hardwarePCId
+            `Hardware_Computer`.hardwareComputerId =:hardwareComputerId
     ",
     'Hardware_Printer_Table' => "
         SELECT
@@ -686,14 +686,14 @@ $GLOBALS['Database'][8]['Select'] = array(
         SELECT
             *
         FROM
-            `Hardware_PC`"
-    ,'byHardwarePCId' => "
+            `Hardware_Computer`"
+    ,'byHardwareComputerId' => "
         SELECT
             hardwareId
         FROM
-            `Hardware_PC`
+            `Hardware_Computer`
         WHERE
-            hardwarePCId=:hardwarePCId
+            hardwareComputerId=:hardwareComputerId
     "
 );
 

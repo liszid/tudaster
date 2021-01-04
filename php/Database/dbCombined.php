@@ -36,7 +36,7 @@ class dbCombined extends Table implements iDatabase
             ! strcmp($type, 'Member_Full')
             || ! strcmp($type, 'Company_Site_Table')
             || ! strcmp($type, 'Hardware_Laptop_Table')
-            || ! strcmp($type, 'Hardware_PC_Table')
+            || ! strcmp($type, 'Hardware_Computer_Table')
             || ! strcmp($type, 'Hardware_Printer_Table')
             || ! strcmp($type, 'Hardware_Networking_Table')
             || ! strcmp($type, 'Company_Site_Select')
@@ -48,8 +48,8 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('companyId');
         } elseif (! strcmp($type, 'Hardware_Laptop_View')){
             $tempArray = array('hardwareLaptopId');
-        } elseif (! strcmp($type, 'Hardware_PC_View')){
-            $tempArray = array('hardwarePCId');
+        } elseif (! strcmp($type, 'Hardware_Computer_View')){
+            $tempArray = array('hardwareComputerId');
         } elseif (! strcmp($type, 'Hardware_Printer_View')){
             $tempArray = array('hardwarePrinterId');
         } elseif (! strcmp($type, 'Hardware_Networking_View')){

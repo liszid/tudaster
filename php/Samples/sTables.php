@@ -18,7 +18,7 @@ class sTables implements
     sTables\COMPANY_COMPANY,
     sTables\COMPANY_SITE,
     sTables\HARDWARE_LAPTOP,
-    sTables\HARDWARE_PC,
+    sTables\HARDWARE_COMPUTER,
     sTables\HARDWARE_PRINTER,
     sTables\HARDWARE_NETWORKING,
     sTables\HARDWARE_HARDWARE
@@ -63,8 +63,8 @@ class sTables implements
             case 'Hardware_Laptop':
                 return self::Generate($array, self::HARDWARE_LAPTOP);
                 break;
-            case 'Hardware_PC':
-                return self::Generate($array, self::HARDWARE_PC);
+            case 'Hardware_Computer':
+                return self::Generate($array, self::HARDWARE_COMPUTER);
                 break;
             case 'Hardware_Printer':
                 return self::Generate($array, self::HARDWARE_PRINTER);

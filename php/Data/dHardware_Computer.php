@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Data;
 
-use Database\dbHardware_PC;
+use Database\dbHardware_Computer;
 
 use PreLoad\{
     Log,
@@ -12,9 +12,9 @@ use PreLoad\{
     Valid
 };
 
-class dHardware_PC extends Data implements iData
+class dHardware_Computer extends Data implements iData
 {
-    private static $dbHardware_PC;
+    private static $dbHardware_Computer;
     private static $dHardware;
 
     const INSERT = array(
@@ -35,22 +35,22 @@ class dHardware_PC extends Data implements iData
         ,array('key' => 'hardwareDateOut', 'type' => 2)
     );
 
-    const PC = array(
-        array('key' => 'hardwarePCUser', 'type' => 2)
-        ,array('key' => 'hardwarePCType', 'type' => 2)
-        ,array('key' => 'hardwarePCUse', 'type' => 2)
-        ,array('key' => 'hardwarePCOS', 'type' => 2)
-        ,array('key' => 'hardwarePCOSVer', 'type' => 2)
-        ,array('key' => 'hardwarePCHDD', 'type' => 2)
-        ,array('key' => 'hardwarePCMEM', 'type' => 2)
-        ,array('key' => 'hardwarePCPROC', 'type' => 2)
-        ,array('key' => 'hardwarePCNetworkPorts', 'type' => 2)
-        ,array('key' => 'hardwarePCOperator', 'type' => 2)
+    const COMPUTER = array(
+        array('key' => 'hardwareComputerUser', 'type' => 2)
+        ,array('key' => 'hardwareComputerType', 'type' => 2)
+        ,array('key' => 'hardwareComputerUse', 'type' => 2)
+        ,array('key' => 'hardwareComputerOS', 'type' => 2)
+        ,array('key' => 'hardwareComputerOSVer', 'type' => 2)
+        ,array('key' => 'hardwareComputerHDD', 'type' => 2)
+        ,array('key' => 'hardwareComputerMEM', 'type' => 2)
+        ,array('key' => 'hardwareComputerPROC', 'type' => 2)
+        ,array('key' => 'hardwareComputerNetworkPorts', 'type' => 2)
+        ,array('key' => 'hardwareComputerOperator', 'type' => 2)
     );
 
     public function __construct()
     {
-        self::$dbHardware_PC = new dbHardware_PC();
+        self::$dbHardware_Computer = new dbHardware_Computer();
         self::$dHardware = new dHardware();
     }
 
@@ -59,11 +59,11 @@ class dHardware_PC extends Data implements iData
         $dHardware = new dHardware();
         if (
             self::CheckBool($array, self::INSERT)
-            && self::CheckBool($array, self::PC)
+            && self::CheckBool($array, self::COMPUTER)
         ) {
             if ($dHardware->Insert($array)) {
                 $array['hardwareId'] = ($dHardware->Select($array,'byUserId_Last'))[0][0];
-                return self::$dbHardware_PC->Insert($array);
+                return self::$dbHardware_Computer->Insert($array);
             }
         }
         return false;
@@ -71,7 +71,7 @@ class dHardware_PC extends Data implements iData
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-        return self::$dbHardware_PC->Select($array, $type);
+        return self::$dbHardware_Computer->Select($array, $type);
     }
 
     public static function Update(array $array = array(), string $type = ''): bool
@@ -79,9 +79,9 @@ class dHardware_PC extends Data implements iData
         if (
             self::CheckBool($array, self::INSERT)
             && self::CheckBool($array, self::UPDATE)
-            && self::CheckBool($array, self::PC)
+            && self::CheckBool($array, self::COMPUTER)
         ) {
-            return (self::$dHardware->Update($array, $type) || self::$dbHardware_PC->Update($array, $type));
+            return (self::$dHardware->Update($array, $type) || self::$dbHardware_Computer->Update($array, $type));
         } else {
             return false;
          }
@@ -89,12 +89,12 @@ class dHardware_PC extends Data implements iData
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        $hardwareId = (self::Select($array,'byHardwarePCId'))[0];
+        $hardwareId = (self::Select($array,'byHardwareComputerId'))[0];
         return self::$dHardware->Delete($hardwareId, $type);
     }
 
     public static function Check( ): bool
     {
-        return (self::$dbHardware_PC->Check());
+        return (self::$dbHardware_Computer->Check());
     }
 }

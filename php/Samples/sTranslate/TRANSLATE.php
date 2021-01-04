@@ -186,7 +186,7 @@ interface TRANSLATE
                 'content' => ''
             )
     	),
-    	"Hardware/PC" => array(
+    	"Hardware/Computer" => array(
     	    "navbar" => "Számítógépek",
     	    "fa" => "hdd-o",
     	    "title" => "Számítógép adatok",
