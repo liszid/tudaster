@@ -16,6 +16,8 @@ use Data\{
     ,dHardware_Computer
     ,dHardware_Printer
     ,dHardware_Networking
+    ,dHardware_Security
+    ,dHardware_Server
     ,dCombined
 };
 
@@ -32,6 +34,8 @@ class sHardware
     protected static $dHardware_Computer;
     protected static $dHardware_Printer;
     protected static $dHardware_Networking;
+    protected static $dHardware_Security;
+    protected static $dHardware_Server;
     protected static $dCombined;
 
     const HARDWARE = array(
