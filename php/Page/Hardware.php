@@ -24,14 +24,14 @@ if (
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root"          => array("path" => "Hardware",              "role" => "canHardware"),
-                    "Hardware"      => array("path" => "Hardware/Hardware",     "role" => "canHardware"),
-                    "Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware"),
-                    "Computer"      => array("path" => "Hardware/Computer",     "role" => "canHardware"),
-                    "Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware"),
-                    "Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware"),
-                    "Security"      => array("path" => "Hardware/Security",     "role" => "canHardware"),
-                    "Server"        => array("path" => "Hardware/Server",       "role" => "canHardware")
+                    "Root"          => array("path" => "Hardware",              "role" => "canHardware")
+                    ,"Hardware"      => array("path" => "Hardware/Hardware",     "role" => "canHardware")
+                    ,"Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware")
+                    ,"Computer"      => array("path" => "Hardware/Computer",     "role" => "canHardware")
+                    ,"Server"        => array("path" => "Hardware/Server",       "role" => "canHardware")
+                    ,"Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware")
+                    ,"Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware")
+                    ,"Security"      => array("path" => "Hardware/Security",     "role" => "canHardware")
                 );
 /*
  * Post action handling and form prompt section
@@ -96,7 +96,7 @@ if (
  * Collective page with Cards
  */
     } else {
-        $returnContent .= '<div class="card-columns  m-2">';
+        $returnContent .= '<div class="card-columns m-2">';
 
         foreach ($urlPaths as $key => $value) {
             if (strcmp(array_key_first($urlPaths), $key)) {
