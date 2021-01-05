@@ -224,5 +224,16 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyhardwareSecurity PRIMARY KEY (hardwareSecurityId),
             CONSTRAINT hardwareSecurityHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
+    ",
+    13 => "
+        CREATE TABLE IF NOT EXISTS `Access`(
+            accessId INT(6) UNSIGNED NOT NULL,
+            hardwareId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            accessUsername VARCHAR(128) NULL DEFAULT 0,
+            accessPassword VARCHAR(128) NULL DEFAULT 0,
+            accessGroupTags VARCHAR(256) NULL DEFAULT 0,
+            CONSTRAINT primaryKeyAccess PRIMARY KEY (accessId),
+            CONSTRAINT accessHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
+        );
     "
 );

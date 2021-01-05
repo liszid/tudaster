@@ -569,6 +569,33 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE
             `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId
     ",
+    'Access_Table' => "
+        SELECT
+            `Access`.*
+            ,`Hardware`.*
+            ,`User`.userName
+            ,`Company_Site`.companySiteName
+        FROM
+        (
+            (
+                (
+                    `Access`
+                    INNER JOIN
+                        `Hardware`
+                    ON
+                        `Access`.hardwareId = `Hardware`.hardwareId
+                )
+                INNER JOIN
+                    `User`
+                ON
+                    `Hardware`.userId = `User`.userId
+            )
+            INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+        )
+    ",
 );
 
 $GLOBALS['Database'][0]['Select'] = array(

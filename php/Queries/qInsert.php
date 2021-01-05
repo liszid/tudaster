@@ -227,3 +227,15 @@ $GLOBALS['Database'][12]['Insert'] = "
         ,:hardwareSecurityOperator
     );
 ";
+
+$GLOBALS['Database'][13]['Insert'] = "
+    INSERT INTO `Access`(
+        hardwareId
+        ,accessUsername
+        ,accessPassword
+    ) VALUES (
+        :hardwareId
+        ,:accessUsername
+        ,:accessPassword
+    );
+";

@@ -208,3 +208,13 @@ $GLOBALS['Database'][12]['Update'] = "
     WHERE
         hardwareSecurityId=:hardwareSecurityId
 ";
+
+$GLOBALS['Database'][13]['Update'] = "
+    UPDATE
+        `Access`
+    SET
+        accessUsername=:accessUsername
+        ,accessPassword=:accessPassword
+    WHERE
+        accessId=:accessId
+";
