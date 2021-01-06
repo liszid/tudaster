@@ -10,9 +10,9 @@ use PreLoad\{
     Check
 };
 
-class db extends Table implements iDatabase
+class dbAccess extends Table implements iDatabase
 {
-    const CLASS_ID = ;
+    const CLASS_ID = 13;
 
     private static $classQueries = array();
 
