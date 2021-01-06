@@ -81,6 +81,7 @@ $GLOBALS['Database'][6]['Insert'] = "
         ,hardwareIP
         ,userId
         ,companySiteId
+        ,hardwareType
     ) VALUES (
         :hardwareName
         ,:hardwareDesc
@@ -89,6 +90,7 @@ $GLOBALS['Database'][6]['Insert'] = "
         ,:hardwareIP
         ,:userId
         ,:companySiteId
+        ,:hardwareType
     );
 ";
 

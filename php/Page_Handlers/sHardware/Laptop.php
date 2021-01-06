@@ -36,6 +36,7 @@ class Laptop extends \Page_Handlers\sHardware
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwLaptopAdd', 'data' => 'hardwareType', 'desc' => '', 'value' => 'Laptop', 'type' => 'hidden'), 'Input').'
                             '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwLaptopAdd','tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                             '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::LAPTOP, 'staticData' => array('origo' => 'usrHardwLaptopAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                         </div>

@@ -36,6 +36,7 @@ class dbHardware extends Table implements iDatabase
                             ,"hardwareIP"
                             ,"userId"
                             ,"companySiteId"
+                            ,"hardwareType"
                         ),
                         'vData' => $array
                     )

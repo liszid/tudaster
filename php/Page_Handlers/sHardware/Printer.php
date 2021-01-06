@@ -36,6 +36,7 @@ class Printer extends \Page_Handlers\sHardware
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwPrinterAdd', 'data' => 'hardwareType', 'desc' => '', 'value' => 'Printer', 'type' => 'hidden'), 'Input').'
                             '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPrinterAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                             '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::PRINTER, 'staticData' => array('origo' => 'usrHardwPrinterAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                         </div>

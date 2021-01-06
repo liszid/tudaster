@@ -124,6 +124,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             hardwareVLANNum VARCHAR(4) NULL DEFAULT 0,
             hardwareDateIn VARCHAR(64) NULL DEFAULT 0,
             hardwareDateOut VARCHAR(64) NULL DEFAULT 0,
+            hardwareType VARCHAR(64) NULL DEFAULT 0,
             hardwareGroupTags VARCHAR(256) NULL DEFAULT 0,
             userId INT(6) UNSIGNED NOT NULL,
             companySiteId INT(6) UNSIGNED NOT NULL,

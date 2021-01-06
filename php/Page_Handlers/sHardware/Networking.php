@@ -36,6 +36,7 @@ class Networking extends \Page_Handlers\sHardware
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrHardwNetworkingAdd', 'data' => 'hardwareType', 'desc' => '', 'value' => 'Networking', 'type' => 'hidden'), 'Input').'
                             '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                             '.sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingAdd', 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form'))).'
                         </div>
