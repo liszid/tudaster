@@ -899,3 +899,19 @@ $GLOBALS['Database'][12]['Select'] = array(
             hardwareSecurityId=:hardwareSecurityId
     "
 );
+
+$GLOBALS['Database'][13]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Access`"
+    ,'byAccessId' => "
+        SELECT
+            accessId
+        FROM
+            `Access`
+        WHERE
+            accessId=:accessId
+    "
+);

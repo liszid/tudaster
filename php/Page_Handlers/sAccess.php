@@ -21,7 +21,7 @@ use Samples\{
     ,sTranslate
 };
 
-class sHardware
+class sAccess
 {
     protected static $dAccess;
     protected static $dCombined;

@@ -143,7 +143,7 @@ interface TRANSLATE
     	    "navbar" => "Főoldal"
     	    ,"fa" => "home"
     	    ,"title" => "Főoldal"
-    	    ,"help" => "",
+    	    ,"help" => ""
             ,"card" => ""
     	)
         ,"Knowledge" => array(
@@ -370,7 +370,7 @@ interface TRANSLATE
             ,"card" => ""
         ),
     	"Company/Site/Delete" => array(
-            "navbar" => "Telephely törlése",
+            "navbar" => "Telephely törlése"
     	    ,"fa" => "building-o"
     	    ,"title" => "Telephely adatok törlése"
     	    ,"help" => ""

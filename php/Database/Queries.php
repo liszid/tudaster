@@ -40,6 +40,7 @@ class Queries extends Database
             10 => 'Hardware_Networking',
             11 => 'Hardware_Server',
             12 => 'Hardware_Security',
+            13 => 'Access',
             98 => 'Tools',
             99 => 'Combined'
         );

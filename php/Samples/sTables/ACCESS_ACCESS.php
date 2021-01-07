@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Samples\sTables;
 
-interface HARDWARE_SERVER
+interface ACCESS_ACCESS
 {
-    const HARDWARE_SERVER = array(
-        "tableId" => "tableHardwareServer",
-        "tableRoot" => "Hardware/Server",
-        "tableRole" => "canHardware",
+    const ACCESS_ACCESS = array(
+        "tableId" => "tableAccessAccess",
+        "tableRoot" => "Accesses/Access",
+        "tableRole" => "canPassword",
         "data" => array(
-            "hardwareServerId" => array("text" => "Id", "tooltip" => ""),
-            "hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve"),
-            "hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása"),
-            "hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe"),
-            "hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe"),
-            "hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja"),
-            "hardwareServerUse" => array("text" => "Használat", "tooltip" => "Szerver felhasználási módja"),
-            "hardwareServerType" => array("text" => "Típus", "tooltip" => "Szerver típúsa"),
-            "hardwareServerOS" => array("text" => "Op. Rendszer", "tooltip" => "Szerver operációs rendszere")
+            "hardwareId" => array("text" => "Id", "tooltip" => "")
+            ,"hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve")
+            ,"hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása")
+            ,"hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe")
+            ,"hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe")
+            ,"hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja")
+            ,"companySite" => array("text" => "Telephely", "tooltip" => "Kihelyezettség")
+            ,"hardwareType" => array("text" => "Kategória", "tooltip" => "Kategória")
         ),
         "button" => array(
             array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),

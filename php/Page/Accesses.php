@@ -30,8 +30,8 @@ if (
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root"          => array("path" => "Accesses",              "role" => "canHardware")
-                    ,"Hardware"      => array("path" => "Accesses/Access ",     "role" => "canHardware")
+                    "Root"          => array("path" => "Accesses",              "role" => "canPassword")
+                    ,"Access"       => array("path" => "Accesses/Access ",     "role" => "canPassword")
                 );
 /*
  * Post action handling and form prompt section

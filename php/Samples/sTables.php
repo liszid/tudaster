@@ -23,7 +23,8 @@ class sTables implements
     sTables\HARDWARE_NETWORKING,
     sTables\HARDWARE_HARDWARE,
     sTables\HARDWARE_SERVER,
-    sTables\HARDWARE_SECURITY
+    sTables\HARDWARE_SECURITY,
+    sTables\ACCESS_ACCESS
 {
     const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
     const ENABLED_ACTIONS = array('View');
@@ -82,6 +83,9 @@ class sTables implements
                 break;
             case 'Hardware_Security':
                 return self::Generate($array, self::HARDWARE_SECURITY);
+                break;
+            case 'Access_Access':
+                return self::Generate($array, self::ACCESS_ACCESS);
                 break;
             default:
                 break;

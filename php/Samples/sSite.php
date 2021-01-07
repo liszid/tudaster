@@ -162,7 +162,7 @@ class sSite
                 );
             }
             if ((int)self::$sessionUsr['canUsername'] > 0) {
-                $navName = "Accesses";
+                $navName = "Accesses/Access";
                 $navArray[] = array(
                     'liClass' => '',
                     'aClass' => '',
