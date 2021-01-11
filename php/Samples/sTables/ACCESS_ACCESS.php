@@ -18,7 +18,8 @@ interface ACCESS_ACCESS
             ,"hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe")
             ,"hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe")
             ,"hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja")
-            ,"companySite" => array("text" => "Telephely", "tooltip" => "Kihelyezettség")
+            ,"companyName" => array("text" => "Cég", "tooltip" => "Kihelyezettség - Cég")
+            ,"companySiteName" => array("text" => "Telephely", "tooltip" => "Kihelyezettség - Telephely")
             ,"hardwareType" => array("text" => "Kategória", "tooltip" => "Kategória")
         ),
         "button" => array(

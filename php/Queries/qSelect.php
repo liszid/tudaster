@@ -574,25 +574,32 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`Hardware`.*
             ,`User`.userName
             ,`Company_Site`.companySiteName
+            ,`Company`.companyName
         FROM
         (
             (
                 (
-                    `Access`
+                    (
+                        `Access`
+                        INNER JOIN
+                            `Hardware`
+                        ON
+                            `Access`.hardwareId = `Hardware`.hardwareId
+                    )
                     INNER JOIN
-                        `Hardware`
+                        `User`
                     ON
-                        `Access`.hardwareId = `Hardware`.hardwareId
+                        `Hardware`.userId = `User`.userId
                 )
                 INNER JOIN
-                    `User`
+                    `Company_Site`
                 ON
-                    `Hardware`.userId = `User`.userId
+                    `Hardware`.companySiteId = `Company_Site`.companySiteId
             )
             INNER JOIN
-                `Company_Site`
+                `Company`
             ON
-                `Hardware`.companySiteId = `Company_Site`.companySiteId
+                `Company`.companyId = `Company_Site`.companyId
         )
     "
 );
