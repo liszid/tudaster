@@ -96,6 +96,7 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`Company_Site`.companySiteSubOwnerPhone
             ,`Company`.companyName
             ,`Company_Site_Type`.companySiteTypeName
+            ,`Company_Site_Type`.isDelete
         FROM
         (
             (
@@ -571,7 +572,19 @@ $GLOBALS['Database'][99]['Select'] = array(
     ,'Access_Table' => "
         SELECT
             `Access`.*
-            ,`Hardware`.*
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareSerial
+            ,`Hardware`.hardwareMAC
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.hardwareVLANName
+            ,`Hardware`.hardwareVLANNum
+            ,`Hardware`.hardwareDateIn
+            ,`Hardware`.hardwareDateOut
+            ,`Hardware`.hardwareType
+            ,`Hardware`.hardwareGroupTags
             ,`User`.userName
             ,`Company_Site`.companySiteName
             ,`Company`.companyName

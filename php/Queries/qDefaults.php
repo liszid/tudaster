@@ -130,7 +130,6 @@ $GLOBALS['Database']['Table']['Insert'][6] = "
 $GLOBALS['Database']['Table']['Insert'][7] = "
     INSERT INTO `Hardware_Laptop`(
         hardwareId
-        ,hardwareLaptopId
         ,hardwareLaptopUser
         ,hardwareLaptopType
         ,hardwareLaptopOS
@@ -140,12 +139,11 @@ $GLOBALS['Database']['Table']['Insert'][7] = "
         ,hardwareLaptopPROC
         ,hardwareLaptopOperator
     ) VALUES
-    ();
+    (3, 'NoUser','-','-','-','-','-','-','-');
 ";
 $GLOBALS['Database']['Table']['Insert'][8] = "
     INSERT INTO `Hardware_Computer`(
         hardwareId
-        ,hardwareComputerId
         ,hardwareComputerUser
         ,hardwareComputerType
         ,hardwareComputerUse
@@ -157,23 +155,21 @@ $GLOBALS['Database']['Table']['Insert'][8] = "
         ,hardwareComputerNetworkPorts
         ,hardwareComputerOperator
     ) VALUES
-    ();
+    (1,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
 $GLOBALS['Database']['Table']['Insert'][9] = "
     INSERT INTO `Hardware_Printer`(
         hardwareId
-        ,hardwarePrinterId
         ,hardwarePrinterUse
         ,hardwarePrinterType
         ,hardwarePrinterToner
         ,hardwarePrinterOperator
     ) VALUES
-    ();
+    (6,'-','-','-','-');
 ";
 $GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Hardware_Networking`(
         hardwareId
-        ,hardwareNetworkingId
         ,hardwareNetworkingType
         ,hardwareNetworkingUse
         ,hardwareNetworkingOS
@@ -181,12 +177,11 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
         ,hardwareNetworkingNetworkPorts
         ,hardwareNetworkingOperator
     ) VALUES
-    ();
+    (5,'-','-','-','-','-','-');
 ";
 $GLOBALS['Database']['Table']['Insert'][11] = "
     INSERT INTO `Hardware_Server`(
         hardwareId
-        ,hardwareServerId
         ,hardwareServerUser
         ,hardwareServerType
         ,hardwareServerUse
@@ -198,12 +193,11 @@ $GLOBALS['Database']['Table']['Insert'][11] = "
         ,hardwareServerNetworkPorts
         ,hardwareServerOperator
     ) VALUES
-    ();
+    (2,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
 $GLOBALS['Database']['Table']['Insert'][12] = "
     INSERT INTO `Hardware_Security`(
         hardwareId
-        ,hardwareSecurityId
         ,hardwareSecurityType
         ,hardwareSecurityUse
         ,hardwareSecurityOS
@@ -211,5 +205,19 @@ $GLOBALS['Database']['Table']['Insert'][12] = "
         ,hardwareSecurityNetworkPorts
         ,hardwareSecurityOperator
     ) VALUES
-    ();
+    (4,'-','-','-','-','-','-');
+";
+$GLOBALS['Database']['Table']['Insert'][13] = "
+    INSERT INTO `Access`(
+        hardwareId
+        ,accessUsername
+        ,accessPassword
+        ,isDelete
+    ) VALUES
+    (1,'Szamitogep','Jelszo_1',0)
+    ,(2,'Szerver','Jelszo_2',0)
+    ,(3,'Laptop','Jelszo_3',0)
+    ,(4,'Vagyonvedelmi','Jelszo_4',0)
+    ,(5,'Halozati','Jelszo_5',0)
+    ,(6,'Nyomtato','Jelszo_6',0);
 ";
