@@ -31,7 +31,7 @@ if (
 
     $urlPaths = array(
                     "Root"          => array("path" => "Accesses",              "role" => "canPassword")
-                    ,"Access"       => array("path" => "Accesses/Access ",     "role" => "canPassword")
+                    ,"Access"       => array("path" => "Accesses/Access",     "role" => "canPassword")
                 );
 /*
  * Post action handling and form prompt section
@@ -60,7 +60,7 @@ if (
  * Page loading section
  */
     } elseif (isset($_POST['y']) || isset($_POST['b'])) {
-        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Company'));
+        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Accesses'));
 
         switch ($postUrl) {
             case 'Access':

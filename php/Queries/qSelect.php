@@ -50,9 +50,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `User`.userId=:userId
-    ",
-
-    'Member_Full' => "
+    "
+    ,'Member_Full' => "
         SELECT
             `Group_Member`.groupMemberId
             ,`Group`.groupName
@@ -73,8 +72,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Group`.groupId = `Group_Member`.groupId
         )
-    ",
-    'Company_Site_Table' => "
+    "
+    ,'Company_Site_Table' => "
         SELECT
             `Company_Site`.companySiteId
             ,`Company_Site`.companyId
@@ -111,8 +110,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Company`.companyId = `Company_Site`.companyId
         )
-    ",
-    'Company_Site_View' => "
+    "
+    ,'Company_Site_View' => "
         SELECT
             `Company_Site`.companySiteId
             ,`Company_Site`.companyId
@@ -165,8 +164,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             companySiteId=:companySiteId
-    ",
-    'Company_Site_Filter' => "
+    "
+    ,'Company_Site_Filter' => "
         SELECT
             `Company_Site`.companySiteId
             ,`Company_Site`.companyId
@@ -220,8 +219,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Company_Site`.companyId=:companyId
-    ",
-    'Company_Site_Select' => "
+    "
+    ,'Company_Site_Select' => "
         SELECT
             `Company_Site`.companySiteId
             ,`Company_Site`.companySiteName
@@ -232,8 +231,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             `Company`
         ON
             `Company`.companyId = `Company_Site`.companyId
-    ",
-    'Hardware_Laptop_Table' => "
+    "
+    ,'Hardware_Laptop_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Laptop`.*
@@ -259,8 +258,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Laptop_View' => "
+    "
+    ,'Hardware_Laptop_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Laptop`.*
@@ -288,8 +287,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Laptop`.hardwareLaptopId =:hardwareLaptopId
-    ",
-    'Hardware_Computer_Table' => "
+    "
+    ,'Hardware_Computer_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Computer`.*
@@ -315,8 +314,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Computer_View' => "
+    "
+    ,'Hardware_Computer_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Computer`.*
@@ -344,8 +343,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Computer`.hardwareComputerId =:hardwareComputerId
-    ",
-    'Hardware_Printer_Table' => "
+    "
+    ,'Hardware_Printer_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Printer`.*
@@ -371,8 +370,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Printer_View' => "
+    "
+    ,'Hardware_Printer_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Printer`.*
@@ -400,8 +399,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Printer`.hardwarePrinterId =:hardwarePrinterId
-    ",
-    'Hardware_Networking_Table' => "
+    "
+    ,'Hardware_Networking_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Networking`.*
@@ -427,8 +426,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Networking_View' => "
+    "
+    ,'Hardware_Networking_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Networking`.*
@@ -456,8 +455,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Networking`.hardwareNetworkingId =:hardwareNetworkingId
-    ",
-    'Hardware_Server_Table' => "
+    "
+    ,'Hardware_Server_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Server`.*
@@ -483,8 +482,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Server_View' => "
+    "
+    ,'Hardware_Server_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Server`.*
@@ -512,8 +511,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Server`.hardwareServerId =:hardwareServerId
-    ",
-    'Hardware_Security_Table' => "
+    "
+    ,'Hardware_Security_Table' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Security`.*
@@ -539,8 +538,8 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
-    'Hardware_Security_View' => "
+    "
+    ,'Hardware_Security_View' => "
         SELECT
             `Hardware`.*
             ,`Hardware_Security`.*
@@ -568,8 +567,8 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId
-    ",
-    'Access_Table' => "
+    "
+    ,'Access_Table' => "
         SELECT
             `Access`.*
             ,`Hardware`.*
@@ -595,7 +594,7 @@ $GLOBALS['Database'][99]['Select'] = array(
             ON
                 `Hardware`.companySiteId = `Company_Site`.companySiteId
         )
-    ",
+    "
 );
 
 $GLOBALS['Database'][0]['Select'] = array(
@@ -612,9 +611,8 @@ $GLOBALS['Database'][0]['Select'] = array(
             ,`User`.userThumbnail
             ,`User`.isDelete
         FROM
-            `User`",
-
-    'byUserName' => "
+            `User`"
+    ,'byUserName' => "
         SELECT
             `User`.userId
             ,`User`.userId
@@ -629,9 +627,8 @@ $GLOBALS['Database'][0]['Select'] = array(
         FROM
             `User`
         WHERE
-            userName=:userName",
-
-    'byUserId' => "
+            userName=:userName"
+    ,'byUserId' => "
         SELECT
             `User`.userId
             ,`User`.userId
@@ -646,9 +643,8 @@ $GLOBALS['Database'][0]['Select'] = array(
         FROM
             `User`
         WHERE
-            userId=:userId",
-
-    'byContEmail' => "
+            userId=:userId"
+    ,'byContEmail' => "
         SELECT
             `User`.userId
             ,`User`.userId
@@ -663,9 +659,8 @@ $GLOBALS['Database'][0]['Select'] = array(
         FROM
             `User`
         WHERE
-            userContEmail=:userContEmail",
-
-    'Login' => "
+            userContEmail=:userContEmail"
+    ,'Login' => "
         SELECT
             userId
         FROM
@@ -680,17 +675,15 @@ $GLOBALS['Database'][1]['Select'] = array(
         SELECT
             *
         FROM
-            `Group`",
-
-    'byGroupId' => "
+            `Group`"
+    ,'byGroupId' => "
         SELECT
             *
         FROM
             `Group`
         WHERE
-            groupId=:groupId",
-
-    'forMemberEdit' => "
+            groupId=:groupId"
+    ,'forMemberEdit' => "
         SELECT
             groupId
             ,groupName
@@ -704,24 +697,22 @@ $GLOBALS['Database'][2]['Select'] = array(
         SELECT
             *
         FROM
-            `Group_Member`",
-
-    'byUserId' => "
+            `Group_Member`"
+    ,'byUserId' => "
         SELECT
             *
         FROM
             `Group_Member`
         WHERE
-            userId=:userId",
-
-    'byGroupId' => "
+            userId=:userId"
+    ,'byGroupId' => "
         SELECT
             *
         FROM
             `Group_Member`
         WHERE
-            groupId=:groupId",
-    'byGroupMemberId' => "
+            groupId=:groupId"
+    ,'byGroupMemberId' => "
         SELECT
             *
         FROM
@@ -735,17 +726,15 @@ $GLOBALS['Database'][3]['Select'] = array(
         SELECT
             *
         FROM
-            `Company`",
-
-    'byCompanyId' => "
+            `Company`"
+    ,'byCompanyId' => "
         SELECT
             *
         FROM
             `Company`
         WHERE
-            companyId=:companyId",
-
-    'forCompanySelect' => "
+            companyId=:companyId"
+    ,'forCompanySelect' => "
         SELECT
             companyId
             ,companyName
@@ -767,17 +756,15 @@ $GLOBALS['Database'][5]['Select'] = array(
         SELECT
             *
         FROM
-            `Company_Site`",
-
-    'byCompanyId' => "
+            `Company_Site`"
+    ,'byCompanyId' => "
         SELECT
             *
         FROM
             `Company_Site`
         WHERE
-            companyId=:companyId",
-
-    'byCompanySiteId' => "
+            companyId=:companyId"
+    ,'byCompanySiteId' => "
         SELECT
             *
         FROM
@@ -792,8 +779,8 @@ $GLOBALS['Database'][6]['Select'] = array(
         SELECT
             *
         FROM
-            `Hardware`",
-    'byUserId_Last' => "
+            `Hardware`"
+    ,'byUserId_Last' => "
         SELECT
             hardwareId
         FROM
@@ -908,7 +895,7 @@ $GLOBALS['Database'][13]['Select'] = array(
             `Access`"
     ,'byAccessId' => "
         SELECT
-            accessId
+            *
         FROM
             `Access`
         WHERE

@@ -162,13 +162,13 @@ class sSite
                 );
             }
             if ((int)self::$sessionUsr['canUsername'] > 0) {
-                $navName = "Accesses/Access";
+                $navName = "Accesses";
                 $navArray[] = array(
                     'liClass' => '',
                     'aClass' => '',
                     'faClass' => sTranslate::Prompt($navName, 'fa'),
                     'dataToggle' => false,
-                    'dataLink' => $navName,
+                    'dataLink' => $navName.'/Access',
                     'Desc' => sTranslate::Prompt($navName)
                 );
             }

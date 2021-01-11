@@ -28,7 +28,11 @@ class dbAccess extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'hardwareId'
+                            ,'accessUsername'
+                            ,'accessPassword'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -42,8 +46,10 @@ class dbAccess extends Table implements iDatabase
     {
 	$tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
+        if (! strcmp($type, 'All')) {
             $tempArray = array();
+        } elseif (! strcmp($type, 'byAccessId')) {
+            $tempArray = array('accessId');
         } else {
             return array();
         }
@@ -66,7 +72,12 @@ class dbAccess extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'accessId'
+                            ,'hardwareId'
+                            ,'accessUsername'
+                            ,'accessPassword'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0
@@ -83,7 +94,9 @@ class dbAccess extends Table implements iDatabase
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Delete'],
-                        'vNames' => array(),
+                        'vNames' => array(
+                            'accessId'
+                        ),
                         'vData' => $array
                     )
                 )->rowCount() > 0

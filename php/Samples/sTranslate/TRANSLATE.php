@@ -172,6 +172,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Accesses/Access/Add" => array(
+            "navbar" => "Hozzáférések hozzáadása"
+    	    ,"fa" => "user-secret"
+    	    ,"title" => "Hozzáférési adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Accesses/Access/Edit" => array(
+            "navbar" => "Hozzáférések szerkesztése"
+    	    ,"fa" => "user-secret"
+    	    ,"title" => "Hozzáférési adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Accesses/Access/View" => array(
+            "navbar" => "Hozzáférések megtekintése"
+    	    ,"fa" => "user-secret"
+    	    ,"title" => "Hozzáférési adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Accesses/Access/Delete" => array(
+            "navbar" => "Hozzáférések törlése"
+    	    ,"fa" => "user-secret"
+    	    ,"title" => "Hozzáférési adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
         ,"Hardware" => array(
     	    "navbar" => "Hardverek"
     	    ,"fa" => "hdd-o"
@@ -198,6 +226,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Laptop/Add" => array(
+            "navbar" => "Laptopok hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Laptop adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Laptop/Edit" => array(
+            "navbar" => "Laptopok szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Laptop adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Laptop/View" => array(
+            "navbar" => "Laptopok megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Laptop adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Laptop/Delete" => array(
+            "navbar" => "Laptopok törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Laptop adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Hardware/Computer" => array(
     	    "navbar" => "Számítógépek"
     	    ,"fa" => "hdd-o"
@@ -210,6 +266,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Computer/Add" => array(
+            "navbar" => "Számítógépek hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Számítógép adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Computer/Edit" => array(
+            "navbar" => "Számítógépek szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Számítógép adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Computer/View" => array(
+            "navbar" => "Számítógépek megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Számítógép adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Computer/Delete" => array(
+            "navbar" => "Számítógépek törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Számítógép adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Hardware/Server" => array(
     	    "navbar" => "Szerverek"
     	    ,"fa" => "hdd-o"
@@ -222,6 +306,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Server/Add" => array(
+            "navbar" => "Szerverek hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Szerver adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Server/Edit" => array(
+            "navbar" => "Szerverek szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Szerver adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Server/View" => array(
+            "navbar" => "Szerverek megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Szerver adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Server/Delete" => array(
+            "navbar" => "Szerverek törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Szerver adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Hardware/Security" => array(
     	    "navbar" => "Vagyonvédelmi eszközök"
     	    ,"fa" => "hdd-o"
@@ -234,6 +346,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Security/Add" => array(
+            "navbar" => "Vagyonvédelmi eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Vagyonvédelmi eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Security/Edit" => array(
+            "navbar" => "Vagyonvédelmi eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Vagyonvédelmi eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Security/View" => array(
+            "navbar" => "Vagyonvédelmi eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Vagyonvédelmi eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Security/Delete" => array(
+            "navbar" => "Vagyonvédelmi eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Vagyonvédelmi eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Hardware/Printer" => array(
     	    "navbar" => "Nyomtatók"
     	    ,"fa" => "hdd-o"
@@ -246,6 +386,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Printer/Add" => array(
+            "navbar" => "Nyomtatók hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Nyomtató adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Printer/Edit" => array(
+            "navbar" => "Nyomtatók szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Nyomtató adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Printer/View" => array(
+            "navbar" => "Nyomtatók megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Nyomtató adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Printer/Delete" => array(
+            "navbar" => "Nyomtatók törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Nyomtató adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Hardware/Networking" => array(
     	    "navbar" => "Hálózati eszközök"
     	    ,"fa" => "hdd-o"
@@ -258,6 +426,34 @@ interface TRANSLATE
                 ,'content' => ''
             )
     	)
+    	,"Hardware/Networking/Add" => array(
+            "navbar" => "Hálózati eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Hálózati eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Networking/Edit" => array(
+            "navbar" => "Hálózati eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Hálózati eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Networking/View" => array(
+            "navbar" => "Hálózati eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Hálózati eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Networking/Delete" => array(
+            "navbar" => "Hálózati eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Hálózati eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
         ,"Company" => array(
     	    "navbar" => "Ügyfelek"
     	    ,"fa" => "building-o"

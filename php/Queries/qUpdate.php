@@ -215,6 +215,7 @@ $GLOBALS['Database'][13]['Update'] = "
     SET
         accessUsername=:accessUsername
         ,accessPassword=:accessPassword
+        ,hardwareId=:hardwareId
     WHERE
         accessId=:accessId
 ";

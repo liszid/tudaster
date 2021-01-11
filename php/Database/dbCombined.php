@@ -34,6 +34,7 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('userId');
         } elseif (
             ! strcmp($type, 'Member_Full')
+            || ! strcmp($type, 'Access_Table')
             || ! strcmp($type, 'Company_Site_Table')
             || ! strcmp($type, 'Hardware_Laptop_Table')
             || ! strcmp($type, 'Hardware_Computer_Table')

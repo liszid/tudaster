@@ -13,6 +13,7 @@ use PreLoad\{
 use Data\{
     dAccess
     ,dCombined
+    ,dHardware
 };
 
 use Samples\{
@@ -25,9 +26,13 @@ class sAccess
 {
     protected static $dAccess;
     protected static $dCombined;
+    protected static $dHardware;
 
     const ACCESS = array(
         array('data' => 'accessId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
+        ,array('data' => 'accessUsername', 'desc' => 'Felhasználónév', 'type' => 'text', 'tags' => 'Add,Edit,View')
+        ,array('data' => 'accessPassword', 'desc' => 'Jelszó', 'type' => 'text', 'tags' => 'Add,Edit,View')
+        ,array('data' => 'hardwareId', 'desc' => 'Eszköz', 'type' => 'select', 'tags' => 'Add,View,Edit')
     );
 
 /*
@@ -48,6 +53,16 @@ class sAccess
     protected static function setDCombined()
     {
         self::$dCombined = new dCombined();
+    }
+
+/*
+ * Sets the class variable : dHardware
+ * @author Liszi Dániel
+ * @since 2020.12.07
+ */
+    protected static function setDHardware()
+    {
+        self::$dHardware = new dHardware();
     }
 
 /*
@@ -95,15 +110,15 @@ class sAccess
  */
     public static function Access(array $array = array()): string
     {
-        self::setDAccess();
+        self::setDCombined();
         $returnString = '';
-        $Access = self::$dAccess->Select(array(), 'All');
+        $Combined = self::$dCombined->Select(array(), 'Access_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Access, 'Access_Access');
+        $returnString .= sTables::Prompt($Combined, 'Access_Access');
         return $returnString;
     }
 /*
@@ -113,10 +128,10 @@ class sAccess
  */
     protected static function Hardware_Select(): array
     {
-        self::setDCombined();
+        self::setDHardware();
         $tempArray = array();
-        foreach(self::$dCombined->Select(array(), 'Company_Site_Select') as $i) {
-            $tempArray[] = array('id' => $i['companySiteId'], 'name' => $i['companyName'].' - '.$i['companySiteName']);
+        foreach(self::$dHardware->Select(array(), 'All') as $i) {
+            $tempArray[] = array('id' => $i['hardwareId'], 'name' => $i['hardwareType'].' - '.$i['hardwareName']);
         }
         return $tempArray;
     }

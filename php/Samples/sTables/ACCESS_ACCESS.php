@@ -11,7 +11,8 @@ interface ACCESS_ACCESS
         "tableRoot" => "Accesses/Access",
         "tableRole" => "canPassword",
         "data" => array(
-            "hardwareId" => array("text" => "Id", "tooltip" => "")
+            "accessId" => array("text" => "Id", "tooltip" => "")
+            ,"hardwareId" => array("text" => "Eszk. Id", "tooltip" => "Eszköz azonosító")
             ,"hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve")
             ,"hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása")
             ,"hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe")

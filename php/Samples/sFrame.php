@@ -51,7 +51,6 @@ class sFrame {
         if (! empty($array)) {
             $explode = explode("/", $array['path']);
             $Origin = (count($explode) > 1)? $explode[count($explode) - 1] : $array['path'];
-
             $returnString = '
                 <div class="container-fluid bg-info text-white p-3 pl-5">
                     '.sTranslate::Title($array['path']).'

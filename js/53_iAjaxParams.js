@@ -60,6 +60,9 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"Company/Site/Add"
                     ,"Company/Site/Edit"
                     ,"Company/Site/View"
+                    ,"Accesses/Access/Add"
+                    ,"Accesses/Access/Edit"
+                    ,"Accesses/Access/View"
                     ,"Hardware/Laptop/Add"
                     ,"Hardware/Laptop/Edit"
                     ,"Hardware/Laptop/View"
@@ -122,6 +125,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", [], "modalDialog"]
                     ,["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrAccessAdd", "x=Accesses&y=Access&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrAccessEdit", "x=Accesses&y=Access&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrCmpCmpAdd", "x=Company&y=Company&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrCmpCmpEdit", "x=Company&y=Company&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrCmpSiteAdd", "x=Company&y=Site&z=Add&Save=", "button", [], "modalDialog"]
