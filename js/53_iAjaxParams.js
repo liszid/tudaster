@@ -163,6 +163,7 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwarePrinter"
                     ,"tableHardwareServer"
                     ,"tableHardwareSecurity"
+                    ,"tableAccessAccess"
                 ];
             }
         });

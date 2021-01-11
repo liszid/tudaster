@@ -14,8 +14,7 @@ $GLOBALS['Database']['Table']['Insert'][0] = "
         userContSite,
         isDelete
     ) VALUES
-        ('admin', '2bd96d900954217a5e04993a74737d8d', 'cogs', 'Admin', '', 'admin@kruppsystem.hu', '0036301234567', 'Törökbálint', 0),
-        ('test', '2bd96d900954217a5e04993a74737d8d', 'cogs', 'Test', '', 'teszt@kruppsystem.hu', '0036301234567', 'Törökbálint', 1);";
+        ('admin', '2bd96d900954217a5e04993a74737d8d', 'cogs', 'Admin', '', 'admin@kruppsystem.hu', '0036301234567', 'Törökbálint', 0);";
 
 $GLOBALS['Database']['Table']['Insert'][1] = "
     INSERT INTO `Group`(
@@ -47,8 +46,7 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
         groupId,
         isDelete
     ) VALUES
-        (1, 1, 0),
-        (2, 2, 1);";
+        (1, 1, 0);";
 $GLOBALS['Database']['Table']['Insert'][3] = "
     INSERT INTO `Company`(
         companyId,
@@ -62,9 +60,7 @@ $GLOBALS['Database']['Table']['Insert'][3] = "
         companyAddressStreet,
         isDelete
     ) VALUES
-        (1, 1, 'Default', '-', '-', '-', '-', '0', '-', 0),
-        (2, 1, 'Krupp-System Kft.', 'Munkahely', 'Péter', 'Krupp', 'Törökbálint', '2045', 'Depo 062/32', 1),
-        (3, 1, 'Krupp és Társa Kft.', 'Ügyfél', 'József', 'Krupp', 'Budaörs', '2040', 'Szabadság út 52', 1);
+        (1, 1, 'Default', '-', '-', '-', '-', '0', '-', 0);
     ";
 $GLOBALS['Database']['Table']['Insert'][4] = "
     INSERT INTO `Company_Site_Type`(
@@ -103,10 +99,117 @@ $GLOBALS['Database']['Table']['Insert'][5] = "
         companySiteTypeId,
         isDelete
     ) VALUES
-    (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0),
-    (2, 2, 1, 'Központ', 'Központi telephely', 'Péter', 'Krupp', 'krupp.peter@kruppsystem.hu', 36301234567,'Mária','Szabó', 'szabo.maria@kruppsystem.hu', 36301234567,'Törökbálint', 2045, 'Depo 062/32', 'iroda@kruppsystem.hu', 36301234567, 2, 1),
-    (3, 2, 1, 'Pénzügy', 'Pénzügy', 'Zsuzsanna', 'Borbély', 'borbely.zsuzsanna@kruppsystem.hu', 36301234567,'','', '', 0,'Törökbálint', 2045, 'Depo 062/32', 'penzugy@kruppsystem.hu', 36301234567, 3, 1),
-    (4, 2, 1, 'Raktár', 'Központi raktár', 'Tamás', 'Lepsis', 'lepsis.tamas@kruppsystem.hu', 36301234567,'','', '', 0,'Törökbálint', 2045, 'Depo 062/32', 'raktar@kruppsystem.hu', 36301234567, 9, 1),
-    (5, 2, 1, 'Informatika', 'Központi informatika iroda', 'László', 'Bakóczy', 'bakoczy.laszlo@kruppsystem.hu', 36301234567,'','', '', 0,'Törökbálint', 2045, 'Depo 062/32', 'informatika@kruppsystem.hu', 36301234567, 4, 1),
-    (6, 2, 1, 'Support', 'Central support', 'Tibor', 'Bartha', 'krupp.peter@kruppsystem.hu', 36301234567,'','', '', 0,'Törökbálint', 2045, 'Depo 062/32', 'support@kruppsystem.hu', 36301234567, 4, 1);
+    (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
+";
+$GLOBALS['Database']['Table']['Insert'][6] = "
+    INSERT INTO `Hardware`(
+        hardwareName
+        ,hardwareDesc
+        ,hardwareSerial
+        ,hardwareMAC
+        ,hardwareIP
+        ,hardwareSwitch
+        ,hardwareSwitchPort
+        ,hardwareVLANName
+        ,hardwareVLANNum
+        ,hardwareDateIn
+        ,hardwareDateOut
+        ,hardwareType
+        ,hardwareGroupTags
+        ,userId
+        ,companySiteId
+        ,isDelete
+    ) VALUES
+    ('Szamitogep', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer','',1,1,0)
+    ,('Szerver', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt001', '001','-','-','Server','',1,1,0)
+    ,('Laptop', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt001', '001','-','-','Laptop','',1,1,0)
+    ,('Vagyonvedelmi', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Security','',1,1,0)
+    ,('Halozati', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking','',1,1,0)
+    ,('Nyomtato', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer','',1,1,0);
+";
+$GLOBALS['Database']['Table']['Insert'][7] = "
+    INSERT INTO `Hardware_Laptop`(
+        hardwareId
+        ,hardwareLaptopId
+        ,hardwareLaptopUser
+        ,hardwareLaptopType
+        ,hardwareLaptopOS
+        ,hardwareLaptopOSVer
+        ,hardwareLaptopHDD
+        ,hardwareLaptopMEM
+        ,hardwareLaptopPROC
+        ,hardwareLaptopOperator
+    ) VALUES
+    ();
+";
+$GLOBALS['Database']['Table']['Insert'][8] = "
+    INSERT INTO `Hardware_Computer`(
+        hardwareId
+        ,hardwareComputerId
+        ,hardwareComputerUser
+        ,hardwareComputerType
+        ,hardwareComputerUse
+        ,hardwareComputerOS
+        ,hardwareComputerOSVer
+        ,hardwareComputerHDD
+        ,hardwareComputerMEM
+        ,hardwareComputerPROC
+        ,hardwareComputerNetworkPorts
+        ,hardwareComputerOperator
+    ) VALUES
+    ();
+";
+$GLOBALS['Database']['Table']['Insert'][9] = "
+    INSERT INTO `Hardware_Printer`(
+        hardwareId
+        ,hardwarePrinterId
+        ,hardwarePrinterUse
+        ,hardwarePrinterType
+        ,hardwarePrinterToner
+        ,hardwarePrinterOperator
+    ) VALUES
+    ();
+";
+$GLOBALS['Database']['Table']['Insert'][10] = "
+    INSERT INTO `Hardware_Networking`(
+        hardwareId
+        ,hardwareNetworkingId
+        ,hardwareNetworkingType
+        ,hardwareNetworkingUse
+        ,hardwareNetworkingOS
+        ,hardwareNetworkingOSVer
+        ,hardwareNetworkingNetworkPorts
+        ,hardwareNetworkingOperator
+    ) VALUES
+    ();
+";
+$GLOBALS['Database']['Table']['Insert'][11] = "
+    INSERT INTO `Hardware_Server`(
+        hardwareId
+        ,hardwareServerId
+        ,hardwareServerUser
+        ,hardwareServerType
+        ,hardwareServerUse
+        ,hardwareServerOS
+        ,hardwareServerOSVer
+        ,hardwareServerHDD
+        ,hardwareServerMEM
+        ,hardwareServerPROC
+        ,hardwareServerNetworkPorts
+        ,hardwareServerOperator
+    ) VALUES
+    ();
+";
+$GLOBALS['Database']['Table']['Insert'][12] = "
+    INSERT INTO `Hardware_Security`(
+        hardwareId
+        ,hardwareSecurityId
+        ,hardwareSecurityType
+        ,hardwareSecurityUse
+        ,hardwareSecurityOS
+        ,hardwareSecurityOSVer
+        ,hardwareSecurityNetworkPorts
+        ,hardwareSecurityOperator
+    ) VALUES
+    ();
 ";
