@@ -63,12 +63,17 @@ class Access extends \Page_Handlers\sAccess
     public static function View(array $array = array()): string
     {
         self::setDAccess();
+        self::setDHardware();
+
         $Access = (self::$dAccess->Select(array('accessId' => (int)$array['dp']), 'byAccessId'))[0];
+        $Hardware = (self::$dHardware->Select(array('hardwareId' => (int)$Access['hardwareId']), 'byHardwareId'))[0];
+
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessView', 'tag' => 'View'), 'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Hozzáférési adatok', 'content' => sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessView', 'tag' => 'View'), 'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Eszköz adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrAccessView','tag' => 'View'),'valueData' => $Hardware),'Generate_Form')))
                     .'</div>
                 </div>
             </form>';

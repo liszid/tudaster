@@ -51,10 +51,12 @@ class dbHardware extends Table implements iDatabase
     {
 	$tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
+        if (! strcmp($type, 'All')) {
             $tempArray = array();
-        } elseif (strcmp($type, 'byUserId_Last') === 0) {
+        } elseif (! strcmp($type, 'byUserId_Last')) {
             $tempArray = array('userId');
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array('hardwareId');
         } else {
             return array();
         }

@@ -800,6 +800,14 @@ $GLOBALS['Database'][6]['Select'] = array(
             *
         FROM
             `Hardware`"
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware`
+        WHERE
+            hardwareId=:hardwareId
+    "
     ,'byUserId_Last' => "
         SELECT
             hardwareId
