@@ -6,9 +6,40 @@ namespace Data;
 
 use Database\dbAccess;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 class dAccess implements iData
 {
     private static $dbAccess;
+
+    private static function Encode(string $string = ""): string
+    {
+        $input = str_split($string);
+        $tempArr = array();
+        foreach($input as $i){
+            $temp = dechex(ord($i));
+            $tempArr['Start'] .= $temp[0];
+            $tempArr['End'] .= $temp[1];
+        }
+        return $tempArr['Start'].$tempArr['End'];
+    }
+
+    public static function Decode(string $string = ""): string
+    {
+        $input = str_split($string);
+        $tempArr = '';
+        $half = count($input) / 2;
+
+        for($i = 0; $i < $half; $i++) {
+            $tempArr .= chr(hexdec($input[$i].$input[$i + $half]));
+        }
+
+        return $tempArr;
+    }
 
     public function __construct()
     {
@@ -17,6 +48,8 @@ class dAccess implements iData
 
     public static function Insert(array $array = array()): bool
     {
+        $array['accessPassword'] = self::Encode($array['accessPassword']);
+
         return self::$dbAccess->Insert($array);
     }
 
@@ -27,6 +60,8 @@ class dAccess implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
+        $array['accessPassword'] = self::Encode($array['accessPassword']);
+
         return self::$dbAccess->Update($array, $type);
     }
 

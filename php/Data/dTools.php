@@ -6,6 +6,12 @@ namespace Data;
 
 use Database\dbTools;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 class dTools implements iData
 {
     private static $dbTools;

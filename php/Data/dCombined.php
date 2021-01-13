@@ -6,6 +6,12 @@ namespace Data;
 
 use Database\dbCombined;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 class dCombined implements iData
 {
     private static $dbCombined;

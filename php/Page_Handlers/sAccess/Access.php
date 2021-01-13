@@ -68,6 +68,8 @@ class Access extends \Page_Handlers\sAccess
         $Access = (self::$dAccess->Select(array('accessId' => (int)$array['dp']), 'byAccessId'))[0];
         $Hardware = (self::$dHardware->Select(array('hardwareId' => (int)$Access['hardwareId']), 'byHardwareId'))[0];
 
+        $Access['accessPassword'] = self::$dAccess->Decode($Access['accessPassword']);
+
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
@@ -91,6 +93,9 @@ class Access extends \Page_Handlers\sAccess
         if (! isset($array['Save'])) {
             self::setDAccess();
             $Access = (self::$dAccess->Select(array('accessId' => (int)$array['dp']), 'byAccessId'))[0];
+
+            $Access['accessPassword'] = self::$dAccess->Decode($Access['accessPassword']);
+
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">

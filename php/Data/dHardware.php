@@ -6,6 +6,12 @@ namespace Data;
 
 use Database\dbHardware;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 class dHardware implements iData
 {
     private static $dbHardware;

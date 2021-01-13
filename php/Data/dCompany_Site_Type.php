@@ -6,6 +6,12 @@ namespace Data;
 
 use Database\dbCompany_Site_Type;
 
+use PreLoad\{
+    Log,
+    Check,
+    Valid
+};
+
 class dCompany_Site_Type implements iData
 {
     private static $dbCompany_Site_Type;
