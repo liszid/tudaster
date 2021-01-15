@@ -46,11 +46,11 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Administrative/Groups" => array(
-    	    "navbar" => "Csoportok"
+    	    "navbar" => "Jogosultsági körök"
     	    ,"fa" => "users"
-    	    ,"title" => "Csoportok kezelése"
-    	    ,"help" => "A Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
-    	    ,"card" => "Csoportok szerkesztéséhez kattintson a kártyára"
+    	    ,"title" => "Jogosultsági körök kezelése"
+    	    ,"help" => "Jogosultsági körök kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
+    	    ,"card" => "Jogosultsági körök szerkesztéséhez kattintson a kártyára"
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -71,49 +71,49 @@ interface TRANSLATE
                     <b>cE</b> - Profil szerkesztés <br />
                     <b>cL</b> - Bejelentkezés <br />
                     <br />
-                    <b>Csoport szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a> <br />
-                    <b>Csoport törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
+                    <b>Jogosultsági kör szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a> <br />
+                    <b>Jogosultsági kör törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                 )
     	)
     	,"Administrative/Groups/Edit" => array(
-            "navbar" => "Csoport szerkesztése"
+            "navbar" => "Jogosultsági kör szerkesztése"
             ,"fa" => "users"
-            ,"title" => "Csoport szerkesztése"
+            ,"title" => "Jogosultsági kör szerkesztése"
             ,"help" => ""
             ,"card" => ""
         )
         ,"Administrative/Groups/Delete" => array(
-            "navbar" => "Csoport törlése"
+            "navbar" => "Jogosultsági kör törlése"
             ,"fa" => "users"
-            ,"title" => "Csoport törlése"
+            ,"title" => "Jogosultsági kör törlése"
             ,"help" => ""
             ,"card" => ""
         )
     	,"Administrative/Membership" => array(
-    	    "navbar" => "Tagságok"
+    	    "navbar" => "Jogosultsági tagságok"
     	    ,"fa" => "vcard"
-    	    ,"title" => "Csoport tagságok kezelése"
-    	    ,"help" => "A Csoport tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot"
-            ,"card" => "Csoport tagságok szerkesztéséhez kattintson a kártyára"
+    	    ,"title" => "Jogosultsági tagságok kezelése"
+    	    ,"help" => "Jogosultsági tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot"
+            ,"card" => "Jogosultsági tagságok szerkesztéséhez kattintson a kártyára"
             ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
                 ,'content' => '
-                    <b>Csoport tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
+                    <b>Jogosultsági tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
             )
     	)
     	,"Administrative/Membership/Edit" => array(
-            "navbar" => "Tagság szerkesztése"
+            "navbar" => "Jogosultság tagság szerkesztése"
             ,"fa" => "vcard"
-            ,"title" => "Csoporttagság szerkesztése"
+            ,"title" => "Jogosultság tagság szerkesztése"
             ,"help" => ""
             ,"card" => ""
         )
         ,"Administrative/Membership/Delete" => array(
-            "navbar" => "Tagság törlése"
+            "navbar" => "Jogosultság tagság törlése"
             ,"fa" => "vcard"
-            ,"title" => "Csoporttagság törlése"
+            ,"title" => "Jogosultság tagság törlése"
             ,"help" => ""
             ,"card" => ""
         )

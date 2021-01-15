@@ -70,7 +70,7 @@ if (
  * Collective page with Cards
  */
     } else {
-        $returnContent .= '<div class="card-deck d-flex justify-content-center">';
+        $returnContent .= '<div class="card-columns m-2">';
 
         foreach ($urlPaths as $key => $value) {
             if (strcmp(array_key_first($urlPaths), $key)) {

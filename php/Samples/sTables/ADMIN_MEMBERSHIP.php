@@ -12,8 +12,8 @@ interface ADMIN_MEMBERSHIP
         "tableRole" => "mngMembers",
         "data" => array(
             "groupMemberId" => array("text" => "Id", "tooltip" => ""),
-            "groupName" => array("text" => "Csoportnév", "tooltip" => ""),
-            "groupDesc" => array("text" => "Csoport leírás", "tooltip" => ""),
+            "groupName" => array("text" => "Jogosultság", "tooltip" => ""),
+            "groupDesc" => array("text" => "Jogosultság leírás", "tooltip" => ""),
             "userName" => array("text" => "Felhasználónév", "tooltip" => "")
         ),
         "button" => array(

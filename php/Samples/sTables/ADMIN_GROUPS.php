@@ -14,10 +14,10 @@ interface ADMIN_GROUPS
             "groupId" => array("text" => "Id", "tooltip" => "")
             ,"groupName" => array("text" => "Név", "tooltip" => "")
             ,"groupDesc" => array("text" => "Leírás", "tooltip" => "")
-            ,"canAdministrative" => array("text" => "cA", "tooltip" => "Adminisztrativ engedély")
-            ,"mngGroups" => array("text" => "mG", "tooltip" => "Csoport kezelési engedély")
+/*            ,"canAdministrative" => array("text" => "cA", "tooltip" => "Adminisztrativ engedély")
+            ,"mngGroups" => array("text" => "mG", "tooltip" => "Jogosultság kezelési engedély")
             ,"mngUsers" => array("text" => "mU", "tooltip" => "Felhasználó kezelési engedély")
-            ,"mngMembers" => array("text" => "mM", "tooltip" => "Csoport tagság kezelési engedély")
+            ,"mngMembers" => array("text" => "mM", "tooltip" => "Jogosultság tagság kezelési engedély")
             ,"mngTools" => array("text" => "mT", "tooltip" => "Adminisztratív eszköz kezelési engedély")
             ,"canUsers" => array("text" => "cUs", "tooltip" => "Felhasználói adatok megtekintése")
             ,"canCompany" => array("text" => "cC", "tooltip" => "Céges adatok megtekintése/kezelése")
@@ -27,6 +27,7 @@ interface ADMIN_GROUPS
             ,"canHardware" => array("text" => "cH", "tooltip" => "Hardver adatok megtekintése/kezelése")
             ,"canEdit" => array("text" => "cE", "tooltip" => "Profil szerkesztési engedély")
             ,"canLogin" => array("text" => "cL", "tooltip" => "Bejelentkezési engedély")
+*/
         )
         ,"button" => array(
             array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 1)

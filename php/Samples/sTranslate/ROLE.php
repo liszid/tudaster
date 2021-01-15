@@ -18,15 +18,15 @@ interface ROLE
         'mngUsers' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhető funkció',
-    	    'respective' => 'Administrative/Users',
+    	    'respective' => 'Administrative/Groups',
     	    'short' => 'mG',
-    	    'desc' => 'Csoportok kezelése',
+    	    'desc' => 'Jogosultságok kezelése',
     	    'select_type' => 'state'
     	),
         'mngGroups' => array(
     	    'color' => 'success',
     	    'header' => 'Elérhet funkció',
-    	    'respective' => 'Administrative/Groups',
+    	    'respective' => 'Administrative/Users',
     	    'short' => 'mU',
     	    'desc' => 'Felhasználók kezelése',
     	    'select_type' => 'state'
@@ -36,7 +36,7 @@ interface ROLE
     	    'header' => 'Elérhető funkció',
     	    'respective' => 'Administrative/Membership',
     	    'short' => 'mM',
-    	    'desc' => 'Csoport tagságok szerkesztése',
+    	    'desc' => 'Joggosultsági tagságok szerkesztése',
     	    'select_type' => 'state'
     	),
     	'mngTools' => array(
