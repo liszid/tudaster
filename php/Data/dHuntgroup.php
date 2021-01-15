@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Data;
 
-use Database\dbGroup;
+use Database\dbHuntgroup;
 
 use PreLoad\{
     Log,
@@ -12,41 +12,41 @@ use PreLoad\{
     Valid
 };
 
-class dGroup implements iData
+class dHuntgroup implements iData
 {
-    private static $dbGroup;
+    private static $dbHuntgroup;
 
     public function __construct()
     {
-        self::$dbGroup = new dbGroup();
+        self::$dbHuntgroup = new dbHuntgroup();
     }
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbGroup->Insert($array);
+        return self::$dbHuntgroup->Insert($array);
     }
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-        return self::$dbGroup->Select($array, $type);
+        return self::$dbHuntgroup->Select($array, $type);
     }
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbGroup->Update($array, $type);
+        return self::$dbHuntgroup->Update($array, $type);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        $Group = self::Select($array, 'byGroupId')[0];
-        if(! empty($Group)) {
-            if ($Group['isDelete']) {
-                $dGroup_Member = new dGroup_Member();
-                $Members = $dGroup_Member->Select($array, 'byGroupId');
+        $Huntgroup = self::Select($array, 'byHuntgroupId')[0];
+        if(! empty($Huntgroup)) {
+            if ($Huntgroup['isDelete']) {
+                $dHuntgroup_Member = new dHuntgroup_Member();
+                $Members = $dHuntgroup_Member->Select($array, 'byHuntgroupId');
                 foreach ($Members as $i) {
-                    $dGroup_Member->Update(array('userId' => $i['userId'], 'groupId' => 2));
+                    $dHuntgroup_Member->Update(array('userId' => $i['userId'], 'huntgroupId' => 2));
                 }
-                return self::$dbGroup->Delete($array, $type);
+                return self::$dbHuntgroup->Delete($array, $type);
             } else {
                 return false;
             }
@@ -57,6 +57,6 @@ class dGroup implements iData
 
     public static function Check( ): bool
     {
-        return (self::$dbGroup->Check());
+        return (self::$dbHuntgroup->Check());
     }
 }

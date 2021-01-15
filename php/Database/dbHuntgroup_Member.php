@@ -29,7 +29,7 @@ class dbHuntgroup_Member extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
-                            'groupId',
+                            'huntgroupId',
                             'userId'
                         ),
                         'vData' => $array
@@ -47,13 +47,13 @@ class dbHuntgroup_Member extends Table implements iDatabase
 
         if (strcmp($type, 'All') === 0) {
             $tempArray = array();
-        } elseif (strcmp($type, 'byGroupId') === 0) {
+        } elseif (strcmp($type, 'byHuntroupId') === 0) {
             $tempArray = array(
-                            'groupId'
+                            'huntgroupId'
                         );
-        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
+        } elseif (strcmp($type, 'byHuntgroupMemberId') === 0) {
             $tempArray = array(
-                            'groupMemberId'
+                            'huntgroupMemberId'
                         );
         } elseif (strcmp($type, 'byUserId') === 0) {
             $tempArray = array(
@@ -90,13 +90,13 @@ class dbHuntgroup_Member extends Table implements iDatabase
 
         if (strcmp($type, 'byUserId') === 0) {
             $tempArray = array(
-                            'groupId',
+                            'huntgroupId',
                             'userId'
                         );
-        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
+        } elseif (strcmp($type, 'byHuntgroupMemberId') === 0) {
             $tempArray = array(
-                            'groupId',
-                            'groupMemberId'
+                            'huntgroupId',
+                            'huntgroupMemberId'
                         );
         } else {
             return false;
@@ -125,7 +125,7 @@ class dbHuntgroup_Member extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Delete'],
                         'vNames' => array(
-                            'groupMemberId'
+                            'huntgroupMemberId'
                         ),
                         'vData' => $array
                     )

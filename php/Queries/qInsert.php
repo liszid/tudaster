@@ -34,6 +34,26 @@ $GLOBALS['Database'][2]['Insert'] = "
     );
 ";
 
+$GLOBALS['Database'][3]['Insert'] = "
+    INSERT INTO `Huntgroup`(
+        huntgroupName
+        ,huntgroupDesc
+    ) VALUES (
+        :huntgroupName
+        ,:huntgroupDesc
+    );
+";
+
+$GLOBALS['Database'][4]['Insert'] = "
+    INSERT INTO `Huntgroup_Member`(
+        userId,
+        huntgroupId
+    ) VALUES (
+        :userId,
+        :huntgroupId
+    );
+";
+
 $GLOBALS['Database'][5]['Insert'] = "
     INSERT INTO `Company`(
         userId,

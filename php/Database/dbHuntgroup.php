@@ -29,8 +29,8 @@ class dbHuntgroup extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
-                            'groupName',
-                            'groupDesc'
+                            'huntgroupName',
+                            'huntgroupDesc'
                         ),
                         'vData' => $array
                     )
@@ -47,9 +47,9 @@ class dbHuntgroup extends Table implements iDatabase
 
         if (strcmp($type, 'All') === 0) {
             $tempArray = array();
-        } elseif (strcmp($type, 'byGroupId') === 0) {
+        } elseif (strcmp($type, 'byHuntgroupId') === 0) {
             $tempArray = array(
-                            'groupId'
+                            'huntgroupId'
                         );
         } elseif (strcmp($type, 'forMemberEdit') === 0) {
             $tempArray = array();
@@ -85,22 +85,9 @@ class dbHuntgroup extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
-                            'canAdministrative',
-                            'mngGroups',
-                            'mngUsers',
-                            'mngMembers',
-                            'mngHuntgroups',
-                            'mngHGMembers',
-                            'mngTools',
-                            'canUsers',
-                            'canCompany',
-                            'canKnowledge',
-                            'canUsername',
-                            'canPassword',
-                            'canHardware',
-                            'canEdit',
-                            'canLogin',
-                            'groupId'
+                            'huntgroupId'
+                            ,'huntgroupName'
+                            ,'huntgroupDesc'
                         ),
                         'vData' => $array
                     )
@@ -119,7 +106,7 @@ class dbHuntgroup extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Delete'],
                         'vNames' => array(
-                            'groupId'
+                            'huntgroupId'
                         ),
                         'vData' => $array
                     )

@@ -59,6 +59,26 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT groupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     ",
+    3 => "
+        CREATE TABLE IF NOT EXISTS `Huntgroup`(
+            huntgroupId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            huntgroupName VARCHAR(32) NOT NULL,
+            huntgroupDesc VARCHAR(256) NOT NULL,
+            isDelete INT(6) UNSIGNED DEFAULT 1,
+            CONSTRAINT primaryKeyHuntroup PRIMARY KEY (huntgroupId)
+        );
+    ",
+    4 => "
+        CREATE TABLE IF NOT EXISTS `Huntgroup_Member`(
+            huntgroupMemberId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            userId INT(6) UNSIGNED NOT NULL,
+            huntgroupId INT(6) UNSIGNED NOT NULL,
+            isDelete INT(6) UNSIGNED DEFAULT 1,
+            CONSTRAINT primaryKeyHuntgroup_Member PRIMARY KEY (huntgroupMemberId),
+            CONSTRAINT groupMemberGroupCascade FOREIGN KEY (huntgroupId) REFERENCES `Huntgroup` (huntgroupId) ON DELETE CASCADE,
+            CONSTRAINT groupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
+        );
+    ",
     5 => "
         CREATE TABLE IF NOT EXISTS `Company`(
             companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,

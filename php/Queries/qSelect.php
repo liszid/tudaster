@@ -741,6 +741,57 @@ $GLOBALS['Database'][2]['Select'] = array(
             groupMemberId=:groupMemberId"
 );
 
+$GLOBALS['Database'][3]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup`"
+    ,'byHuntgroupId' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup`
+        WHERE
+            huntgroupId=:huntgroupId"
+    ,'forMemberEdit' => "
+        SELECT
+            huntgroupId
+            ,huntgroupName
+            ,huntgroupDesc
+        FROM
+            `Huntgroup`"
+);
+
+$GLOBALS['Database'][4]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup_Member`"
+    ,'byUserId' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup_Member`
+        WHERE
+            userId=:userId"
+    ,'byHuntgroupId' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup_Member`
+        WHERE
+            huntgroupId=:huntgroupId"
+    ,'byHuntgroupMemberId' => "
+        SELECT
+            *
+        FROM
+            `Huntgroup_Member`
+        WHERE
+            huntgroupMemberId=:huntgroupMemberId"
+);
+
 $GLOBALS['Database'][5]['Select'] = array(
     'All' => "
         SELECT
