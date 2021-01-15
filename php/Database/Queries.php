@@ -184,6 +184,7 @@ class Queries extends Database
                     $statement->bindParam(':'.$v,  $array['vData'][$v]);
                 }
             }
+//            Log::Export($array);
             $statement->execute();
             return $statement;
         } catch(PDOException $e) {

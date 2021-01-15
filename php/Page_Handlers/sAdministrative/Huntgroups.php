@@ -100,7 +100,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
     {
         self::setDHuntgroup();
         $Huntgroup = self::$dHuntgroup->Select(array('huntgroupId' => (int)$array['dp']), 'byHuntgroupId')[0];
-        $Checkboxes = self::Prompt_Checkbox($array, true);
+
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
@@ -108,7 +108,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
                         '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupId', 'desc' => 'Id', 'value' => $Huntgroup['huntgroupId'], 'type' => 'hidden'), 'Input').'
                         '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName'],  'disabled' => true), 'Input').'
                         '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => $Huntgroup['huntgroupDesc'], 'disabled' => true), 'Input').'
-                        '.$Checkboxes.'
+                        '.self::Prompt_Checkbox($array, true).'
                     </div>
                 </div>
             </form>';
@@ -124,7 +124,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
         self::setDCombined();
 
         $AllUsers = self::$dUser->Select(array(), 'All')[0];
-        $HGUsers = self::$dCombined->Select(array('huntgroupId' => $array['dp']),'Huntgroup_Members')[0];
+        $HGUsers = self::$dCombined->Select(array('huntgroupId' => $array['dp']), 'Huntgroup_Members')[0];
         $returnString = '';
 
         foreach($AllUsers as $i) {

@@ -34,7 +34,6 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('userId');
         } elseif (
             ! strcmp($type, 'Member_Full')
-            || ! strcmp($type, 'Huntgroup_Members')
             || ! strcmp($type, 'Access_Table')
             || ! strcmp($type, 'Company_Site_Table')
             || ! strcmp($type, 'Hardware_Laptop_Table')
@@ -46,6 +45,8 @@ class dbCombined extends Table implements iDatabase
             || ! strcmp($type, 'Company_Site_Select')
         ){
             $tempArray = array();
+        } elseif (! strcmp($type, 'Huntgroup_Members')){
+            $tempArray = array('huntgroupId');
         } elseif (! strcmp($type, 'Company_Site_View')){
             $tempArray = array('companySiteId');
         } elseif (! strcmp($type, 'Company_Site_Filter')){

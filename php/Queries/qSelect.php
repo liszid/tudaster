@@ -96,7 +96,7 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Huntgroup`.huntgroupId = `Huntgroup_Member`.huntgroupId
         )
         WHERE
-            `Huntgroup`.huntgroupId=:huntgroupId
+            huntgroupId=:huntgroupId
     "
     ,'Company_Site_Table' => "
         SELECT
