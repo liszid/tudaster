@@ -58,9 +58,11 @@ interface TRANSLATE
                 ,'title' => ''
                 ,'content' => '
                     <b>cA</b> - Adminisztrativ engedély<br />
-                    <b>mG</b> - Felhasználói csoportok kezelése<br />
                     <b>mU</b> - Felhasználók kezelése<br />
-                    <b>mM</b> - Felhasználói csoport tagságok szerkesztése<br />
+                    <b>mG</b> - Felhasználói jogosultságok kezelése<br />
+                    <b>mM</b> - Felhasználói jogosiltsági tagságok szerkesztése<br />
+                    <b>mHGG</b> - Felhasználói csoportok kezelése<br />
+                    <b>mHGM</b> - Felhasználói csoport tagságok szerkesztése<br />
                     <b>mT</b> - Adminisztratív eszközök kezelése<br />
                     <b>cUs</b> - Regisztráltak megtekintése  <br />
                     <b>cC</b> - Cégek jogosultság <br />
@@ -114,6 +116,41 @@ interface TRANSLATE
             "navbar" => "Jogosultság tagság törlése"
             ,"fa" => "vcard"
             ,"title" => "Jogosultság tagság törlése"
+            ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Administrative/Huntgroups" => array(
+    	    "navbar" => "Csoportok"
+    	    ,"fa" => "users"
+    	    ,"title" => "Csoportok kezelése"
+    	    ,"help" => "Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
+    	    ,"card" => "Csoportok szerkesztéséhez kattintson a kártyára"
+    	    ,"info" => array(
+                'color' => 'success'
+                ,'header' => 'Információ'
+                ,'addButton' => true
+                ,'title' => ''
+                ,'content' => ''
+                )
+    	)
+    	,"Administrative/Huntgroups/Edit" => array(
+            "navbar" => "Csoport szerkesztése"
+            ,"fa" => "users"
+            ,"title" => "Csoport szerkesztése"
+            ,"help" => ""
+            ,"card" => ""
+        )
+    	,"Administrative/Huntgroups/View" => array(
+            "navbar" => "Csoport megtekintése"
+            ,"fa" => "users"
+            ,"title" => "Csoport megtekintése"
+            ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Administrative/Huntgroups/Delete" => array(
+            "navbar" => "Csoport törlése"
+            ,"fa" => "users"
+            ,"title" => "Csoport törlése"
             ,"help" => ""
             ,"card" => ""
         )

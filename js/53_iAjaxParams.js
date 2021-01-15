@@ -52,8 +52,12 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     "Profile"
                     ,"Administrative/Users/Add"
                     ,"Administrative/Groups/Add"
+                    ,"Administrative/Groups/View"
                     ,"Administrative/Groups/Edit"
                     ,"Administrative/Membership/Edit"
+                    ,"Administrative/Huntgroups/Add"
+                    ,"Administrative/Huntgroups/View"
+                    ,"Administrative/Huntgroups/Edit"
                     ,"Company/Company/Add"
                     ,"Company/Company/Edit"
                     ,"Company/Company/View"
@@ -124,6 +128,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", [], "modalDialog"]
                     ,["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", [], "modalDialog"]
                     ,["admGrpsEdit", "x=Administrative&y=Groups&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["admHuntgroupsAdd", "x=Administrative&y=Huntgroups&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["admHuntgroupsEdit", "x=Administrative&y=Huntgroups&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["admMemsEdit", "x=Administrative&y=Membership&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrAccessAdd", "x=Accesses&y=Access&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrAccessEdit", "x=Accesses&y=Access&z=Edit&Save=", "button", [], "modalDialog"]
@@ -152,6 +158,7 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
             get( ) {
                 return[
                     "tableAdminUsers"
+                    ,"tableAdminHungroups"
                     ,"tableAdminMembership"
                     ,"tableHomeUsers"
                     ,"tableCompanyCompany"

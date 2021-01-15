@@ -23,11 +23,12 @@ if (
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root"      => array("path" => "Administrative"),
-                    "Users"     => array("path" => "Administrative/Users", "role" => "mngUsers"),
-                    "Groups"    => array("path" => "Administrative/Groups", "role" => "mngGroups"),
-                    "Membership"=> array("path" => "Administrative/Membership", "role" => "mngMembers"),
-                    "Tools"     => array("path" => "Administrative/Tools", "role" => "mngTools")
+                    "Root"          => array("path" => "Administrative"),
+                    "Users"         => array("path" => "Administrative/Users", "role" => "mngUsers"),
+                    "Huntgroups"    => array("path" => "Administrative/Huntgroups", "role" => "mngHuntgroups"),
+                    "Groups"        => array("path" => "Administrative/Groups", "role" => "mngGroups"),
+                    "Membership"    => array("path" => "Administrative/Membership", "role" => "mngMembers"),
+                    "Tools"         => array("path" => "Administrative/Tools", "role" => "mngTools")
                 );
 /*
  * Post action handling and form prompt section
@@ -58,6 +59,9 @@ if (
                 break;
             case 'Membership':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Membership(array('path' => $urlPaths[$postUrl]['path'])) : '';
+                break;
+            case 'Huntgroups':
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Huntgroups(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
             case 'Tools':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sAdministrative::Tools(array('path' => $urlPaths[$postUrl]['path'])) : '';

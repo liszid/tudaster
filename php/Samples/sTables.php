@@ -15,6 +15,7 @@ class sTables implements
     sTables\ADMIN_USERS,
     sTables\ADMIN_GROUPS,
     sTables\ADMIN_MEMBERSHIP,
+    sTables\ADMIN_HUNTGROUPS,
     sTables\COMPANY_COMPANY,
     sTables\COMPANY_SITE,
     sTables\HARDWARE_LAPTOP,
@@ -50,6 +51,9 @@ class sTables implements
                 break;
             case 'Admin_Members':
                 return self::Generate($array, self::ADMIN_MEMBERSHIP);
+                break;
+            case 'Admin_Huntgroups':
+                return self::Generate($array, self::ADMIN_HUNTGROUPS);
                 break;
             case 'Home_Users':
                 return self::Generate($array, self::HOME_USERS);

@@ -14,6 +14,8 @@ use Data\{
     dUser
     ,dGroup
     ,dGroup_Member
+    ,dHuntgroup
+    ,dHuntgroup_Member
     ,dCombined
     ,dTools
 };
@@ -29,6 +31,8 @@ class sAdministrative {
     protected static $dUser;
     protected static $dGroup;
     protected static $dGroup_Member;
+    protected static $dHuntgroup;
+    protected static $dHuntgroup_Member;
     protected static $dCombined;
     protected static $dTools;
 
@@ -60,6 +64,26 @@ class sAdministrative {
     protected static function setDGroup_Member()
     {
         self::$dGroup_Member = new dGroup_Member();
+    }
+
+/*
+ * Sets the class variable : dGroup
+ * @author Liszi Dániel
+ * @since 2021.01.15
+ */
+    protected static function setDHuntgroup()
+    {
+        self::$dHuntgroup = new dHuntgroup();
+    }
+
+/*
+ * Sets the class variable : dGroup_Member
+ * @author Liszi Dániel
+ * @since 2021.01.15
+ */
+    protected static function setDHuntgroup_Member()
+    {
+        self::$dHuntgroup_Member = new dHuntgroup_Member();
     }
 
 /*
@@ -104,6 +128,9 @@ class sAdministrative {
             case 'Membership':
                 $wclass = new sAdministrative\Membership;
                 break;
+            case 'Huntgroups':
+                $wclass = new sAdministrative\Huntgroups;
+                break;
             case 'Tools':
                 $wclass = new sAdministrative\Tools;
                 break;
@@ -112,6 +139,9 @@ class sAdministrative {
         switch ($array['z']) {
             case 'Add':
                 $returnContent .= $wclass::Add($array);
+                break;
+            case 'View':
+                $returnContent .= $wclass::View($array);
                 break;
             case 'Reset':
                 $returnContent .= $wclass::Reset($array);
@@ -189,6 +219,27 @@ class sAdministrative {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
         $returnString .= sTables::Prompt($Members, 'Admin_Members');
+        return $returnString;
+    }
+
+/*
+ * Used at Administrative Page to display Huntgroups section
+ * @param $array array
+ * @return string
+ * @author Liszi Dániel
+ * @since 2021.01.15
+ */
+    public static function Huntgroups(array $array = array()): string
+    {
+        self::setDGroup();
+        $returnString = '';
+        $Groups = self::$dGroup->Select(array(), 'All');
+
+        if (Valid::vString($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Groups, 'Admin_Huntgroups');
         return $returnString;
     }
 

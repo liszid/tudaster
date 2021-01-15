@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbHardware_Printer extends Table implements iDatabase
 {
-    const CLASS_ID = 9;
+    const CLASS_ID = 11;
 
     private static $classQueries = array();
 

@@ -92,12 +92,12 @@ class sSite
                     <ul class="navbar-nav">
                         '.sNavbar::Prompt(
                             array(
-                                'liClass' => '',
-                                'aClass' => '',
-                                'faClass' => sTranslate::Prompt('Home', 'fa'),
-                                'dataToggle' => false,
-                                'dataLink' => 'Home',
-                                'Desc' => sTranslate::Prompt('Home')
+                                'liClass' => ''
+                                ,'aClass' => ''
+                                ,'faClass' => sTranslate::Prompt('Home', 'fa')
+                                ,'dataToggle' => false
+                                ,'dataLink' => 'Home'
+                                ,'Desc' => sTranslate::Prompt('Home')
                             )
                         ).'
                         '.self::NavbarLeft().'
@@ -125,97 +125,98 @@ class sSite
             if ( (int)self::$sessionUsr['mngGroups'] === 1 && (int)self::$sessionUsr['mngUsers'] === 1) {
                 $navName = "Administrative";
                 $navArray[] = array(
-                    'liClass' => ' dropdown',
-                    'aClass' => ' dropdown-toggle',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => 'dropdown',
-                    'dataLink' => $navName,
-                    'dataItems' => array(
-                        'Users',
-                        'Groups',
-                        'Membership',
-                        'Tools'
-                    ),
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ' dropdown'
+                    ,'aClass' => ' dropdown-toggle'
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => 'dropdown'
+                    ,'dataLink' => $navName
+                    ,'dataItems' => array(
+                        'Users'
+                        ,'Groups'
+                        ,'Membership'
+                        ,'Huntgroups'
+                        ,'Tools'
+                    )
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
             if ((int)self::$sessionUsr['canUsers'] > 0) {
                 $navName = "Users";
                 $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
-                    'dataLink' => $navName,
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ''
+                    ,'aClass' => ''
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => false
+                    ,'dataLink' => $navName
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
             if ((int)self::$sessionUsr['canKnowledge'] > 0) {
                 $navName = "Knowledge";
                 $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
-                    'dataLink' => $navName,
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ''
+                    ,'aClass' => ''
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => false
+                    ,'dataLink' => $navName
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
             if ((int)self::$sessionUsr['canUsername'] > 0) {
                 $navName = "Accesses";
                 $navArray[] = array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => false,
-                    'dataLink' => $navName.'/Access',
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ''
+                    ,'aClass' => ''
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => false
+                    ,'dataLink' => $navName.'/Access'
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
             if ((int)self::$sessionUsr['canHardware'] > 0) {
                 $navName = "Hardware";
                 $navArray[] = array(
-                    'liClass' => ' dropdown',
-                    'aClass' => ' dropdown-toggle',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => 'dropdown',
-                    'dataLink' => $navName,
-                    'dataItems' => array(
-                        'Hardware',
-                        'Laptop',
-                        'Computer',
-                        'Server',
-                        'Printer',
-                        'Networking',
-                        'Security'
-                    ),
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ' dropdown'
+                    ,'aClass' => ' dropdown-toggle'
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => 'dropdown'
+                    ,'dataLink' => $navName
+                    ,'dataItems' => array(
+                        'Hardware'
+                        ,'Laptop'
+                        ,'Computer'
+                        ,'Server'
+                        ,'Printer'
+                        ,'Networking'
+                        ,'Security'
+                    )
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
             if ((int)self::$sessionUsr['canCompany'] > 0) {
                 $navName = "Company";
                 $navArray[] = array(
-                    'liClass' => ' dropdown',
-                    'aClass' => ' dropdown-toggle',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => 'dropdown',
-                    'dataLink' => $navName,
-                    'dataItems' => array(
-                        'Company',
-                        'Site'
-                    ),
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ' dropdown'
+                    ,'aClass' => ' dropdown-toggle'
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => 'dropdown'
+                    ,'dataLink' => $navName
+                    ,'dataItems' => array(
+                        'Company'
+                        ,'Site'
+                    )
+                    ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
 
             $navName = "Profile";
             $navArray[] = array(
-                'liClass' => '',
-                'aClass' => '',
-                'faClass' => sTranslate::Prompt($navName, 'fa'),
-                'dataToggle' => true,
-                'dataLink' => $navName,
-                'Desc' => sTranslate::Prompt($navName)
+                'liClass' => ''
+                ,'aClass' => ''
+                ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                ,'dataToggle' => true
+                ,'dataLink' => $navName
+                ,'Desc' => sTranslate::Prompt($navName)
             );
 
             foreach ($navArray as $i) {
@@ -241,24 +242,24 @@ class sSite
             $navName = "Logout";
             $returnString .= sNavbar::Prompt(
                 array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => true,
-                    'dataLink' => $navName,
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ''
+                    ,'aClass' => ''
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => true
+                    ,'dataLink' => $navName
+                    ,'Desc' => sTranslate::Prompt($navName)
                 )
             );
         } else {
             $navName = "Login";
             $returnString .= sNavbar::Prompt(
                 array(
-                    'liClass' => '',
-                    'aClass' => '',
-                    'faClass' => sTranslate::Prompt($navName, 'fa'),
-                    'dataToggle' => true,
-                    'dataLink' => $navName,
-                    'Desc' => sTranslate::Prompt($navName)
+                    'liClass' => ''
+                    ,'aClass' => ''
+                    ,'faClass' => sTranslate::Prompt($navName, 'fa')
+                    ,'dataToggle' => true
+                    ,'dataLink' => $navName
+                    ,'Desc' => sTranslate::Prompt($navName)
                 )
             );
         }

@@ -21,6 +21,8 @@ if (! isset($sessionUsr['userId']) ) {
             '.(((int)$sessionUsr['mngUsers'] > 0) ? sCard::Translated('mngUsers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['mngGroups'] > 0) ? sCard::Translated('mngGroups', 'Linked') :'' ).'
             '.(((int)$sessionUsr['mngMembers'] > 0) ? sCard::Translated('mngMembers', 'Linked') :'' ).'
+            '.(((int)$sessionUsr['mngHuntgroups'] > 0) ? sCard::Translated('mngHuntgroups', 'Linked') :'' ).'
+            '.(((int)$sessionUsr['mngHGMembers'] > 0) ? sCard::Translated('mngHGMembers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['mngTools'] > 0) ? sCard::Translated('mngTools', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canEdit'] > 0) ? sCard::Translated('canEdit', 'Card') :'' ).'
             '.(((int)$sessionUsr['canUsers'] > 0) ? sCard::Translated('canUsers', 'Linked') :'' ).'

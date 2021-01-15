@@ -32,6 +32,8 @@ $GLOBALS['Database']['1']['Update'] = "
         ,mngGroups=:mngGroups
         ,mngUsers=:mngUsers
         ,mngMembers=:mngMembers
+        ,mngHuntgroups=:mngHuntgroups
+        ,mngHGMembers=:mngHGMembers
         ,mngTools=:mngTools
         ,canUsers=:canUsers
         ,canCompany=:canCompany
@@ -60,7 +62,7 @@ $GLOBALS['Database']['2']['Update'] = array(
         WHERE groupMemberId=:groupMemberId"
 );
 
-$GLOBALS['Database']['3']['Update'] = "
+$GLOBALS['Database']['5']['Update'] = "
     UPDATE
         `Company`
     SET
@@ -74,7 +76,7 @@ $GLOBALS['Database']['3']['Update'] = "
         companyId=:companyId
 ";
 
-$GLOBALS['Database']['5']['Update'] = "
+$GLOBALS['Database']['7']['Update'] = "
     UPDATE
         `Company_Site`
     SET
@@ -97,7 +99,7 @@ $GLOBALS['Database']['5']['Update'] = "
         companySiteId=:companySiteId
 ";
 
-$GLOBALS['Database']['6']['Update'] = "
+$GLOBALS['Database']['8']['Update'] = "
     UPDATE
         `Hardware`
     SET
@@ -117,7 +119,7 @@ $GLOBALS['Database']['6']['Update'] = "
         hardwareId=:hardwareId
 ";
 
-$GLOBALS['Database'][7]['Update'] = "
+$GLOBALS['Database'][9]['Update'] = "
     UPDATE
         `Hardware_Laptop`
     SET
@@ -133,7 +135,7 @@ $GLOBALS['Database'][7]['Update'] = "
         hardwareLaptopId=:hardwareLaptopId
 ";
 
-$GLOBALS['Database'][8]['Update'] = "
+$GLOBALS['Database'][10]['Update'] = "
     UPDATE
         `Hardware_Computer`
     SET
@@ -151,7 +153,7 @@ $GLOBALS['Database'][8]['Update'] = "
         hardwareComputerId=:hardwareComputerId
 ";
 
-$GLOBALS['Database'][9]['Update'] = "
+$GLOBALS['Database'][11]['Update'] = "
     UPDATE
         `Hardware_Printer`
     SET
@@ -163,7 +165,7 @@ $GLOBALS['Database'][9]['Update'] = "
         hardwarePrinterId=:hardwarePrinterId
 ";
 
-$GLOBALS['Database'][10]['Update'] = "
+$GLOBALS['Database'][12]['Update'] = "
     UPDATE
         `Hardware_Networking`
     SET
@@ -177,7 +179,7 @@ $GLOBALS['Database'][10]['Update'] = "
         hardwareNetworkingId=:hardwareNetworkingId
 ";
 
-$GLOBALS['Database'][11]['Update'] = "
+$GLOBALS['Database'][13]['Update'] = "
     UPDATE
         `Hardware_Server`
     SET
@@ -195,7 +197,7 @@ $GLOBALS['Database'][11]['Update'] = "
         hardwareServerId=:hardwareServerId
 ";
 
-$GLOBALS['Database'][12]['Update'] = "
+$GLOBALS['Database'][14]['Update'] = "
     UPDATE
         `Hardware_Security`
     SET
@@ -209,7 +211,7 @@ $GLOBALS['Database'][12]['Update'] = "
         hardwareSecurityId=:hardwareSecurityId
 ";
 
-$GLOBALS['Database'][13]['Update'] = "
+$GLOBALS['Database'][15]['Update'] = "
     UPDATE
         `Access`
     SET

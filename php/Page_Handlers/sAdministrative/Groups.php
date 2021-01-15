@@ -90,11 +90,55 @@ class Groups extends \Page_Handlers\sAdministrative
         }
     }
 
-    private static function promptSelect(array $array = array()): string
+/*
+* Returns Group View form
+* @param $array array
+* @return string
+* @author Liszi Dániel
+* @since 2021.01.15
+*/
+    public static function View(array $array = array()): string
+    {
+        self::setDGroup();
+        $Group = self::$dGroup->Select(array('groupId' => (int)$array['dp']), 'byGroupId')[0];
+        return '
+            <form method="post" class="form-group col-12" autocomplete="on">
+                <div class="form-group col p-0">
+                    <div class="col-12 row">
+                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupId', 'desc' => 'Id', 'value' => $Group['groupId'], 'type' => 'hidden'), 'Input').'
+                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupName', 'desc' => 'Név', 'value' => $Group['groupName'], 'type' => 'hidden'), 'Input').'
+                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => $Group['groupDesc'], 'type' => 'hidden'), 'Input').'
+                        '.self::promptSelect($Group, true).'
+                    </div>
+                </div>
+            </form>';
+    }
+
+/*
+* Generates Select form for Administrative/Groups section
+* @param $array array
+* @param $bool bool
+* @return string
+* @author Liszi Dániel
+* @since 2021.01.15
+*/
+    private static function promptSelect(array $array = array(), bool $bool = false): string
     {
         $returnString = '';
         foreach (sTranslate::ROLE as $key => $value) {
-            $returnString .= sElement::General(array('origo' => 'admGrpsEdit', 'data' => $key, 'desc' => $value['desc'], 'value' => $array[$key], 'select' => sTranslate::ROLE_SELECT[$value['select_type']], 'type' => 'select'), 'Input');
+            $lmntArray = array();
+            $lmntArray['data'] = $key;
+            $lmntArray['desc'] = $value['desc'];
+            $lmntArray['value'] = $array[$key];
+            $lmntArray['select'] = sTranslate::ROLE_SELECT[$value['select_type']];
+            $lmntArray['type'] = 'select';
+            if ($bool) {
+                $lmntArray['origo'] = 'admGrpsView';
+                $lmntArray['disabled'] = true;
+            } else {
+                $lmntArray['origo'] = 'admGrpsEdit';
+            }
+            $returnString .= sElement::General($lmntArray, 'Input');
         }
         return $returnString;
     }

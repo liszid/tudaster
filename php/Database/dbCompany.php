@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbCompany extends Table implements iDatabase
 {
-    const CLASS_ID = 3;
+    const CLASS_ID = 5;
 
     private static $classQueries = array();
 

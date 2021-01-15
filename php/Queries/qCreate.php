@@ -30,8 +30,9 @@ $GLOBALS['Database']['Table']['Create'] = array(
             groupDesc VARCHAR(256) NOT NULL,
             canAdministrative INT(1) DEFAULT 0,
             mngGroups INT(1) DEFAULT 0,
-            mngUsers INT(1) DEFAULT 0,
             mngMembers INT(1) DEFAULT 0,
+            mngHuntgroups INT(1) DEFAULT 0,
+            mngUsers INT(1) DEFAULT 0,
             mngTools INT(1) DEFAULT 0,
             canUsers INT(1) DEFAULT 0,
             canCompany INT(1) DEFAULT 0,
@@ -58,7 +59,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT groupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     ",
-    3 => "
+    5 => "
         CREATE TABLE IF NOT EXISTS `Company`(
             companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             userId INT(6) UNSIGNED NOT NULL,
@@ -74,7 +75,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     ",
-    4 => "
+    6 => "
         CREATE TABLE IF NOT EXISTS `Company_Site_Type`(
             companySiteTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companySiteTypeName VARCHAR(128) NOT NULL,
@@ -82,7 +83,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyCompanySiteType PRIMARY KEY (companySiteTypeId)
         );
     ",
-    5 => "
+    7 => "
         CREATE TABLE IF NOT EXISTS `Company_Site`(
             companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companyId INT(6) UNSIGNED NOT NULL,
@@ -110,7 +111,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companySiteTypeCascade FOREIGN KEY (companySiteTypeId) REFERENCES `Company_Site_Type` (companySiteTypeId) ON DELETE CASCADE
         );
     ",
-    6 => "
+    8 => "
         CREATE TABLE IF NOT EXISTS `Hardware`(
             hardwareId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareName VARCHAR(64) NULL,
@@ -134,7 +135,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareCompanySiteCascade FOREIGN KEY (companySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
         );
     ",
-    7 => "
+    9 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Laptop`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareLaptopId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -150,7 +151,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareLaptopHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    8 => "
+    10 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Computer`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareComputerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -168,7 +169,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareComputerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    9 => "
+    11 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Printer`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwarePrinterId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -180,7 +181,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwarePrinterHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    10 => "
+    12 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Networking`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareNetworkingId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -194,7 +195,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareNetworkingHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    11 => "
+    13 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Server`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareServerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -212,7 +213,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareServerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    12 => "
+    14 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Security`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareSecurityId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -226,7 +227,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareSecurityHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     ",
-    13 => "
+    15 => "
         CREATE TABLE IF NOT EXISTS `Access`(
             accessId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareId INT(6) UNSIGNED NOT NULL,

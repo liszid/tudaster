@@ -22,8 +22,9 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
         groupDesc,
         canAdministrative,
         mngGroups,
-        mngUsers,
         mngMembers,
+        mngHuntgroups,
+        mngUsers,
         mngTools,
         canUsers,
         canCompany,
@@ -35,10 +36,10 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
         canLogin,
         isDelete
     ) VALUES
-        ('Adminisztrátor',	'Adminisztratív csoport teljes hozzáféréssel',  1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 1, 1, 0),
-        ('Alapértelmezett', 'Alapértelmezett felhasználói csoport',         0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 1, 1, 0),
-        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö csoport', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0),
-        ('Törölt',          'Törölt felhasználók csoportja',                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
+        ('Adminisztrátor',	'Adminisztratív jogosultság',                       1, 1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 1, 1, 0),
+        ('Alapértelmezett', 'Alapértelmezett jogosultság',                      0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 1, 1, 0),
+        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö jogosultság', 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0),
+        ('Törölt',          'Törölt felhasználók jogosultsága',                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
 
 $GLOBALS['Database']['Table']['Insert'][2] = "
     INSERT INTO `Group_Member`(
@@ -47,7 +48,7 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
         isDelete
     ) VALUES
         (1, 1, 0);";
-$GLOBALS['Database']['Table']['Insert'][3] = "
+$GLOBALS['Database']['Table']['Insert'][5] = "
     INSERT INTO `Company`(
         companyId,
         userId,
@@ -62,7 +63,7 @@ $GLOBALS['Database']['Table']['Insert'][3] = "
     ) VALUES
         (1, 1, 'Default', '-', '-', '-', '-', '0', '-', 0);
     ";
-$GLOBALS['Database']['Table']['Insert'][4] = "
+$GLOBALS['Database']['Table']['Insert'][6] = "
     INSERT INTO `Company_Site_Type`(
         companySiteTypeName,
         isDelete
@@ -76,7 +77,7 @@ $GLOBALS['Database']['Table']['Insert'][4] = "
         ('Bisztró/ Étterem', 0),
         ('Pékség', 0),
         ('Raktár', 0);";
-$GLOBALS['Database']['Table']['Insert'][5] = "
+$GLOBALS['Database']['Table']['Insert'][7] = "
     INSERT INTO `Company_Site`(
         companySiteId,
         companyId,
@@ -101,7 +102,7 @@ $GLOBALS['Database']['Table']['Insert'][5] = "
     ) VALUES
     (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
 ";
-$GLOBALS['Database']['Table']['Insert'][6] = "
+$GLOBALS['Database']['Table']['Insert'][8] = "
     INSERT INTO `Hardware`(
         hardwareName
         ,hardwareDesc
@@ -127,7 +128,7 @@ $GLOBALS['Database']['Table']['Insert'][6] = "
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking','',1,1,0)
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer','',1,1,0);
 ";
-$GLOBALS['Database']['Table']['Insert'][7] = "
+$GLOBALS['Database']['Table']['Insert'][9] = "
     INSERT INTO `Hardware_Laptop`(
         hardwareId
         ,hardwareLaptopUser
@@ -141,7 +142,7 @@ $GLOBALS['Database']['Table']['Insert'][7] = "
     ) VALUES
     (3, 'NoUser','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][8] = "
+$GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Hardware_Computer`(
         hardwareId
         ,hardwareComputerUser
@@ -157,7 +158,7 @@ $GLOBALS['Database']['Table']['Insert'][8] = "
     ) VALUES
     (1,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][9] = "
+$GLOBALS['Database']['Table']['Insert'][11] = "
     INSERT INTO `Hardware_Printer`(
         hardwareId
         ,hardwarePrinterUse
@@ -167,7 +168,7 @@ $GLOBALS['Database']['Table']['Insert'][9] = "
     ) VALUES
     (6,'-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][10] = "
+$GLOBALS['Database']['Table']['Insert'][12] = "
     INSERT INTO `Hardware_Networking`(
         hardwareId
         ,hardwareNetworkingType
@@ -179,7 +180,7 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
     ) VALUES
     (5,'-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][11] = "
+$GLOBALS['Database']['Table']['Insert'][13] = "
     INSERT INTO `Hardware_Server`(
         hardwareId
         ,hardwareServerUser
@@ -195,7 +196,7 @@ $GLOBALS['Database']['Table']['Insert'][11] = "
     ) VALUES
     (2,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][12] = "
+$GLOBALS['Database']['Table']['Insert'][14] = "
     INSERT INTO `Hardware_Security`(
         hardwareId
         ,hardwareSecurityType
@@ -207,19 +208,3 @@ $GLOBALS['Database']['Table']['Insert'][12] = "
     ) VALUES
     (4,'-','-','-','-','-','-');
 ";
-/*
-$GLOBALS['Database']['Table']['Insert'][13] = "
-    INSERT INTO `Access`(
-        hardwareId
-        ,accessUsername
-        ,accessPassword
-        ,isDelete
-    ) VALUES
-    (1,'Szamitogep','Jelszo_1',0)
-    ,(2,'Szerver','Jelszo_2',0)
-    ,(3,'Laptop','Jelszo_3',0)
-    ,(4,'Vagyonvedelmi','Jelszo_4',0)
-    ,(5,'Halozati','Jelszo_5',0)
-    ,(6,'Nyomtato','Jelszo_6',0);
-";
-*/

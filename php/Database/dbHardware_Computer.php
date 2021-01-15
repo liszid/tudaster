@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbHardware_Computer extends Table implements iDatabase
 {
-    const CLASS_ID = 8;
+    const CLASS_ID = 10;
 
     private static $classQueries = array();
 

@@ -741,7 +741,7 @@ $GLOBALS['Database'][2]['Select'] = array(
             groupMemberId=:groupMemberId"
 );
 
-$GLOBALS['Database'][3]['Select'] = array(
+$GLOBALS['Database'][5]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -763,7 +763,7 @@ $GLOBALS['Database'][3]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][4]['Select'] = array(
+$GLOBALS['Database'][6]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -771,7 +771,7 @@ $GLOBALS['Database'][4]['Select'] = array(
             `Company_Site_Type`"
 );
 
-$GLOBALS['Database'][5]['Select'] = array(
+$GLOBALS['Database'][7]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -794,7 +794,7 @@ $GLOBALS['Database'][5]['Select'] = array(
 );
 
 
-$GLOBALS['Database'][6]['Select'] = array(
+$GLOBALS['Database'][8]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -819,7 +819,7 @@ $GLOBALS['Database'][6]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][7]['Select'] = array(
+$GLOBALS['Database'][9]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -835,7 +835,7 @@ $GLOBALS['Database'][7]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][8]['Select'] = array(
+$GLOBALS['Database'][10]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -851,7 +851,7 @@ $GLOBALS['Database'][8]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][9]['Select'] = array(
+$GLOBALS['Database'][11]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -867,7 +867,7 @@ $GLOBALS['Database'][9]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][10]['Select'] = array(
+$GLOBALS['Database'][12]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -883,7 +883,7 @@ $GLOBALS['Database'][10]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][11]['Select'] = array(
+$GLOBALS['Database'][13]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -899,7 +899,7 @@ $GLOBALS['Database'][11]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][12]['Select'] = array(
+$GLOBALS['Database'][14]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -915,7 +915,7 @@ $GLOBALS['Database'][12]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][13]['Select'] = array(
+$GLOBALS['Database'][15]['Select'] = array(
     'All' => "
         SELECT
             *
