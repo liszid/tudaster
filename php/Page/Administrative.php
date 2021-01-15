@@ -23,12 +23,12 @@ if (
     $returnContent = '';
 
     $urlPaths = array(
-                    "Root"          => array("path" => "Administrative"),
-                    "Users"         => array("path" => "Administrative/Users", "role" => "mngUsers"),
-                    "Huntgroups"    => array("path" => "Administrative/Huntgroups", "role" => "mngHuntgroups"),
-                    "Groups"        => array("path" => "Administrative/Groups", "role" => "mngGroups"),
-                    "Membership"    => array("path" => "Administrative/Membership", "role" => "mngMembers"),
-                    "Tools"         => array("path" => "Administrative/Tools", "role" => "mngTools")
+                    "Root"          => array("path" => "Administrative")
+                    ,"Users"         => array("path" => "Administrative/Users", "role" => "mngUsers")
+                    ,"Huntgroups"    => array("path" => "Administrative/Huntgroups", "role" => "mngHuntgroups")
+                    ,"Groups"        => array("path" => "Administrative/Groups", "role" => "mngGroups")
+                    ,"Tools"         => array("path" => "Administrative/Tools", "role" => "mngTools")
+                    ,"Membership"    => array("path" => "Administrative/Membership", "role" => "mngMembers")
                 );
 /*
  * Post action handling and form prompt section

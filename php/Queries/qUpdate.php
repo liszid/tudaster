@@ -62,6 +62,33 @@ $GLOBALS['Database']['2']['Update'] = array(
         WHERE groupMemberId=:groupMemberId"
 );
 
+$GLOBALS['Database']['3']['Update'] = "
+    UPDATE
+        `Huntgroup`
+    SET
+        huntgroupName=:huntgroupName
+        ,huntgroupDesc=:huntgroupDesc
+    WHERE
+        huntgroupId=:huntgroupId";
+
+$GLOBALS['Database']['4']['Update'] = array(
+    "byUserId" => "
+        UPDATE
+            `Huntgroup_Member`
+        SET
+            huntgroupId=:huntgroupId
+        WHERE
+            userId=:userId",
+
+    "byHuntgroupMemberId" => "
+        UPDATE
+            `Huntgroup_Member`
+        SET
+            huntgroupId=:huntgroupId
+        WHERE
+            huntgroupMemberId=:huntgroupMemberId"
+);
+
 $GLOBALS['Database']['5']['Update'] = "
     UPDATE
         `Company`

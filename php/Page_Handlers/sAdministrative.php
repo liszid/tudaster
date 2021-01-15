@@ -231,15 +231,15 @@ class sAdministrative {
  */
     public static function Huntgroups(array $array = array()): string
     {
-        self::setDGroup();
+        self::setDHuntgroup();
         $returnString = '';
-        $Groups = self::$dGroup->Select(array(), 'All');
+        $Huntgroups = self::$dHuntgroup->Select(array(), 'All');
 
         if (Valid::vString($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Groups, 'Admin_Huntgroups');
+        $returnString .= sTables::Prompt($Huntgroups, 'Admin_Huntgroups');
         return $returnString;
     }
 

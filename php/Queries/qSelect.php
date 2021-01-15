@@ -73,6 +73,31 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Group`.groupId = `Group_Member`.groupId
         )
     "
+    ,'Huntgroup_Members' => "
+        SELECT
+            `Huntgroup_Member`.huntgroupMemberId
+            ,`Huntgroup`.huntgroupName
+            ,`Huntgroup`.huntgroupDesc
+            ,`User`.userName
+            ,`User`.userId
+            ,`Huntgroup_Member`.isDelete
+        FROM
+        (
+            (
+                `User`
+                    INNER JOIN
+                        `Huntgroup_Member`
+                    ON
+                        `User`.userId = `Huntgroup_Member`.userId
+            )
+            INNER JOIN
+                `Huntgroup`
+            ON
+                `Huntgroup`.huntgroupId = `Huntgroup_Member`.huntgroupId
+        )
+        WHERE
+            `Huntgroup`.huntgroupId=:huntgroupId
+    "
     ,'Company_Site_Table' => "
         SELECT
             `Company_Site`.companySiteId
@@ -621,7 +646,6 @@ $GLOBALS['Database'][0]['Select'] = array(
     'All' => "
         SELECT
             `User`.userId
-            ,`User`.userId
             ,`User`.userName
             ,`User`.userFirstName
             ,`User`.userLastName

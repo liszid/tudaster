@@ -14,7 +14,7 @@ use PreLoad\{
 
 class dHuntgroup_Member implements iData
 {
-    private static $dbGroup_Member;
+    private static $dbHuntgroup_Member;
 
     public function __construct()
     {

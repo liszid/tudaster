@@ -26,29 +26,29 @@ class Huntgroups extends \Page_Handlers\sAdministrative
 */
     public static function Add(array $array = array()): string
     {
-        self::setDGroup();
+        self::setDHuntgroup();
         if (! isset($array['Save'])) {
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admGrpsAdd', 'data' => 'groupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'admGrpsAdd', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsAdd', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsAdd', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admGrpsAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admHuntgroupsAdd-button"><i class="fa fa-floppy-o"></i> Mentés</button>
                         </div>
                     </div>
                 </form>';
         } else {
             return
                 '<h4>'.(
-                    (self::$dGroup->Insert($array))
+                    (self::$dHuntgroup->Insert($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Huntgroups'), 'Spinner');
         }
     }
 
@@ -61,32 +61,31 @@ class Huntgroups extends \Page_Handlers\sAdministrative
 */
     public static function Edit(array $array = array()): string
     {
-        self::setDGroup();
+        self::setDHuntgroup();
         if (! isset($array['Save'])) {
-            $Group = self::$dGroup->Select(array('groupId' => (int)$array['dp']), 'byGroupId')[0];
+            $Huntgroup = self::$dHuntgroup->Select(array('huntgroupId' => (int)$array['dp']), 'byHuntgroupId')[0];
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupId', 'desc' => 'Id', 'value' => $Group['groupId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupName', 'desc' => 'Név', 'value' => $Group['groupName'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'admGrpsEdit', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => $Group['groupDesc'], 'type' => 'hidden'), 'Input').'
-                            '.self::promptSelect($Group).'
+                            '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupId', 'desc' => 'Id', 'value' => $Huntgroup['huntgroupId'], 'type' => 'hidden'), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName']), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => $Huntgroup['huntgroupDesc']), 'Input').'
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admGrpsEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="admHuntgroupsEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
                         </div>
                     </div>
                 </form>';
         } else {
             return
                 '<h4>'.(
-                    (self::$dGroup->Update($array))
+                    (self::$dHuntgroup->Update($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+                ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Huntgroups'), 'Spinner');
         }
     }
 
@@ -99,49 +98,44 @@ class Huntgroups extends \Page_Handlers\sAdministrative
 */
     public static function View(array $array = array()): string
     {
-        self::setDGroup();
-        $Group = self::$dGroup->Select(array('groupId' => (int)$array['dp']), 'byGroupId')[0];
+        self::setDHuntgroup();
+        $Huntgroup = self::$dHuntgroup->Select(array('huntgroupId' => (int)$array['dp']), 'byHuntgroupId')[0];
+        $Checkboxes = self::Prompt_Checkbox($array, true);
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">
-                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupId', 'desc' => 'Id', 'value' => $Group['groupId'], 'type' => 'hidden'), 'Input').'
-                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupName', 'desc' => 'Név', 'value' => $Group['groupName'], 'type' => 'hidden'), 'Input').'
-                        '.sElement::General(array('origo' => 'admGrpsView', 'data' => 'groupDesc', 'desc' => 'Leírás', 'value' => $Group['groupDesc'], 'type' => 'hidden'), 'Input').'
-                        '.self::promptSelect($Group, true).'
+                        '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupId', 'desc' => 'Id', 'value' => $Huntgroup['huntgroupId'], 'type' => 'hidden'), 'Input').'
+                        '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName'],  'disabled' => true), 'Input').'
+                        '.sElement::General(array('origo' => 'admHuntgroupsView', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => $Huntgroup['huntgroupDesc'], 'disabled' => true), 'Input').'
+                        '.$Checkboxes.'
                     </div>
                 </div>
             </form>';
     }
 
 /*
-* Generates Select form for Administrative/Groups section
-* @param $array array
-* @param $bool bool
-* @return string
-* @author Liszi Dániel
-* @since 2021.01.15
+    <input type="checkbox" class="btn-check" id="btn-check2" checked autocomplete="off" />
+    <label class="btn btn-primary" for="btn-check2">Checkbox button</label>
 */
-    private static function promptSelect(array $array = array(), bool $bool = false): string
+    private static function Prompt_Checkbox(array $array = array(), bool $bool = false): string
     {
+        self::setDUser();
+        self::setDCombined();
+
+        $AllUsers = self::$dUser->Select(array(), 'All')[0];
+        $HGUsers = self::$dCombined->Select(array('huntgroupId' => $array['dp']),'Huntgroup_Members')[0];
         $returnString = '';
-        foreach (sTranslate::ROLE as $key => $value) {
-            $lmntArray = array();
-            $lmntArray['data'] = $key;
-            $lmntArray['desc'] = $value['desc'];
-            $lmntArray['value'] = $array[$key];
-            $lmntArray['select'] = sTranslate::ROLE_SELECT[$value['select_type']];
-            $lmntArray['type'] = 'select';
-            if ($bool) {
-                $lmntArray['origo'] = 'admGrpsView';
-                $lmntArray['disabled'] = true;
-            } else {
-                $lmntArray['origo'] = 'admGrpsEdit';
-            }
-            $returnString .= sElement::General($lmntArray, 'Input');
+
+        foreach($AllUsers as $i) {
+            $returnString = '
+                <input type="checkbox" class="btn-check" id="btn-user-'.$i['userId'].'"'.((array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' checked':'').(($bool)?' disabled':'').' autocomplete="off" />
+                <label class="btn btn-primary" for="btn-user-'.$i['userId'].'">'.$i['userName'].'</label>
+            ';
         }
         return $returnString;
     }
+
 /*
 * Fires Group Delete action
 * @param $array array
@@ -151,18 +145,18 @@ class Huntgroups extends \Page_Handlers\sAdministrative
 */
     public static function Delete(array $array = array()): string
     {
-        self::setDGroup();
+        self::setDHuntgroup();
         return
             '<h4>'.(
                 (
-                    self::$dGroup->Delete(
+                    self::$dHuntgroup->Delete(
                         array(
-                            'groupId' => $array['dp']
+                            'huntgroupId' => $array['dp']
                         )
                     )
                 )
                     ? sTranslate::ACTION['Success']['content']
                     : sTranslate::ACTION['Fail']['content']
-            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Groups'), 'Spinner');
+            ).'</h4>'.sElement::General(array('x' => 'Administrative', 'y' => 'Huntgroups'), 'Spinner');
     }
 }
