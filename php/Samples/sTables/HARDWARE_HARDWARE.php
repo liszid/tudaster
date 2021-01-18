@@ -17,7 +17,7 @@ interface HARDWARE_HARDWARE
             ,"hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe")
             ,"hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe")
             ,"hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja")
-            ,"companySite" => array("text" => "Telephely", "tooltip" => "Kihelyezettség")
+            ,"companySiteName" => array("text" => "Telephely", "tooltip" => "Kihelyezettség")
             ,"hardwareType" => array("text" => "Kategória", "tooltip" => "Kategória")
         ),
         "button" => array()

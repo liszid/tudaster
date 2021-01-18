@@ -133,7 +133,7 @@ class sSite
                     ,'dataItems' => array(
                         'Users'
                         ,'Groups'
-                        ,'Membership'
+//                      ,'Membership'
                         ,'Huntgroups'
                         ,'Tools'
                     )

@@ -18,8 +18,8 @@ interface TRANSLATE
     	    "navbar" => "Felhasználók"
     	    ,"fa" => "user"
     	    ,"title" => "Felhasználók kezelése"
-    	    ,"help" => "A Felhasználók kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Felhasználók' menüpontot"
-    	    ,"card" => "Felhasználók szerkesztéséhez kattintson a kártyára"
+    	    ,"help" => ""
+    	    ,"card" => ""
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -31,6 +31,13 @@ interface TRANSLATE
                     <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                 )
     	)
+    	,"Administrative/Users/Edit" => array(
+            "navbar" => "Jogosultsági kör kezelése"
+            ,"fa" => "user"
+            ,"title" => "Jogosultsági kör kezelése"
+            ,"help" => ""
+            ,"card" => ""
+        )
     	,"Administrative/Users/Reset" => array(
             "navbar" => "Jelszó helyreállítás"
             ,"fa" => "user"
@@ -46,11 +53,11 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Administrative/Groups" => array(
-    	    "navbar" => "Jogosultsági körök"
+    	    "navbar" => "Jogosultságok"
     	    ,"fa" => "users"
     	    ,"title" => "Jogosultsági körök kezelése"
-    	    ,"help" => "Jogosultsági körök kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
-    	    ,"card" => "Jogosultsági körök szerkesztéséhez kattintson a kártyára"
+    	    ,"help" => ""
+    	    ,"card" => ""
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -95,8 +102,8 @@ interface TRANSLATE
     	    "navbar" => "Jogosultsági tagságok"
     	    ,"fa" => "vcard"
     	    ,"title" => "Jogosultsági tagságok kezelése"
-    	    ,"help" => "Jogosultsági tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot"
-            ,"card" => "Jogosultsági tagságok szerkesztéséhez kattintson a kártyára"
+    	    ,"help" => ""
+            ,"card" => ""
             ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -123,8 +130,8 @@ interface TRANSLATE
     	    "navbar" => "Csoportok"
     	    ,"fa" => "users"
     	    ,"title" => "Csoportok kezelése"
-    	    ,"help" => "Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
-    	    ,"card" => "Csoportok szerkesztéséhez kattintson a kártyára"
+    	    ,"help" => ""
+    	    ,"card" => ""
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -159,7 +166,7 @@ interface TRANSLATE
     	    ,"fa" => "wrench"
     	    ,"title" => "Segéd eszközök"
     	    ,"help" => ""
-            ,"card" => "Adminisztratív segéd eszközökért kattintson a kártyára"
+            ,"card" => ""
             ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'

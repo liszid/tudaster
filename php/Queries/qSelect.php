@@ -53,11 +53,12 @@ $GLOBALS['Database'][99]['Select'] = array(
     "
     ,'Member_Full' => "
         SELECT
-            `Group_Member`.groupMemberId
+            `User`.userId
+            ,`Group_Member`.groupMemberId
             ,`Group`.groupName
             ,`Group`.groupDesc
             ,`User`.userName
-            ,`Group_Member`.isDelete
+            ,`User`.isDelete
         FROM
         (
             (
@@ -872,9 +873,16 @@ $GLOBALS['Database'][7]['Select'] = array(
 $GLOBALS['Database'][8]['Select'] = array(
     'All' => "
         SELECT
-            *
+            `Hardware`.*
+            ,`Company_Site`.companySiteName
         FROM
-            `Hardware`"
+            (
+                `Company_Site`
+                INNER JOIN
+                    `Hardware`
+                ON
+                    `Hardware`.companySiteId = `Company_Site`.companySiteId
+            )"
     ,'byHardwareId' => "
         SELECT
             *

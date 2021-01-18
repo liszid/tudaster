@@ -125,9 +125,11 @@ class sAdministrative {
             case 'Groups':
                 $wclass = new sAdministrative\Groups;
                 break;
+/*
             case 'Membership':
                 $wclass = new sAdministrative\Membership;
                 break;
+*/
             case 'Huntgroups':
                 $wclass = new sAdministrative\Huntgroups;
                 break;
@@ -170,9 +172,10 @@ class sAdministrative {
  */
     public static function Users(array $array = array()): string
     {
-        self::setDUser();
+        self::setDCombined();
         $returnString = '';
-        $Users = self::$dUser->Select(array(), 'All');
+        $Users = self::$dCombined->Select(array(), 'Member_Full');
+        //$Users = self::$dUser->Select(array(), 'All');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
