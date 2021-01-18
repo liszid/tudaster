@@ -71,6 +71,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
                             '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupId', 'desc' => 'Id', 'value' => $Huntgroup['huntgroupId'], 'type' => 'hidden'), 'Input').'
                             '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName']), 'Input').'
                             '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => $Huntgroup['huntgroupDesc']), 'Input').'
+                            '.self::Prompt_Checkbox($array).'
                         </div>
                     </div>
                     <div class="form-group">
@@ -123,16 +124,31 @@ class Huntgroups extends \Page_Handlers\sAdministrative
         self::setDUser();
         self::setDCombined();
 
-        $AllUsers = self::$dUser->Select(array(), 'All')[0];
-        $HGUsers = self::$dCombined->Select(array('huntgroupId' => $array['dp']), 'Huntgroup_Members')[0];
-        $returnString = '';
+        $AllUsers = self::$dUser->Select(array(), 'All');
+        $HGUsers = self::$dCombined->Select(array('huntgroupId' => (int)$array['dp']), 'Huntgroup_Members')[0];
+        $returnString = '
+        <div class="form-group col-12">
+            <label for="userSelectForHuntgroup">Felhasználók</label>
+            <select multiple '.(($bool)?' disabled':'').' class="form-control" id="userSelectForHuntgroup">
+        ';
 
         foreach($AllUsers as $i) {
-            $returnString = '
-                <input type="checkbox" class="btn-check" id="btn-user-'.$i['userId'].'"'.((array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' checked':'').(($bool)?' disabled':'').' autocomplete="off" />
-                <label class="btn btn-primary" for="btn-user-'.$i['userId'].'">'.$i['userName'].'</label>
+            /*$returnString .= '
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="btn-user-'.$i['userId'].'"'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' checked':'').(($bool)?' disabled':'').' autocomplete="off" />
+                    <label class="form-check-label" for="btn-user-'.$i['userId'].'">'.$i['userName'].'</label>
+                </div>';*/
+            $returnString .= '
+                <option value="'.$i['userId'].'"'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' selected':'').'>'.$i['userName'].'</option>
             ';
+
         }
+
+        $returnString .= '
+            </select>
+          </div>
+        ';
+
         return $returnString;
     }
 
