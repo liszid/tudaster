@@ -24,12 +24,12 @@ if (
 
     $urlPaths = array(
                     "Root"          => array("path" => "Administrative")
-                    ,"Groups"        => array("path" => "Administrative/Groups", "role" => "mngGroups")
                     ,"Users"         => array("path" => "Administrative/Users", "role" => "mngUsers")
                     ,"Huntgroups"    => array("path" => "Administrative/Huntgroups", "role" => "mngHuntgroups")
-//                  ,"Membership"    => array("path" => "Administrative/Membership", "role" => "mngMembers")
+                    ,"Groups"        => array("path" => "Administrative/Groups", "role" => "mngGroups")
                     ,"Tools"         => array("path" => "Administrative/Tools", "role" => "mngTools")
                 );
+//                  ,"Membership"    => array("path" => "Administrative/Membership", "role" => "mngMembers")
 /*
  * Post action handling and form prompt section
  */
@@ -75,12 +75,12 @@ if (
  * Collective page with Cards
  */
     } else {
-        $returnContent .= '<div class="card-columns m-2">';
+        $returnContent .= '<div class="card-deck">';
 
         foreach ($urlPaths as $key => $value) {
             if (strcmp(array_key_first($urlPaths), $key)) {
                 if (isset($value['role']) && (int)$sessionUsr[$value['role']] > 0) {
-                    $returnContent .= sCard::Translated($value['path'], 'Linked');
+                    $returnContent .= '<div class="py-2">'.sCard::Translated($value['path'], 'Linked').'</div>';
                 }
             }
         }

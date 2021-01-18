@@ -18,8 +18,8 @@ interface TRANSLATE
     	    "navbar" => "Felhasználók"
     	    ,"fa" => "user"
     	    ,"title" => "Felhasználók kezelése"
-    	    ,"help" => ""
-    	    ,"card" => ""
+    	    ,"help" => "A Felhasználók kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Felhasználók' menüpontot"
+    	    ,"card" => "Felhasználók szerkesztéséhez kattintson a kártyára"
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -56,8 +56,8 @@ interface TRANSLATE
     	    "navbar" => "Jogosultságok"
     	    ,"fa" => "users"
     	    ,"title" => "Jogosultsági körök kezelése"
-    	    ,"help" => ""
-    	    ,"card" => ""
+    	    ,"help" => "Jogosultságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
+    	    ,"card" => "Jogosultságoszerkesztéséhez kattintson a kártyára"
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -102,8 +102,8 @@ interface TRANSLATE
     	    "navbar" => "Jogosultsági tagságok"
     	    ,"fa" => "vcard"
     	    ,"title" => "Jogosultsági tagságok kezelése"
-    	    ,"help" => ""
-            ,"card" => ""
+    	    ,"help" => "Jogosultsági tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot"
+            ,"card" => "Jogosultsági tagságok szerkesztéséhez kattintson a kártyára"
             ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -130,8 +130,8 @@ interface TRANSLATE
     	    "navbar" => "Csoportok"
     	    ,"fa" => "users"
     	    ,"title" => "Csoportok kezelése"
-    	    ,"help" => ""
-    	    ,"card" => ""
+    	    ,"help" => "Csoportok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Csoportok' menüpontot"
+    	    ,"card" => "Csoportok szerkesztéséhez kattintson a kártyára"
     	    ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
@@ -166,7 +166,7 @@ interface TRANSLATE
     	    ,"fa" => "wrench"
     	    ,"title" => "Segéd eszközök"
     	    ,"help" => ""
-            ,"card" => ""
+            ,"card" => "Adminisztratív segéd eszközökért kattintson a kártyára"
             ,"info" => array(
                 'color' => 'success'
                 ,'header' => 'Információ'
