@@ -33,6 +33,10 @@ class dHuntgroup implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
+        if(isset($array['userCheckbox']) && ! empty($array['userCheckbox'])) {
+            $userIdArray = explode(',', $array['userCheckbox']);
+            Log::Export($userIdArray);
+        }
         return self::$dbHuntgroup->Update($array, $type);
     }
 

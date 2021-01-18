@@ -115,10 +115,6 @@ class Huntgroups extends \Page_Handlers\sAdministrative
             </form>';
     }
 
-/*
-    <input type="checkbox" class="btn-check" id="btn-check2" checked autocomplete="off" />
-    <label class="btn btn-primary" for="btn-check2">Checkbox button</label>
-*/
     private static function Prompt_Checkbox(array $array = array(), bool $bool = false): string
     {
         self::setDUser();
@@ -128,16 +124,11 @@ class Huntgroups extends \Page_Handlers\sAdministrative
         $HGUsers = self::$dCombined->Select(array('huntgroupId' => (int)$array['dp']), 'Huntgroup_Members')[0];
         $returnString = '
         <div class="form-group col-12">
-            <label for="userSelectForHuntgroup">Felhasználók</label>
-            <select multiple '.(($bool)?' disabled':'').' class="form-control" id="userSelectForHuntgroup">
+            <label for="admHuntgroupsEdit">Felhasználók</label>
+            <select multiple '.(($bool)?' disabled':'').' class="form-control" id="admHuntgroupsEdit-userCheckbox">
         ';
 
         foreach($AllUsers as $i) {
-            /*$returnString .= '
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="btn-user-'.$i['userId'].'"'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' checked':'').(($bool)?' disabled':'').' autocomplete="off" />
-                    <label class="form-check-label" for="btn-user-'.$i['userId'].'">'.$i['userName'].'</label>
-                </div>';*/
             $returnString .= '
                 <option value="'.$i['userId'].'"'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' selected':'').'>'.$i['userName'].'</option>
             ';

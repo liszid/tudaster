@@ -166,7 +166,18 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                 for (let k = 0; k < innerArray.length; k++) {
                                     let innerArrayObjectName = (innerArray[k].id.split("-"))[1];
                                     if (! innerArrayObjectName.includes("pWord")) {
-                                        returnString = returnString.concat("&" + innerArrayObjectName + "=" + innerArray[k].value);
+                                        if (innerArrayObjectName.includes("Checkbox")) {
+                                            let arrayOfSelectedOptions = innerArray[k].selectedOptions;
+                                            returnString = returnString.concat("&" + innerArrayObjectName + "=");
+                                            for (let o = 0; o < arrayOfSelectedOptions.length; o++) {
+                                                returnString = returnString.concat(arrayOfSelectedOptions[o].value);
+                                                if (o < arrayOfSelectedOptions.length -1) {
+                                                    returnString = returnString.concat(",");
+                                                }
+                                            }
+                                        } else {
+                                            returnString = returnString.concat("&" + innerArrayObjectName + "=" + innerArray[k].value);
+                                        }
                                     } else {
                                         returnString = returnString.concat("&" + innerArrayObjectName + "=" + _self.MD5(innerArray[k].value));
                                     }
