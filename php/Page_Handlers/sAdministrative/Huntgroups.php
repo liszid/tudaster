@@ -121,18 +121,18 @@ class Huntgroups extends \Page_Handlers\sAdministrative
         self::setDCombined();
 
         $AllUsers = self::$dUser->Select(array(), 'All');
-        $HGUsers = self::$dCombined->Select(array('huntgroupId' => (int)$array['dp']), 'Huntgroup_Members')[0];
+        $HGUsers = self::$dCombined->Select(array('huntgroupId' => (int)$array['dp']), 'Huntgroup_Members');
         $returnString = '
-        <div class="form-group col-12">
+        <div class="form-group col-12 h-100">
             <label for="admHuntgroupsEdit">Felhasználók</label>
-            <select multiple '.(($bool)?' disabled':'').' class="form-control" id="admHuntgroupsEdit-userCheckbox">
+            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="admHuntgroupsEdit-userCheckbox">
         ';
 
         foreach($AllUsers as $i) {
             $returnString .= '
-                <option value="'.$i['userId'].'"'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) > 0)?' selected':'').'>'.$i['userName'].'</option>
-            ';
-
+                <option'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) !== false )?' selected':'').' value="'.$i['userId'].'">
+                    '.$i['userName'].'
+                </option>';
         }
 
         $returnString .= '
