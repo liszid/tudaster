@@ -15,10 +15,12 @@ use PreLoad\{
 class dHuntgroup implements iData
 {
     private static $dbHuntgroup;
+    private static $dHuntgroup_Member;
 
     public function __construct()
     {
         self::$dbHuntgroup = new dbHuntgroup();
+        self::$dHuntgroup_Member = new dHuntgroup_Member();
     }
 
     public static function Insert(array $array = array()): bool
@@ -35,9 +37,54 @@ class dHuntgroup implements iData
     {
         if(isset($array['userCheckbox']) && ! empty($array['userCheckbox'])) {
             $userIdArray = explode(',', $array['userCheckbox']);
-            Log::Export($userIdArray);
+            $memberIdArray = self::$dHuntgroup_Member->Select($array, 'byHuntgroupId');
+            Log::Export($memberIdArray);
+
+            if (empty($memberIdArray)) {
+                foreach ($userIdArray as $UId) {
+                    if (! empty($UId)) {
+                        self::$dHuntgroup_Member->Insert( array( "huntgroupId" => $array['huntgroupId'], "userId" => $UId));
+                    }
+                }
+            } elseif ($memberIdArray) {
+                $newArray = array();
+                $oldArray = array();
+
+                foreach ($userIdArray as $i) {
+                    if (! empty($i)) {
+                        $newArray[] = $i;
+                    }
+                }
+
+                foreach ($memberIdArray as $i) {
+                    $oldArray[] = $i['userId'];
+                }
+
+                $oldDiff = (($var =array_diff($oldArray, $newArray)) !== array())? $var : false;
+                $newDiff = (($var =array_diff($newArray, $oldArray)) !== array())? $var : false;
+
+
+                if ($oldDiff) {
+                    foreach ($oldDiff as $i) {
+                        if (! self::$dHuntgroup_Member->Delete(array('huntgroupId' => $array['huntgroupId'], 'userId' => $i))) {
+                            return false;
+                        }
+                    }
+                }
+                if ($newDiff) {
+                    foreach ($newDiff as $i) {
+                        if (! self::$dHuntgroup_Member->Insert(array('huntgroupId' => $array['huntgroupId'], 'userId' => $i))) {
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                return false;
+            }
         }
-        return self::$dbHuntgroup->Update($array, $type);
+
+        self::$dbHuntgroup->Update($array, $type);
+        return true;
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

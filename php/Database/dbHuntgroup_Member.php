@@ -45,20 +45,14 @@ class dbHuntgroup_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
+        if (! strcmp($type, 'All')) {
             $tempArray = array();
-        } elseif (strcmp($type, 'byHuntroupId') === 0) {
-            $tempArray = array(
-                            'huntgroupId'
-                        );
-        } elseif (strcmp($type, 'byHuntgroupMemberId') === 0) {
-            $tempArray = array(
-                            'huntgroupMemberId'
-                        );
-        } elseif (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array(
-                            'userId'
-                        );
+        } elseif (! strcmp($type, 'byHuntgroupId')) {
+            $tempArray = array('huntgroupId');
+        } elseif (! strcmp($type, 'byHuntgroupMemberId')) {
+            $tempArray = array('huntgroupMemberId');
+        } elseif (! strcmp($type, 'byUserId')) {
+            $tempArray = array('userId');
         } else {
             return array();
         }
@@ -125,7 +119,8 @@ class dbHuntgroup_Member extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Delete'],
                         'vNames' => array(
-                            'huntgroupMemberId'
+                            'huntgroupId'
+                            ,'userId'
                         ),
                         'vData' => $array
                     )
