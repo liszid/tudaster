@@ -32,6 +32,7 @@ class dbAccess extends Table implements iDatabase
                             'hardwareId'
                             ,'accessUsername'
                             ,'accessPassword'
+                            ,'userId'
                         ),
                         'vData' => $array
                     )

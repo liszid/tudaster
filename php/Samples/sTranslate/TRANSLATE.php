@@ -26,7 +26,8 @@ interface TRANSLATE
                 ,'addButton' => true
                 ,'title' => ''
                 ,'content' => '
-                    <p>Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve csoportja a 2-es ID-val rendelkezö "Default" csoport</p>
+                    <p>Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve jogosultsága a 2-es ID-val rendelkezö "Default" jogosultsági kör</p>
+                    <b>Felhasználói jogosultságkörének változtatása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
                     <b>Felhasználói jelszó alaphelyzetbe állítása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-undo" aria-hidden="true"></i></a><br />
                     <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                 )

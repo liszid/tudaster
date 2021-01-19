@@ -254,9 +254,11 @@ $GLOBALS['Database']['Table']['Create'] = array(
             accessUsername VARCHAR(128) NULL DEFAULT 0,
             accessPassword VARCHAR(128) NULL DEFAULT 0,
             accessGroupTags VARCHAR(256) NULL DEFAULT 0,
+            userId INT(6) UNSIGNED NOT NULL,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyAccess PRIMARY KEY (accessId),
-            CONSTRAINT accessHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
+            CONSTRAINT accessHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
+            CONSTRAINT accessUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
 );

@@ -16,17 +16,11 @@ interface ADMIN_USERS
             ,"groupName" => array("text" => "Jogosultság", "tooltip" => "")
             ,"groupDesc" => array("text" => "Jogosultság leírás", "tooltip" => "")
             ,"userContEmail" => array("text" => "E-mail", "tooltip" => "")
-/*
-            "userLastName" => array("text" => "Vezetéknév", "tooltip" => ""),
-            "userFirstName" => array("text" => "Keresztnév", "tooltip" => ""),
-            "userContSite" => array("text" => "Telephely", "tooltip" => ""),
-            "userContPhone" => array("text" => "Telefon", "tooltip" => "")
-*/
         )
         ,"button" => array(
-            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 1)
+            array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Jogosultság kör módosítása', 'level' => 1)
             ,array('color' => 'warning', 'fa' => 'undo', 'action' => 'Reset', 'tooltip' => 'Jelszó helyreállítás', 'level' => 1)
-            ,array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 1)
+            ,array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Fiók töröltté állítása', 'level' => 1)
         )
     );
 }

@@ -255,9 +255,11 @@ $GLOBALS['Database'][15]['Insert'] = "
         hardwareId
         ,accessUsername
         ,accessPassword
+        ,userId
     ) VALUES (
         :hardwareId
         ,:accessUsername
         ,:accessPassword
+        ,:userId
     );
 ";
