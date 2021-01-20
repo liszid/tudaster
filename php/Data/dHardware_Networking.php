@@ -23,6 +23,7 @@ class dHardware_Networking extends Data implements iData
         ,array('key' => 'hardwareSerial', 'type' => 2)
         ,array('key' => 'hardwareMAC', 'type' => 2)
         ,array('key' => 'hardwareIP', 'type' => 2)
+        ,array('key' => 'userId', 'type' => 3)
         ,array('key' => 'companySiteId', 'type' => 3)
         ,array('key' => 'hardwareType', 'type' => 2)
     );

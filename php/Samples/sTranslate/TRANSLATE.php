@@ -287,8 +287,28 @@ interface TRANSLATE
             ,"card" => "Laptop adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Laptop/Add" => array(
@@ -327,8 +347,28 @@ interface TRANSLATE
             ,"card" => "Számítógép adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Computer/Add" => array(
@@ -367,8 +407,28 @@ interface TRANSLATE
             ,"card" => "Szerver adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Server/Add" => array(
@@ -407,8 +467,28 @@ interface TRANSLATE
             ,"card" => "Vagyonvédelmi eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Security/Add" => array(
@@ -447,8 +527,28 @@ interface TRANSLATE
             ,"card" => "Nyomtató adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Printer/Add" => array(
@@ -487,8 +587,28 @@ interface TRANSLATE
             ,"card" => "Hálózati eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
                 ,'title' => ''
-                ,'content' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
             )
     	)
     	,"Hardware/Networking/Add" => array(
@@ -538,11 +658,16 @@ interface TRANSLATE
                 ,'addButton' => true
                 ,'title' => ''
                 ,'content' => '
+                    Ezen a felületen vehetjük fel a partnereket, ügyfeleket, akikhez később telephelyeket, hardvereket és hozzáféréseket társíthatunk.<br />
+                    <br />
+                    <b>Cég neve:</b> A cégnek a megnevezése/bejegyzett neve<br />
+                    <b>Cég leírása:</b> Megjegyzés a cégről, példuál: "Logisztikai cég", "Szolgáltató" stb.<br />
                     <b>T. K. Név:</b> Cég tulajdonos keresztneve<br />
                     <b>T. V. Név:</b> Cég tulajdonos vezetékneve<br />
                     <b>Város:</b> Cég központ címe: Város<br />
                     <b>IRSZ:</b> Cég központ címe: Irányítószám<br />
                     <b>Utca:</b> Cég központ címe: Utca, házszám<br />
+                    <br />
                     <b>Adatok megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
                     <b>Cég szerkesztése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
                     <b>Eltávolítás:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
@@ -596,16 +721,29 @@ interface TRANSLATE
                 ,'addButton' => true
                 ,'title' => ''
                 ,'content' => '
-                    <b>T.hely név:</b> Telephely neve<br />
-                    <b>T.hely típus:</b> Telephely típusa<br />
-                    <b>Város: Telephely címe:</b> Város<br />
-                    <b>IRSZ: Telephely címe:</b> Irányítószám<br />
-                    <b>Utca: Telephely címe:</b> Utca, házszám<br />
-                    <b>Telefonszám:</b> Telephely telefonszáma<br />
-                    <b>E-mail:</b> Telephely e-mail címe<br />
-                    <b>Adatok megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
-                    <b>Telephely szerkesztése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
-                    <b>Eltávolítás:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                    Ezen a felületen vehetünk fel partnerekhez, ügyfelekhez tartozó telephelyeket, kirendeltségeket.<br />
+                    <br />
+                    <b>Cég neve:</b> A cégnek a megnevezése/bejegyzett neve<br />
+                    <b>Cég leírása:</b> Megjegyzés a cégről, példuál: "Logisztikai cég", "Szolgáltató" stb.<br />
+                    <b>T. K. Név:</b> Cég tulajdonos keresztneve<br />
+                    <b>T. V. Név:</b> Cég tulajdonos vezetékneve<br />
+                    <b>T.hely név</b>: Telephely neve<br />
+                    <b>T.hely típus</b>: Telephely típusa<br />
+                    <b>Város</b>: Telephely városa<br />
+                    <b>IRSZ</b>: Telephely irányítószáma<br />
+                    <b>Utca</b>: Telephely utca, házszáma<br />
+                    <b>Telefonszám</b>: Telephely telefonszáma<br />
+                    <b>E-mail</b>: Telephely e-mail címe<br />
+                    <br />
+                    Továbbá megadható még a Telephely vezetőjének és vezető helyettesének az alábbi adatai: <br />
+                    <b>Keresztnév:</b> Telephely vezető/vezető helyettes keresztneve<br />
+                    <b>Vezetékév:</b> Telephely vezető/vezető helyettes vezetékneve<br />
+                    <b>Telefonszám</b>: Telephely vezető/vezető helyettes telefonszáma<br />
+                    <b>E-mail</b>: Telephely vezető/vezető helyettes e-mail címe<br />
+                    <br />
+                    <b>Adatok megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Telephely szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítás</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
                 '
             )
     	)

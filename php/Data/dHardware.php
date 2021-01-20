@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Data;
 
-use Database\dbHardware;
-
 use PreLoad\{
     Log,
     Check,
     Valid
 };
+
+use Database\dbHardware;
+
+use Samples\sActivity;
 
 class dHardware implements iData
 {
@@ -23,7 +25,12 @@ class dHardware implements iData
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbHardware->Insert($array);
+        $returnData = self::$dbHardware->Insert($array);
+
+        $dCombined = new dCombined();
+        sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+        return $returnData;
     }
 
     public static function Select(array $array = array(), string $type = ''): array

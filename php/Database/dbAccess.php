@@ -51,6 +51,8 @@ class dbAccess extends Table implements iDatabase
             $tempArray = array();
         } elseif (! strcmp($type, 'byAccessId')) {
             $tempArray = array('accessId');
+        } elseif (! strcmp($type, 'byUserId')) {
+            $tempArray = array('userId');
         } else {
             return array();
         }

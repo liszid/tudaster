@@ -12,6 +12,8 @@ use PreLoad\{
 
 use Database\dbCompany_Site;
 
+use Samples\sActivity;
+
 class dCompany_Site implements iData
 {
     private static $dbCompany_Site;
@@ -39,7 +41,12 @@ class dCompany_Site implements iData
                     && isset ($array['companySiteTypeId'])
                     && Valid::vInput($array['companySiteTypeId'], 3)
                 ) {
-                     return self::$dbCompany_Site->Insert($array);
+                    $returnData = self::$dbCompany_Site->Insert($array);
+
+                    $dCombined = new dCombined();
+                    sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+                    return $returnData;
                 }
             }
         }

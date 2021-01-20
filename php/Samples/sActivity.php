@@ -12,6 +12,10 @@ use PreLoad\{
 
 use Data\{
     dCombined
+    ,dCompany
+    ,dCompany_Site
+    ,dAccess
+    ,dHardware
 };
 
 class sActivity
@@ -58,11 +62,16 @@ class sActivity
  */
     public static function Activity(int $userId = 0): array
     {
+        $dCompany = new dCompany();
+        $dCompany_Site = new dCompany_Site();
+        $dAccess = new dAccess();
+        $dHardware = new dHardware();
+
         return array(
             'actKnowledges' => '0',
-            'actAccesses' => '0',
-            'actHardwares' => '0',
-            'actCompanies' => '0',
+            'actAccesses' => count($dAccess->Select(array("userId" => $userId), "byUserId")),
+            'actHardwares' => count($dHardware->Select(array("userId" => $userId), "byUserId")),
+            'actCompanies' => count($dCompany->Select(array("userId" => $userId), "byUserId")) + count($dCompany_Site->Select(array("userId" => $userId), "byUserId")),
         );
     }
 

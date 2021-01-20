@@ -835,7 +835,14 @@ $GLOBALS['Database'][5]['Select'] = array(
             companyId
             ,companyName
         FROM
+            `Company`"
+    ,'byUserId' => "
+        SELECT
+            userId
+        FROM
             `Company`
+        WHERE
+            userId=:userId
     "
 );
 
@@ -867,6 +874,13 @@ $GLOBALS['Database'][7]['Select'] = array(
             `Company_Site`
         WHERE
             companySiteId=:companySiteId"
+    ,'byUserId' => "
+        SELECT
+            userId
+        FROM
+            `Company_Site`
+        WHERE
+            userId=:userId"
 );
 
 
@@ -898,8 +912,14 @@ $GLOBALS['Database'][8]['Select'] = array(
             `Hardware`
         WHERE
             userId=:userId
-        ORDER BY hardwareId DESC LIMIT 1
-    "
+        ORDER BY hardwareId DESC LIMIT 1"
+    ,'byUserId' => "
+        SELECT
+            userId
+        FROM
+            `Hardware`
+        WHERE
+            userId=:userId"
 );
 
 $GLOBALS['Database'][9]['Select'] = array(
@@ -1010,6 +1030,12 @@ $GLOBALS['Database'][15]['Select'] = array(
         FROM
             `Access`
         WHERE
-            accessId=:accessId
-    "
+            accessId=:accessId"
+    ,'byUserId' => "
+        SELECT
+            userId
+        FROM
+            `Access`
+        WHERE
+            userId=:userId"
 );

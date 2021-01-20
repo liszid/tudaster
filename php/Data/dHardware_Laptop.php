@@ -19,6 +19,7 @@ class dHardware_Laptop extends Data implements iData
 
     const INSERT = array(
         array('key' => 'hardwareName', 'type' => 2)
+        ,array('key' => 'userId', 'type' => 3)
         ,array('key' => 'hardwareDesc', 'type' => 2)
         ,array('key' => 'hardwareSerial', 'type' => 2)
         ,array('key' => 'hardwareMAC', 'type' => 2)

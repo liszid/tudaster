@@ -46,14 +46,15 @@ class dbCompany extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (! strcmp($type, 'All')) {
+        if (
+            ! strcmp($type, 'All')
+            || ! strcmp($type, 'forCompanySelect')
+        ) {
             $tempArray = array();
         } elseif (! strcmp($type, 'byCompanyId')) {
-            $tempArray = array(
-                'companyId'
-            );
-        } elseif (! strcmp($type, 'forCompanySelect')) {
-            $tempArray = array();
+            $tempArray = array('companyId');
+        } elseif (! strcmp($type, 'byUserId')) {
+            $tempArray = array("userId");
         } else {
             return array();
         }

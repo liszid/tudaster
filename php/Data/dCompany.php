@@ -12,6 +12,8 @@ use PreLoad\{
 
 use Database\dbCompany;
 
+use Samples\sActivity;
+
 class dCompany implements iData
 {
     private static $dbCompany;
@@ -35,7 +37,12 @@ class dCompany implements iData
                 || Valid::vInput($array['companyDesc'], 2)
             )
         ) {
-            return self::$dbCompany->Insert($array);
+            $returnData = self::$dbCompany->Insert($array);
+
+            $dCombined = new dCombined();
+            sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+            return $returnData;
         }
 
         return false;

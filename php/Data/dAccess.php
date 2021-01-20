@@ -12,6 +12,8 @@ use PreLoad\{
     Valid
 };
 
+use Samples\sActivity;
+
 class dAccess implements iData
 {
     private static $dbAccess;
@@ -50,7 +52,12 @@ class dAccess implements iData
     {
         $array['accessPassword'] = self::Encode($array['accessPassword']);
 
-        return self::$dbAccess->Insert($array);
+        $returnData = self::$dbAccess->Insert($array);
+
+        $dCombined = new dCombined();
+        sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+        return $returnData;
     }
 
     public static function Select(array $array = array(), string $type = ''): array
