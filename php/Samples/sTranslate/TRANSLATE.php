@@ -26,16 +26,28 @@ interface TRANSLATE
                 ,'addButton' => true
                 ,'title' => ''
                 ,'content' => '
-                    <p>Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve jogosultsága a 2-es ID-val rendelkezö "Default" jogosultsági kör</p>
-                    <b>Felhasználói jogosultságkörének változtatása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve jogosultsága a 2-es ID-val rendelkezö "Alapértelmezett" jogosultsági kör<br />
+                    <br />
+                    <b>Bejelentkezési név: </b>A felhasználó felhasználói neve<br />
+                    <b>E-mail cím: </b>A felhasználói fiókhoz tartozó e-mail fiók, amelyre a későbbiekben értesítéseket is lehet küldeni<br />
+                    <b>Jogosultsági kör: </b>Az aktuális/kiválasztott jogosultsági köre a felhasználónak<br />
+                    <br />
+                    <b>Felhasználó jogosultsági körének megváltoztatása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
                     <b>Felhasználói jelszó alaphelyzetbe állítása: </b><a class="btn btn-warning btn-sm"><i class="fa fa-undo" aria-hidden="true"></i></a><br />
                     <b>Felhasználói fiók törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
-                )
+            )
     	)
+    	,"Administrative/Users/Add" => array(
+            "navbar" => "Felhasználó hozzáadása"
+            ,"fa" => "user"
+            ,"title" => "Új felhasználó hozzáadása"
+            ,"help" => ""
+            ,"card" => ""
+        )
     	,"Administrative/Users/Edit" => array(
             "navbar" => "Jogosultsági kör kezelése"
             ,"fa" => "user"
-            ,"title" => "Jogosultsági kör kezelése"
+            ,"title" => "Felhasználó jogosultsági körének kezelése"
             ,"help" => ""
             ,"card" => ""
         )
@@ -65,26 +77,40 @@ interface TRANSLATE
                 ,'addButton' => true
                 ,'title' => ''
                 ,'content' => '
-                    <b>cA</b> - Adminisztrativ engedély<br />
-                    <b>mU</b> - Felhasználók kezelése<br />
-                    <b>mG</b> - Felhasználói jogosultságok kezelése<br />
-                    <b>mM</b> - Felhasználói jogosiltsági tagságok szerkesztése<br />
-                    <b>mHGG</b> - Felhasználói csoportok kezelése<br />
-                    <b>mHGM</b> - Felhasználói csoport tagságok szerkesztése<br />
-                    <b>mT</b> - Adminisztratív eszközök kezelése<br />
-                    <b>cUs</b> - Regisztráltak megtekintése  <br />
-                    <b>cC</b> - Cégek jogosultság <br />
-                    <b>cK</b> - Tudáscikkek jogosultság <br />
-                    <b>cUn</b> - Hozzáférések alap jogosultság <br />
-                    <b>cP</b> - Hozzáférések emelt jogosultság <br />
-                    <b>cH</b> - Hardver jogosultság <br />
-                    <b>cE</b> - Profil szerkesztés <br />
-                    <b>cL</b> - Bejelentkezés <br />
+                    <b>Állítható engedélyek, jogkörök</b> <br />
                     <br />
+                    <b>Adminisztrativ engedély</b> - A felhasználó láthat minden bejegyzést, és szerkesztheti őket<br />
+                    <b>Felhasználók kezelése</b> - Felhasználók létrehozása, csoportba helyezése, jelszavak helyreállítása<br />
+                    <b>Felhasználói jogosultságok kezelése</b> - Jogosultság körök létrehozása, kezelése<br />
+                    <b>Felhasználói csoportok kezelése</b> - Felhasználói csoportok létrehozása, kezelése<br />
+                    <b>Adminisztratív eszközök kezelése</b> - Speciális adminisztratív funkciók elérése<br />
+                    <b>Regisztrált felhasználók  felületének megtekintése</b> - Regisztrált felhasználók nyilvános adatainak megtekintése<br />
+                    <b>Ügyfelek és telephelyek  felületének jogosultsága</b> - Ügyfelek és telephelyek hozzáadása, kezelése<br />
+                    <b>Tudáscikkek jogosultság</b> - Tudáscikkek hozzáadása, kezelése<br />
+                    <b>Hozzáférések felületének jogosultsága</b> - Hozzáférési adatok hozzáadása, kezelése<br />
+                    <b>Hardverek felületének jogosultsága</b> - Hardverek hozzáadása, kezelése<br />
+                    <b>Profil szerkesztése</b> - A felhasználó szerkesztheti-e saját profilját<br />
+                    <b>Bejelentkezés</b> - Felhasználó aktív állapota, ha ez tiltott, akkor a felhasználó inaktív<br />
+                    <br />
+                    <b>Adatok megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
                     <b>Jogosultsági kör szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a> <br />
                     <b>Jogosultsági kör törlése: </b><a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                 )
     	)
+    	,"Administrative/Groups/Add" => array(
+            "navbar" => "Jogosultsági kör hozzáadása"
+            ,"fa" => "users"
+            ,"title" => "Jogosultsági kör hozzáadása"
+            ,"help" => ""
+            ,"card" => ""
+        )
+    	,"Administrative/Groups/View" => array(
+            "navbar" => "Jogosultsági kör megtekintése"
+            ,"fa" => "users"
+            ,"title" => "Jogosultsági kör megtekintése"
+            ,"help" => ""
+            ,"card" => ""
+        )
     	,"Administrative/Groups/Edit" => array(
             "navbar" => "Jogosultsági kör szerkesztése"
             ,"fa" => "users"
@@ -99,34 +125,6 @@ interface TRANSLATE
             ,"help" => ""
             ,"card" => ""
         )
-    	,"Administrative/Membership" => array(
-    	    "navbar" => "Jogosultsági tagságok"
-    	    ,"fa" => "vcard"
-    	    ,"title" => "Jogosultsági tagságok kezelése"
-    	    ,"help" => "Jogosultsági tagságok kezeléséhez kattintson a menüsorban az 'Admin' gombra és ott válassza a 'Tagságok' menüpontot"
-            ,"card" => "Jogosultsági tagságok szerkesztéséhez kattintson a kártyára"
-            ,"info" => array(
-                'color' => 'success'
-                ,'header' => 'Információ'
-                ,'title' => ''
-                ,'content' => '
-                    <b>Jogosultsági tagság szerkesztése: </b><a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
-            )
-    	)
-    	,"Administrative/Membership/Edit" => array(
-            "navbar" => "Jogosultság tagság szerkesztése"
-            ,"fa" => "vcard"
-            ,"title" => "Jogosultság tagság szerkesztése"
-            ,"help" => ""
-            ,"card" => ""
-        )
-        ,"Administrative/Membership/Delete" => array(
-            "navbar" => "Jogosultság tagság törlése"
-            ,"fa" => "vcard"
-            ,"title" => "Jogosultság tagság törlése"
-            ,"help" => ""
-            ,"card" => ""
-        )
         ,"Administrative/Huntgroups" => array(
     	    "navbar" => "Csoportok"
     	    ,"fa" => "users"
@@ -138,9 +136,24 @@ interface TRANSLATE
                 ,'header' => 'Információ'
                 ,'addButton' => true
                 ,'title' => ''
-                ,'content' => ''
-                )
+                ,'content' => '
+                    Ezen a felületen történik a csoportok létrehozása, és a csoporttagságok hozzárendelése.<br />
+                    Szerkesztéskor a Csoport nevét, leírását és tagjait lehet módosítani.<br />
+                    A csoport tagok hozzárendelésekor a CTRL /SHIFT billentyűk segítenek abban, hogy több felhasználót is kilehessen jelölni.<br />
+                    <br />
+                    <b>Csoport adatainak megtekintése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Csoport szerkesztése:</b> <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítás:</b> <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
+            )
     	)
+    	,"Administrative/Huntgroups/Add" => array(
+            "navbar" => "Csoport hozzáadása"
+            ,"fa" => "users"
+            ,"title" => "Csoport hozzáadása"
+            ,"help" => ""
+            ,"card" => ""
+        )
     	,"Administrative/Huntgroups/Edit" => array(
             "navbar" => "Csoport szerkesztése"
             ,"fa" => "users"
@@ -176,6 +189,13 @@ interface TRANSLATE
                     <b>Adatbázis törlése: </b> Eldobja az aktuális adatbázist, és újra építi
                 '
             )
+    	)
+    	,"Administrative/Tools/Delete" => array(
+    	    "navbar" => "Adatbázis újraépítése"
+    	    ,"fa" => "wrench"
+    	    ,"title" => "Adatbázis újraépítése"
+    	    ,"help" => ""
+            ,"card" => ""
     	)
     	,"Users" => array(
     	    "navbar" => "Felhasználók"

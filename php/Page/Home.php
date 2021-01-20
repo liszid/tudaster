@@ -20,14 +20,12 @@ if (! isset($sessionUsr['userId']) ) {
         <div class="card-columns m-3">
             '.(((int)$sessionUsr['mngUsers'] > 0) ? sCard::Translated('mngUsers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['mngGroups'] > 0) ? sCard::Translated('mngGroups', 'Linked') :'' ).'
-<!--            '.(((int)$sessionUsr['mngMembers'] > 0) ? sCard::Translated('mngMembers', 'Linked') :'' ).' -->
             '.(((int)$sessionUsr['mngHuntgroups'] > 0) ? sCard::Translated('mngHuntgroups', 'Linked') :'' ).'
-            '.(((int)$sessionUsr['mngHGMembers'] > 0) ? sCard::Translated('mngHGMembers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['mngTools'] > 0) ? sCard::Translated('mngTools', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canEdit'] > 0) ? sCard::Translated('canEdit', 'Card') :'' ).'
             '.(((int)$sessionUsr['canUsers'] > 0) ? sCard::Translated('canUsers', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canKnowledge'] > 0) ? sCard::Translated('canKnowledge', 'Linked') :'' ).'
-            '.(((int)$sessionUsr['canUsername'] > 0) ? sCard::Translated('canUsername', 'Linked') :'' ).'
+            '.(((int)$sessionUsr['canAccess'] > 0) ? sCard::Translated('canAccess', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canHardware'] > 0) ? sCard::Translated('canHardware', 'Linked') :'' ).'
             '.(((int)$sessionUsr['canCompany'] > 0) ? sCard::Translated('canCompany', 'Linked') :'' ).'
         </div>';

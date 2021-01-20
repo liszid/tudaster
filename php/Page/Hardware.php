@@ -50,7 +50,7 @@ if (
             if (! strcmp(Check::isPost('z'), 'Filter')) {
                 echo $returnContent;
             } else {
-                echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent));
+                echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent));
             }
 
         } else {

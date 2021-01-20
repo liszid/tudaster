@@ -9,7 +9,7 @@ interface ACCESS_ACCESS
     const ACCESS_ACCESS = array(
         "tableId" => "tableAccessAccess",
         "tableRoot" => "Accesses/Access",
-        "tableRole" => "canPassword",
+        "tableRole" => "canAccess",
         "data" => array(
             "accessId" => array("text" => "Id", "tooltip" => "")
             ,"hardwareId" => array("text" => "Eszk. Id", "tooltip" => "Eszköz azonosító")

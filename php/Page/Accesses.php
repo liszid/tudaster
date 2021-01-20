@@ -16,22 +16,11 @@ use Samples\{
 
 use Page_Handlers\sAccess;
 
-if (
-    isset($sessionUsr['userId'])
-    && (
-        (int)$sessionUsr['canUsername'] > 0
-        || (
-            (int)$sessionUsr['canUsername'] > 0
-            && (int)$sessionUsr['canPassword'] > 0
-        )
-    )
-) {
-
+if (isset($sessionUsr['userId']) && (int)$sessionUsr['canAccess'] > 0) {
     $returnContent = '';
-
     $urlPaths = array(
-                    "Root"          => array("path" => "Accesses",              "role" => "canPassword")
-                    ,"Access"       => array("path" => "Accesses/Access",     "role" => "canPassword")
+                    "Root"          => array("path" => "Accesses",            "role" => "canAccess")
+                    ,"Access"       => array("path" => "Accesses/Access",     "role" => "canAccess")
                 );
 /*
  * Post action handling and form prompt section
@@ -50,7 +39,7 @@ if (
             if (! strcmp(Check::isPost('z'), 'Filter')) {
                 echo $returnContent;
             } else {
-                echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent));
+                echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent));
             }
 
         } else {

@@ -31,14 +31,6 @@ interface ROLE
     	    ,'desc' => 'Jogosultságok kezelése'
     	    ,'select_type' => 'state'
     	)
-        ,'mngMembers' => array(
-    	    'color' => 'success'
-    	    ,'header' => 'Elérhető funkció'
-    	    ,'respective' => 'Administrative/Membership'
-    	    ,'short' => 'mM'
-    	    ,'desc' => 'Joggosultsági tagságok szerkesztése'
-    	    ,'select_type' => 'state'
-    	)
     	,'mngHuntgroups' => array(
     	    'color' => 'success'
     	    ,'header' => 'Elérhet funkció'
@@ -87,15 +79,7 @@ interface ROLE
     	    ,'desc' => 'Tudáscikkek jogosultság'
     	    ,'select_type' => 'access'
     	)
-        ,'canUsername' => array(
-    	    'color' => 'success'
-    	    ,'header' => 'Elérhető funkció'
-    	    ,'respective' => 'Accesses'
-    	    ,'short' => 'cUn'
-    	    ,'desc' => 'Hozzáférések alap jogosultság'
-    	    ,'select_type' => 'access'
-        )
-        ,'canPassword' => array(
+        ,'canAccess' => array(
     	    'color' => 'success'
     	    ,'header' => 'Elérhető funkció'
     	    ,'respective' => 'Accesses'

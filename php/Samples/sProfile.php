@@ -48,7 +48,7 @@ class sProfile implements sProfile\ICONS
                 <hr>
                 <div class="form-group col m-0 p-0">
                     <div class = "col-12 row m-0 p-0">
-                        '.self::Property(array('desc' => "Szerepkör", 'value' => $array['groupName'])).'
+                        '.self::Property(array('desc' => "Jogosultságkör", 'value' => $array['groupName'])).'
                         '.self::Property(array('desc' => "Leírás", 'value' => $array['groupDesc'])).'
                         '.self::Property(array('desc' => "Vezetéknév", 'value' => $array['userLastName'])).'
                         '.self::Property(array('desc' => "Keresztnév", 'value' => $array['userFirstName'])).'

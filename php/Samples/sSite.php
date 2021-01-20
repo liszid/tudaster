@@ -162,7 +162,7 @@ class sSite
                     ,'Desc' => sTranslate::Prompt($navName)
                 );
             }
-            if ((int)self::$sessionUsr['canUsername'] > 0) {
+            if ((int)self::$sessionUsr['canAccess'] > 0) {
                 $navName = "Accesses";
                 $navArray[] = array(
                     'liClass' => ''

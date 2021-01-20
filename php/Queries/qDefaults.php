@@ -52,24 +52,22 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
         groupDesc,
         canAdministrative,
         mngGroups,
-        mngMembers,
         mngHuntgroups,
         mngUsers,
         mngTools,
         canUsers,
         canCompany,
         canKnowledge,
-        canUsername,
-        canPassword,
+        canAccess,
         canHardware,
         canEdit,
         canLogin,
         isDelete
     ) VALUES
-        ('Adminisztrátor',	'Adminisztratív jogosultság',                       1, 1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 1, 1, 0),
-        ('Alapértelmezett', 'Alapértelmezett jogosultság',                      0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 1, 1, 0),
-        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö jogosultság', 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0),
-        ('Törölt',          'Törölt felhasználók jogosultsága',                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
+        ('Adminisztrátor',	'Adminisztratív jogosultság',                       1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 1, 1, 0),
+        ('Alapértelmezett', 'Alapértelmezett jogosultság',                      0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 1, 1, 0),
+        ('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö jogosultság', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0),
+        ('Törölt',          'Törölt felhasználók jogosultsága',                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
 
 $GLOBALS['Database']['Table']['Insert'][2] = "
     INSERT INTO `Group_Member`(

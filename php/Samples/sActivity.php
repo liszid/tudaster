@@ -21,19 +21,18 @@ class sActivity
  * Returns activity modul, or errorLog
  * @param $array array
  * @return string
- *
  * @author Liszi Dániel
  * @since 2020.10.05
  */
-    public static function Prompt (array $array = array()): string //getSampleActivities
+    public static function Prompt (array $array = array()): string
     {
         if (isset($array)) {
             $prompt = '';
             $elementArray = array(
-                array("desc" => "Tudáscikk", "data" => $array['actKnow'])
-                ,array("desc" => "Hozzáférés", "data" => $array['actPass'])
-                ,array("desc" => "Hardver", "data" => $array['actHard'])
-                ,array("desc" => "Ügyfél", "data" => $array['actComp'])
+                array("desc" => "Tudáscikk", "data" => $array['actKnowledges'])
+                ,array("desc" => "Hozzáférés", "data" => $array['actAccesses'])
+                ,array("desc" => "Hardver", "data" => $array['actHardwares'])
+                ,array("desc" => "Ügyfél", "data" => $array['actCompanies'])
             );
             foreach ($elementArray as $e) {
                 $prompt .= sElement::User( $e, "Activity");
@@ -54,17 +53,16 @@ class sActivity
  * Returns activity array
  * @param $userId int
  * @return string
- *
  * @author Liszi Dániel
  * @since 2020.10.05
  */
     public static function Activity(int $userId = 0): array
     {
         return array(
-            'actKnow' => '0',
-            'actPass' => '0',
-            'actHard' => '0',
-            'actComp' => '0',
+            'actKnowledges' => '0',
+            'actAccesses' => '0',
+            'actHardwares' => '0',
+            'actCompanies' => '0',
         );
     }
 

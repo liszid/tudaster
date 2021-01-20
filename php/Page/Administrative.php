@@ -43,7 +43,7 @@ if (
             $returnContent = sAdministrative::Action($_POST);
         }
 
-        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'], 'content' => $returnContent)) : sRedirect::Home());
+        echo ((Valid::vString($returnContent))? sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent)) : sRedirect::Home());
 /*
  * Page loading section
  */
