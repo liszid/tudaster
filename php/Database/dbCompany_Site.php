@@ -73,7 +73,6 @@ class dbCompany_Site extends Table implements iDatabase
     public static function Update(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Update'])) {
-            Log::Export($array);
             return (
                 self::qRun(
                     array(
