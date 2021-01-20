@@ -30,6 +30,40 @@ class sCompany
     protected static $dCompany_Site_Type;
     protected static $dCombined;
 
+    const COMPANY = array(
+        array('data' => 'companyId', 'desc' => 'Cég neve', 'type' => 'select', 'tags' => 'View')
+        ,array('data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'type' => 'text', 'tags' => 'View')
+        ,array('data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'type' => 'text', 'tags' => 'View')
+        ,array('data' => 'companyAddressCity', 'desc' => 'Város', 'type' => 'text', 'tags' => 'View')
+        ,array('data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'type' => 'text', 'tags' => 'View')
+        ,array('data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'type' => 'text', 'tags' => 'View')
+    );
+
+    const COMPANY_SITE = array(
+        array( 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteTypeId', 'desc' => 'Telephely típusa', 'type' => 'select', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteDesc', 'desc' => 'Telephely leírása', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteAddressCity', 'desc' => 'Város', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteAddressPostcode', 'desc' => 'Irányítószám', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteAddressStreet', 'desc' => 'Utca, Házszám', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteEmail', 'desc' => 'E-mail cím', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySitePhone', 'desc' => 'Telefonszám', 'type' => 'text', 'tags' => 'Edit,View')
+
+    );
+
+    const COMPANY_SITE_OWNER = array(
+        array( 'data' => 'companySiteOwnerLastName', 'desc' => 'Vezetéknév', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteOwnerFirstName', 'desc' => 'Keresztnév', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteOwnerEmail', 'desc' => 'E-mail cím', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteOwnerPhone', 'desc' => 'Telefonszám', 'type' => 'text', 'tags' => 'Edit,View')
+    );
+
+    const COMPANY_SITE_SUB_OWNER = array(
+        array( 'data' => 'companySiteSubOwnerLastName', 'desc' => 'Vezetéknév', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteSubOwnerFirstName', 'desc' => 'Keresztnév', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteSubOwnerEmail', 'desc' => 'E-mail cím', 'type' => 'text', 'tags' => 'Edit,View')
+        ,array('data' => 'companySiteSubOwnerPhone', 'desc' => 'Telefonszám', 'type' => 'text', 'tags' => 'Edit,View')
+    );
 /*
  * Sets the class variable : dUser
  * @author Liszi Dániel
@@ -155,5 +189,35 @@ class sCompany
 
         $returnString .= sTables::Prompt($Company_Sites, 'Company_Site');
         return $returnString;
+    }
+
+/*
+ * @return array
+ * @author Liszi Dániel
+ * @since 2020.12.16
+ */
+    protected static function Company_Site_Type_Select(): array
+    {
+        self::setDCompany_Site_Type();
+        $tempArray = array();
+        foreach(self::$dCompany_Site_Type->Select(array(), 'All') as $i) {
+            $tempArray[] = array('id' => $i['companySiteTypeId'], 'name' => $i['companySiteTypeName']);
+        }
+        return $tempArray;
+    }
+
+/*
+ * @return array
+ * @author Liszi Dániel
+ * @since 2020.12.16
+ */
+    protected static function Company_Select(): array
+    {
+        self::setDCompany();
+        $tempArray = array();
+        foreach(self::$dCompany->Select(array(), 'forCompanySelect') as $i) {
+            $tempArray[] = array('id' => $i['companyId'], 'name' => $i['companyName']);
+        }
+        return $tempArray;
     }
 }

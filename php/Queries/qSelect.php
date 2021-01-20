@@ -101,7 +101,9 @@ $GLOBALS['Database'][99]['Select'] = array(
     "
     ,'Company_Site_Table' => "
         SELECT
-            `Company_Site`.companySiteId
+            `Company`.companyName
+            ,`Company_Site_Type`.companySiteTypeName
+            ,`Company_Site`.companySiteId
             ,`Company_Site`.companyId
             ,`Company_Site`.userId
             ,`Company_Site`.companySiteName
@@ -120,9 +122,7 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`Company_Site`.companySiteSubOwnerLastName
             ,`Company_Site`.companySiteSubOwnerEmail
             ,`Company_Site`.companySiteSubOwnerPhone
-            ,`Company`.companyName
-            ,`Company_Site_Type`.companySiteTypeName
-            ,`Company_Site_Type`.isDelete
+            ,`Company_Site`.isDelete
         FROM
         (
             (

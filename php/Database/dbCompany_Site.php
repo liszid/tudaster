@@ -73,28 +73,28 @@ class dbCompany_Site extends Table implements iDatabase
     public static function Update(array $array = array(), string $type = ''): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Update'])) {
+            Log::Export($array);
             return (
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
-                            "userId",
-                            "companySiteId",
-                            "companySiteDesc",
-                            "companySiteOwnerFirstName",
-                            "companySiteOwnerLastName",
-                            "companySiteOwnerEmail",
-                            "companySiteOwnerPhone",
-                            "companySiteSubOwnerFirstName",
-                            "companySiteSubOwnerLastName",
-                            "companySiteSubOwnerEmail",
-                            "companySiteSubOwnerPhone",
-                            "companySiteAddressCity",
-                            "companySiteAddressPostcode",
-                            "companySiteAddressStreet",
-                            "companySiteEmail",
-                            "companySitePhone",
-                            "companySiteTypeId"
+                            "companySiteId"
+                            ,"companySiteDesc"
+                            ,"companySiteOwnerFirstName"
+                            ,"companySiteOwnerLastName"
+                            ,"companySiteOwnerEmail"
+                            ,"companySiteOwnerPhone"
+                            ,"companySiteSubOwnerFirstName"
+                            ,"companySiteSubOwnerLastName"
+                            ,"companySiteSubOwnerEmail"
+                            ,"companySiteSubOwnerPhone"
+                            ,"companySiteAddressCity"
+                            ,"companySiteAddressPostcode"
+                            ,"companySiteAddressStreet"
+                            ,"companySiteEmail"
+                            ,"companySitePhone"
+                            ,"companySiteTypeId"
                         ),
                         'vData' => $array
                     )

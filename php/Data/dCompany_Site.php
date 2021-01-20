@@ -60,6 +60,7 @@ class dCompany_Site implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
+    /*
         $checkBool = true;
         $checkArray = array(
             array('key' => 'companySiteDesc', 'type' => 2),
@@ -104,6 +105,8 @@ class dCompany_Site implements iData
         }
 
         return (($checkBool) ? self::$dbCompany_Site->Update($array, $type) : false);
+        */
+        return self::$dbCompany_Site->Update($array, $type);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
