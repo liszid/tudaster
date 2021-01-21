@@ -31,11 +31,6 @@ class dCompany implements iData
                 Valid::vString($array['companyName'])
                 && Valid::vInput($array['companyName'], 2)
             )
-            && isset($array['companyDesc'])
-            && (
-                ! Valid::vString($array['companyDesc'])
-                || Valid::vInput($array['companyDesc'], 2)
-            )
         ) {
             $returnData = self::$dbCompany->Insert($array);
 
@@ -55,7 +50,6 @@ class dCompany implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        $checkBool = true;
         $checkArray = array(
             array('key' => 'companyDesc', 'type' => 2),
             array('key' => 'companyOwnerLastName', 'type' => 2),
@@ -64,32 +58,8 @@ class dCompany implements iData
             array('key' => 'companyAddressPostcode', 'type' => 3),
             array('key' => 'companyAddressStreet', 'type' => 2),
         );
-        foreach ($checkArray as $i) {
-            if (
-                ! isset($array[$i['key']])
-                || (
-                    ! Valid::vInput($array[$i['key']], $i['type'])
-                    && Valid::vString($array[$i['key']])
-                )
-            ) {
-                $checkBool = false;
-            } elseif (
-                isset($array[$i['key']])
-                && ! Valid::vString($array[$i['key']])
-            ) {
-                switch ($i['type']) {
-                    case 2:
-                    case 4:
-                        $array[$i['key']] = '-';
-                        break;
-                    case 3:
-                        $array[$i['key']] = 0;
-                        break;
-                }
-            }
-        }
 
-        return (($checkBool) ? self::$dbCompany->Update($array, $type) : false);
+        return ((true) ? self::$dbCompany->Update($array, $type) : false);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

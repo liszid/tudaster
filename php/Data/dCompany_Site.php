@@ -60,8 +60,6 @@ class dCompany_Site implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-    /*
-        $checkBool = true;
         $checkArray = array(
             array('key' => 'companySiteDesc', 'type' => 2),
             array('key' => 'companySiteAddressCity', 'type' => 2),
@@ -79,34 +77,7 @@ class dCompany_Site implements iData
             array('key' => 'companySiteSubOwnerPhone', 'type' => 3)
         );
 
-        foreach ($checkArray as $i) {
-            if (
-                ! isset($array[$i['key']])
-                || (
-                    ! Valid::vInput($array[$i['key']], $i['type'])
-                    && Valid::vString($array[$i['key']])
-                )
-            ) {
-                $checkBool = false;
-            } elseif (
-                isset($array[$i['key']])
-                && ! Valid::vString($array[$i['key']])
-            ) {
-                switch ($i['type']) {
-                    case 2:
-                    case 4:
-                        $array[$i['key']] = '-';
-                        break;
-                    case 3:
-                        $array[$i['key']] = 0;
-                        break;
-                }
-            }
-        }
-
-        return (($checkBool) ? self::$dbCompany_Site->Update($array, $type) : false);
-        */
-        return self::$dbCompany_Site->Update($array, $type);
+        return ((true) ? self::$dbCompany_Site->Update($array, $type) : false);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

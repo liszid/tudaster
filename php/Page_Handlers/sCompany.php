@@ -40,7 +40,7 @@ class sCompany
     );
 
     const COMPANY_SITE = array(
-        array( 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'type' => 'text', 'tags' => 'Edit,View')
+        array( 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'type' => 'text', 'tags' => 'View')
         ,array('data' => 'companySiteTypeId', 'desc' => 'Telephely típusa', 'type' => 'select', 'tags' => 'Edit,View')
         ,array('data' => 'companySiteDesc', 'desc' => 'Telephely leírása', 'type' => 'text', 'tags' => 'Edit,View')
         ,array('data' => 'companySiteAddressCity', 'desc' => 'Város', 'type' => 'text', 'tags' => 'Edit,View')
@@ -143,9 +143,12 @@ class sCompany
                 $returnContent .= $wclass::Filter($array);
                 break;
         }
-        /*if (Valid::vString($returnContent)) {
+        if (
+            Valid::vString($returnContent)
+            && strcmp($array['z'],'Filter')
+        ) {
             $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
-        }*/
+        }
 
         return $returnContent;
     }

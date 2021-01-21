@@ -27,24 +27,26 @@ class Queries extends Database
     public static function setTableNames(): bool
     {
         self::$tableNames = array(
-            0 => 'User',
-            1 => 'Group',
-            2 => 'Group_Member',
-            3 => 'Huntgroup',
-            4 => 'Huntgroup_Member',
-            5 => 'Company',
-            6 => 'Company_Site_Type',
-            7 => 'Company_Site',
-            8 => 'Hardware',
-            9 => 'Hardware_Laptop',
-            10 => 'Hardware_Computer',
-            11 => 'Hardware_Printer',
-            12 => 'Hardware_Networking',
-            13 => 'Hardware_Server',
-            14 => 'Hardware_Security',
-            15 => 'Access',
-            98 => 'Tools',
-            99 => 'Combined'
+            0 => 'User'
+            ,1 => 'Group'
+            ,2 => 'Group_Member'
+            ,3 => 'Huntgroup'
+            ,4 => 'Huntgroup_Member'
+            ,5 => 'Company'
+            ,6 => 'Company_Site_Type'
+            ,7 => 'Company_Site'
+            ,8 => 'Hardware'
+            ,9 => 'Hardware_Laptop'
+            ,10 => 'Hardware_Computer'
+            ,11 => 'Hardware_Printer'
+            ,12 => 'Hardware_Networking'
+            ,13 => 'Hardware_Server'
+            ,14 => 'Hardware_Security'
+            ,15 => 'Hardware_Member'
+            ,16 => 'Access'
+            ,17 => 'Access_Member'
+            ,98 => 'Tools'
+            ,99 => 'Combined'
         );
         return true;
     }

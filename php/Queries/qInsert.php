@@ -251,6 +251,16 @@ $GLOBALS['Database'][14]['Insert'] = "
 ";
 
 $GLOBALS['Database'][15]['Insert'] = "
+    INSERT INTO `Hardware_Member`(
+        hardwareId
+        ,huntgroupId
+    ) VALUES (
+        :hardwareId
+        ,:huntgroupId
+    );
+";
+
+$GLOBALS['Database'][16]['Insert'] = "
     INSERT INTO `Access`(
         hardwareId
         ,accessUsername
@@ -261,5 +271,15 @@ $GLOBALS['Database'][15]['Insert'] = "
         ,:accessUsername
         ,:accessPassword
         ,:userId
+    );
+";
+
+$GLOBALS['Database'][17]['Insert'] = "
+    INSERT INTO `Access_Member`(
+        accessId
+        ,huntgroupId
+    ) VALUES (
+        :accessId
+        ,:huntgroupId
     );
 ";

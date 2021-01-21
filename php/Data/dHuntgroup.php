@@ -38,7 +38,6 @@ class dHuntgroup implements iData
         if(isset($array['userCheckbox']) && ! empty($array['userCheckbox'])) {
             $userIdArray = explode(',', $array['userCheckbox']);
             $memberIdArray = self::$dHuntgroup_Member->Select($array, 'byHuntgroupId');
-            Log::Export($memberIdArray);
 
             if (empty($memberIdArray)) {
                 foreach ($userIdArray as $UId) {

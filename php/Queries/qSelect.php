@@ -1023,6 +1023,35 @@ $GLOBALS['Database'][15]['Select'] = array(
         SELECT
             *
         FROM
+            `Hardware_Member`"
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Member`
+        WHERE
+            hardwareId=:hardwareId"
+    ,'byHuntgroupId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Member`
+        WHERE
+            huntgroupId=:huntgroupId"
+    ,'byHardwareMemberId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Member`
+        WHERE
+            hardwareMemberId=:hardwareMemberId"
+);
+
+$GLOBALS['Database'][16]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
             `Access`"
     ,'byAccessId' => "
         SELECT
@@ -1038,4 +1067,33 @@ $GLOBALS['Database'][15]['Select'] = array(
             `Access`
         WHERE
             userId=:userId"
+);
+
+$GLOBALS['Database'][17]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM
+            `Access_Member`"
+    ,'byAccessId' => "
+        SELECT
+            *
+        FROM
+            `Access_Member`
+        WHERE
+            accessId=:accessId"
+    ,'byHuntgroupId' => "
+        SELECT
+            *
+        FROM
+            `Access_Member`
+        WHERE
+            huntgroupId=:huntgroupId"
+    ,'byAccessMemberId' => "
+        SELECT
+            *
+        FROM
+            `Access_Member`
+        WHERE
+            accessMemberId=:accessMemberId"
 );
