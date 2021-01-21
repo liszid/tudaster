@@ -48,9 +48,9 @@ class dHardware implements iData
             $groupIdArray = explode(',', $array['huntgroupCheckbox']);
             $memberIdArray = self::$dHardware_Member->Select($array, 'byHardwareId');
 
-            if (empty($memberIdArray) && ! empty($userIdArray)) {
+            if (empty($memberIdArray)) {
                 foreach ($groupIdArray as $GId) {
-                    if (! empty($UId)) {
+                    if (! empty($GId)) {
                         self::$dHardware_Member->Insert( array( "hardwareId" => $array['hardwareId'], "huntgroupId" => $GId));
                     }
                 }

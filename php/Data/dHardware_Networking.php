@@ -74,15 +74,7 @@ class dHardware_Networking extends Data implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        if (
-            self::CheckBool($array, self::INSERT)
-            && self::CheckBool($array, self::UPDATE)
-            && self::CheckBool($array, self::NETWORKING)
-        ) {
-            return (self::$dHardware->Update($array, $type) || self::$dbHardware_Networking->Update($array, $type));
-        }else {
-            return false;
-         }
+        return (self::$dHardware->Update($array, $type) || self::$dbHardware_Networking->Update($array, $type));
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
