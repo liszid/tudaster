@@ -97,6 +97,7 @@ class Computer extends \Page_Handlers\sHardware
                         <div class="col-12 row">'
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwComputerEdit','tag' => 'Edit'),'valueData' => $Hardware_Computer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::COMPUTER, 'staticData' => array('origo' => 'usrHardwComputerEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Computer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .self::Huntgroup_Checkbox($array)
                         .'</div>
                     </div>
                     <div class="form-group">

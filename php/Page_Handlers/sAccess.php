@@ -14,6 +14,7 @@ use Data\{
     dAccess
     ,dCombined
     ,dHardware
+    ,dHuntgroup
 };
 
 use Samples\{
@@ -27,6 +28,7 @@ class sAccess
     protected static $dAccess;
     protected static $dCombined;
     protected static $dHardware;
+    protected static $dHuntgroup;
 
     const ACCESS = array(
         array('data' => 'accessId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
@@ -78,6 +80,16 @@ class sAccess
     protected static function setDHardware()
     {
         self::$dHardware = new dHardware();
+    }
+
+/*
+ * Sets the class variable : dHardware
+ * @author Liszi Dániel
+ * @since 2020.12.07
+ */
+    protected static function setDHuntgroup()
+    {
+        self::$dHuntgroup = new dHuntgroup();
     }
 
 /*
@@ -149,5 +161,42 @@ class sAccess
             $tempArray[] = array('id' => $i['hardwareId'], 'name' => $i['hardwareType'].' - '.$i['hardwareName']);
         }
         return $tempArray;
+    }
+
+/*
+ * @return string
+ * @param $array array
+ * @param $bool bool
+ * @author Liszi Daniel
+ * @since 2021.01.21
+*/
+    private static function Huntgroup_Checkbox(array $array = array(), bool $bool = false): string
+    {
+        self::setDHuntgroup();
+        self::setDCombined();
+/*
+        $AllUsers = self::$dHuntgroup->Select(array(), 'All');
+        $HGUsers = self::$dCombined->Select(array('hardwareId' => (int)$array['dp']), 'Hardware_Members');
+        $returnString = '
+        <div class="form-group col-12 h-100">
+            <label for="admHardware'.(($bool)?'View':'Edit').'">Csoportok</label>
+            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="admHuntgroups'.(($bool)?'View':'Edit').'-huntgroupCheckbox">
+        ';
+
+        foreach($AllUsers as $i) {
+            $returnString .= '
+                <option'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) !== false )?' selected':'').' value="'.$i['userId'].'">
+                    '.$i['userName'].'
+                </option>';
+        }
+
+        $returnString .= '
+            </select>
+          </div>
+        ';
+
+        return $returnString;
+*/
+        return '';
     }
 }

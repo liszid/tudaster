@@ -259,6 +259,31 @@ $GLOBALS['Database'][99]['Select'] = array(
         ON
             `Company`.companyId = `Company_Site`.companyId
     "
+    ,'Hardware_Members' => "
+        SELECT
+            `Hardware_Member`.hardwareMemberId
+            ,`Huntgroup`.huntgroupName
+            ,`Huntgroup`.huntgroupDesc
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareId
+            ,`Hardware_Member`.isDelete
+        FROM
+        (
+            (
+                `Hardware`
+                    INNER JOIN
+                        `Hardware_Member`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Member`.hardwareId
+            )
+            INNER JOIN
+                `Huntgroup`
+            ON
+                `Huntgroup`.huntgroupId = `Hardware_Member`.huntgroupId
+        )
+        WHERE
+            `Hardware`.hardwareId=:hardwareId
+    "
     ,'Hardware_Laptop_Table' => "
         SELECT
             `Hardware`.*

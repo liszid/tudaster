@@ -124,7 +124,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
         $HGUsers = self::$dCombined->Select(array('huntgroupId' => (int)$array['dp']), 'Huntgroup_Members');
         $returnString = '
         <div class="form-group col-12 h-100">
-            <label for="admHuntgroupsEdit">Felhasználók</label>
+            <label for="admHuntgroups'.(($bool)?'View':'Edit').'">Felhasználók</label>
             <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="admHuntgroupsEdit-userCheckbox">
         ';
 
