@@ -97,6 +97,7 @@ class Networking extends \Page_Handlers\sHardware
                         <div class="col-12 row">'
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwNetworkingEdit','tag' => 'Edit'),'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::NETWORKING, 'staticData' => array('origo' => 'usrHardwNetworkingEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Networking,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .self::Huntgroup_Checkbox(array('dp' => $array['dp'], 'origo' => 'usrHardwNetworkingEdit'))
                         .'</div>
                     </div>
                     <div class="form-group">

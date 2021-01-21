@@ -433,8 +433,8 @@ class sHardware
         $HGUsers = self::$dCombined->Select(array('hardwareId' => (int)$array['dp']), 'Hardware_Members');
         $returnString = '
         <div class="form-group col-12 h-100">
-            <label for="admHardware'.(($bool)?'View':'Edit').'">Csoportok</label>
-            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="admHardware'.(($bool)?'View':'Edit').'-huntgroupCheckbox">
+            <label for="'.$array['origo'].'-huntgroupCheckbox">Csoportok</label>
+            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="'.$array['origo'].'-huntgroupCheckbox">
         ';
 
         foreach($AllUsers as $i) {
