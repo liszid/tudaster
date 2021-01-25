@@ -667,6 +667,25 @@ $GLOBALS['Database'][99]['Select'] = array(
                 `Company`.companyId = `Company_Site`.companyId
         )
     "
+    ,'Access_Members' => "
+        SELECT
+            `Access_Member`.accessMemberId
+            ,`Access_Member`.accessId
+            ,`Huntgroup`.huntgroupId
+            ,`Huntgroup`.huntgroupName
+            ,`Huntgroup`.huntgroupDesc
+            ,`Access_Member`.isDelete
+        FROM
+        (
+            `Access_Member`
+            INNER JOIN
+                `Huntgroup`
+            ON
+                `Huntgroup`.huntgroupId = `Access_Member`.huntgroupId
+        )
+        WHERE
+            `Access_Member`.accessId=:accessId
+    "
 );
 
 $GLOBALS['Database'][0]['Select'] = array(

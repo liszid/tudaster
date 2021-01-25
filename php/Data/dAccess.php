@@ -77,9 +77,9 @@ class dAccess implements iData
             $groupIdArray = explode(',', $array['huntgroupCheckbox']);
             $memberIdArray = self::$dAccess_Member->Select($array, 'byAccessId');
 
-            if (empty($memberIdArray) && ! empty($userIdArray)) {
+            if (empty($memberIdArray)) {
                 foreach ($groupIdArray as $GId) {
-                    if (! empty($UId)) {
+                    if (! empty($GId)) {
                         self::$dAccess_Member->Insert( array( "accessId" => $array['accessId'], "huntgroupId" => $GId));
                     }
                 }
@@ -99,7 +99,6 @@ class dAccess implements iData
 
                 $oldDiff = (($var =array_diff($oldArray, $newArray)) !== array())? $var : false;
                 $newDiff = (($var =array_diff($newArray, $oldArray)) !== array())? $var : false;
-
 
                 if ($oldDiff) {
                     foreach ($oldDiff as $i) {

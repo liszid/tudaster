@@ -65,6 +65,8 @@ class dbCombined extends Table implements iDatabase
             $tempArray = array('hardwareSecurityId');
         } elseif (! strcmp($type, 'Hardware_Members')){
             $tempArray = array('hardwareId');
+        } elseif (! strcmp($type, 'Access_Members')){
+            $tempArray = array('accessId');
         } else {
             return array();
         }

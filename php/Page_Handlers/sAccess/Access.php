@@ -101,6 +101,7 @@ class Access extends \Page_Handlers\sAccess
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::ACCESS,'staticData' => array('origo' => 'usrAccessEdit','tag' => 'Edit'),'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')))
+                            .self::Huntgroup_Checkbox(array('dp' => (int)$array['dp'], 'origo' => 'usrAccessEdit'))
                         .'</div>
                     </div>
                     <div class="form-group">

@@ -170,23 +170,24 @@ class sAccess
  * @author Liszi Daniel
  * @since 2021.01.21
 */
-    private static function Huntgroup_Checkbox(array $array = array(), bool $bool = false): string
+    protected static function Huntgroup_Checkbox(array $array = array(), bool $bool = false): string
     {
         self::setDHuntgroup();
         self::setDCombined();
-/*
+
         $AllUsers = self::$dHuntgroup->Select(array(), 'All');
-        $HGUsers = self::$dCombined->Select(array('hardwareId' => (int)$array['dp']), 'Hardware_Members');
+        $HGUsers = self::$dCombined->Select(array('accessId' => (int)$array['dp']), 'Access_Members');
+
         $returnString = '
         <div class="form-group col-12 h-100">
-            <label for="admHardware'.(($bool)?'View':'Edit').'">Csoportok</label>
-            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="admHuntgroups'.(($bool)?'View':'Edit').'-huntgroupCheckbox">
+            <label for="'.$array['origo'].'-huntgroupCheckbox">Csoportok</label>
+            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="'.$array['origo'].'-huntgroupCheckbox">
         ';
 
         foreach($AllUsers as $i) {
             $returnString .= '
-                <option'.((! is_null($HGUsers) && array_search($i['userId'], array_column($HGUsers, 'userId')) !== false )?' selected':'').' value="'.$i['userId'].'">
-                    '.$i['userName'].'
+                <option'.((! is_null($HGUsers) && array_search($i['huntgroupId'], array_column($HGUsers, 'huntgroupId')) !== false )?' selected':'').' value="'.$i['huntgroupId'].'">
+                    '.$i['huntgroupName'].'
                 </option>';
         }
 
@@ -196,7 +197,5 @@ class sAccess
         ';
 
         return $returnString;
-*/
-        return '';
     }
 }
