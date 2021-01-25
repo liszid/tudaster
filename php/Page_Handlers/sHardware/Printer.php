@@ -74,6 +74,7 @@ class Printer extends \Page_Handlers\sHardware
                     <div class="col-12 row">'
                         .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwPrinterView', 'tag' => 'View'), 'valueData' => $Hardware_Printer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                         .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::PRINTER, 'staticData' => array('origo' => 'usrHardwPrinterView', 'tag' => 'View'), 'valueData' => $Hardware_Printer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sElement::General(array('origo' => 'usrHardwPrinterView','data' => 'userName','desc' => 'Hozzáadta','value' => $Hardware_Printer['userName'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';

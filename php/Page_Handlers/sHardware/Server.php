@@ -74,6 +74,7 @@ class Server extends \Page_Handlers\sHardware
                     <div class="col-12 row">'
                         .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::HARDWARE, 'staticData' => array('origo' => 'usrHardwServerView', 'tag' => 'View'), 'valueData' => $Hardware_Server,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                         .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::SERVER, 'staticData' => array('origo' => 'usrHardwServerView', 'tag' => 'View'), 'valueData' => $Hardware_Server,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sElement::General(array('origo' => 'usrHardwServerView','data' => 'userName','desc' => 'Hozzáadta','value' => $Hardware_Server['userName'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';
