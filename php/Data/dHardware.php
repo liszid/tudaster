@@ -58,7 +58,7 @@ class dHardware implements iData
                 $newArray = array();
                 $oldArray = array();
 
-                foreach ($userIdArray as $i) {
+                foreach ($groupIdArray as $i) {
                     if (! empty($i)) {
                         $newArray[] = $i;
                     }
@@ -70,7 +70,6 @@ class dHardware implements iData
 
                 $oldDiff = (($var =array_diff($oldArray, $newArray)) !== array())? $var : false;
                 $newDiff = (($var =array_diff($newArray, $oldArray)) !== array())? $var : false;
-
 
                 if ($oldDiff) {
                     foreach ($oldDiff as $i) {

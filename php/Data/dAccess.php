@@ -80,14 +80,14 @@ class dAccess implements iData
             if (empty($memberIdArray) && ! empty($userIdArray)) {
                 foreach ($groupIdArray as $GId) {
                     if (! empty($UId)) {
-                        self::$dHardware_Member->Insert( array( "accessId" => $array['accessId'], "huntgroupId" => $GId));
+                        self::$dAccess_Member->Insert( array( "accessId" => $array['accessId'], "huntgroupId" => $GId));
                     }
                 }
             } elseif ($memberIdArray) {
                 $newArray = array();
                 $oldArray = array();
 
-                foreach ($userIdArray as $i) {
+                foreach ($groupIdArray as $i) {
                     if (! empty($i)) {
                         $newArray[] = $i;
                     }

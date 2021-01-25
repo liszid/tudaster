@@ -432,8 +432,6 @@ class sHardware
         $AllUsers = self::$dHuntgroup->Select(array(), 'All');
         $HGUsers = self::$dCombined->Select(array('hardwareId' => (int)$array['dp']), 'Hardware_Members');
 
-        Log::Export($HGUsers);
-
         $returnString = '
         <div class="form-group col-12 h-100">
             <label for="'.$array['origo'].'-huntgroupCheckbox">Csoportok</label>
