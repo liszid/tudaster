@@ -432,7 +432,6 @@ class sHardware
         $AllUsers = self::$dHuntgroup->Select(array(), 'All');
         $HGUsers = self::$dCombined->Select(array('hardwareId' => (int)$array['dp']), 'Hardware_Members');
 
-        Log::Export($AllUsers);
         Log::Export($HGUsers);
 
         $returnString = '

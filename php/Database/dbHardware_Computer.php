@@ -58,6 +58,8 @@ class dbHardware_Computer extends Table implements iDatabase
             $tempArray = array();
         } elseif (! strcmp($type, 'byHardwareComputerId')) {
             $tempArray = array("hardwareComputerId");
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }

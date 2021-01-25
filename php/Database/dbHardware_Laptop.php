@@ -50,12 +50,14 @@ class dbHardware_Laptop extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
         if (! strcmp($type, 'All')) {
             $tempArray = array();
         } elseif (! strcmp($type, 'byHardwareLaptopId')){
             $tempArray = array('hardwareLaptopId');
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }

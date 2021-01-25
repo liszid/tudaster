@@ -48,12 +48,14 @@ class dbHardware_Security extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
         if (! strcmp($type, 'All')) {
             $tempArray = array();
         } elseif (! strcmp($type, 'byHardwareSecurityId')) {
             $tempArray = array('hardwareSecurityId');
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }

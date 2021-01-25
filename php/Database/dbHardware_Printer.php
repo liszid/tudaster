@@ -46,12 +46,14 @@ class dbHardware_Printer extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
+        if (! strcmp($type, 'All')) {
             $tempArray = array();
-        } elseif (strcmp($type, 'All') === 0) {
-            $tempArray = array();
+        } elseif (! strcmp($type, 'byHardwarePrinterId')) {
+            $tempArray = array('hardwarePrinterId');
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }

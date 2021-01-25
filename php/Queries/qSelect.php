@@ -262,6 +262,7 @@ $GLOBALS['Database'][99]['Select'] = array(
     ,'Hardware_Members' => "
         SELECT
             `Hardware_Member`.hardwareMemberId
+            ,`Huntgroup`.huntgroupId
             ,`Huntgroup`.huntgroupName
             ,`Huntgroup`.huntgroupDesc
             ,`Hardware`.hardwareName
@@ -961,6 +962,14 @@ $GLOBALS['Database'][9]['Select'] = array(
         WHERE
             hardwareLaptopId=:hardwareLaptopId
     "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Laptop`
+        WHERE
+            hardwareId=:hardwareId
+    "
 );
 
 $GLOBALS['Database'][10]['Select'] = array(
@@ -976,6 +985,14 @@ $GLOBALS['Database'][10]['Select'] = array(
             `Hardware_Computer`
         WHERE
             hardwareComputerId=:hardwareComputerId
+    "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Computer`
+        WHERE
+            hardwareId=:hardwareId
     "
 );
 
@@ -993,6 +1010,14 @@ $GLOBALS['Database'][11]['Select'] = array(
         WHERE
             hardwarePrinterId=:hardwarePrinterId
     "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Printer`
+        WHERE
+            hardwareId=:hardwareId
+    "
 );
 
 $GLOBALS['Database'][12]['Select'] = array(
@@ -1008,6 +1033,14 @@ $GLOBALS['Database'][12]['Select'] = array(
             `Hardware_Networking`
         WHERE
             hardwareNetworkingId=:hardwareNetworkingId
+    "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Networking`
+        WHERE
+            hardwareId=:hardwareId
     "
 );
 
@@ -1025,6 +1058,14 @@ $GLOBALS['Database'][13]['Select'] = array(
         WHERE
             hardwareServerId=:hardwareServerId
     "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Server`
+        WHERE
+            hardwareId=:hardwareId
+    "
 );
 
 $GLOBALS['Database'][14]['Select'] = array(
@@ -1040,6 +1081,14 @@ $GLOBALS['Database'][14]['Select'] = array(
             `Hardware_Security`
         WHERE
             hardwareSecurityId=:hardwareSecurityId
+    "
+    ,'byHardwareId' => "
+        SELECT
+            *
+        FROM
+            `Hardware_Security`
+        WHERE
+            hardwareId=:hardwareId
     "
 );
 

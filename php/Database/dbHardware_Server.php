@@ -52,12 +52,14 @@ class dbHardware_Server extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
         if (! strcmp($type, 'All')) {
             $tempArray = array();
         } elseif (! strcmp($type, 'byHardwareServerId')) {
             $tempArray = array("hardwareServerId");
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }

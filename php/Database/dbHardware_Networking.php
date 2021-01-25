@@ -54,6 +54,8 @@ class dbHardware_Networking extends Table implements iDatabase
             $tempArray = array();
         } elseif (! strcmp($type, 'byHardwareNetworkingId')) {
             $tempArray = array('hardwareNetworkingId');
+        } elseif (! strcmp($type, 'byHardwareId')) {
+            $tempArray = array("hardwareId");
         } else {
             return array();
         }
