@@ -356,11 +356,19 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`Company`.companyName
             ,`Company_Site`.companySiteName
             ,`User`.userName
+            ,`Access`.isDelete
         FROM `Access`
         INNER JOIN `Hardware` USING (hardwareId)
         INNER JOIN `User` ON `User`.userId = `Access`.userId
         INNER JOIN `Company_Site` USING (companySiteId)
-        INNER JOIN `Company` USING (companyId)"
+        INNER JOIN `Company` USING (companyId)
+        LEFT JOIN `Access_Member` USING (accessId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Access`.userId=:userId
+        GROUP BY `Access`.accessId"
     ,'Access_Members' => "
         SELECT
             `Access_Member`.accessMemberId
