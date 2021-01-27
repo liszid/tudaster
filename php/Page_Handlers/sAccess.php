@@ -155,9 +155,9 @@ class sAccess
  */
     protected static function Hardware_Select(): array
     {
-        self::setDHardware();
+        self::setDCombined();
         $tempArray = array();
-        foreach(self::$dHardware->Select(array(), 'All') as $i) {
+        foreach(self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_By_Type') as $i) {
             $tempArray[] = array('id' => $i['hardwareId'], 'name' => $i['hardwareType'].' - '.$i['hardwareName']);
         }
         return $tempArray;

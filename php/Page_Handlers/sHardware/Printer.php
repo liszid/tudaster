@@ -98,7 +98,7 @@ class Printer extends \Page_Handlers\sHardware
                         <div class="col-12 row">'
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrHardwPrinterEdit','tag' => 'Edit'),'valueData' => $Hardware_Printer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => self::PRINTER, 'staticData' => array('origo' => 'usrHardwPrinterEdit', 'tag' => 'Edit'), 'valueData' => $Hardware_Printer,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
-                            .self::Huntgroup_Checkbox(array('dp' => $Hardware_Printer['hardwareId'], 'origo' => 'usrHardwPrinterEdit'))
+                            .sCard::Collapsible(array('header' => 'Csoport adatok', 'content' => self::Huntgroup_Checkbox(array('dp' => $Hardware_Printer['hardwareId'], 'origo' => 'usrHardwPrinterEdit'))))
                         .'</div>
                     </div>
                     <div class="form-group">
