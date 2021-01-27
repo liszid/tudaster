@@ -139,7 +139,7 @@ class sAccess
     {
         self::setDCombined();
         $returnString = '';
-        $Combined = self::$dCombined->Select(array(), 'Access_Table');
+        $Combined = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Access_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));

@@ -34,13 +34,13 @@ class dbCombined extends Table implements iDatabase
             case 'Member_Full':
             case 'Company_Site_Table':
             case 'Company_Site_Select':
+            break;
             case 'Access_Table':
             case 'Hardware_Computer_Table':
             case 'Hardware_Printer_Table':
             case 'Hardware_Networking_Table':
             case 'Hardware_Server_Table':
             case 'Hardware_Security_Table':
-            break;
             case 'Hardware_Laptop_Table':
             case 'Hardware_Members_By_Type':
             case 'User_Full':

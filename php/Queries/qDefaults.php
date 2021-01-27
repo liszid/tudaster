@@ -124,17 +124,16 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
         ,hardwareDateIn
         ,hardwareDateOut
         ,hardwareType
-        ,hardwareGroupTags
         ,userId
         ,companySiteId
         ,isDelete
     ) VALUES
-     ('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer','',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt001', '001','-','-','Server','',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt001', '001','-','-','Laptop','',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Security','',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking','',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer','',1,1,0);
+     ('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt001', '001','-','-','Server',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt001', '001','-','-','Laptop',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Security',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer',1,1,0);
 ";
 $GLOBALS['Database']['Table']['Insert'][11] = "
     INSERT INTO `Hardware_Laptop`(

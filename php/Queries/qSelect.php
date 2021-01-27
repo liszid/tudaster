@@ -133,14 +133,28 @@ $GLOBALS['Database'][99]['Select'] = array(
         GROUP BY `Hardware`.hardwareId"
     ,'Hardware_Laptop_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Laptop`.*
+            `Hardware_Laptop`.hardwareLaptopId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Laptop`.hardwareLaptopOS
+            ,`Hardware_Laptop`.hardwareLaptopType
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Laptop` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Laptop`.hardwareLaptopId"
     ,'Hardware_Laptop_View' => "
         SELECT
             `Hardware`.*
@@ -154,14 +168,29 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Laptop`.hardwareLaptopId =:hardwareLaptopId"
     ,'Hardware_Computer_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Computer`.*
+            `Hardware_Computer`.hardwareComputerId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Computer`.hardwareComputerUse
+            ,`Hardware_Computer`.hardwareComputerType
+            ,`Hardware_Computer`.hardwareComputerOS
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Computer` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Computer`.hardwareComputerId"
     ,'Hardware_Computer_View' => "
         SELECT
             `Hardware`.*
@@ -175,14 +204,28 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Computer`.hardwareComputerId =:hardwareComputerId"
     ,'Hardware_Printer_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Printer`.*
+            `Hardware_Printer`.hardwarePrinterId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Printer`.hardwarePrinterUse
+            ,`Hardware_Printer`.hardwarePrinterType
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Printer` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Printer`.hardwarePrinterId"
     ,'Hardware_Printer_View' => "
         SELECT
             `Hardware`.*
@@ -196,14 +239,28 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Printer`.hardwarePrinterId =:hardwarePrinterId"
     ,'Hardware_Networking_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Networking`.*
+            `Hardware_Networking`.hardwareNetworkingId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Networking`.hardwareNetworkingUse
+            ,`Hardware_Networking`.hardwareNetworkingType
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Networking` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Networking`.hardwareNetworkingId"
     ,'Hardware_Networking_View' => "
         SELECT
             `Hardware`.*
@@ -217,14 +274,29 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Networking`.hardwareNetworkingId =:hardwareNetworkingId"
     ,'Hardware_Server_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Server`.*
+            `Hardware_Server`.hardwareServerId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Server`.hardwareServerUse
+            ,`Hardware_Server`.hardwareServerType
+            ,`Hardware_Server`.hardwareServerOS
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Server` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Server`.hardwareServerId"
     ,'Hardware_Server_View' => "
         SELECT
             `Hardware`.*
@@ -238,14 +310,28 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Server`.hardwareServerId =:hardwareServerId"
     ,'Hardware_Security_Table' => "
         SELECT
-            `Hardware`.*
-            ,`Hardware_Security`.*
+            `Hardware_Security`.hardwareSecurityId
+            ,`Hardware`.hardwareName
+            ,`Hardware`.hardwareDesc
+            ,`Hardware`.hardwareIP
+            ,`Hardware`.hardwareSwitch
+            ,`Hardware`.hardwareSwitchPort
+            ,`Hardware`.isDelete
+            ,`Hardware_Security`.hardwareSecurityUse
+            ,`Hardware_Security`.hardwareSecurityType
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM `Hardware`
         INNER JOIN `Hardware_Security` USING (hardwareId)
         INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)"
+        INNER JOIN `Company_Site` USING (companySiteId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+        LEFT JOIN `Huntgroup` USING (huntgroupId)
+        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
+        WHERE
+            `Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId
+        GROUP BY `Hardware_Security`.hardwareSecurityId"
     ,'Hardware_Security_View' => "
         SELECT
             `Hardware`.*

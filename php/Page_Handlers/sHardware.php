@@ -334,7 +334,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Computer = self::$dCombined->Select(array(), 'Hardware_Computer_Table');
+        $Computer = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Computer_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -353,7 +353,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Server = self::$dCombined->Select(array(), 'Hardware_Server_Table');
+        $Server = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Server_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -372,7 +372,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Printer = self::$dCombined->Select(array(), 'Hardware_Printer_Table');
+        $Printer = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Printer_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -391,7 +391,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Networking = self::$dCombined->Select(array(), 'Hardware_Networking_Table');
+        $Networking = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Networking_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -410,7 +410,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Security = self::$dCombined->Select(array(), 'Hardware_Security_Table');
+        $Security = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Security_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
