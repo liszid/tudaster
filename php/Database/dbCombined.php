@@ -35,14 +35,14 @@ class dbCombined extends Table implements iDatabase
             case 'Company_Site_Table':
             case 'Company_Site_Select':
             case 'Access_Table':
-            case 'Hardware_Laptop_Table':
             case 'Hardware_Computer_Table':
             case 'Hardware_Printer_Table':
             case 'Hardware_Networking_Table':
             case 'Hardware_Server_Table':
             case 'Hardware_Security_Table':
-            case 'Hardware_Members_All':
             break;
+            case 'Hardware_Laptop_Table':
+            case 'Hardware_Members_By_Type':
             case 'User_Full':
                 $tempArray[] = 'userId';
             break;
@@ -75,9 +75,6 @@ class dbCombined extends Table implements iDatabase
             break;
             case 'Hardware_Members':
                 $tempArray[] = 'hardwareId';
-            break;
-            case 'Hardware_Members_By_Type':
-                $tempArray[] = 'userId';
             break;
             case 'Access_Members':
                 $tempArray[] = 'accessId';

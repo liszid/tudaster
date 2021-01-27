@@ -315,7 +315,7 @@ class sHardware
     {
         self::setDCombined();
         $returnString = '';
-        $Laptop = self::$dCombined->Select(array(), 'Hardware_Laptop_Table');
+        $Laptop = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Laptop_Table');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
