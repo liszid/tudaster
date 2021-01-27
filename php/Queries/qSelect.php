@@ -345,26 +345,20 @@ $GLOBALS['Database'][99]['Select'] = array(
         WHERE `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId"
     ,'Access_Table' => "
         SELECT
-            `Access`.*
+            `Access`.accessId
+            ,`Hardware`.hardwareId
             ,`Hardware`.hardwareName
             ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareSerial
-            ,`Hardware`.hardwareMAC
             ,`Hardware`.hardwareIP
             ,`Hardware`.hardwareSwitch
             ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.hardwareVLANName
-            ,`Hardware`.hardwareVLANNum
-            ,`Hardware`.hardwareDateIn
-            ,`Hardware`.hardwareDateOut
             ,`Hardware`.hardwareType
-            ,`Hardware`.hardwareGroupTags
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
             ,`Company`.companyName
+            ,`Company_Site`.companySiteName
+            ,`User`.userName
         FROM `Access`
         INNER JOIN `Hardware` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
+        INNER JOIN `User` ON `User`.userId = `Access`.userId
         INNER JOIN `Company_Site` USING (companySiteId)
         INNER JOIN `Company` USING (companyId)"
     ,'Access_Members' => "
