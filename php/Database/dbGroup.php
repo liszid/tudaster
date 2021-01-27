@@ -45,17 +45,18 @@ class dbGroup extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
-            $tempArray = array();
-        } elseif (strcmp($type, 'byGroupId') === 0) {
-            $tempArray = array(
-                            'groupId'
-                        );
-        } elseif (strcmp($type, 'forMemberEdit') === 0) {
-            $tempArray = array();
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            case 'forMemberEdit':
+            break;
+            case 'byGroupId':
+                $tempArray[] = 'groupId';
+            break;
+            default:
+                return array();
+            break;
         }
+
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {
     	    if (
                 (

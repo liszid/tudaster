@@ -8,7 +8,7 @@ session_regenerate_id();
 require_once 'globals.php';
 
 /**
- * Loading sequences start here. We load the Global script, which initializes
+ * Loading sequences start here. It loads the Globals script, which initializes
  * the required statements and variables which we work with.
  */
 
@@ -46,6 +46,7 @@ if (isset($_SESSION['User'])) {
         Log::Export($userVar);
     }
 }
+
 $sessionUsr   = (isset($_SESSION['User']))? $_SESSION['User'] : array();
 $sessionId    = (! empty($sessionUsr))? $sessionUsr['userId'] : 0;
 $sessionAct   = (! empty($sessionUsr))? $sessionUsr['Activity'] : array();

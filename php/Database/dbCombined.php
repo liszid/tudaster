@@ -28,60 +28,76 @@ class dbCombined extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
-        if (! strcmp($type, 'User_Full')) {
-            $tempArray = array('userId');
-        } elseif (
-            ! strcmp($type, 'Member_Full')
-            || ! strcmp($type, 'Access_Table')
-            || ! strcmp($type, 'Company_Site_Table')
-            || ! strcmp($type, 'Hardware_Laptop_Table')
-            || ! strcmp($type, 'Hardware_Computer_Table')
-            || ! strcmp($type, 'Hardware_Printer_Table')
-            || ! strcmp($type, 'Hardware_Networking_Table')
-            || ! strcmp($type, 'Hardware_Server_Table')
-            || ! strcmp($type, 'Hardware_Security_Table')
-            || ! strcmp($type, 'Company_Site_Select')
-        ){
-            $tempArray = array();
-        } elseif (! strcmp($type, 'Huntgroup_Members')){
-            $tempArray = array('huntgroupId');
-        } elseif (! strcmp($type, 'Company_Site_View')){
-            $tempArray = array('companySiteId');
-        } elseif (! strcmp($type, 'Company_Site_Filter')){
-            $tempArray = array('companyId');
-        } elseif (! strcmp($type, 'Hardware_Laptop_View')){
-            $tempArray = array('hardwareLaptopId');
-        } elseif (! strcmp($type, 'Hardware_Computer_View')){
-            $tempArray = array('hardwareComputerId');
-        } elseif (! strcmp($type, 'Hardware_Printer_View')){
-            $tempArray = array('hardwarePrinterId');
-        } elseif (! strcmp($type, 'Hardware_Networking_View')){
-            $tempArray = array('hardwareNetworkingId');
-        } elseif (! strcmp($type, 'Hardware_Server_View')){
-            $tempArray = array('hardwareServerId');
-        } elseif (! strcmp($type, 'Hardware_Security_View')){
-            $tempArray = array('hardwareSecurityId');
-        } elseif (! strcmp($type, 'Hardware_Members')){
-            $tempArray = array('hardwareId');
-        } elseif (! strcmp($type, 'Access_Members')){
-            $tempArray = array('accessId');
-        } else {
-            return array();
+        switch ($type) {
+            case 'Member_Full':
+            case 'Company_Site_Table':
+            case 'Company_Site_Select':
+            case 'Access_Table':
+            case 'Hardware_Laptop_Table':
+            case 'Hardware_Computer_Table':
+            case 'Hardware_Printer_Table':
+            case 'Hardware_Networking_Table':
+            case 'Hardware_Server_Table':
+            case 'Hardware_Security_Table':
+            case 'Hardware_Members_All':
+            break;
+            case 'User_Full':
+                $tempArray[] = 'userId';
+            break;
+            case 'Huntgroup_Members':
+                $tempArray[] = 'huntgroupId';
+            break;
+            case 'Company_Site_View':
+                $tempArray[] = 'companySiteId';
+            break;
+            case 'Company_Site_Filter':
+                $tempArray[] = 'companyId';
+            break;
+            case 'Hardware_Laptop_View':
+                $tempArray[] = 'hardwareLaptopId';
+            break;
+            case 'Hardware_Computer_View':
+                $tempArray[] = 'hardwareComputerId';
+            break;
+            case 'Hardware_Printer_View':
+                $tempArray[] = 'hardwarePrinterId';
+            break;
+            case 'Hardware_Networking_View':
+                $tempArray[] = 'hardwareNetworkingId';
+            break;
+            case 'Hardware_Server_View':
+                $tempArray[] = 'hardwareServerId';
+            break;
+            case 'Hardware_Security_View':
+                $tempArray[] = 'hardwareSecurityId';
+            break;
+            case 'Hardware_Members':
+                $tempArray[] = 'hardwareId';
+            break;
+            case 'Hardware_Members_By_Type':
+                $tempArray[] = 'hardwareType';
+            break;
+            case 'Access_Members':
+                $tempArray[] = 'accessId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
     	    if (
                 (
                     $tempVar = self::qRun(
-                        array(
-                            'query' => self::$classQueries['Select'][$type],
-                            'vNames' => $tempArray,
-                            'vData' => $array
+                            array(
+                                'query' => self::$classQueries['Select'][$type],
+                                'vNames' => $tempArray,
+                                'vData' => $array
+                            )
                         )
-                    )
-                )->rowCount() > 0
+                    )->rowCount() > 0
             ) {
                 return $tempVar->fetchAll();
     	    }

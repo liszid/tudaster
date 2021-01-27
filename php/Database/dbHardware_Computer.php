@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbHardware_Computer extends Table implements iDatabase
 {
-    const CLASS_ID = 10;
+    const CLASS_ID = 12;
 
     private static $classQueries = array();
 
@@ -52,20 +52,34 @@ class dbHardware_Computer extends Table implements iDatabase
 
     public static function Select(array $array = array(), string $type = ''): array
     {
-	$tempArray = array();
+        $tempArray = array();
 
-        if (! strcmp($type, 'All')) {
-            $tempArray = array();
-        } elseif (! strcmp($type, 'byHardwareComputerId')) {
-            $tempArray = array("hardwareComputerId");
-        } elseif (! strcmp($type, 'byHardwareId')) {
-            $tempArray = array("hardwareId");
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byHardwareComputerId':
+                $tempArray[] = 'hardwareComputerId';
+            break;
+            case 'byHardwareId':
+                $tempArray[] = 'hardwareId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
-    	    if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+    	    if (
+                (
+                    $tempVar = self::qRun(
+                        array(
+                            'query' => self::$classQueries['Select'][$type],
+                            'vNames' => $tempArray,
+                            'vData' => $array
+                        )
+                    )
+                )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
     	    } else {
                 return array();

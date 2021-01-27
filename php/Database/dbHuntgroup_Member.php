@@ -45,16 +45,21 @@ class dbHuntgroup_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (! strcmp($type, 'All')) {
-            $tempArray = array();
-        } elseif (! strcmp($type, 'byHuntgroupId')) {
-            $tempArray = array('huntgroupId');
-        } elseif (! strcmp($type, 'byHuntgroupMemberId')) {
-            $tempArray = array('huntgroupMemberId');
-        } elseif (! strcmp($type, 'byUserId')) {
-            $tempArray = array('userId');
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byHuntgroupId':
+                $tempArray[] = 'huntgroupId';
+            break;
+            case 'byHuntgroupMemberId':
+                $tempArray[] = 'huntgroupMemberId';
+            break;
+            case 'byUserId':
+                $tempArray[] = 'userId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {

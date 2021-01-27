@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbHardware_Member extends Table implements iDatabase
 {
-    const CLASS_ID = 15;
+    const CLASS_ID = 29;
 
     private static $classQueries = array();
 
@@ -45,16 +45,21 @@ class dbHardware_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (! strcmp($type, 'All')) {
-            $tempArray = array();
-        } elseif (! strcmp($type, 'byHuntgroupId')) {
-            $tempArray = array('huntgroupId');
-        } elseif (! strcmp($type, 'byHardwareMemberId')) {
-            $tempArray = array('hardwareMemberId');
-        } elseif (! strcmp($type, 'byHardwareId')) {
-            $tempArray = array('hardwareId');
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byHuntgroupId':
+                $tempArray[] = 'huntgroupId';
+            break;
+            case 'byHardwareMemberId':
+                $tempArray[] = 'hardwareMemberId';
+            break;
+            case 'byHardwareId':
+                $tempArray[] = 'hardwareId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {

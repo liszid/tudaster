@@ -103,27 +103,7 @@ $GLOBALS['Database'][99]['Select'] = array(
         SELECT
             `Company`.companyName
             ,`Company_Site_Type`.companySiteTypeName
-            ,`Company_Site`.companySiteId
-            ,`Company_Site`.companyId
-            ,`Company_Site`.userId
-            ,`Company_Site`.companySiteName
-            ,`Company_Site`.companySiteTypeId
-            ,`Company_Site`.companySiteDesc
-            ,`Company_Site`.companySitePhone
-            ,`Company_Site`.companySiteEmail
-            ,`Company_Site`.companySiteAddressCity
-            ,`Company_Site`.companySiteAddressPostcode
-            ,`Company_Site`.companySiteAddressStreet
-            ,`Company_Site`.companySiteOwnerFirstName
-            ,`Company_Site`.companySiteOwnerLastName
-            ,`Company_Site`.companySiteOwnerEmail
-            ,`Company_Site`.companySiteOwnerPhone
-            ,`Company_Site`.companySiteSubOwnerFirstName
-            ,`Company_Site`.companySiteSubOwnerLastName
-            ,`Company_Site`.companySiteSubOwnerEmail
-            ,`Company_Site`.companySiteSubOwnerPhone
-            ,`Company_Site`.isDelete
-        FROM
+            ,`Company_Site`.*
         (
             (
                 `Company_Site`
@@ -140,33 +120,8 @@ $GLOBALS['Database'][99]['Select'] = array(
     "
     ,'Company_Site_View' => "
         SELECT
-            `Company_Site`.companySiteId
-            ,`Company_Site`.companyId
-            ,`Company_Site`.userId
-            ,`Company_Site`.companySiteName
-            ,`Company_Site`.companySiteTypeId
-            ,`Company_Site`.companySiteDesc
-            ,`Company_Site`.companySitePhone
-            ,`Company_Site`.companySiteEmail
-            ,`Company_Site`.companySiteAddressCity
-            ,`Company_Site`.companySiteAddressPostcode
-            ,`Company_Site`.companySiteAddressStreet
-            ,`Company_Site`.companySiteOwnerFirstName
-            ,`Company_Site`.companySiteOwnerLastName
-            ,`Company_Site`.companySiteOwnerEmail
-            ,`Company_Site`.companySiteOwnerPhone
-            ,`Company_Site`.companySiteSubOwnerFirstName
-            ,`Company_Site`.companySiteSubOwnerLastName
-            ,`Company_Site`.companySiteSubOwnerEmail
-            ,`Company_Site`.companySiteSubOwnerPhone
-            ,`Company`.companyId
-            ,`Company`.companyName
-            ,`Company`.companyDesc
-            ,`Company`.companyOwnerFirstName
-            ,`Company`.companyOwnerLastName
-            ,`Company`.companyAddressCity
-            ,`Company`.companyAddressPostcode
-            ,`Company`.companyAddressStreet
+            `Company_Site`.*
+            ,`Company`.*
             ,`Company_Site_Type`.companySiteTypeName
             ,`User`.userName
         FROM
@@ -194,26 +149,8 @@ $GLOBALS['Database'][99]['Select'] = array(
     "
     ,'Company_Site_Filter' => "
         SELECT
-            `Company_Site`.companySiteId
-            ,`Company_Site`.companyId
-            ,`Company_Site`.userId
-            ,`Company_Site`.companySiteName
-            ,`Company_Site`.companySiteTypeId
-            ,`Company_Site`.companySiteDesc
-            ,`Company_Site`.companySitePhone
-            ,`Company_Site`.companySiteEmail
-            ,`Company_Site`.companySiteAddressCity
-            ,`Company_Site`.companySiteAddressPostcode
-            ,`Company_Site`.companySiteAddressStreet
-            ,`Company_Site`.companySiteOwnerFirstName
-            ,`Company_Site`.companySiteOwnerLastName
-            ,`Company_Site`.companySiteOwnerEmail
-            ,`Company_Site`.companySiteOwnerPhone
-            ,`Company_Site`.companySiteSubOwnerFirstName
-            ,`Company_Site`.companySiteSubOwnerLastName
-            ,`Company_Site`.companySiteSubOwnerEmail
-            ,`Company_Site`.companySiteSubOwnerPhone
-            ,`Company_Site`.isDelete
+            `Company_Site`.*
+            ,`Company_Site_Type`.companySiteTypeName
             ,`Company`.companyId
             ,`Company`.companyName
             ,`Company`.companyDesc
@@ -222,7 +159,6 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`Company`.companyAddressCity
             ,`Company`.companyAddressPostcode
             ,`Company`.companyAddressStreet
-            ,`Company_Site_Type`.companySiteTypeName
             ,`User`.userName
         FROM
         (
@@ -284,6 +220,50 @@ $GLOBALS['Database'][99]['Select'] = array(
         )
         WHERE
             `Hardware`.hardwareId=:hardwareId
+    "
+    ,'Hardware_Members_All' => "
+        SELECT
+            `Hardware_Member`.hardwareMemberId
+            ,`Huntgroup`.huntgroupId
+            ,`Hardware`.hardwareId
+            ,`Hardware_Member`.isDelete
+        FROM
+        (
+            (
+                `Hardware`
+                    INNER JOIN
+                        `Hardware_Member`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Member`.hardwareId
+            )
+            INNER JOIN
+                `Huntgroup`
+            ON
+                `Huntgroup`.huntgroupId = `Hardware_Member`.huntgroupId
+        )
+    "
+    ,'Hardware_Members_By_Type' => "
+        SELECT
+            `Hardware_Member`.hardwareMemberId
+            ,`Huntgroup`.huntgroupId
+            ,`Hardware`.hardwareId
+            ,`Hardware_Member`.isDelete
+        FROM
+        (
+            (
+                `Hardware`
+                    INNER JOIN
+                        `Hardware_Member`
+                    ON
+                        `Hardware`.hardwareId = `Hardware_Member`.hardwareId
+            )
+            INNER JOIN
+                `Huntgroup`
+            ON
+                `Huntgroup`.huntgroupId = `Hardware_Member`.huntgroupId
+        )
+        WHERE
+            `Hardware`.hardwareType=:hardwareType
     "
     ,'Hardware_Laptop_Table' => "
         SELECT
@@ -348,25 +328,19 @@ $GLOBALS['Database'][99]['Select'] = array(
             ,`User`.userName
             ,`Company_Site`.companySiteName
         FROM
-        (
-            (
-                (
-                    `Hardware`
-                    INNER JOIN
-                        `Hardware_Computer`
-                    ON
-                        `Hardware`.hardwareId = `Hardware_Computer`.hardwareId
-                )
-                INNER JOIN
-                    `User`
-                ON
-                    `Hardware`.userId = `User`.userId
-            )
-            INNER JOIN
-                `Company_Site`
-            ON
-                `Hardware`.companySiteId = `Company_Site`.companySiteId
-        )
+            `Hardware`
+        INNER JOIN
+            `Hardware_Computer`
+        ON
+            `Hardware`.hardwareId = `Hardware_Computer`.hardwareId
+        INNER JOIN
+            `User`
+        ON
+            `Hardware`.userId = `User`.userId
+        INNER JOIN
+            `Company_Site`
+        ON
+            `Hardware`.companySiteId = `Company_Site`.companySiteId
     "
     ,'Hardware_Computer_View' => "
         SELECT
@@ -929,7 +903,7 @@ $GLOBALS['Database'][7]['Select'] = array(
 );
 
 
-$GLOBALS['Database'][8]['Select'] = array(
+$GLOBALS['Database'][10]['Select'] = array(
     'All' => "
         SELECT
             `Hardware`.*
@@ -967,7 +941,7 @@ $GLOBALS['Database'][8]['Select'] = array(
             userId=:userId"
 );
 
-$GLOBALS['Database'][9]['Select'] = array(
+$GLOBALS['Database'][11]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -991,7 +965,7 @@ $GLOBALS['Database'][9]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][10]['Select'] = array(
+$GLOBALS['Database'][12]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1015,7 +989,7 @@ $GLOBALS['Database'][10]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][11]['Select'] = array(
+$GLOBALS['Database'][13]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1039,7 +1013,7 @@ $GLOBALS['Database'][11]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][12]['Select'] = array(
+$GLOBALS['Database'][14]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1063,7 +1037,7 @@ $GLOBALS['Database'][12]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][13]['Select'] = array(
+$GLOBALS['Database'][15]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1087,7 +1061,7 @@ $GLOBALS['Database'][13]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][14]['Select'] = array(
+$GLOBALS['Database'][16]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1111,7 +1085,7 @@ $GLOBALS['Database'][14]['Select'] = array(
     "
 );
 
-$GLOBALS['Database'][15]['Select'] = array(
+$GLOBALS['Database'][29]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1140,7 +1114,7 @@ $GLOBALS['Database'][15]['Select'] = array(
             hardwareMemberId=:hardwareMemberId"
 );
 
-$GLOBALS['Database'][16]['Select'] = array(
+$GLOBALS['Database'][30]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -1162,7 +1136,7 @@ $GLOBALS['Database'][16]['Select'] = array(
             userId=:userId"
 );
 
-$GLOBALS['Database'][17]['Select'] = array(
+$GLOBALS['Database'][31]['Select'] = array(
     'All' => "
         SELECT
             *

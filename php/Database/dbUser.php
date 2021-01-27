@@ -47,27 +47,25 @@ class dbUser extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'byUserName') === 0) {
-            $tempArray = array(
-                            'userName'
-                        );
-        } elseif (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array(
-                            'userId'
-                        );
-        } elseif (strcmp($type, 'byContEmail') === 0) {
-            $tempArray = array(
-                            'userContEmail'
-                        );
-        } elseif (strcmp($type, 'Login') === 0) {
-            $tempArray = array(
-                            'userName',
-                            'pWord'
-                        );
-        } elseif (strcmp($type, 'All') === 0) {
-            $tempArray = array();
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byUserName':
+                $tempArray[] = 'userName';
+            break;
+            case 'byUserId':
+                $tempArray[] = 'userId';
+            break;
+            case 'byContEmail':
+                $tempArray[] = 'userContEmail';
+            break;
+            case 'Login':
+                $tempArray[] = 'userName';
+                $tempArray[] = 'pWord';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Select'][$type])) {
@@ -95,21 +93,21 @@ class dbUser extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'Reset') === 0) {
-            $tempArray = array(
-                            'userId'
-                        );
-        } elseif (strcmp($type, 'Profile') === 0) {
-            $tempArray = array(
-                            'userFirstName',
-                            'userLastName',
-                            'userThumbnail',
-                            'userContSite',
-                            'userContPhone',
-                            'userId'
-                        );
-        } else {
-            return array();
+        switch ($type) {
+            case 'Reset':
+                $tempArray[] = 'userId';
+            break;
+            case 'Profile':
+                $tempArray[] = 'userId';
+                $tempArray[] = 'userFirstName';
+                $tempArray[] = 'userLastName';
+                $tempArray[] = 'userThumbnail';
+                $tempArray[] = 'userContSite';
+                $tempArray[] = 'userContPhone';
+            break;
+            default:
+                return false;
+            break;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Update'][$type])) {

@@ -46,21 +46,33 @@ class dbCompany extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (
-            ! strcmp($type, 'All')
-            || ! strcmp($type, 'forCompanySelect')
-        ) {
-            $tempArray = array();
-        } elseif (! strcmp($type, 'byCompanyId')) {
-            $tempArray = array('companyId');
-        } elseif (! strcmp($type, 'byUserId')) {
-            $tempArray = array("userId");
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            case 'forCompanySelect':
+            break;
+            case 'byCompanyId':
+                $tempArray[] = 'companyId';
+            break;
+            case 'byUserId':
+                $tempArray[] = 'userId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
-    	    if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+    	    if (
+                (
+                    $tempVar = self::qRun(
+                            array(
+                                'query' => self::$classQueries['Select'][$type],
+                                'vNames' => $tempArray,
+                                'vData' => $array
+                            )
+                        )
+                    )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
     	    } else {
                 return array();

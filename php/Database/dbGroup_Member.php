@@ -45,22 +45,21 @@ class dbGroup_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
-            $tempArray = array();
-        } elseif (strcmp($type, 'byGroupId') === 0) {
-            $tempArray = array(
-                            'groupId'
-                        );
-        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
-            $tempArray = array(
-                            'groupMemberId'
-                        );
-        } elseif (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array(
-                            'userId'
-                        );
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byGroupId':
+                $tempArray[] = 'groupId';
+            break;
+            case 'byGroupMemberId':
+                $tempArray[] = 'groupMemberId';
+            break;
+            case 'byUserId':
+                $tempArray[] = 'userId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {
@@ -88,18 +87,18 @@ class dbGroup_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array(
-                            'groupId',
-                            'userId'
-                        );
-        } elseif (strcmp($type, 'byGroupMemberId') === 0) {
-            $tempArray = array(
-                            'groupId',
-                            'groupMemberId'
-                        );
-        } else {
-            return false;
+        switch ($type) {
+            case 'byUserId':
+                $tempArray[] = 'groupId';
+                $tempArray[] = 'userId';
+            break;
+            case 'byGroupMemberId':
+                $tempArray[] = 'groupMemberId';
+                $tempArray[] = 'groupId';
+            break;
+            default:
+                return false;
+            break;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {

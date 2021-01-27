@@ -129,7 +129,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companySiteTypeCascade FOREIGN KEY (companySiteTypeId) REFERENCES `Company_Site_Type` (companySiteTypeId) ON DELETE CASCADE
         );
     "
-    ,8 => "
+    ,10 => "
         CREATE TABLE IF NOT EXISTS `Hardware`(
             hardwareId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareName VARCHAR(64) NULL,
@@ -153,7 +153,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareCompanySiteCascade FOREIGN KEY (companySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
         );
     "
-    ,9 => "
+    ,11 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Laptop`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareLaptopId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -169,7 +169,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareLaptopHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,10 => "
+    ,12 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Computer`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareComputerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -187,7 +187,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareComputerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,11 => "
+    ,13 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Printer`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwarePrinterId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -199,7 +199,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwarePrinterHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,12 => "
+    ,14 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Networking`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareNetworkingId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -213,7 +213,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareNetworkingHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,13 => "
+    ,15 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Server`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareServerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -231,7 +231,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareServerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,14 => "
+    ,16 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Security`(
             hardwareId INT(6) UNSIGNED NOT NULL,
             hardwareSecurityId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -245,7 +245,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareSecurityHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,15 => "
+    ,29 => "
         CREATE TABLE IF NOT EXISTS `Hardware_Member`(
             hardwareMemberId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareId INT(6) UNSIGNED NOT NULL,
@@ -256,7 +256,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT hardwareMemberHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
-    ,16 => "
+    ,30 => "
         CREATE TABLE IF NOT EXISTS `Access`(
             accessId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareId INT(6) UNSIGNED NOT NULL,
@@ -270,7 +270,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT accessUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
-    ,17 => "
+    ,31 => "
         CREATE TABLE IF NOT EXISTS `Access_Member`(
             accessMemberId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             accessId INT(6) UNSIGNED NOT NULL,

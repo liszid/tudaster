@@ -35,16 +35,16 @@ class Queries extends Database
             ,5 => 'Company'
             ,6 => 'Company_Site_Type'
             ,7 => 'Company_Site'
-            ,8 => 'Hardware'
-            ,9 => 'Hardware_Laptop'
-            ,10 => 'Hardware_Computer'
-            ,11 => 'Hardware_Printer'
-            ,12 => 'Hardware_Networking'
-            ,13 => 'Hardware_Server'
-            ,14 => 'Hardware_Security'
-            ,15 => 'Hardware_Member'
-            ,16 => 'Access'
-            ,17 => 'Access_Member'
+            ,10 => 'Hardware'
+            ,11 => 'Hardware_Laptop'
+            ,12 => 'Hardware_Computer'
+            ,13 => 'Hardware_Printer'
+            ,14 => 'Hardware_Networking'
+            ,15 => 'Hardware_Server'
+            ,16 => 'Hardware_Security'
+            ,29 => 'Hardware_Member'
+            ,30 => 'Access'
+            ,31 => 'Access_Member'
             ,98 => 'Tools'
             ,99 => 'Combined'
         );
@@ -52,15 +52,15 @@ class Queries extends Database
     }
 
 
-    /**
-     * Sets array to have class specific queries
-     * @param $array array
-     * @param $classid int
-     * @return bool
-     *
-     * @author Liszi Dániel
-     * @since 2020.09.28
-     */
+/**
+ * Sets array to have class specific queries
+ * @param $array array
+ * @param $classid int
+ * @return bool
+ *
+ * @author Liszi Dániel
+ * @since 2020.09.28
+ */
     public function qGet(int $classId): array
     {
         $array = array();
@@ -75,13 +75,13 @@ class Queries extends Database
         return $array;
     }
 
-    /**
-     * Generates SQL Query array for Table queries
-     * @return true
-     *
-     * @author Liszi Dániel
-     * @since 2020.10.16
-     */
+/**
+ * Generates SQL Query array for Table queries
+ * @return true
+ *
+ * @author Liszi Dániel
+ * @since 2020.10.16
+ */
     public static function sQueries(array &$array): bool
     {
         $typeArray = ['Create', 'Insert'];
@@ -95,15 +95,15 @@ class Queries extends Database
         return true;
     }
 
-    /**
-     * Fires queries based on type
-     * @param $var int
-     * @param $type string
-     * @return bool
-     *
-     * @author Liszi Dániel
-     * @since 2020.09.28
-     */
+/**
+ * Fires queries based on type
+ * @param $var int
+ * @param $type string
+ * @return bool
+ *
+ * @author Liszi Dániel
+ * @since 2020.09.28
+ */
     public static function qCheck(int $var): bool
     {
         if (isset(self::$tableNames[$var]) && isset(self::getSQL()['db'])) {

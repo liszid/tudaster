@@ -12,7 +12,7 @@ use PreLoad\{
 
 class dbAccess_Member extends Table implements iDatabase
 {
-    const CLASS_ID = 17;
+    const CLASS_ID = 31;
 
     private static $classQueries = array();
 
@@ -45,16 +45,21 @@ class dbAccess_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (! strcmp($type, 'All')) {
-            $tempArray = array();
-        } elseif (! strcmp($type, 'byHuntgroupId')) {
-            $tempArray = array('huntgroupId');
-        } elseif (! strcmp($type, 'byAccessMemberId')) {
-            $tempArray = array('accessMemberId');
-        } elseif (! strcmp($type, 'byAccessId')) {
-            $tempArray = array('accessId');
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            case 'byHuntgroupId':
+                $tempArray[] = 'huntgroupId';
+            break;
+            case 'byAccessMemberId':
+                $tempArray[] = 'accessMemberId';
+            break;
+            case 'byAccessId':
+                $tempArray[] = 'accessId';
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {

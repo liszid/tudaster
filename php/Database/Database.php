@@ -17,6 +17,12 @@ class Database
         self::setConnection();
     }
 
+/**
+* Sets the default SQL Params
+* @return bool
+* @author Liszi Dániel
+* @since 2021.01.26
+*/
     private static function setSQL(): bool
     {
         self::$SQL = array(
@@ -29,14 +35,13 @@ class Database
         return true;
     }
 
-    /**
-     * Creates a PDO connection using \PDO class and returns a PDO object if true
-     * @param $dbName string
-     * @return bool
-     *
-     * @author Liszi Dániel
-     * @since 2020.09.28
-     */
+/**
+* Creates a PDO connection using \PDO class and returns a PDO object if true
+* @param $dbName string
+* @return bool
+* @author Liszi Dániel
+* @since 2020.09.28
+*/
     public static function setConnection(string $dbName = ''): bool
     {
         try {
@@ -70,13 +75,13 @@ class Database
         return (intval($statement->rowCount()) === 1 )? true: false;
     }
 
-    /**
-     * Returns true if database exists, false of failure
-     * @return bool
-     *
-     * @author Liszi Dániel
-     * @since 2020.09.28
-     */
+/**
+ * Returns true if database exists, false of failure
+ * @return bool
+ *
+ * @author Liszi Dániel
+ * @since 2020.09.28
+ */
     public static function initDatabase(): bool
     {
         if (self::sqlQueriesDB($GLOBALS['Database']['Select']['Database']) !== true) {

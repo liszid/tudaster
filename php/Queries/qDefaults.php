@@ -110,7 +110,7 @@ $GLOBALS['Database']['Table']['Insert'][7] = "
     ) VALUES
     (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
 ";
-$GLOBALS['Database']['Table']['Insert'][8] = "
+$GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Hardware`(
         hardwareName
         ,hardwareDesc
@@ -136,7 +136,7 @@ $GLOBALS['Database']['Table']['Insert'][8] = "
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking','',1,1,0)
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer','',1,1,0);
 ";
-$GLOBALS['Database']['Table']['Insert'][9] = "
+$GLOBALS['Database']['Table']['Insert'][11] = "
     INSERT INTO `Hardware_Laptop`(
         hardwareId
         ,hardwareLaptopUser
@@ -150,7 +150,7 @@ $GLOBALS['Database']['Table']['Insert'][9] = "
     ) VALUES
     (3, 'NoUser','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][10] = "
+$GLOBALS['Database']['Table']['Insert'][12] = "
     INSERT INTO `Hardware_Computer`(
         hardwareId
         ,hardwareComputerUser
@@ -166,7 +166,7 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
     ) VALUES
     (1,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][11] = "
+$GLOBALS['Database']['Table']['Insert'][13] = "
     INSERT INTO `Hardware_Printer`(
         hardwareId
         ,hardwarePrinterUse
@@ -176,7 +176,7 @@ $GLOBALS['Database']['Table']['Insert'][11] = "
     ) VALUES
     (6,'-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][12] = "
+$GLOBALS['Database']['Table']['Insert'][14] = "
     INSERT INTO `Hardware_Networking`(
         hardwareId
         ,hardwareNetworkingType
@@ -188,7 +188,7 @@ $GLOBALS['Database']['Table']['Insert'][12] = "
     ) VALUES
     (5,'-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][13] = "
+$GLOBALS['Database']['Table']['Insert'][15] = "
     INSERT INTO `Hardware_Server`(
         hardwareId
         ,hardwareServerUser
@@ -204,7 +204,7 @@ $GLOBALS['Database']['Table']['Insert'][13] = "
     ) VALUES
     (2,'NoUser','-','-','-','-','-','-','-','-','-');
 ";
-$GLOBALS['Database']['Table']['Insert'][14] = "
+$GLOBALS['Database']['Table']['Insert'][16] = "
     INSERT INTO `Hardware_Security`(
         hardwareId
         ,hardwareSecurityType

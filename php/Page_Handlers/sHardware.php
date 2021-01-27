@@ -20,6 +20,7 @@ use Data\{
     ,dHardware_Server
     ,dCombined
     ,dHuntgroup
+    ,dHuntgroup_Member
 };
 
 use Samples\{
@@ -39,6 +40,7 @@ class sHardware
     protected static $dHardware_Server;
     protected static $dCombined;
     protected static $dHuntgroup;
+    protected static $dHuntgroup_Member;
 
     const HARDWARE = array(
         array('data' => 'hardwareId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
@@ -207,11 +209,21 @@ class sHardware
 /*
  * Sets the class variable : dHardware
  * @author Liszi Dániel
- * @since 2020.12.07
+ * @since 2021.01.27
  */
     protected static function setDHuntgroup()
     {
         self::$dHuntgroup = new dHuntgroup();
+    }
+
+/*
+ * Sets the class variable : dHardware
+ * @author Liszi Dániel
+ * @since 2021.01.27
+ */
+    protected static function setDHuntgroup_Member()
+    {
+        self::$dHuntgroup_Member = new dHuntgroup_Member();
     }
 
 /*
@@ -278,8 +290,18 @@ class sHardware
     public static function Hardware(array $array = array()): string
     {
         self::setDHardware();
+        self::setDCombined();
+        self::setDHuntgroup_Member();
+
         $returnString = '';
+
         $Hardware = self::$dHardware->Select(array(), 'All');
+        $Hardware_Groups = self::$dCombined->Select(array(), 'Hardware_Members_All');
+        $User_Groups = self::$dHuntgroup_Member->Select(array('userId' => $GLOBALS['sessionId']), 'byUserId');
+
+        Log::Export($Hardware);
+        Log::Export($Hardware_Groups);
+        Log::Export($User_Groups);
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -403,6 +425,7 @@ class sHardware
         return $returnString;
     }
 /*
+ * Generates a Select list to choose the Location of the item
  * @return array
  * @author Liszi Dániel
  * @since 2020.12.16
@@ -418,6 +441,7 @@ class sHardware
     }
 
 /*
+ * Generates a Checkbox panel to select which groups can see the item
  * @return string
  * @param $array array
  * @param $bool bool

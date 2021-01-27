@@ -24,7 +24,15 @@ class dbTools extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
-            return (self::qRun( array('query' => self::$classQueries['Insert'], 'vNames' => array(),'vData' => $array))->rowCount() > 0);
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Insert'],
+                        'vNames' => array(),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
         } else {
             return false;
         }
@@ -34,14 +42,26 @@ class dbTools extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'All') === 0) {
-            $tempArray = array();
-        } else {
-            return array();
+        switch ($type) {
+            case 'All':
+            break;
+            default:
+                return array();
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
-    	    if (($tempVar = self::qRun(array('query' => self::$classQueries['Select'][$type], 'vNames' => $tempArray,'vData' => $array)))->rowCount() > 0) {
+    	    if (
+                (
+                    $tempVar = self::qRun(
+                        array(
+                            'query' => self::$classQueries['Select'][$type],
+                            'vNames' => $tempArray,
+                            'vData' => $array
+                        )
+                    )
+                )->rowCount() > 0
+            ) {
                 return $tempVar->fetchAll();
     	    } else {
                 return array();
@@ -64,11 +84,13 @@ class dbTools extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'Database') === 0) {
-            self::setConnection();
-            $tempArray = array();
-        } else {
-            return false;
+        switch ($type) {
+            case 'Database':
+                self::setConnection();
+            break;
+            default:
+                return false;
+            break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Delete'][$type])) {
