@@ -296,18 +296,13 @@ class sHardware
         $returnString = '';
 
         $Hardware = self::$dHardware->Select(array(), 'All');
-        $Hardware_Groups = self::$dCombined->Select(array(), 'Hardware_Members_All');
-        $User_Groups = self::$dHuntgroup_Member->Select(array('userId' => $GLOBALS['sessionId']), 'byUserId');
-
-        Log::Export($Hardware);
-        Log::Export($Hardware_Groups);
-        Log::Export($User_Groups);
+        $Hardware_Groups = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_By_Type');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Hardware, 'Hardware_Hardware');
+        $returnString .= sTables::Prompt($Hardware_Groups, 'Hardware_Hardware');
         return $returnString;
     }
 /*

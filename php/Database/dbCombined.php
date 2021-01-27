@@ -77,7 +77,7 @@ class dbCombined extends Table implements iDatabase
                 $tempArray[] = 'hardwareId';
             break;
             case 'Hardware_Members_By_Type':
-                $tempArray[] = 'hardwareType';
+                $tempArray[] = 'userId';
             break;
             case 'Access_Members':
                 $tempArray[] = 'accessId';

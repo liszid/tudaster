@@ -245,25 +245,32 @@ $GLOBALS['Database'][99]['Select'] = array(
     ,'Hardware_Members_By_Type' => "
         SELECT
             `Hardware_Member`.hardwareMemberId
+            ,`Hardware`.*
+            ,`Company_Site`.companySiteName
             ,`Huntgroup`.huntgroupId
             ,`Hardware`.hardwareId
             ,`Hardware_Member`.isDelete
+            ,`Huntgroup_Member`.*
         FROM
-        (
-            (
-                `Hardware`
-                    INNER JOIN
-                        `Hardware_Member`
-                    ON
-                        `Hardware`.hardwareId = `Hardware_Member`.hardwareId
-            )
+            `Hardware`
             INNER JOIN
+                `Company_Site`
+            ON
+                `Hardware`.companySiteId = `Company_Site`.companySiteId
+            LEFT JOIN
+                `Hardware_Member`
+            ON
+                `Hardware`.hardwareId = `Hardware_Member`.hardwareId
+            LEFT JOIN
                 `Huntgroup`
             ON
                 `Huntgroup`.huntgroupId = `Hardware_Member`.huntgroupId
-        )
+            LEFT JOIN
+                `Huntgroup_Member`
+            ON
+                `Huntgroup_Member`.huntgroupId = `Huntgroup`.huntgroupId
         WHERE
-            `Hardware`.hardwareType=:hardwareType
+            `Huntgroup_Member`.userId=:userId
     "
     ,'Hardware_Laptop_Table' => "
         SELECT
