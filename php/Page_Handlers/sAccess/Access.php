@@ -34,7 +34,7 @@ class Access extends \Page_Handlers\sAccess
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrAccessAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessAdd', 'tag' => 'Add'),'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form'))).'
+                            '.sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessAdd', 'tag' => 'Add'), 'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form').'
                         </div>
                     </div>
                     <div class="form-group">
@@ -74,7 +74,7 @@ class Access extends \Page_Handlers\sAccess
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Hozzáférési adatok', 'content' => sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessView', 'tag' => 'View'), 'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')))
+                        .sElement::General(array('constData' => self::ACCESS, 'staticData' => array('origo' => 'usrAccessView', 'tag' => 'View'), 'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')
                         .sCard::Collapsible(array('header' => 'Eszköz adatok','content' => sElement::General(array('constData' => self::HARDWARE,'staticData' => array('origo' => 'usrAccessView','tag' => 'View'),'valueData' => $Hardware),'Generate_Form')))
                     .'</div>
                 </div>
@@ -100,7 +100,7 @@ class Access extends \Page_Handlers\sAccess
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
-                            .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => self::ACCESS,'staticData' => array('origo' => 'usrAccessEdit','tag' => 'Edit'),'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')))
+                            .sElement::General(array('constData' => self::ACCESS,'staticData' => array('origo' => 'usrAccessEdit','tag' => 'Edit'),'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')
                             .sCard::Collapsible(array('header' => 'Csoport adatok', 'content' => self::Huntgroup_Checkbox(array('dp' => (int)$array['dp'], 'origo' => 'usrAccessEdit'))))
                         .'</div>
                     </div>

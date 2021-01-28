@@ -42,12 +42,10 @@ class Company extends \Page_Handlers\sCompany
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
-                        <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'usrCmpCmpAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpCmpAdd', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => '', 'type' => 'text'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpCmpAdd', 'data' => 'companyDesc', 'desc' => 'Cég leírása', 'value' => '', 'type' => 'text'), 'Input').'
-
-                        </div>
+                        <div class="col-12 row">'
+                            .sElement::General(array('origo' => 'usrCmpCmpAdd', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
+                            .sElement::General(array('constData' => self::COMPANY, 'staticData' => array('origo' => 'usrCmpCmpAdd', 'tag' => 'Add')),'Generate_Form')
+                        .'</div>
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
@@ -80,12 +78,7 @@ class Company extends \Page_Handlers\sCompany
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company['companyName'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'value' => $Company['companyOwnerLastName'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'value' => $Company['companyOwnerFirstName'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressCity', 'desc' => 'Város', 'value' => $Company['companyAddressCity'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => 'usrCmpCmpView', 'data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General(array('constData' => self::COMPANY, 'staticData' => array('origo' => 'usrCmpCmpView', 'tag' => 'View'),'valueData' => $Company),'Generate_Form')
                     .'</div>
                 </div>
             </form>';
@@ -109,13 +102,7 @@ class Company extends \Page_Handlers\sCompany
                         <div class="col-12 row">'
                             .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
                             .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyId', 'desc' => '', 'value' => $array['dp'], 'type' => 'hidden'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyName', 'desc' => 'Cég neve', 'value' => $Company['companyName'], 'type' => 'text', 'disabled' => true), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyDesc', 'desc' => 'Cég leírása', 'value' => $Company['companyDesc'], 'type' => 'text'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'value' => $Company['companyOwnerLastName'], 'type' => 'text'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'value' => $Company['companyOwnerFirstName'], 'type' => 'text'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressCity', 'desc' => 'Város', 'value' => $Company['companyAddressCity'], 'type' => 'text'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'value' => $Company['companyAddressPostcode'], 'type' => 'text'), 'Input')
-                            .sElement::General(array('origo' => 'usrCmpCmpEdit', 'data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'value' => $Company['companyAddressStreet'], 'type' => 'text'), 'Input')
+                            .sElement::General(array('constData' => self::COMPANY, 'staticData' => array('origo' => 'usrCmpCmpEdit', 'tag' => 'Edit'),'valueData' => $Company),'Generate_Form')
                         .'</div>
                     </div>
                     <div class="form-group">

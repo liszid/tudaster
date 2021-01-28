@@ -86,7 +86,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companyOwnerFirstName VARCHAR(64) NULL,
             companyOwnerLastName VARCHAR(64) NULL,
             companyAddressCity VARCHAR(64) NULL,
-            companyAddressPostcode INT(4) NULL,
+            companyAddressPostcode VARCHAR(12) NULL,
             companyAddressStreet VARCHAR(128) NULL,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompany PRIMARY KEY (companyId),

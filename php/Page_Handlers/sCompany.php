@@ -32,11 +32,13 @@ class sCompany
 
     const COMPANY = array(
         array('data' => 'companyId', 'desc' => 'Cég neve', 'type' => 'select', 'tags' => 'View')
-        ,array('data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'type' => 'text', 'tags' => 'View')
-        ,array('data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'type' => 'text', 'tags' => 'View')
-        ,array('data' => 'companyAddressCity', 'desc' => 'Város', 'type' => 'text', 'tags' => 'View')
-        ,array('data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'type' => 'text', 'tags' => 'View')
-        ,array('data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'type' => 'text', 'tags' => 'View')
+        ,array('data' => 'companyName', 'desc' => 'Cég neve', 'type' => 'text', 'tags' => 'Add,View,Edit', 'must-fill' => true)
+        ,array('data' => 'companyDesc', 'desc' => 'Cég leírása', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'companyOwnerLastName', 'desc' => 'Tulajdonos vezetékneve', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'companyOwnerFirstName', 'desc' => 'Tulajdonos keresztneve', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'companyAddressCity', 'desc' => 'Város', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'companyAddressPostcode', 'desc' => 'Irányítószám', 'type' => 'text', 'tags' => 'View,Edit')
+        ,array('data' => 'companyAddressStreet', 'desc' => 'Utca, Házszám', 'type' => 'text', 'tags' => 'View,Edit')
     );
 
     const COMPANY_SITE = array(

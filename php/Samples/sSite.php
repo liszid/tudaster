@@ -301,7 +301,7 @@ class sSite
                     </div>
                     <div id="body" style="min-height:75vh; margin-bottom:5.5rem" class="mt-5"></div>
                     <div id="modalBox" class="modal fade" role="dialog">
-                        <div class="modal-dialog" id="modalDialog"></div>
+                        <div class="modal-dialog modal-lg" id="modalDialog"></div>
                     </div>
                     <footer class="page-footer font-small bg-info mt-4 text-light fixed-bottom">
                         <!-- FOOTER START -->

@@ -90,7 +90,8 @@ $GLOBALS['Database']['5']['Update'] = "
     UPDATE
         `Company`
     SET
-        companyDesc=:companyDesc
+        companyName=:companyName
+        ,companyDesc=:companyDesc
         ,companyOwnerFirstName=:companyOwnerFirstName
         ,companyOwnerLastName=:companyOwnerLastName
         ,companyAddressCity=:companyAddressCity

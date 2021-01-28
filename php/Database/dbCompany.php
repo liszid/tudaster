@@ -90,14 +90,14 @@ class dbCompany extends Table implements iDatabase
                     array(
                         'query' => self::$classQueries['Update'],
                         'vNames' => array(
-                            'userId',
-                            'companyId',
-                            'companyDesc',
-                            'companyOwnerLastName',
-                            'companyOwnerFirstName',
-                            'companyAddressCity',
-                            'companyAddressPostcode',
-                            'companyAddressStreet'
+                            'companyId'
+                            ,'companyName'
+                            ,'companyDesc'
+                            ,'companyOwnerLastName'
+                            ,'companyOwnerFirstName'
+                            ,'companyAddressCity'
+                            ,'companyAddressPostcode'
+                            ,'companyAddressStreet'
                         ),
                         'vData' => $array
                     )

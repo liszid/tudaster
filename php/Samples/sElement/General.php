@@ -72,6 +72,8 @@ class General
         $inputValue = (isset($array['value'])) ? $array['value'] : '';
         $inputType = (isset($array['type'])) ? $array['type'] : '';
         $inputDisabled = (isset($array['disabled'])) ? ' disabled': '';
+        $mustFill = (isset($array['must-fill'])) ? true: false;
+
         $input = '';
 
         if (
@@ -85,7 +87,7 @@ class General
             $input .= '</select>';
         } else {
             $input = '
-                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.'>';
+                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.(($mustFill)?' data-must-fill="true"':'').'>';
         }
 
         return (
@@ -94,7 +96,7 @@ class General
                         $input
                     :'
                         <div class="form-group row col-12 mx-0">
-                            <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.'</label>
+                            <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.(($mustFill && ! isset($array['disabled']))?' *':'').'</label>
                             <div class="col-sm-6">
                                 '.$input.'
                             </div>

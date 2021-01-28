@@ -32,8 +32,8 @@ class sAccess
 
     const ACCESS = array(
         array('data' => 'accessId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'accessUsername', 'desc' => 'Felhasználónév', 'type' => 'text', 'tags' => 'Add,Edit,View')
-        ,array('data' => 'accessPassword', 'desc' => 'Jelszó', 'type' => 'text', 'tags' => 'Add,Edit,View')
+        ,array('data' => 'accessUsername', 'desc' => 'Felhasználónév', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
+        ,array('data' => 'accessPassword', 'desc' => 'Jelszó', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
         ,array('data' => 'hardwareId', 'desc' => 'Eszköz', 'type' => 'select', 'tags' => 'Add,View,Edit')
     );
 

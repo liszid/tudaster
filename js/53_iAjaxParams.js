@@ -44,7 +44,9 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                 this._ajaxInterval = arg;
             }
         });
-
+/*
+    Temporarily inactive functionality
+*/
         Object.defineProperty( this, 'enlargeModal',
         {
             get( ) {

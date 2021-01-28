@@ -89,7 +89,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                 let loc = (srcLmnt !== null && srcLmnt.getAttribute('data-link') !== null) ? srcLmnt.getAttribute('data-link') : null;
                 if (loc !== null && srcLmnt !== null) {
                     e.preventDefault();
-                    _self.enlargenModal(loc);
+//                    _self.enlargenModal(loc);
                     let tempLocation = loc.split("/");
                     let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
                     if (tempLocation.length > 1) {
@@ -149,6 +149,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         if (tag.length > 0) {
             var addEvent = (e) =>
             {
+                let mustFill = true;
                 let tempSrcLmnt = _self.findSource(e.target, 'input');
                 if (tempSrcLmnt === undefined || tempSrcLmnt === false) {
                     tempSrcLmnt = _self.findSource(e.target, 'button');
@@ -160,11 +161,25 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     for (let i = 0; i < _self.arrayObject.length; i++) {
                         if (srcLmnt.getAttribute('id').startsWith(_self.arrayObject[i][0]+"-"+_self.arrayObject[i][2])) {
                             let returnString = _self.arrayObject[i][1];
-                            _self.enlargenModal(((returnString.split("&"))[0].split("="))[1]);
+//                            _self.enlargenModal(((returnString.split("&"))[0].split("="))[1]);
                             let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + '-"]');
                             if (innerArray.length > 0) {
                                 for (let k = 0; k < innerArray.length; k++) {
                                     let innerArrayObjectName = (innerArray[k].id.split("-"))[1];
+
+                                    if (
+                                        innerArray[k].hasAttribute('data-must-fill')
+                                        && (
+                                            innerArray[k].value == null
+                                            || innerArray[k].value == ""
+                                        )
+                                    ) {
+                                        mustFill = false;
+                                        innerArray[k].classList.add('is-invalid');
+                                    } else {
+                                        innerArray[k].classList.remove('is-invalid');
+                                    }
+
                                     if (! innerArrayObjectName.includes("pWord")) {
                                         if (innerArrayObjectName.includes("Checkbox")) {
                                             let arrayOfSelectedOptions = innerArray[k].selectedOptions;
@@ -187,10 +202,12 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                     returnString = returnString.concat("&" + _self.arrayObject[i][5] + "=" + srcLmnt.getAttribute('data-id'));
                                 }
                             }
-                            if (_self.arrayObject[i][4]) {
-                                _self.initElmnt(returnString, _self.arrayObject[i][4]);
-                            } else {
-                                _self.initElmnt(returnString);
+                            if (mustFill) {
+                                if (_self.arrayObject[i][4]) {
+                                    _self.initElmnt(returnString, _self.arrayObject[i][4]);
+                                } else {
+                                    _self.initElmnt(returnString);
+                                }
                             }
                         }
                     }
