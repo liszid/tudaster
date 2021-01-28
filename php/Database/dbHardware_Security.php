@@ -52,16 +52,16 @@ class dbHardware_Security extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byHardwareSecurityId':
                 $tempArray[] = 'hardwareSecurityId';
-            break;
+                break;
             case 'byHardwareId':
                 $tempArray[] = 'hardwareId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {

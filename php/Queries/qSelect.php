@@ -343,6 +343,12 @@ $GLOBALS['Database'][99]['Select'] = array(
         INNER JOIN `User` USING (userId)
         INNER JOIN `Company_Site` USING (companySiteId)
         WHERE `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId"
+
+
+/*
+    LEFT JOIN `Hardware_Member` USING (hardwareId) =>>
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
+*/
     ,'Access_Table' => "
         SELECT
             `Access`.accessId

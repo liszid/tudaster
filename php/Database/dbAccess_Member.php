@@ -47,19 +47,19 @@ class dbAccess_Member extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byHuntgroupId':
                 $tempArray[] = 'huntgroupId';
-            break;
+                break;
             case 'byAccessMemberId':
                 $tempArray[] = 'accessMemberId';
-            break;
+                break;
             case 'byAccessId':
                 $tempArray[] = 'accessId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {

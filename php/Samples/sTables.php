@@ -168,7 +168,9 @@ class sTables implements
                             ) || (
                                 isset($data['tableRole'])
                                 && isset($b['level'])
-                                && $_SESSION['User'][$data['tableRole']] < $b['level']
+                                && $b['level'] != 1
+                                && ! $_SESSION['User']['canAdministrative']
+                                && $_SESSION['User'][$data['tableRole']] <= $b['level']
                             )
                         ) && ! in_array($b['action'], self::ENABLED_ACTIONS)
                     ) {

@@ -34,7 +34,7 @@ class dbCombined extends Table implements iDatabase
             case 'Member_Full':
             case 'Company_Site_Table':
             case 'Company_Site_Select':
-            break;
+                break;
             case 'Access_Table':
             case 'Hardware_Computer_Table':
             case 'Hardware_Printer_Table':
@@ -45,43 +45,43 @@ class dbCombined extends Table implements iDatabase
             case 'Hardware_Members_By_Type':
             case 'User_Full':
                 $tempArray[] = 'userId';
-            break;
+                break;
             case 'Huntgroup_Members':
                 $tempArray[] = 'huntgroupId';
-            break;
+                break;
             case 'Company_Site_View':
                 $tempArray[] = 'companySiteId';
-            break;
+                break;
             case 'Company_Site_Filter':
                 $tempArray[] = 'companyId';
-            break;
+                break;
             case 'Hardware_Laptop_View':
                 $tempArray[] = 'hardwareLaptopId';
-            break;
+                break;
             case 'Hardware_Computer_View':
                 $tempArray[] = 'hardwareComputerId';
-            break;
+                break;
             case 'Hardware_Printer_View':
                 $tempArray[] = 'hardwarePrinterId';
-            break;
+                break;
             case 'Hardware_Networking_View':
                 $tempArray[] = 'hardwareNetworkingId';
-            break;
+                break;
             case 'Hardware_Server_View':
                 $tempArray[] = 'hardwareServerId';
-            break;
+                break;
             case 'Hardware_Security_View':
                 $tempArray[] = 'hardwareSecurityId';
-            break;
+                break;
             case 'Hardware_Members':
                 $tempArray[] = 'hardwareId';
-            break;
+                break;
             case 'Access_Members':
                 $tempArray[] = 'accessId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {

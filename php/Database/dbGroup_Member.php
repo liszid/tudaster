@@ -47,19 +47,19 @@ class dbGroup_Member extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byGroupId':
                 $tempArray[] = 'groupId';
-            break;
+                break;
             case 'byGroupMemberId':
                 $tempArray[] = 'groupMemberId';
-            break;
+                break;
             case 'byUserId':
                 $tempArray[] = 'userId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {
@@ -91,14 +91,14 @@ class dbGroup_Member extends Table implements iDatabase
             case 'byUserId':
                 $tempArray[] = 'groupId';
                 $tempArray[] = 'userId';
-            break;
+                break;
             case 'byGroupMemberId':
                 $tempArray[] = 'groupMemberId';
                 $tempArray[] = 'groupId';
-            break;
+                break;
             default:
                 return false;
-            break;
+                break;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {

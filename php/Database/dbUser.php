@@ -49,23 +49,23 @@ class dbUser extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byUserName':
                 $tempArray[] = 'userName';
-            break;
+                break;
             case 'byUserId':
                 $tempArray[] = 'userId';
-            break;
+                break;
             case 'byContEmail':
                 $tempArray[] = 'userContEmail';
-            break;
+                break;
             case 'Login':
                 $tempArray[] = 'userName';
                 $tempArray[] = 'pWord';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Select'][$type])) {
@@ -96,7 +96,7 @@ class dbUser extends Table implements iDatabase
         switch ($type) {
             case 'Reset':
                 $tempArray[] = 'userId';
-            break;
+                break;
             case 'Profile':
                 $tempArray[] = 'userId';
                 $tempArray[] = 'userFirstName';
@@ -104,10 +104,10 @@ class dbUser extends Table implements iDatabase
                 $tempArray[] = 'userThumbnail';
                 $tempArray[] = 'userContSite';
                 $tempArray[] = 'userContPhone';
-            break;
+                break;
             default:
                 return false;
-            break;
+                break;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray)) ) && Valid::vString(self::$classQueries['Update'][$type])) {

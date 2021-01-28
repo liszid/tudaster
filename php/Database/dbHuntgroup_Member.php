@@ -47,19 +47,19 @@ class dbHuntgroup_Member extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byHuntgroupId':
                 $tempArray[] = 'huntgroupId';
-            break;
+                break;
             case 'byHuntgroupMemberId':
                 $tempArray[] = 'huntgroupMemberId';
-            break;
+                break;
             case 'byUserId':
                 $tempArray[] = 'userId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {
@@ -87,18 +87,18 @@ class dbHuntgroup_Member extends Table implements iDatabase
     {
         $tempArray = array();
 
-        if (strcmp($type, 'byUserId') === 0) {
-            $tempArray = array(
-                            'huntgroupId',
-                            'userId'
-                        );
-        } elseif (strcmp($type, 'byHuntgroupMemberId') === 0) {
-            $tempArray = array(
-                            'huntgroupId',
-                            'huntgroupMemberId'
-                        );
-        } else {
-            return false;
+        switch ($type) {
+            case 'byUserId':
+                $tempArray[] = 'huntgroupId';
+                $tempArray[] = 'userId';
+                break;
+            case 'byHuntgroupMemberId':
+                $tempArray[] = 'huntgroupId';
+                $tempArray[] = 'huntgroupMemberId';
+                break;
+            default:
+                return false;
+                break;
         }
 
         if ((! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Update'][$type])) {

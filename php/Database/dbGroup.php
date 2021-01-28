@@ -48,13 +48,13 @@ class dbGroup extends Table implements iDatabase
         switch ($type) {
             case 'All':
             case 'forMemberEdit':
-            break;
+                break;
             case 'byGroupId':
                 $tempArray[] = 'groupId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray))) && Valid::vString(self::$classQueries['Select'][$type])) {

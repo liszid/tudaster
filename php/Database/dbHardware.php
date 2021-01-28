@@ -53,17 +53,17 @@ class dbHardware extends Table implements iDatabase
 
         switch ($type) {
             case 'All':
-            break;
+                break;
             case 'byUserId':
             case 'byUserId_Last':
                 $tempArray[] = 'userId';
-            break;
+                break;
             case 'byHardwareId':
                 $tempArray[] = 'hardwareId';
-            break;
+                break;
             default:
                 return array();
-            break;
+                break;
         }
 
         if ( (! empty($array) || empty(array_diff($array, $tempArray)) )&& Valid::vString(self::$classQueries['Select'][$type])) {
