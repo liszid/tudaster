@@ -125,11 +125,6 @@ class sAdministrative {
             case 'Groups':
                 $wclass = new sAdministrative\Groups;
                 break;
-/*
-            case 'Membership':
-                $wclass = new sAdministrative\Membership;
-                break;
-*/
             case 'Huntgroups':
                 $wclass = new sAdministrative\Huntgroups;
                 break;
@@ -203,25 +198,6 @@ class sAdministrative {
         }
 
         $returnString .= sTables::Prompt($Groups, 'Admin_Groups');
-        return $returnString;
-    }
-
-/*
- * Used at Administrative Page to display Membership section
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.10.30
- */
-    public static function Membership(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Members = self::$dCombined->Select(array(), 'Member_Full');
-        if (Valid::vString($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-        $returnString .= sTables::Prompt($Members, 'Admin_Members');
         return $returnString;
     }
 

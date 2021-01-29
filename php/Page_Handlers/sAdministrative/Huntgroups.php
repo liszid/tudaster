@@ -32,7 +32,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">
-                            '.sElement::General(array('origo' => 'admHuntgroupsAdd', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsAdd', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => '', 'type' => 'text', 'must-fill' => true), 'Input').'
                             '.sElement::General(array('origo' => 'admHuntgroupsAdd', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => '', 'type' => 'text'), 'Input').'
                         </div>
                     </div>
@@ -69,7 +69,7 @@ class Huntgroups extends \Page_Handlers\sAdministrative
                     <div class="form-group col p-0">
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupId', 'desc' => 'Id', 'value' => $Huntgroup['huntgroupId'], 'type' => 'hidden'), 'Input').'
-                            '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName']), 'Input').'
+                            '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupName', 'desc' => 'Név', 'value' => $Huntgroup['huntgroupName'], 'must-fill' => true), 'Input').'
                             '.sElement::General(array('origo' => 'admHuntgroupsEdit', 'data' => 'huntgroupDesc', 'desc' => 'Leírás', 'value' => $Huntgroup['huntgroupDesc']), 'Input').'
                             '.self::Prompt_Checkbox($array).'
                         </div>

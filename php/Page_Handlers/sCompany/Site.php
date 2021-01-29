@@ -49,7 +49,7 @@ class Site extends \Page_Handlers\sCompany
                         <div class="col-12 row">
                             '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'userId', 'desc' => '', 'value' => $_SESSION['User']['userId'], 'type' => 'hidden'), 'Input').'
                             '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'companyId', 'desc' => 'Cég', 'value' => '', 'select' => $companySelect, 'type' => 'select'), 'Input').'
-                            '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'value' => '', 'type' => 'text'), 'Input').'
+                            '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'companySiteName', 'desc' => 'Telephely neve', 'value' => '', 'type' => 'text', 'must-fill' => true), 'Input').'
                             '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'companySiteDesc', 'desc' => 'Telephely leírása', 'value' => '', 'type' => 'text'), 'Input').'
                             '.sElement::General(array('origo' => 'usrCmpSiteAdd', 'data' => 'companySiteTypeId', 'desc' => 'Telephely típusa', 'value' => '', 'select' => $companySiteType, 'type' => 'select'), 'Input').'
                         </div>
