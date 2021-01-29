@@ -78,15 +78,27 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"Hardware/Printer/Add"
                     ,"Hardware/Printer/Edit"
                     ,"Hardware/Printer/View"
-                    ,"Hardware/Networking/Add"
-                    ,"Hardware/Networking/Edit"
-                    ,"Hardware/Networking/View"
                     ,"Hardware/Server/Add"
                     ,"Hardware/Server/Edit"
                     ,"Hardware/Server/View"
-                    ,"Hardware/Security/Add"
-                    ,"Hardware/Security/Edit"
-                    ,"Hardware/Security/View"
+                    ,"Hardware/Router/Add"
+                    ,"Hardware/Router/Edit"
+                    ,"Hardware/Router/View"
+                    ,"Hardware/Switch/Add"
+                    ,"Hardware/Switch/Edit"
+                    ,"Hardware/Switch/View"
+                    ,"Hardware/Access_Point/Add"
+                    ,"Hardware/Access_Point/Edit"
+                    ,"Hardware/Access_Point/View"
+                    ,"Hardware/Camera/Add"
+                    ,"Hardware/Camera/Edit"
+                    ,"Hardware/Camera/View"
+                    ,"Hardware/DVR_CCTV/Add"
+                    ,"Hardware/DVR_CCTV/Edit"
+                    ,"Hardware/DVR_CCTV/View"
+                    ,"Hardware/Alarm/Add"
+                    ,"Hardware/Alarm/Edit"
+                    ,"Hardware/Alarm/View"
                     ,"Hardware/Hardware/View"
                 ];
             }
@@ -145,12 +157,20 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["usrHardwComputerEdit", "x=Hardware&y=Computer&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwPrinterAdd", "x=Hardware&y=Printer&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwPrinterEdit", "x=Hardware&y=Printer&z=Edit&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwNetworkingAdd", "x=Hardware&y=Networking&z=Add&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwNetworkingEdit", "x=Hardware&y=Networking&z=Edit&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwSecurityAdd", "x=Hardware&y=Security&z=Add&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwSecurityEdit", "x=Hardware&y=Security&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwServerAdd", "x=Hardware&y=Server&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwServerEdit", "x=Hardware&y=Server&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwRouterAdd", "x=Hardware&y=Router&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwRouterEdit", "x=Hardware&y=Router&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwSwitchAdd", "x=Hardware&y=Switch&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwSwitchEdit", "x=Hardware&y=Switch&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwAccessPointAdd", "x=Hardware&y=Access_Point&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwAccessPointEdit", "x=Hardware&y=Access_Point&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwCameraAdd", "x=Hardware&y=Camera&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwCameraEdit", "x=Hardware&y=Camera&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwDVRCCTVAdd", "x=Hardware&y=DVR_CCTV&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwDVRCCTVEdit", "x=Hardware&y=DVR_CCTV&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwAlarmAdd", "x=Hardware&y=Alarm&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwAlarmEdit", "x=Hardware&y=Alarm&z=Edit&Save=", "button", [], "modalDialog"]
                 ];
             }
         } );
@@ -167,11 +187,16 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableCompanySite"
                     ,"tableHardwareHardware"
                     ,"tableHardwareLaptop"
-                    ,"tableHardwareNetworking"
+                    ,"tableHardwareRouter"
                     ,"tableHardwareComputer"
                     ,"tableHardwarePrinter"
                     ,"tableHardwareServer"
                     ,"tableHardwareSecurity"
+                    ,"tableHardwareSwitch"
+                    ,"tableHardwareAccessPoint"
+                    ,"tableHardwareCamera"
+                    ,"tableHardwareDVRCCTV"
+                    ,"tableHardwareAlarm"
                     ,"tableAccessAccess"
                 ];
             }

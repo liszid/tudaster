@@ -25,13 +25,17 @@ if (
 
     $urlPaths = array(
                     "Root"          => array("path" => "Hardware",              "role" => "canHardware")
-                    ,"Hardware"      => array("path" => "Hardware/Hardware",     "role" => "canHardware")
-                    ,"Laptop"        => array("path" => "Hardware/Laptop",       "role" => "canHardware")
-                    ,"Computer"      => array("path" => "Hardware/Computer",     "role" => "canHardware")
-                    ,"Server"        => array("path" => "Hardware/Server",       "role" => "canHardware")
-                    ,"Printer"       => array("path" => "Hardware/Printer",      "role" => "canHardware")
-                    ,"Networking"    => array("path" => "Hardware/Networking",   "role" => "canHardware")
-                    ,"Security"      => array("path" => "Hardware/Security",     "role" => "canHardware")
+                    ,"Hardware"     => array("path" => "Hardware/Hardware",     "role" => "canHardware")
+                    ,"Laptop"       => array("path" => "Hardware/Laptop",       "role" => "canHardware")
+                    ,"Computer"     => array("path" => "Hardware/Computer",     "role" => "canHardware")
+                    ,"Server"       => array("path" => "Hardware/Server",       "role" => "canHardware")
+                    ,"Printer"      => array("path" => "Hardware/Printer",      "role" => "canHardware")
+                    ,"Router"       => array("path" => "Hardware/Router",       "role" => "canHardware")
+                    ,"Switch"       => array("path" => "Hardware/Switch",       "role" => "canHardware")
+                    ,"Access_Point" => array("path" => "Hardware/Access_Point", "role" => "canHardware")
+                    ,"Camera"       => array("path" => "Hardware/Camera",       "role" => "canHardware")
+                    ,"DVR_CCTV"     => array("path" => "Hardware/DVR_CCTV",     "role" => "canHardware")
+                    ,"Alarm"        => array("path" => "Hardware/Alarm",        "role" => "canHardware")
                 );
 /*
  * Post action handling and form prompt section
@@ -60,31 +64,16 @@ if (
  * Page loading section
  */
     } elseif (isset($_POST['y']) || isset($_POST['b'])) {
-        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Company'));
+        $postUrl = Check::isEither(array('post' => array('y', 'b'), 'fallBack' => 'Hardware'));
 
         switch ($postUrl) {
             case 'Hardware':
                 $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Hardware(array('path' => $urlPaths[$postUrl]['path'])) : '';
                 break;
-            case 'Laptop':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Laptop(array('path' => $urlPaths[$postUrl]['path'])) : '';
+            default:
+                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Page(array('path' => $urlPaths[$postUrl]['path'], 'hardwareType' => $postUrl)) : '';
                 break;
-            case 'Computer':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Computer(array('path' => $urlPaths[$postUrl]['path'])) : '';
-                break;
-            case 'Printer':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Printer(array('path' => $urlPaths[$postUrl]['path'])) : '';
-                break;
-            case 'Networking':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Networking(array('path' => $urlPaths[$postUrl]['path'])) : '';
-                break;
-            case 'Server':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Server(array('path' => $urlPaths[$postUrl]['path'])) : '';
-                break;
-            case 'Security':
-                $returnContent .= ((int)$sessionUsr[$urlPaths[$postUrl]['role']] > 0 ) ? sHardware::Security(array('path' => $urlPaths[$postUrl]['path'])) : '';
-                break;
-        }
+            }
         echo (
             (
                 Valid::vString($returnContent)

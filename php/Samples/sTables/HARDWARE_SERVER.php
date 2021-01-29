@@ -11,15 +11,15 @@ interface HARDWARE_SERVER
         "tableRoot" => "Hardware/Server",
         "tableRole" => "canHardware",
         "data" => array(
-            "hardwareServerId" => array("text" => "Id", "tooltip" => ""),
+            "hardwareId" => array("text" => "Id", "tooltip" => ""),
             "hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve"),
             "hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása"),
             "hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe"),
             "hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe"),
             "hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja"),
-            "hardwareServerUse" => array("text" => "Használat", "tooltip" => "Szerver felhasználási módja"),
-            "hardwareServerType" => array("text" => "Típus", "tooltip" => "Szerver típúsa"),
-            "hardwareServerOS" => array("text" => "Op. Rendszer", "tooltip" => "Szerver operációs rendszere")
+            "hardwareSpecUse" => array("text" => "Használat", "tooltip" => "Szerver felhasználási módja"),
+            "hardwareSpecType" => array("text" => "Típus", "tooltip" => "Szerver típúsa"),
+            "hardwareSpecOS" => array("text" => "Op. Rendszer", "tooltip" => "Szerver operációs rendszere")
         ),
         "button" => array(
             array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),

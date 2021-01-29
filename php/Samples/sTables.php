@@ -11,21 +11,25 @@ use PreLoad\{
 };
 
 class sTables implements
-    sTables\HOME_USERS,
-    sTables\ADMIN_USERS,
-    sTables\ADMIN_GROUPS,
-    sTables\ADMIN_MEMBERSHIP,
-    sTables\ADMIN_HUNTGROUPS,
-    sTables\COMPANY_COMPANY,
-    sTables\COMPANY_SITE,
-    sTables\HARDWARE_LAPTOP,
-    sTables\HARDWARE_COMPUTER,
-    sTables\HARDWARE_PRINTER,
-    sTables\HARDWARE_NETWORKING,
-    sTables\HARDWARE_HARDWARE,
-    sTables\HARDWARE_SERVER,
-    sTables\HARDWARE_SECURITY,
-    sTables\ACCESS_ACCESS
+    sTables\HOME_USERS
+    ,sTables\ADMIN_USERS
+    ,sTables\ADMIN_GROUPS
+    ,sTables\ADMIN_MEMBERSHIP
+    ,sTables\ADMIN_HUNTGROUPS
+    ,sTables\COMPANY_COMPANY
+    ,sTables\COMPANY_SITE
+    ,sTables\HARDWARE_LAPTOP
+    ,sTables\HARDWARE_COMPUTER
+    ,sTables\HARDWARE_PRINTER
+    ,sTables\HARDWARE_HARDWARE
+    ,sTables\HARDWARE_SERVER
+    ,sTables\HARDWARE_ROUTER
+    ,sTables\HARDWARE_SWITCH
+    ,sTables\HARDWARE_ACCESS_POINT
+    ,sTables\HARDWARE_CAMERA
+    ,sTables\HARDWARE_DVR_CCTV
+    ,sTables\HARDWARE_ALARM
+    ,sTables\ACCESS_ACCESS
 {
     const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
     const ENABLED_ACTIONS = array('View');
@@ -76,17 +80,29 @@ class sTables implements
             case 'Hardware_Printer':
                 return self::Generate($array, self::HARDWARE_PRINTER);
                 break;
-            case 'Hardware_Networking':
-                return self::Generate($array, self::HARDWARE_NETWORKING);
-                break;
             case 'Hardware_Hardware':
                 return self::Generate($array, self::HARDWARE_HARDWARE);
                 break;
             case 'Hardware_Server':
                 return self::Generate($array, self::HARDWARE_SERVER);
                 break;
-            case 'Hardware_Security':
-                return self::Generate($array, self::HARDWARE_SECURITY);
+            case 'Hardware_Router':
+                return self::Generate($array, self::HARDWARE_ROUTER);
+                break;
+            case 'Hardware_Switch':
+                return self::Generate($array, self::HARDWARE_SWITCH);
+                break;
+            case 'Hardware_Access_Point':
+                return self::Generate($array, self::HARDWARE_ACCESS_POINT);
+                break;
+            case 'Hardware_Camera':
+                return self::Generate($array, self::HARDWARE_CAMERA);
+                break;
+            case 'Hardware_DVR_CCTV':
+                return self::Generate($array, self::HARDWARE_DVR_CCTV);
+                break;
+            case 'Hardware_Alarm':
+                return self::Generate($array, self::HARDWARE_ALARM);
                 break;
             case 'Access_Access':
                 return self::Generate($array, self::ACCESS_ACCESS);

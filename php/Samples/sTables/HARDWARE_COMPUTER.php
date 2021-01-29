@@ -11,15 +11,15 @@ interface HARDWARE_COMPUTER
         "tableRoot" => "Hardware/Computer",
         "tableRole" => "canHardware",
         "data" => array(
-            "hardwareComputerId" => array("text" => "Id", "tooltip" => ""),
+            "hardwareId" => array("text" => "Id", "tooltip" => ""),
             "hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve"),
             "hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása"),
             "hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe"),
             "hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe"),
             "hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja"),
-            "hardwareComputerUse" => array("text" => "Használat", "tooltip" => "Számítógép felhasználási módja"),
-            "hardwareComputerType" => array("text" => "Típus", "tooltip" => "Számítógép típúsa"),
-            "hardwareComputerOS" => array("text" => "Op. Rendszer", "tooltip" => "Számítógép operációs rendszere")
+            "hardwareSpecUse" => array("text" => "Használat", "tooltip" => "Számítógép felhasználási módja"),
+            "hardwareSpecType" => array("text" => "Típus", "tooltip" => "Számítógép típúsa"),
+            "hardwareSpecOS" => array("text" => "Op. Rendszer", "tooltip" => "Számítógép operációs rendszere")
         ),
         "button" => array(
             array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),

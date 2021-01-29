@@ -110,7 +110,7 @@ $GLOBALS['Database']['Table']['Insert'][7] = "
     ) VALUES
     (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
 ";
-$GLOBALS['Database']['Table']['Insert'][10] = "
+$GLOBALS['Database']['Table']['Insert'][20] = "
     INSERT INTO `Hardware`(
         hardwareName
         ,hardwareDesc
@@ -131,87 +131,11 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
      ('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer',1,1,0)
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt001', '001','-','-','Server',1,1,0)
     ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt001', '001','-','-','Laptop',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Security',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Networking',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Printer',1,1,0);
-";
-$GLOBALS['Database']['Table']['Insert'][11] = "
-    INSERT INTO `Hardware_Laptop`(
-        hardwareId
-        ,hardwareLaptopUser
-        ,hardwareLaptopType
-        ,hardwareLaptopOS
-        ,hardwareLaptopOSVer
-        ,hardwareLaptopHDD
-        ,hardwareLaptopMEM
-        ,hardwareLaptopPROC
-        ,hardwareLaptopOperator
-    ) VALUES
-    (3, 'NoUser','-','-','-','-','-','-','-');
-";
-$GLOBALS['Database']['Table']['Insert'][12] = "
-    INSERT INTO `Hardware_Computer`(
-        hardwareId
-        ,hardwareComputerUser
-        ,hardwareComputerType
-        ,hardwareComputerUse
-        ,hardwareComputerOS
-        ,hardwareComputerOSVer
-        ,hardwareComputerHDD
-        ,hardwareComputerMEM
-        ,hardwareComputerPROC
-        ,hardwareComputerNetworkPorts
-        ,hardwareComputerOperator
-    ) VALUES
-    (1,'NoUser','-','-','-','-','-','-','-','-','-');
-";
-$GLOBALS['Database']['Table']['Insert'][13] = "
-    INSERT INTO `Hardware_Printer`(
-        hardwareId
-        ,hardwarePrinterUse
-        ,hardwarePrinterType
-        ,hardwarePrinterToner
-        ,hardwarePrinterOperator
-    ) VALUES
-    (6,'-','-','-','-');
-";
-$GLOBALS['Database']['Table']['Insert'][14] = "
-    INSERT INTO `Hardware_Networking`(
-        hardwareId
-        ,hardwareNetworkingType
-        ,hardwareNetworkingUse
-        ,hardwareNetworkingOS
-        ,hardwareNetworkingOSVer
-        ,hardwareNetworkingNetworkPorts
-        ,hardwareNetworkingOperator
-    ) VALUES
-    (5,'-','-','-','-','-','-');
-";
-$GLOBALS['Database']['Table']['Insert'][15] = "
-    INSERT INTO `Hardware_Server`(
-        hardwareId
-        ,hardwareServerUser
-        ,hardwareServerType
-        ,hardwareServerUse
-        ,hardwareServerOS
-        ,hardwareServerOSVer
-        ,hardwareServerHDD
-        ,hardwareServerMEM
-        ,hardwareServerPROC
-        ,hardwareServerNetworkPorts
-        ,hardwareServerOperator
-    ) VALUES
-    (2,'NoUser','-','-','-','-','-','-','-','-','-');
-";
-$GLOBALS['Database']['Table']['Insert'][16] = "
-    INSERT INTO `Hardware_Security`(
-        hardwareId
-        ,hardwareSecurityType
-        ,hardwareSecurityUse
-        ,hardwareSecurityOS
-        ,hardwareSecurityOSVer
-        ,hardwareSecurityNetworkPorts
-        ,hardwareSecurityOperator
-    ) VALUES
-    (4,'-','-','-','-','-','-');
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Printer',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Router',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Switch',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.7','R1', '07', 'Teszt001', '001','-','-','Access_Point',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.8','R1', '08', 'Teszt001', '001','-','-','Camera',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.9','R1', '09', 'Teszt001', '001','-','-','DVR_CCTV',1,1,0)
+    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.10','R1','10', 'Teszt001', '001','-','-','Alarm',1,1,0)
 ";

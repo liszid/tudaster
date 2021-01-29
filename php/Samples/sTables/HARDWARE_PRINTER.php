@@ -11,14 +11,14 @@ interface HARDWARE_PRINTER
         "tableRoot" => "Hardware/Printer",
         "tableRole" => "canHardware",
         "data" => array(
-            "hardwarePrinterId" => array("text" => "Id", "tooltip" => ""),
+            "hardwareId" => array("text" => "Id", "tooltip" => ""),
             "hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve"),
             "hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása"),
             "hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe"),
             "hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe"),
             "hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja"),
-            "hardwarePrinterUse" => array("text" => "Használat", "tooltip" => "Nyomtató felhasználási módja"),
-            "hardwarePrinterType" => array("text" => "Típus", "tooltip" => "Nyomtató típúsa")
+            "hardwareSpecUse" => array("text" => "Használat", "tooltip" => "Nyomtató felhasználási módja"),
+            "hardwareSpecType" => array("text" => "Típus", "tooltip" => "Nyomtató típúsa")
         ),
         "button" => array(
             array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1),

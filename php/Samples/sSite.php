@@ -187,8 +187,12 @@ class sSite
                         ,'Computer'
                         ,'Server'
                         ,'Printer'
-                        ,'Networking'
-                        ,'Security'
+                        ,'Router'
+                        ,'Switch'
+                        ,'Access_Point'
+                        ,'Camera'
+                        ,'DVR_CCTV'
+                        ,'Alarm'
                     )
                     ,'Desc' => sTranslate::Prompt($navName)
                 );

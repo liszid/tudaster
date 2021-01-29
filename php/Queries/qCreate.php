@@ -129,7 +129,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companySiteTypeCascade FOREIGN KEY (companySiteTypeId) REFERENCES `Company_Site_Type` (companySiteTypeId) ON DELETE CASCADE
         );
     "
-    ,10 => "
+    ,20 => "
         CREATE TABLE IF NOT EXISTS `Hardware`(
             hardwareId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             hardwareName VARCHAR(64) NULL,
@@ -144,104 +144,23 @@ $GLOBALS['Database']['Table']['Create'] = array(
             hardwareDateIn VARCHAR(64) NULL DEFAULT 0,
             hardwareDateOut VARCHAR(64) NULL DEFAULT 0,
             hardwareType VARCHAR(64) NULL DEFAULT 0,
+            hardwareSpecHDD VARCHAR(16) NULL DEFAULT 0,
+            hardwareSpecMEM VARCHAR(16) NULL DEFAULT 0,
+            hardwareSpecNetworkPorts VARCHAR(32) NULL DEFAULT 0,
+            hardwareSpecOperator VARCHAR(64) NULL DEFAULT 0,
+            hardwareSpecOS VARCHAR(128) NULL DEFAULT 0,
+            hardwareSpecOSVer VARCHAR(128) NULL DEFAULT 0,
+            hardwareSpecPROC VARCHAR(16) NULL DEFAULT 0,
+            hardwareSpecType VARCHAR(128) NULL,
+            hardwareSpecToner VARCHAR(128) NULL,
+            hardwareSpecUser VARCHAR(64) NULL,
+            hardwareSpecUse VARCHAR(128) NULL,
             userId INT(6) UNSIGNED NOT NULL,
             companySiteId INT(6) UNSIGNED NOT NULL,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyHardware PRIMARY KEY (hardwareId),
             CONSTRAINT hardwareUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE,
             CONSTRAINT hardwareCompanySiteCascade FOREIGN KEY (companySiteId) REFERENCES `Company_Site` (companySiteId) ON DELETE CASCADE
-        );
-    "
-    ,11 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Laptop`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwareLaptopId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwareLaptopUser VARCHAR(64) NULL,
-            hardwareLaptopType VARCHAR(128) NULL,
-            hardwareLaptopOS VARCHAR(128) NULL DEFAULT 0,
-            hardwareLaptopOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwareLaptopHDD VARCHAR(16) NULL DEFAULT 0,
-            hardwareLaptopMEM VARCHAR(16) NULL DEFAULT 0,
-            hardwareLaptopPROC VARCHAR(16) NULL DEFAULT 0,
-            hardwareLaptopOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyHardwareLaptop PRIMARY KEY (hardwareLaptopId),
-            CONSTRAINT hardwareLaptopHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
-        );
-    "
-    ,12 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Computer`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwareComputerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwareComputerUser VARCHAR(64) NULL,
-            hardwareComputerType VARCHAR(128) NULL,
-            hardwareComputerUse VARCHAR(128) NULL,
-            hardwareComputerOS VARCHAR(128) NULL DEFAULT 0,
-            hardwareComputerOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwareComputerHDD VARCHAR(16) NULL DEFAULT 0,
-            hardwareComputerMEM VARCHAR(16) NULL DEFAULT 0,
-            hardwareComputerPROC VARCHAR(16) NULL DEFAULT 0,
-            hardwareComputerNetworkPorts VARCHAR(32) NULL DEFAULT 0,
-            hardwareComputerOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyhardwareComputer PRIMARY KEY (hardwareComputerId),
-            CONSTRAINT hardwareComputerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
-        );
-    "
-    ,13 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Printer`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwarePrinterId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwarePrinterUse VARCHAR(64) NULL,
-            hardwarePrinterType VARCHAR(128) NULL,
-            hardwarePrinterToner VARCHAR(128) NULL,
-            hardwarePrinterOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyHardwarePrinter PRIMARY KEY (hardwarePrinterId),
-            CONSTRAINT hardwarePrinterHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
-        );
-    "
-    ,14 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Networking`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwareNetworkingId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwareNetworkingType VARCHAR(128) NULL,
-            hardwareNetworkingUse VARCHAR(128) NULL,
-            hardwareNetworkingOS VARCHAR(128) NULL DEFAULT 0,
-            hardwareNetworkingOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwareNetworkingNetworkPorts VARCHAR(32) NULL DEFAULT 0,
-            hardwareNetworkingOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyHardwareNetworking PRIMARY KEY (hardwareNetworkingId),
-            CONSTRAINT hardwareNetworkingHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
-        );
-    "
-    ,15 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Server`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwareServerId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwareServerUser VARCHAR(64) NULL,
-            hardwareServerType VARCHAR(128) NULL,
-            hardwareServerUse VARCHAR(128) NULL,
-            hardwareServerOS VARCHAR(128) NULL DEFAULT 0,
-            hardwareServerOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwareServerHDD VARCHAR(16) NULL DEFAULT 0,
-            hardwareServerMEM VARCHAR(16) NULL DEFAULT 0,
-            hardwareServerPROC VARCHAR(16) NULL DEFAULT 0,
-            hardwareServerNetworkPorts VARCHAR(32) NULL DEFAULT 0,
-            hardwareServerOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyhardwareServer PRIMARY KEY (hardwareServerId),
-            CONSTRAINT hardwareServerHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
-        );
-    "
-    ,16 => "
-        CREATE TABLE IF NOT EXISTS `Hardware_Security`(
-            hardwareId INT(6) UNSIGNED NOT NULL,
-            hardwareSecurityId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            hardwareSecurityType VARCHAR(128) NULL,
-            hardwareSecurityUse VARCHAR(128) NULL,
-            hardwareSecurityOS VARCHAR(128) NULL DEFAULT 0,
-            hardwareSecurityOSVer VARCHAR(128) NULL DEFAULT 0,
-            hardwareSecurityNetworkPorts VARCHAR(32) NULL DEFAULT 0,
-            hardwareSecurityOperator VARCHAR(64) NULL DEFAULT 0,
-            CONSTRAINT primaryKeyhardwareSecurity PRIMARY KEY (hardwareSecurityId),
-            CONSTRAINT hardwareSecurityHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE
         );
     "
     ,29 => "

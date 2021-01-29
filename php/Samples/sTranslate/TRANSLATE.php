@@ -459,12 +459,12 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
         )
-    	,"Hardware/Security" => array(
-    	    "navbar" => "Vagyonvédelmi eszközök"
+    	,"Hardware/Router" => array(
+    	    "navbar" => "Router eszközök"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Vagyonvédelmi eszköz adatok"
-    	    ,"help" => "Vagyonvédelmi eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
-            ,"card" => "Vagyonvédelmi eszköz adatok megtekintéséhez kattintson a kártyára"
+    	    ,"title" => "Router eszköz"
+    	    ,"help" => "Router adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "Router adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
                 ,'color' => 'success'
@@ -491,31 +491,31 @@ interface TRANSLATE
                 '
             )
     	)
-    	,"Hardware/Security/Add" => array(
-            "navbar" => "Vagyonvédelmi eszközök hozzáadása"
+    	,"Hardware/Router/Add" => array(
+            "navbar" => "Router hozzáadása"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Vagyonvédelmi eszköz adatok hozzáadása"
+    	    ,"title" => "Router adatok hozzáadása"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Security/Edit" => array(
-            "navbar" => "Vagyonvédelmi eszközök szerkesztése"
+        ,"Hardware/Router/Edit" => array(
+            "navbar" => "Router szerkesztése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Vagyonvédelmi eszköz adatok szerkesztése"
+    	    ,"title" => "Router adatok szerkesztése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Security/View" => array(
-            "navbar" => "Vagyonvédelmi eszközök megtekintése"
+        ,"Hardware/Router/View" => array(
+            "navbar" => "Router megtekintése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Vagyonvédelmi eszköz adatok megtekintése"
+    	    ,"title" => "Router adatok megtekintése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Security/Delete" => array(
-            "navbar" => "Vagyonvédelmi eszközök törlése"
+        ,"Hardware/Router/Delete" => array(
+            "navbar" => "Router törlése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Vagyonvédelmi eszköz adatok törlése"
+    	    ,"title" => "Router adatok törlése"
     	    ,"help" => ""
             ,"card" => ""
         )
@@ -579,12 +579,12 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
         )
-    	,"Hardware/Networking" => array(
-    	    "navbar" => "Hálózati eszközök"
+    	,"Hardware/Switch" => array(
+    	    "navbar" => "Switch eszközök"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Hálózati eszköz adatok"
-    	    ,"help" => "Hálózati eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
-            ,"card" => "Hálózati eszköz adatok megtekintéséhez kattintson a kártyára"
+    	    ,"title" => "Switch eszköz adatok"
+    	    ,"help" => "Switch eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "Switch eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
                 ,'color' => 'success'
@@ -611,31 +611,271 @@ interface TRANSLATE
                 '
             )
     	)
-    	,"Hardware/Networking/Add" => array(
-            "navbar" => "Hálózati eszközök hozzáadása"
+    	,"Hardware/Switch/Add" => array(
+            "navbar" => "Switch eszközök hozzáadása"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Hálózati eszköz adatok hozzáadása"
+    	    ,"title" => "Switch eszköz adatok hozzáadása"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Networking/Edit" => array(
-            "navbar" => "Hálózati eszközök szerkesztése"
+        ,"Hardware/Switch/Edit" => array(
+            "navbar" => "Switch eszközök szerkesztése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Hálózati eszköz adatok szerkesztése"
+    	    ,"title" => "Switch eszköz adatok szerkesztése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Networking/View" => array(
-            "navbar" => "Hálózati eszközök megtekintése"
+        ,"Hardware/Switch/View" => array(
+            "navbar" => "Switch eszközök megtekintése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Hálózati eszköz adatok megtekintése"
+    	    ,"title" => "Switch eszköz adatok megtekintése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Networking/Delete" => array(
-            "navbar" => "Hálózati eszközök törlése"
+        ,"Hardware/Switch/Delete" => array(
+            "navbar" => "Switch eszközök törlése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "Hálózati eszköz adatok törlése"
+    	    ,"title" => "Switch eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Access_Point" => array(
+    	    "navbar" => "Access Point eszközök"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Access Point eszköz adatok"
+    	    ,"help" => "Access Point eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "Access Point eszköz adatok megtekintéséhez kattintson a kártyára"
+            ,"info" => array(
+                'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
+                ,'title' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
+            )
+    	)
+    	,"Hardware/Access_Point/Add" => array(
+            "navbar" => "Access Point eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Access Point eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Access_Point/Edit" => array(
+            "navbar" => "Access Point eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Access Point eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Access_Point/View" => array(
+            "navbar" => "Access Point eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Access Point eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Access_Point/Delete" => array(
+            "navbar" => "Access Point eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Access Point eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Camera" => array(
+    	    "navbar" => "Kamera eszközök"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Kamera eszköz adatok"
+    	    ,"help" => "Kamera eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "Kamera eszköz adatok megtekintéséhez kattintson a kártyára"
+            ,"info" => array(
+                'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
+                ,'title' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
+            )
+    	)
+    	,"Hardware/Camera/Add" => array(
+            "navbar" => "Kamera eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Kamera eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Camera/Edit" => array(
+            "navbar" => "Kamera eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Kamera eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Camera/View" => array(
+            "navbar" => "Kamera eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Kamera eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Camera/Delete" => array(
+            "navbar" => "Kamera eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Kamera eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Alarm" => array(
+    	    "navbar" => "Riasztó eszközök"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Riasztó eszköz adatok"
+    	    ,"help" => "Riasztó eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "Riasztó eszköz adatok megtekintéséhez kattintson a kártyára"
+            ,"info" => array(
+                'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
+                ,'title' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
+            )
+    	)
+    	,"Hardware/Alarm/Add" => array(
+            "navbar" => "Riasztó eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Riasztó eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Alarm/Edit" => array(
+            "navbar" => "Riasztó eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Riasztó eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Alarm/View" => array(
+            "navbar" => "Riasztó eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Riasztó eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/Alarm/Delete" => array(
+            "navbar" => "Riasztó eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "Riasztó eszköz adatok törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/DVR_CCTV" => array(
+    	    "navbar" => "DVR/CCTV eszközök"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "DVR/CCTV eszköz adatok"
+    	    ,"help" => "DVR/CCTV eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "DVR/CCTV eszköz adatok megtekintéséhez kattintson a kártyára"
+            ,"info" => array(
+                'addButton' => true
+                ,'color' => 'success'
+                ,'header' => 'Információ'
+                ,'title' => ''
+                ,'content' => '
+                    <b>Általános adatok</b><br />
+                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
+                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
+                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
+                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
+                    <b>IP-cím</b>: Az eszköz IP-címe<br />
+                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
+                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
+                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
+                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
+                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
+                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
+                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
+                    <br />
+                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
+                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
+                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                '
+            )
+    	)
+    	,"Hardware/DVR_CCTV/Add" => array(
+            "navbar" => "DVR/CCTV eszközök hozzáadása"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "DVR/CCTV eszköz adatok hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/DVR_CCTV/Edit" => array(
+            "navbar" => "DVR/CCTV eszközök szerkesztése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "DVR/CCTV eszköz adatok szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/DVR_CCTV/View" => array(
+            "navbar" => "DVR/CCTV eszközök megtekintése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "DVR/CCTV eszköz adatok megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Hardware/DVR_CCTV/Delete" => array(
+            "navbar" => "DVR/CCTV eszközök törlése"
+    	    ,"fa" => "hdd-o"
+    	    ,"title" => "DVR/CCTV eszköz adatok törlése"
     	    ,"help" => ""
             ,"card" => ""
         )

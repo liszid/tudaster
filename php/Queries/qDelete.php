@@ -18,7 +18,7 @@ $GLOBALS['Database'][6]['Delete'] = "DELETE FROM `Company_Site_Type` WHERE compa
 
 $GLOBALS['Database'][7]['Delete'] = "DELETE FROM `Company_Site` WHERE companySiteId=:companySiteId";
 
-$GLOBALS['Database'][10]['Delete'] = "DELETE FROM `Hardware` WHERE hardwareId=:hardwareId";
+$GLOBALS['Database'][20]['Delete'] = "DELETE FROM `Hardware` WHERE hardwareId=:hardwareId";
 
 $GLOBALS['Database'][29]['Delete'] = "DELETE FROM `Hardware_Member` WHERE huntgroupId=:huntgroupId AND hardwareId=:hardwareId";
 

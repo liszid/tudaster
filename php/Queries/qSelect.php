@@ -118,7 +118,7 @@ $GLOBALS['Database'][99]['Select'] = array(
         INNER JOIN `Hardware_Member`USING (hardwareId)
         INNER JOIN `Huntgroup` USING (huntgroupId)
         WHERE `Hardware`.hardwareId=:hardwareId"
-    ,'Hardware_Members_By_Type' => "
+    ,'Hardware_Members_All' => "
         SELECT
             `Hardware`.*
             ,`Company_Site`.companySiteName
@@ -131,224 +131,20 @@ $GLOBALS['Database'][99]['Select'] = array(
             `Huntgroup_Member`.userId=:userId
             OR `Hardware`.userId=:userId
         GROUP BY `Hardware`.hardwareId"
-    ,'Hardware_Laptop_Table' => "
+    ,'Hardware_Members_Select' => "
         SELECT
-            `Hardware_Laptop`.hardwareLaptopId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Laptop`.hardwareLaptopOS
-            ,`Hardware_Laptop`.hardwareLaptopType
-            ,`User`.userName
+            `Hardware`.*
             ,`Company_Site`.companySiteName
         FROM `Hardware`
-        INNER JOIN `Hardware_Laptop` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
         INNER JOIN `Company_Site` USING (companySiteId)
         LEFT JOIN `Hardware_Member` USING (hardwareId)
         LEFT JOIN `Huntgroup` USING (huntgroupId)
         LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
         WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Laptop`.hardwareLaptopId"
-    ,'Hardware_Laptop_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Laptop`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Laptop` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Laptop`.hardwareLaptopId =:hardwareLaptopId"
-    ,'Hardware_Computer_Table' => "
-        SELECT
-            `Hardware_Computer`.hardwareComputerId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Computer`.hardwareComputerUse
-            ,`Hardware_Computer`.hardwareComputerType
-            ,`Hardware_Computer`.hardwareComputerOS
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Computer` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-        LEFT JOIN `Huntgroup` USING (huntgroupId)
-        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
-        WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Computer`.hardwareComputerId"
-    ,'Hardware_Computer_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Computer`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Computer` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Computer`.hardwareComputerId =:hardwareComputerId"
-    ,'Hardware_Printer_Table' => "
-        SELECT
-            `Hardware_Printer`.hardwarePrinterId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Printer`.hardwarePrinterUse
-            ,`Hardware_Printer`.hardwarePrinterType
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Printer` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-        LEFT JOIN `Huntgroup` USING (huntgroupId)
-        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
-        WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Printer`.hardwarePrinterId"
-    ,'Hardware_Printer_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Printer`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Printer` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Printer`.hardwarePrinterId =:hardwarePrinterId"
-    ,'Hardware_Networking_Table' => "
-        SELECT
-            `Hardware_Networking`.hardwareNetworkingId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Networking`.hardwareNetworkingUse
-            ,`Hardware_Networking`.hardwareNetworkingType
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Networking` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-        LEFT JOIN `Huntgroup` USING (huntgroupId)
-        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
-        WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Networking`.hardwareNetworkingId"
-    ,'Hardware_Networking_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Networking`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Networking` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Networking`.hardwareNetworkingId =:hardwareNetworkingId"
-    ,'Hardware_Server_Table' => "
-        SELECT
-            `Hardware_Server`.hardwareServerId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Server`.hardwareServerUse
-            ,`Hardware_Server`.hardwareServerType
-            ,`Hardware_Server`.hardwareServerOS
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Server` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-        LEFT JOIN `Huntgroup` USING (huntgroupId)
-        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
-        WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Server`.hardwareServerId"
-    ,'Hardware_Server_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Server`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Server` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Server`.hardwareServerId =:hardwareServerId"
-    ,'Hardware_Security_Table' => "
-        SELECT
-            `Hardware_Security`.hardwareSecurityId
-            ,`Hardware`.hardwareName
-            ,`Hardware`.hardwareDesc
-            ,`Hardware`.hardwareIP
-            ,`Hardware`.hardwareSwitch
-            ,`Hardware`.hardwareSwitchPort
-            ,`Hardware`.isDelete
-            ,`Hardware_Security`.hardwareSecurityUse
-            ,`Hardware_Security`.hardwareSecurityType
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Security` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-        LEFT JOIN `Huntgroup` USING (huntgroupId)
-        LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
-        WHERE
-            `Huntgroup_Member`.userId=:userId
-            OR `Hardware`.userId=:userId
-        GROUP BY `Hardware_Security`.hardwareSecurityId"
-    ,'Hardware_Security_View' => "
-        SELECT
-            `Hardware`.*
-            ,`Hardware_Security`.*
-            ,`User`.userName
-            ,`Company_Site`.companySiteName
-        FROM `Hardware`
-        INNER JOIN `Hardware_Security` USING (hardwareId)
-        INNER JOIN `User` USING (userId)
-        INNER JOIN `Company_Site` USING (companySiteId)
-        WHERE `Hardware_Security`.hardwareSecurityId =:hardwareSecurityId"
-
-
-/*
-    LEFT JOIN `Hardware_Member` USING (hardwareId) =>>
-        LEFT JOIN `Hardware_Member` USING (hardwareId)
-*/
+            (`Huntgroup_Member`.userId=:userId
+            OR `Hardware`.userId=:userId)
+            AND `Hardware`.hardwareType=:hardwareType
+        GROUP BY `Hardware`.hardwareId"
     ,'Access_Table' => "
         SELECT
             `Access`.accessId
@@ -583,8 +379,7 @@ $GLOBALS['Database'][7]['Select'] = array(
         WHERE userId=:userId"
 );
 
-
-$GLOBALS['Database'][10]['Select'] = array(
+$GLOBALS['Database'][20]['Select'] = array(
     'All' => "
         SELECT
             `Hardware`.*
@@ -607,108 +402,6 @@ $GLOBALS['Database'][10]['Select'] = array(
             userId
         FROM `Hardware`
         WHERE userId=:userId"
-);
-
-$GLOBALS['Database'][11]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Laptop`"
-    ,'byHardwareLaptopId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Laptop`
-        WHERE hardwareLaptopId=:hardwareLaptopId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Laptop`
-        WHERE hardwareId=:hardwareId"
-);
-
-$GLOBALS['Database'][12]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Computer`"
-    ,'byHardwareComputerId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Computer`
-        WHERE hardwareComputerId=:hardwareComputerId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Computer`
-        WHERE hardwareId=:hardwareId"
-);
-
-$GLOBALS['Database'][13]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Printer`"
-    ,'byHardwarePrinterId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Printer`
-        WHERE hardwarePrinterId=:hardwarePrinterId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Printer`
-        WHERE hardwareId=:hardwareId"
-);
-
-$GLOBALS['Database'][14]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Networking`"
-    ,'byHardwareNetworkingId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Networking`
-        WHERE hardwareNetworkingId=:hardwareNetworkingId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Networking`
-        WHERE hardwareId=:hardwareId"
-);
-
-$GLOBALS['Database'][15]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Server`"
-    ,'byHardwareServerId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Server`
-        WHERE hardwareServerId=:hardwareServerId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Server`
-        WHERE hardwareId=:hardwareId"
-);
-
-$GLOBALS['Database'][16]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Hardware_Security`"
-    ,'byHardwareSecurityId' => "
-        SELECT
-            hardwareId
-        FROM `Hardware_Security`
-        WHERE hardwareSecurityId=:hardwareSecurityId"
-    ,'byHardwareId' => "
-        SELECT
-            *
-        FROM `Hardware_Security`
-        WHERE hardwareId=:hardwareId"
 );
 
 $GLOBALS['Database'][29]['Select'] = array(

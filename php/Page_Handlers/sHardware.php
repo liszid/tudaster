@@ -12,12 +12,6 @@ use PreLoad\{
 
 use Data\{
     dHardware
-    ,dHardware_Laptop
-    ,dHardware_Computer
-    ,dHardware_Printer
-    ,dHardware_Networking
-    ,dHardware_Security
-    ,dHardware_Server
     ,dCombined
     ,dHuntgroup
     ,dHuntgroup_Member
@@ -27,17 +21,13 @@ use Samples\{
     sCard
     ,sTables
     ,sTranslate
+    ,sElement
+    ,sFrame
 };
 
 class sHardware
 {
     protected static $dHardware;
-    protected static $dHardware_Laptop;
-    protected static $dHardware_Computer;
-    protected static $dHardware_Printer;
-    protected static $dHardware_Networking;
-    protected static $dHardware_Security;
-    protected static $dHardware_Server;
     protected static $dCombined;
     protected static $dHuntgroup;
     protected static $dHuntgroup_Member;
@@ -59,71 +49,96 @@ class sHardware
     );
 
     const LAPTOP = array(
-        array('data' => 'hardwareLaptopId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwareLaptopUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareLaptopOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareSpecUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
     const COMPUTER = array(
-        array('data' => 'hardwareComputerId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwareComputerUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareComputerOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareSpecUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
     const PRINTER = array(
-        array('data' => 'hardwarePrinterId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwarePrinterUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePrinterType', 'desc' => 'Márka,típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePrinterToner', 'desc' => 'Toner', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwarePrinterOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareSpecUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecType', 'desc' => 'Márka,típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecToner', 'desc' => 'Toner', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
     const NETWORKING = array(
-        array('data' => 'hardwareNetworkingId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwareNetworkingType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareNetworkingUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareNetworkingOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareNetworkingOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareNetworkingNetworkPorts', 'desc' => 'Hálózati portok', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareNetworkingOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        array('data' => 'hardwareSpecType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecNetworkPorts', 'desc' => 'Hálózati portok', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'hardwareSpecperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
     );
 
-    const SERVER = array(
-        array('data' => 'hardwareServerId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwareServerUser', 'desc' => 'Kezelő', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerUse', 'desc' => 'Használati cél', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerOS', 'desc' => 'Op. Rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerOSVer', 'desc' => 'Op. Rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerHDD', 'desc' => 'Tárhely', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerMEM', 'desc' => 'Memória', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerPROC', 'desc' => 'Processzor', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerNetworkPorts', 'desc' => 'Portok száma', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareServerOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
-    );
-
-    const SECURITY = array(
-        array('data' => 'hardwareSecurityId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
-        ,array('data' => 'hardwareSecurityType', 'desc' => 'Márka, típus', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareSecurityUse', 'desc' => 'Használat', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareSecurityOS', 'desc' => 'Op. rendszer', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareSecurityOSVer', 'desc' => 'Op. rendszer verzió', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareSecurityNetworkPorts', 'desc' => 'Hálózati portok', 'type' => 'text', 'tags' => 'Add,View,Edit')
-        ,array('data' => 'hardwareSecurityOperator', 'desc' => 'Beállító', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    const TYPES = array(
+        "Laptop" => array(
+            "origo" => 'usrHardwLaptop'
+            ,"optionalData" => self::LAPTOP
+            ,"tableName" => 'Hardware_Laptop'
+        )
+        ,"Computer" => array(
+            "origo" => 'usrHardwComputer'
+            ,"optionalData" => self::COMPUTER
+            ,"tableName" => 'Hardware_Computer'
+        )
+        ,"Server" => array(
+            "origo" => 'usrHardwServer'
+            ,"optionalData" => self::COMPUTER
+            ,"tableName" => 'Hardware_Server'
+        )
+        ,"Printer" => array(
+            "origo" => 'usrHardwPrinter'
+            ,"optionalData" => self::PRINTER
+            ,"tableName" => 'Hardware_Printer'
+        )
+        ,"Router" => array(
+            "origo" => 'usrHardwRouter'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Router'
+        )
+        ,"Switch" => array(
+            "origo" => 'usrHardwSwitch'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Switch'
+        )
+        ,"Access_Point" => array(
+            "origo" => 'usrHardwAccessPoint'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Access_Point'
+        )
+        ,"Camera" => array(
+            "origo" => 'usrHardwCamera'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Camera'
+        )
+        ,"DVR_CCTV" => array(
+            "origo" => 'usrHardwDVRCCTV'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_DVR_CCTV'
+        )
+        ,"Alarm" => array(
+            "origo" => 'usrHardwAlarm'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Alarm'
+        )
     );
 
 /*
@@ -134,66 +149,6 @@ class sHardware
     protected static function setDHardware()
     {
         self::$dHardware= new dHardware();
-    }
-
-/*
- * Sets the class variable : dHardware_Laptop
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Laptop()
-    {
-        self::$dHardware_Laptop= new dHardware_Laptop();
-    }
-
-/*
- * Sets the class variable : dHardware_Computer
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Computer()
-    {
-        self::$dHardware_Computer= new dHardware_Computer();
-    }
-
-/*
- * Sets the class variable : dHardware_Printer
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Printer()
-    {
-        self::$dHardware_Printer= new dHardware_Printer();
-    }
-
-/*
- * Sets the class variable : dHardware_Networking
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Networking()
-    {
-        self::$dHardware_Networking= new dHardware_Networking();
-    }
-
-/*
- * Sets the class variable : dHardware_Security
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Security()
-    {
-        self::$dHardware_Security= new dHardware_Security();
-    }
-
-/*
- * Sets the class variable : dHardware_Server
- * @author Liszi Dániel
- * @since 2020.12.07
- */
-    protected static function setDHardware_Server()
-    {
-        self::$dHardware_Server= new dHardware_Server();
     }
 
 /*
@@ -234,45 +189,26 @@ class sHardware
  */
     public static function Action(array $array = array()): string
     {
-        $wclass;
         $returnContent = '';
 
-        switch($array['y']) {
-            case 'Laptop':
-                $wclass = new sHardware\Laptop;
-                break;
-            case 'Computer':
-                $wclass = new sHardware\Computer;
-                break;
-            case 'Printer':
-                $wclass = new sHardware\Printer;
-                break;
-            case 'Networking':
-                $wclass = new sHardware\Networking;
-                break;
-            case 'Hardware':
-                $wclass = new sHardware\Hardware;
-                break;
-            case 'Server':
-                $wclass = new sHardware\Server;
-                break;
-            case 'Security':
-                $wclass = new sHardware\Security;
-                break;
-        }
+        $array['hardwareType'] = $array['y'];
+        $array['defaultData'] = self::HARDWARE;
+        $array['optionalData'] = self::TYPES[$array['y']]['optionalData'];
+        $array['origo'] = self::TYPES[$array['y']]['origo'].$array['z'];
+        $array['returnPath'] = array('x' => 'Hardware', 'y' => self::TYPES[$array['y']]);
 
         switch ($array['z']) {
             case 'Add':
-                $returnContent .= $wclass::Add($array);
+                $returnContent .= self::Add($array);
                 break;
             case 'View':
-                $returnContent .= $wclass::View($array);
+                $returnContent .= self::View($array);
                 break;
             case 'Delete':
-                $returnContent .= $wclass::Delete($array);
+                $returnContent .= self::Delete($array);
                 break;
             case 'Edit':
-                $returnContent .= $wclass::Edit($array);
+                $returnContent .= self::Edit($array);
                 break;
         }
         if (Valid::vString($returnContent)) {
@@ -281,142 +217,37 @@ class sHardware
 
         return $returnContent;
     }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.09
- */
+
+    public static function Page(array $array = array()): string
+    {
+        self::setDCombined();
+
+        $returnString = '';
+
+        $Hardware = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId'], 'hardwareType' => $array['hardwareType']), 'Hardware_Members_Select');
+
+        if (isset($array['path'])) {
+            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
+        }
+
+        $returnString .= sTables::Prompt($Hardware, self::TYPES[$array['hardwareType']]['tableName']);
+
+        return $returnString;
+    }
+
     public static function Hardware(array $array = array()): string
     {
-        self::setDHardware();
         self::setDCombined();
-        self::setDHuntgroup_Member();
 
         $returnString = '';
 
-        $Hardware = self::$dHardware->Select(array(), 'All');
-        $Hardware_Groups = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_By_Type');
+        $Hardware = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_All');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
         }
 
-        $returnString .= sTables::Prompt($Hardware_Groups, 'Hardware_Hardware');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.09
- */
-    public static function Laptop(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Laptop = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Laptop_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Laptop, 'Hardware_Laptop');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.09
- */
-    public static function Computer(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Computer = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Computer_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Computer, 'Hardware_Computer');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.09
- */
-    public static function Server(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Server = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Server_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Server, 'Hardware_Server');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.09
- */
-    public static function Printer(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Printer = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Printer_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Printer, 'Hardware_Printer');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.13
- */
-    public static function Networking(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Networking = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Networking_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Networking, 'Hardware_Networking');
-        return $returnString;
-    }
-/*
- * @param $array array
- * @return string
- * @author Liszi Dániel
- * @since 2020.12.13
- */
-    public static function Security(array $array = array()): string
-    {
-        self::setDCombined();
-        $returnString = '';
-        $Security = self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Security_Table');
-
-        if (isset($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
-        }
-
-        $returnString .= sTables::Prompt($Security, 'Hardware_Security');
+        $returnString .= sTables::Prompt($Hardware, 'Hardware_Hardware');
         return $returnString;
     }
 /*
@@ -470,5 +301,125 @@ class sHardware
         ';
 
         return $returnString;
+    }
+
+/*
+* Generates Hardware::Add modal
+* @param $array array
+* @return string
+* @author Liszi Dániel
+* @since 2020.12.16
+*/
+    public static function Add(array $array = array()): string
+    {
+        self::setDHardware();
+        if (! isset($array['Save'])) {
+            return '
+                <form method="post" class="form-group col-12" autocomplete="on">
+                    <div class="form-group col p-0">
+                        <div class="col-12 row">'
+                            .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
+                            .sElement::General(array('origo' => $array['origo'], 'data' => 'hardwareType', 'desc' => '', 'value' => $array['hardwareType'], 'type' => 'hidden'), 'Input')
+                            .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => $array['defaultData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => $array['optionalData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .'</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 row">
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="'.$array['origo'].'-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        </div>
+                    </div>
+                </form>';
+        } else {
+            return
+                '<h4>'.(
+                    (self::$dHardware->Insert($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');
+        }
+    }
+
+/*
+* Generates Hardware::View modal
+* @param $array array
+* @return string
+* @author Liszi Dániel
+* @since 2020.12.16
+*/
+    public static function View(array $array = array()): string
+    {
+        self::setDHardware();
+        $Hardware = (self::$dHardware->Select(array('hardwareId' => (int)$array['dp']), 'byHardwareId'))[0];
+        Log::Export($Hardware);
+        return '
+            <form method="post" class="form-group col-12" autocomplete="on">
+                <div class="form-group col p-0">
+                    <div class="col-12 row">'
+                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => $array['defaultData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => $array['optionalData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sElement::General(array('origo' => $array['origo'],'data' => 'userName','desc' => 'Hozzáadta','value' => $Hardware['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                    .'</div>
+                </div>
+            </form>';
+    }
+
+/*
+* Generates Hardware::Edit modal
+* @param $array array
+* @return string
+* @author Liszi Dániel
+* @since 2020.12.16
+*/
+    public static function Edit(array $array = array()): string
+    {
+        self::setDHardware();
+        if (! isset($array['Save'])) {
+            $Hardware = (self::$dHardware->Select(array('hardwareId' => (int)$array['dp']), 'byHardwareId'))[0];
+            return '
+                <form method="post" class="form-group col-12" autocomplete="on">
+                    <div class="form-group col p-0">
+                        <div class="col-12 row">'
+                            .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => $array['defaultData'],'staticData' => array('origo' => $array['origo'],'tag' => 'Edit'),'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General( array( 'constData' => $array['optionalData'], 'staticData' => array( 'origo' => $array['origo'], 'tag' => 'Edit' ), 'valueData' => $Hardware, 'selectData' => array( 'companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Csoport adatok', 'content' => self::Huntgroup_Checkbox(array('dp' => $Hardware['hardwareId'], 'origo' => $array['origo']))))
+                        .'</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 row">
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwComputerEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                        </div>
+                    </div>
+                </form>';
+        } else {
+            return
+                '<h4>'.(
+                    (self::$dHardware->Update($array))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');
+        }
+    }
+
+/*
+* Deletes selected Hardware
+* @param $array array
+* @return string
+* @author Liszi Dániel
+* @since 2020.12.16
+*/
+    public static function Delete(array $array = array()): string
+    {
+            self::setDHardware();
+            return
+                '<h4>'.(
+                    (self::$dHardware->Delete(
+                        array(
+                            'hardwareId' => (int)$array['dp']
+                        )
+                    ))
+                        ? sTranslate::ACTION['Success']['content']
+                        : sTranslate::ACTION['Fail']['content']
+                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');
     }
 }
