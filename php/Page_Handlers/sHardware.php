@@ -195,7 +195,7 @@ class sHardware
         $array['defaultData'] = self::HARDWARE;
         $array['optionalData'] = self::TYPES[$array['y']]['optionalData'];
         $array['origo'] = self::TYPES[$array['y']]['origo'].$array['z'];
-        $array['returnPath'] = array('x' => 'Hardware', 'y' => self::TYPES[$array['y']]);
+        $array['returnPath'] = array('x' => 'Hardware', 'y' => $array['y']);
 
         switch ($array['z']) {
             case 'Add':

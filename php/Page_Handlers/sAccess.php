@@ -157,7 +157,7 @@ class sAccess
     {
         self::setDCombined();
         $tempArray = array();
-        foreach(self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_By_Type') as $i) {
+        foreach(self::$dCombined->Select(array('userId' => $GLOBALS['sessionId']), 'Hardware_Members_All') as $i) {
             $tempArray[] = array('id' => $i['hardwareId'], 'name' => $i['hardwareType'].' - '.$i['hardwareName']);
         }
         return $tempArray;

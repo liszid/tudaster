@@ -460,7 +460,7 @@ interface TRANSLATE
             ,"card" => ""
         )
     	,"Hardware/Router" => array(
-    	    "navbar" => "Router eszközök"
+    	    "navbar" => "Router-ek"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "Router eszköz"
     	    ,"help" => "Router adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
@@ -580,7 +580,7 @@ interface TRANSLATE
             ,"card" => ""
         )
     	,"Hardware/Switch" => array(
-    	    "navbar" => "Switch eszközök"
+    	    "navbar" => "Switch-ek"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "Switch eszköz adatok"
     	    ,"help" => "Switch eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
@@ -640,7 +640,7 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Hardware/Access_Point" => array(
-    	    "navbar" => "Access Point eszközök"
+    	    "navbar" => "Access Point-ok"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "Access Point eszköz adatok"
     	    ,"help" => "Access Point eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
@@ -700,7 +700,7 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Hardware/Camera" => array(
-    	    "navbar" => "Kamera eszközök"
+    	    "navbar" => "Kamerák"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "Kamera eszköz adatok"
     	    ,"help" => "Kamera eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
@@ -760,7 +760,7 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Hardware/Alarm" => array(
-    	    "navbar" => "Riasztó eszközök"
+    	    "navbar" => "Riasztók"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "Riasztó eszköz adatok"
     	    ,"help" => "Riasztó eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
@@ -820,7 +820,7 @@ interface TRANSLATE
             ,"card" => ""
         )
         ,"Hardware/DVR_CCTV" => array(
-    	    "navbar" => "DVR/CCTV eszközök"
+    	    "navbar" => "DVR/CCTV"
     	    ,"fa" => "hdd-o"
     	    ,"title" => "DVR/CCTV eszköz adatok"
     	    ,"help" => "DVR/CCTV eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
