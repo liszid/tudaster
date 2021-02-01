@@ -66,7 +66,6 @@ class sActivity
         $dCompany_Site = new dCompany_Site();
         $dAccess = new dAccess();
         $dHardware = new dHardware();
-
         return array(
             'actKnowledges' => '0',
             'actAccesses' => count($dAccess->Select(array("userId" => $userId), "byUserId")),

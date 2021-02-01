@@ -53,7 +53,7 @@ class dbAccess extends Table implements iDatabase
             case 'byAccessId':
                 $tempArray[] = 'accessId';
                 break;
-            case 'userId':
+            case 'byUserId':
                 $tempArray[] = 'userId';
                 break;
             default:
