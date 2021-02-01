@@ -124,7 +124,7 @@ $GLOBALS['Database']['7']['Update'] = "
         companySiteId=:companySiteId
 ";
 
-$GLOBALS['Database']['10']['Update'] = "
+$GLOBALS['Database']['20']['Update'] = "
     UPDATE
         `Hardware`
     SET
@@ -139,101 +139,20 @@ $GLOBALS['Database']['10']['Update'] = "
         ,hardwareVLANNum=:hardwareVLANNum
         ,hardwareDateIn=:hardwareDateIn
         ,hardwareDateOut=:hardwareDateOut
+        ,hardwareSpecHDD=:hardwareSpecHDD
+        ,hardwareSpecMEM=:hardwareSpecMEM
+        ,hardwareSpecNetworkPorts=:hardwareSpecNetworkPorts
+        ,hardwareSpecOperator=:hardwareSpecOperator
+        ,hardwareSpecOS=:hardwareSpecOS
+        ,hardwareSpecOSVer=:hardwareSpecOSVer
+        ,hardwareSpecPROC=:hardwareSpecPROC
+        ,hardwareSpecType=:hardwareSpecType
+        ,hardwareSpecToner=:hardwareSpecToner
+        ,hardwareSpecUser=:hardwareSpecUser
+        ,hardwareSpecUse=:hardwareSpecUse
         ,companySiteId=:companySiteId
     WHERE
         hardwareId=:hardwareId
-";
-
-$GLOBALS['Database'][11]['Update'] = "
-    UPDATE
-        `Hardware_Laptop`
-    SET
-        hardwareLaptopUser=:hardwareLaptopUser
-        ,hardwareLaptopType=:hardwareLaptopType
-        ,hardwareLaptopOS=:hardwareLaptopOS
-        ,hardwareLaptopOSVer=:hardwareLaptopOSVer
-        ,hardwareLaptopHDD=:hardwareLaptopHDD
-        ,hardwareLaptopMEM=:hardwareLaptopMEM
-        ,hardwareLaptopPROC=:hardwareLaptopPROC
-        ,hardwareLaptopOperator=:hardwareLaptopOperator
-    WHERE
-        hardwareLaptopId=:hardwareLaptopId
-";
-
-$GLOBALS['Database'][12]['Update'] = "
-    UPDATE
-        `Hardware_Computer`
-    SET
-        hardwareComputerUser=:hardwareComputerUser
-        ,hardwareComputerType=:hardwareComputerType
-        ,hardwareComputerUse=:hardwareComputerUse
-        ,hardwareComputerOS=:hardwareComputerOS
-        ,hardwareComputerOSVer=:hardwareComputerOSVer
-        ,hardwareComputerHDD=:hardwareComputerHDD
-        ,hardwareComputerMEM=:hardwareComputerMEM
-        ,hardwareComputerPROC=:hardwareComputerPROC
-        ,hardwareComputerNetworkPorts=:hardwareComputerNetworkPorts
-        ,hardwareComputerOperator=:hardwareComputerOperator
-    WHERE
-        hardwareComputerId=:hardwareComputerId
-";
-
-$GLOBALS['Database'][13]['Update'] = "
-    UPDATE
-        `Hardware_Printer`
-    SET
-        hardwarePrinterUse=:hardwarePrinterUse
-        ,hardwarePrinterType=:hardwarePrinterType
-        ,hardwarePrinterToner=:hardwarePrinterToner
-        ,hardwarePrinterOperator=:hardwarePrinterOperator
-    WHERE
-        hardwarePrinterId=:hardwarePrinterId
-";
-
-$GLOBALS['Database'][14]['Update'] = "
-    UPDATE
-        `Hardware_Networking`
-    SET
-        hardwareNetworkingType=:hardwareNetworkingType
-        ,hardwareNetworkingUse=:hardwareNetworkingUse
-        ,hardwareNetworkingOS=:hardwareNetworkingOS
-        ,hardwareNetworkingOSVer=:hardwareNetworkingOSVer
-        ,hardwareNetworkingNetworkPorts=:hardwareNetworkingNetworkPorts
-        ,hardwareNetworkingOperator=:hardwareNetworkingOperator
-    WHERE
-        hardwareNetworkingId=:hardwareNetworkingId
-";
-
-$GLOBALS['Database'][15]['Update'] = "
-    UPDATE
-        `Hardware_Server`
-    SET
-        hardwareServerUser=:hardwareServerUser
-        ,hardwareServerType=:hardwareServerType
-        ,hardwareServerUse=:hardwareServerUse
-        ,hardwareServerOS=:hardwareServerOS
-        ,hardwareServerOSVer=:hardwareServerOSVer
-        ,hardwareServerHDD=:hardwareServerHDD
-        ,hardwareServerMEM=:hardwareServerMEM
-        ,hardwareServerPROC=:hardwareServerPROC
-        ,hardwareServerNetworkPorts=:hardwareServerNetworkPorts
-        ,hardwareServerOperator=:hardwareServerOperator
-    WHERE
-        hardwareServerId=:hardwareServerId
-";
-
-$GLOBALS['Database'][16]['Update'] = "
-    UPDATE
-        `Hardware_Security`
-    SET
-        hardwareSecurityType=:hardwareSecurityType
-        ,hardwareSecurityUse=:hardwareSecurityUse
-        ,hardwareSecurityOS=:hardwareSecurityOS
-        ,hardwareSecurityOSVer=:hardwareSecurityOSVer
-        ,hardwareSecurityNetworkPorts=:hardwareSecurityNetworkPorts
-        ,hardwareSecurityOperator=:hardwareSecurityOperator
-    WHERE
-        hardwareSecurityId=:hardwareSecurityId
 ";
 
 $GLOBALS['Database'][30]['Update'] = "

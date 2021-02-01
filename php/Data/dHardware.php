@@ -44,6 +44,35 @@ class dHardware implements iData
     {
         $bool = true;
 
+        $updateArray = array(
+            'hardwareName' => ''
+            ,'hardwareDesc' => ''
+            ,'hardwareSerial' => ''
+            ,'hardwareMAC' => ''
+            ,'hardwareIP' => ''
+            ,'hardwareSwitch' => ''
+            ,'hardwareSwitchPort' => ''
+            ,'hardwareVLANName' => ''
+            ,'hardwareVLANNum' => ''
+            ,'hardwareDateIn' => ''
+            ,'hardwareDateOut' => ''
+            ,'hardwareSpecHDD' => ''
+            ,'hardwareSpecMEM' => ''
+            ,'hardwareSpecNetworkPorts' => ''
+            ,'hardwareSpecOperator' => ''
+            ,'hardwareSpecOS' => ''
+            ,'hardwareSpecOSVer' => ''
+            ,'hardwareSpecPROC' => ''
+            ,'hardwareSpecType' => ''
+            ,'hardwareSpecToner' => ''
+            ,'hardwareSpecUser' => ''
+            ,'hardwareSpecUse' => ''
+            ,'companySiteId' => ''
+            ,'hardwareId' => ''
+        );
+
+        $array = array_merge($updateArray, $array);
+
         if(isset($array['huntgroupCheckbox']) && ! empty($array['huntgroupCheckbox'])) {
             $groupIdArray = explode(',', $array['huntgroupCheckbox']);
             $memberIdArray = self::$dHardware_Member->Select($array, 'byHardwareId');
@@ -96,7 +125,7 @@ class dHardware implements iData
             }
         }
 
-        return ($bool || self::$dbHardware->Update($array, $type));
+        return (self::$dbHardware->Update($array, $type) ||  $bool);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool

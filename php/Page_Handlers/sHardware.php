@@ -351,7 +351,6 @@ class sHardware
     {
         self::setDHardware();
         $Hardware = (self::$dHardware->Select(array('hardwareId' => (int)$array['dp']), 'byHardwareId'))[0];
-        Log::Export($Hardware);
         return '
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
@@ -380,6 +379,7 @@ class sHardware
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
+                            .sElement::General(array('origo' => $array['origo'], 'data' => 'hardwareType', 'desc' => '', 'value' => $array['hardwareType'], 'type' => 'hidden'), 'Input')
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => $array['defaultData'],'staticData' => array('origo' => $array['origo'],'tag' => 'Edit'),'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General( array( 'constData' => $array['optionalData'], 'staticData' => array( 'origo' => $array['origo'], 'tag' => 'Edit' ), 'valueData' => $Hardware, 'selectData' => array( 'companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Csoport adatok', 'content' => self::Huntgroup_Checkbox(array('dp' => $Hardware['hardwareId'], 'origo' => $array['origo']))))
@@ -387,7 +387,7 @@ class sHardware
                     </div>
                     <div class="form-group">
                         <div class="col-12 row">
-                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="usrHardwComputerEdit-button"><i class="fa fa-floppy-o"></i> Mentés</button>
+                            <button class="btn btn-lg btn-success col-12 col-md-6 ml-auto" type="submit" id="'.$array['origo'].'-button"><i class="fa fa-floppy-o"></i> Mentés</button>
                         </div>
                     </div>
                 </form>';
