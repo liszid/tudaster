@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Samples\sTables;
 
-interface HOME_USERS
+interface USERS
 {
     const HOME_USERS = array(
         "tableId" => "tableHomeUsers",

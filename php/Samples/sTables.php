@@ -11,28 +11,38 @@ use PreLoad\{
 };
 
 class sTables implements
-    sTables\HOME_USERS
-    ,sTables\ADMIN_USERS
-    ,sTables\ADMIN_GROUPS
-    ,sTables\ADMIN_MEMBERSHIP
-    ,sTables\ADMIN_HUNTGROUPS
-    ,sTables\COMPANY_COMPANY
-    ,sTables\COMPANY_SITE
-    ,sTables\HARDWARE_LAPTOP
-    ,sTables\HARDWARE_COMPUTER
-    ,sTables\HARDWARE_PRINTER
-    ,sTables\HARDWARE_HARDWARE
-    ,sTables\HARDWARE_SERVER
-    ,sTables\HARDWARE_ROUTER
-    ,sTables\HARDWARE_SWITCH
-    ,sTables\HARDWARE_ACCESS_POINT
-    ,sTables\HARDWARE_CAMERA
-    ,sTables\HARDWARE_DVR_CCTV
-    ,sTables\HARDWARE_ALARM
-    ,sTables\ACCESS_ACCESS
+    sTables\ACCESS
+    ,sTables\ADMIN
+    ,sTables\COMPANY
+    ,sTables\HARDWARE
+    ,sTables\USERS
 {
-    const ACTIONS = array('Edit', 'View', 'Delete', 'Reset');
+    const ACTIONS = array('Edit', 'View', 'Delete', 'Reset', 'Filter');
+
     const ENABLED_ACTIONS = array('View');
+
+    const TABLES_BY_NAMES = array(
+        "Admin_Users" => self::ADMIN_USERS
+        ,"Admin_Groups" => self::ADMIN_GROUPS
+        ,"Admin_Members" => self::ADMIN_MEMBERSHIP
+        ,"Admin_Huntgroups" => self::ADMIN_HUNTGROUPS
+        ,"Home_Users" => self::HOME_USERS
+        ,"Company_Company" => self::COMPANY_COMPANY
+        ,"Company_Site" => self::COMPANY_SITE
+        ,"Company_Site_Filter" => self::COMPANY_SITE_FILTER
+        ,"Hardware_Laptop" => self::HARDWARE_LAPTOP
+        ,"Hardware_Computer" => self::HARDWARE_COMPUTER
+        ,"Hardware_Printer" => self::HARDWARE_PRINTER
+        ,"Hardware_Hardware" => self::HARDWARE_HARDWARE
+        ,"Hardware_Server" => self::HARDWARE_SERVER
+        ,"Hardware_Router" => self::HARDWARE_ROUTER
+        ,"Hardware_Switch" => self::HARDWARE_SWITCH
+        ,"Hardware_Access_Point" => self::HARDWARE_ACCESS_POINT
+        ,"Hardware_Camera" => self::HARDWARE_CAMERA
+        ,"Hardware_DVR_CCTV" => self::HARDWARE_DVR_CCTV
+        ,"Hardware_Alarm" => self::HARDWARE_ALARM
+        ,"Access_Access" => self::ACCESS_ACCESS
+    );
 
 /*
  * Displays Table using constants as visible data
@@ -46,70 +56,7 @@ class sTables implements
 
     public static function Prompt(array $array, string $type): string
     {
-        switch($type) {
-            case 'Admin_Users':
-                return self::Generate($array, self::ADMIN_USERS);
-                break;
-            case 'Admin_Groups':
-                return self::Generate($array, self::ADMIN_GROUPS);
-                break;
-            case 'Admin_Members':
-                return self::Generate($array, self::ADMIN_MEMBERSHIP);
-                break;
-            case 'Admin_Huntgroups':
-                return self::Generate($array, self::ADMIN_HUNTGROUPS);
-                break;
-            case 'Home_Users':
-                return self::Generate($array, self::HOME_USERS);
-                break;
-            case 'Company_Company':
-                return self::Generate($array, self::COMPANY_COMPANY);
-                break;
-            case 'Company_Site':
-                return self::Generate($array, self::COMPANY_SITE);
-                break;
-            case 'Company_Site_Filter':
-                return self::Generate($array, self::COMPANY_SITE_FILTER);
-                break;
-            case 'Hardware_Laptop':
-                return self::Generate($array, self::HARDWARE_LAPTOP);
-                break;
-            case 'Hardware_Computer':
-                return self::Generate($array, self::HARDWARE_COMPUTER);
-                break;
-            case 'Hardware_Printer':
-                return self::Generate($array, self::HARDWARE_PRINTER);
-                break;
-            case 'Hardware_Hardware':
-                return self::Generate($array, self::HARDWARE_HARDWARE);
-                break;
-            case 'Hardware_Server':
-                return self::Generate($array, self::HARDWARE_SERVER);
-                break;
-            case 'Hardware_Router':
-                return self::Generate($array, self::HARDWARE_ROUTER);
-                break;
-            case 'Hardware_Switch':
-                return self::Generate($array, self::HARDWARE_SWITCH);
-                break;
-            case 'Hardware_Access_Point':
-                return self::Generate($array, self::HARDWARE_ACCESS_POINT);
-                break;
-            case 'Hardware_Camera':
-                return self::Generate($array, self::HARDWARE_CAMERA);
-                break;
-            case 'Hardware_DVR_CCTV':
-                return self::Generate($array, self::HARDWARE_DVR_CCTV);
-                break;
-            case 'Hardware_Alarm':
-                return self::Generate($array, self::HARDWARE_ALARM);
-                break;
-            case 'Access_Access':
-                return self::Generate($array, self::ACCESS_ACCESS);
-                break;
-            default:
-                break;
-        }
+        return ((isset(self::TABLES_BY_NAMES[$type]))? self::Generate($array, self::TABLES_BY_NAMES[$type]) : '');
     }
 
 /*

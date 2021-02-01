@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Samples\sTables;
 
-interface ACCESS_ACCESS
+interface ACCESS
 {
     const ACCESS_ACCESS = array(
         "tableId" => "tableAccessAccess",
