@@ -12,11 +12,11 @@ $GLOBALS['Database'][3]['Delete'] = "DELETE FROM `Huntgroup` WHERE huntgroupId=:
 
 $GLOBALS['Database'][4]['Delete'] = "DELETE FROM `Huntgroup_Member` WHERE huntgroupId=:huntgroupId AND userId=:userId";
 
-$GLOBALS['Database'][5]['Delete'] = "DELETE FROM `Company` WHERE companyId=:companyId";
+$GLOBALS['Database'][10]['Delete'] = "DELETE FROM `Company` WHERE companyId=:companyId";
 
-$GLOBALS['Database'][6]['Delete'] = "DELETE FROM `Company_Site_Type` WHERE companySiteTypeId=:companySiteTypeId";
+$GLOBALS['Database'][11]['Delete'] = "DELETE FROM `Company_Site_Type` WHERE companySiteTypeId=:companySiteTypeId";
 
-$GLOBALS['Database'][7]['Delete'] = "DELETE FROM `Company_Site` WHERE companySiteId=:companySiteId";
+$GLOBALS['Database'][12]['Delete'] = "DELETE FROM `Company_Site` WHERE companySiteId=:companySiteId";
 
 $GLOBALS['Database'][20]['Delete'] = "DELETE FROM `Hardware` WHERE hardwareId=:hardwareId";
 

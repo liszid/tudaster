@@ -328,7 +328,7 @@ $GLOBALS['Database'][4]['Select'] = array(
         WHERE huntgroupMemberId=:huntgroupMemberId"
 );
 
-$GLOBALS['Database'][5]['Select'] = array(
+$GLOBALS['Database'][10]['Select'] = array(
     'All' => "
         SELECT
             *
@@ -350,14 +350,14 @@ $GLOBALS['Database'][5]['Select'] = array(
         WHERE userId=:userId"
 );
 
-$GLOBALS['Database'][6]['Select'] = array(
+$GLOBALS['Database'][11]['Select'] = array(
     'All' => "
         SELECT
             *
         FROM `Company_Site_Type`"
 );
 
-$GLOBALS['Database'][7]['Select'] = array(
+$GLOBALS['Database'][12]['Select'] = array(
     'All' => "
         SELECT
             *

@@ -86,7 +86,7 @@ $GLOBALS['Database']['4']['Update'] = array(
             huntgroupMemberId=:huntgroupMemberId"
 );
 
-$GLOBALS['Database']['5']['Update'] = "
+$GLOBALS['Database']['10']['Update'] = "
     UPDATE
         `Company`
     SET
@@ -101,7 +101,7 @@ $GLOBALS['Database']['5']['Update'] = "
         companyId=:companyId
 ";
 
-$GLOBALS['Database']['7']['Update'] = "
+$GLOBALS['Database']['12']['Update'] = "
     UPDATE
         `Company_Site`
     SET

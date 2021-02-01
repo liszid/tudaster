@@ -77,7 +77,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT huntgroupMemberUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
-    ,5 => "
+    ,10 => "
         CREATE TABLE IF NOT EXISTS `Company`(
             companyId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             userId INT(6) UNSIGNED NOT NULL,
@@ -93,7 +93,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
-    ,6 => "
+    ,11 => "
         CREATE TABLE IF NOT EXISTS `Company_Site_Type`(
             companySiteTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companySiteTypeName VARCHAR(128) NOT NULL,
@@ -101,7 +101,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT primaryKeyCompanySiteType PRIMARY KEY (companySiteTypeId)
         );
     "
-    ,7 => "
+    ,12 => "
         CREATE TABLE IF NOT EXISTS `Company_Site`(
             companySiteId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companyId INT(6) UNSIGNED NOT NULL,

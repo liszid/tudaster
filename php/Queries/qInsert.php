@@ -54,7 +54,7 @@ $GLOBALS['Database'][4]['Insert'] = "
     );
 ";
 
-$GLOBALS['Database'][5]['Insert'] = "
+$GLOBALS['Database'][10]['Insert'] = "
     INSERT INTO `Company`(
         userId,
         companyName,
@@ -66,7 +66,7 @@ $GLOBALS['Database'][5]['Insert'] = "
     );
 ";
 
-$GLOBALS['Database'][6]['Insert'] = "
+$GLOBALS['Database'][11]['Insert'] = "
     INSERT INTO `Company_Site_Type`(
         companySiteTypeId,
         companySiteTypeName
@@ -76,7 +76,7 @@ $GLOBALS['Database'][6]['Insert'] = "
     );
 ";
 
-$GLOBALS['Database'][7]['Insert'] = "
+$GLOBALS['Database'][12]['Insert'] = "
     INSERT INTO `Company_Site`(
         userId,
         companyId,
