@@ -52,7 +52,7 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
         huntgroupName
         ,isDelete
     ) VALUES
-    ('Minden felhasználó',0)"
+    ('Minden felhasználó',0)";
 
 $GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Company`(
@@ -69,6 +69,7 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
     ) VALUES
         (1, 1, 'Default', '-', '-', '-', '-', '0', '-', 0);
     ";
+
 $GLOBALS['Database']['Table']['Insert'][11] = "
     INSERT INTO `Company_Site_Type`(
         companySiteTypeName
@@ -83,6 +84,7 @@ $GLOBALS['Database']['Table']['Insert'][11] = "
         ,('Bisztró/ Étterem', 0)
         ,('Pékség', 0)
         ,('Raktár', 0)";
+
 $GLOBALS['Database']['Table']['Insert'][12] = "
     INSERT INTO `Company_Site`(
         companySiteId
@@ -108,6 +110,7 @@ $GLOBALS['Database']['Table']['Insert'][12] = "
     ) VALUES
     (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
 ";
+
 $GLOBALS['Database']['Table']['Insert'][20] = "
     INSERT INTO `Hardware`(
         hardwareName
@@ -143,4 +146,4 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
         ,huntgroupId
         ,isDelete
     ) VALUES
-    (1,1,0)"
+    (1,1,0)";
