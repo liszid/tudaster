@@ -47,12 +47,22 @@ $GLOBALS['Database']['Table']['Insert'][2] = "
     ) VALUES
         (1, 1, 0);";
 
-$GLOBALS['Database']['Table']['Insert'][29] = "
-    INSERT INTO `Hardware_Member`(
+$GLOBALS['Database']['Table']['Insert'][3] = "
+    INSERT INTO `Huntgroup`(
         huntgroupName
+        ,huntgroupDesc
         ,isDelete
     ) VALUES
-    ('Minden felhasználó',0)";
+        ('Alapértelmezett', 'Alapértelmezett adatok gyüjtő csoportja', 0);";
+
+$GLOBALS['Database']['Table']['Insert'][4] = "
+    INSERT INTO `Huntgroup_Member`(
+        userId
+        ,huntgroupId
+        ,isDelete
+    ) VALUES
+        (1, 1, 0);";
+
 
 $GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Company`(
@@ -146,4 +156,13 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
         ,huntgroupId
         ,isDelete
     ) VALUES
-    (1,1,0)";
+    (1,1,0)
+    ,(2,1,0)
+    ,(3,1,0)
+    ,(4,1,0)
+    ,(5,1,0)
+    ,(6,1,0)
+    ,(7,1,0)
+    ,(8,1,0)
+    ,(9,1,0)
+    ,(10,1,0)";
