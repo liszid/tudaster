@@ -67,7 +67,7 @@ class Valid
             //  Password
                 1   => '/A(?=[-_a-zA-Z0-9]*?[A-Z])(?=[-_a-zA-Z0-9]*?[a-z])(?=[-_a-zA-Z0-9]*?[0-9])[-_a-zA-Z0-9]{6,}z/',
             //  Text
-                2   => '/^[a-zA-Z0-9aáeéiíoóöőuúüűAÁEÉIÍOÓÖŐUÚÜŰ .,?!":=\-_()&#+\/]*$/',
+                2   => '/^[a-zA-Z0-9aáeéiíoóöőuúüűAÁEÉIÍOÓÖŐUÚÜŰ .,?!":=\-_()&#+\@/]*$/',
             //  Numeric
                 3   => '/^[0-9]*$/'
             );
@@ -118,11 +118,12 @@ class Valid
                     return false;
                 }
             }
+/*
 
             if (! (checkdnsrr($domain,"MX") || checkdnsrr($domain,"A"))) {
                 return false;
             }
-
+*/
             return true;
         }
     }

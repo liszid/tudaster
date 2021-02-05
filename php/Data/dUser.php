@@ -30,18 +30,25 @@ class dUser implements iData
                     $bool_1 = self::$dbUser->Insert($array);
                     if ($bool_1) {
                         $dGroup_Member = new dGroup_Member();
+                        $dHuntgroup = new dHuntgroup();
                         $dHuntgroup_Member = new dHuntgroup_Member();
-                        $userId = (self::Select($array, 'byUserName'))[0]['userId'];
-                        $addGroup_Member = $dGroup_Member::Insert(array('userId' => (int)$userId, 'groupId' => (int)$GLOBALS['groupDefault']));
-                        $addHuntgroup_Member = $dHuntgroup_Member::Insert(array('userId' => (int)$userId, 'huntgroupId' => (int)$GLOBALS['huntgroupDefault']));
-                        return ($addGroup_Member && $addHuntgroup_Member);
+
+                        $addHuntgroup = $dHuntgroup::Insert(array('huntgroupName' => 'FN_'.$array['userName'], 'huntgroupDesc' => 'Felhasználóra vonatkozó egyedi csoport', 'isDelete' => 0));
+
+                        $selectUserId = (self::Select($array, 'byUserName'))[0]['userId'];
+                        $selectHuntgroupId = $dHuntgroup::Select(array('huntgroupName' => 'FN_'.$array['userName']), 'byHuntgroupName_Last')[0]['huntgroupId'];
+
+                        $addGroup_Member = $dGroup_Member::Insert(array('userId' => (int)$selectUserId, 'groupId' => (int)$GLOBALS['groupDefault']));
+                        $addHuntgroup_Member_to_Self = $dHuntgroup_Member::Insert(array('userId' => (int)$selectUserId, 'huntgroupId' => $selectHuntgroupId));
+                        $addHuntgroup_Member_to_Default = $dHuntgroup_Member::Insert(array('userId' => (int)$selectUserId, 'huntgroupId' => (int)$GLOBALS['huntgroupDefault']));
+
+                        return ($addGroup_Member && $addHuntgroup_Member_to_Default && $addHuntgroup_Member_to_Self);
                     } else {
                         return false;
                     }
                 }
             }
         }
-        Log::Export(false);
         return false;
     }
 

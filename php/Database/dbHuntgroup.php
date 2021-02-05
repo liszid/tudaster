@@ -24,13 +24,18 @@ class dbHuntgroup extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
+            if (! isset($array['isDelete'])) {
+                $array['isDelete'] = 1;
+            }
+
             return (
                 self::qRun(
                     array(
                         'query' => self::$classQueries['Insert'],
                         'vNames' => array(
-                            'huntgroupName',
-                            'huntgroupDesc'
+                            'huntgroupName'
+                            ,'huntgroupDesc'
+                            ,'isDelete'
                         ),
                         'vData' => $array
                     )
@@ -51,6 +56,9 @@ class dbHuntgroup extends Table implements iDatabase
                 break;
             case 'byHuntgroupId':
                 $tempArray[] = 'huntgroupId';
+                break;
+            case 'byHuntgroupName_Last':
+                $tempArray[] = 'huntgroupName';
                 break;
             default:
                 return array();

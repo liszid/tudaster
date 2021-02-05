@@ -304,6 +304,12 @@ $GLOBALS['Database'][3]['Select'] = array(
             ,huntgroupName
             ,huntgroupDesc
         FROM `Huntgroup`"
+    ,'byHuntgroupName_Last' => "
+        SELECT
+            huntgroupId
+        FROM `Huntgroup`
+        WHERE huntgroupName=:huntgroupName
+        ORDER BY huntgroupId DESC LIMIT 1"
 );
 
 $GLOBALS['Database'][4]['Select'] = array(
