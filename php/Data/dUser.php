@@ -30,8 +30,11 @@ class dUser implements iData
                     $bool_1 = self::$dbUser->Insert($array);
                     if ($bool_1) {
                         $dGroup_Member = new dGroup_Member();
+                        $dHuntgroup_Member = new dHuntgroup_Member();
                         $userId = (self::Select($array, 'byUserName'))[0]['userId'];
-                        return $dGroup_Member::Insert(array('userId' => (int)$userId, 'groupId' => (int)$GLOBALS['groupDefault']));
+                        $addGroup_Member = $dGroup_Member::Insert(array('userId' => (int)$userId, 'groupId' => (int)$GLOBALS['groupDefault']));
+                        $addHuntgroup_Member = $dHuntgroup_Member::Insert(array('userId' => (int)$userId, 'huntgroupId' => (int)$GLOBALS['huntgroupDefault']));
+                        return ($addGroup_Member && $addHuntgroup_Member);
                     } else {
                         return false;
                     }
