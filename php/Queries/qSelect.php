@@ -292,7 +292,8 @@ $GLOBALS['Database'][3]['Select'] = array(
     'All' => "
         SELECT
             *
-        FROM `Huntgroup`"
+        FROM `Huntgroup`
+        ORDER BY huntgroupName ASC"
     ,'byHuntgroupId' => "
         SELECT
             *
@@ -303,7 +304,8 @@ $GLOBALS['Database'][3]['Select'] = array(
             huntgroupId
             ,huntgroupName
             ,huntgroupDesc
-        FROM `Huntgroup`"
+        FROM `Huntgroup`
+        ORDER BY huntgroupName ASC"
     ,'byHuntgroupName_Last' => "
         SELECT
             huntgroupId
