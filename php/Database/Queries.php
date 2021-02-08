@@ -38,7 +38,6 @@ class Queries extends Database
             ,20 => 'Hardware'
             ,29 => 'Hardware_Member'
             ,30 => 'Access'
-            ,31 => 'Access_Member'
             ,98 => 'Tools'
             ,99 => 'Combined'
         );

@@ -164,24 +164,13 @@ $GLOBALS['Database'][99]['Select'] = array(
         INNER JOIN `User` ON `User`.userId = `Access`.userId
         INNER JOIN `Company_Site` USING (companySiteId)
         INNER JOIN `Company` USING (companyId)
-        LEFT JOIN `Access_Member` USING (accessId)
+        LEFT JOIN `Hardware_Member` USING (hardwareId)
         LEFT JOIN `Huntgroup` USING (huntgroupId)
         LEFT JOIN `Huntgroup_Member` USING (huntgroupId)
         WHERE
             `Huntgroup_Member`.userId=:userId
             OR `Access`.userId=:userId
         GROUP BY `Access`.accessId"
-    ,'Access_Members' => "
-        SELECT
-            `Access_Member`.accessMemberId
-            ,`Access_Member`.accessId
-            ,`Huntgroup`.huntgroupId
-            ,`Huntgroup`.huntgroupName
-            ,`Huntgroup`.huntgroupDesc
-            ,`Access_Member`.isDelete
-        FROM `Access_Member`
-        INNER JOIN `Huntgroup` USING (huntgroupId)
-        WHERE `Access_Member`.accessId=:accessId"
 );
 
 $GLOBALS['Database'][0]['Select'] = array(
@@ -449,26 +438,4 @@ $GLOBALS['Database'][30]['Select'] = array(
             userId
         FROM `Access`
         WHERE userId=:userId"
-);
-
-$GLOBALS['Database'][31]['Select'] = array(
-    'All' => "
-        SELECT
-            *
-        FROM `Access_Member`"
-    ,'byAccessId' => "
-        SELECT
-            *
-        FROM `Access_Member`
-        WHERE accessId=:accessId"
-    ,'byHuntgroupId' => "
-        SELECT
-            *
-        FROM `Access_Member`
-        WHERE huntgroupId=:huntgroupId"
-    ,'byAccessMemberId' => "
-        SELECT
-            *
-        FROM `Access_Member`
-        WHERE accessMemberId=:accessMemberId"
 );

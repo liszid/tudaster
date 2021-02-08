@@ -187,16 +187,4 @@ $GLOBALS['Database']['Table']['Create'] = array(
             CONSTRAINT accessUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
-    ,31 => "
-        CREATE TABLE IF NOT EXISTS `Access_Member`(
-            accessMemberId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
-            accessId INT(6) UNSIGNED NOT NULL,
-            huntgroupId INT(6) UNSIGNED NOT NULL,
-            isDelete INT(6) UNSIGNED DEFAULT 1,
-            CONSTRAINT primaryKeyAccess_Member PRIMARY KEY (accessMemberId),
-            CONSTRAINT accessMemberHuntgroupCascade FOREIGN KEY (huntgroupId) REFERENCES `Huntgroup` (huntgroupId) ON DELETE CASCADE,
-            CONSTRAINT accessMemberAccessCascade FOREIGN KEY (accessId) REFERENCES `Access` (accessId) ON DELETE CASCADE
-        );
-    ",
-
 );

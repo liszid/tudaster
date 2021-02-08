@@ -162,40 +162,4 @@ class sAccess
         }
         return $tempArray;
     }
-
-/*
- * @return string
- * @param $array array
- * @param $bool bool
- * @author Liszi Daniel
- * @since 2021.01.21
-*/
-    protected static function Huntgroup_Checkbox(array $array = array(), bool $bool = false): string
-    {
-        self::setDHuntgroup();
-        self::setDCombined();
-
-        $AllUsers = self::$dHuntgroup->Select(array(), 'All');
-        $HGUsers = self::$dCombined->Select(array('accessId' => (int)$array['dp']), 'Access_Members');
-
-        $returnString = '
-        <div class="form-group col-12 h-100">
-            <label for="'.$array['origo'].'-huntgroupCheckbox">Csoportok</label>
-            <select multiple size="10"'.(($bool)?' disabled':'').' class="form-control" id="'.$array['origo'].'-huntgroupCheckbox">
-        ';
-
-        foreach($AllUsers as $i) {
-            $returnString .= '
-                <option'.((! is_null($HGUsers) && array_search($i['huntgroupId'], array_column($HGUsers, 'huntgroupId')) !== false )?' selected':'').' value="'.$i['huntgroupId'].'">
-                    '.$i['huntgroupName'].'
-                </option>';
-        }
-
-        $returnString .= '
-            </select>
-          </div>
-        ';
-
-        return $returnString;
-    }
 }

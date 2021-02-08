@@ -139,13 +139,3 @@ $GLOBALS['Database'][30]['Insert'] = "
         ,:userId
     );
 ";
-
-$GLOBALS['Database'][31]['Insert'] = "
-    INSERT INTO `Access_Member`(
-        accessId
-        ,huntgroupId
-    ) VALUES (
-        :accessId
-        ,:huntgroupId
-    );
-";

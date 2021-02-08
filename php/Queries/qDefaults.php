@@ -63,7 +63,6 @@ $GLOBALS['Database']['Table']['Insert'][4] = "
     ) VALUES
         (1, 1, 0);";
 
-
 $GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Company`(
         companyId

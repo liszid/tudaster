@@ -71,61 +71,7 @@ class dAccess implements iData
     {
         $array['accessPassword'] = self::Encode($array['accessPassword']);
 
-        $bool = true;
-
-        if(isset($array['huntgroupCheckbox']) && ! empty($array['huntgroupCheckbox'])) {
-            $groupIdArray = explode(',', $array['huntgroupCheckbox']);
-            $memberIdArray = self::$dAccess_Member->Select($array, 'byAccessId');
-
-            if (empty($memberIdArray)) {
-                foreach ($groupIdArray as $GId) {
-                    if (! empty($GId)) {
-                        self::$dAccess_Member->Insert( array( "accessId" => $array['accessId'], "huntgroupId" => $GId));
-                    }
-                }
-            } elseif ($memberIdArray) {
-                $newArray = array();
-                $oldArray = array();
-
-                foreach ($groupIdArray as $i) {
-                    if (! empty($i)) {
-                        $newArray[] = $i;
-                    }
-                }
-
-                foreach ($memberIdArray as $i) {
-                    $oldArray[] = $i['huntgroupId'];
-                }
-
-                $oldDiff = (($var =array_diff($oldArray, $newArray)) !== array())? $var : false;
-                $newDiff = (($var =array_diff($newArray, $oldArray)) !== array())? $var : false;
-
-                if ($oldDiff) {
-                    foreach ($oldDiff as $i) {
-                        if (! self::$dAccess_Member->Delete(array('accessId' => $array['accessId'], 'huntgroupId' => $i))) {
-                            return false;
-                        }
-                    }
-                } else {
-                    $bool = false;
-                }
-                if ($newDiff) {
-                    $bool = true;
-
-                    foreach ($newDiff as $i) {
-                        if (! self::$dAccess_Member->Insert(array('accessId' => $array['accessId'], 'huntgroupId' => $i))) {
-                            return false;
-                        }
-                    }
-                } else {
-                    $bool = false;
-                }
-            } else {
-                $bool = false;
-            }
-        }
-
-        return ($bool || self::$dbAccess->Update($array, $type));
+        return self::$dbAccess->Update($array, $type);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
