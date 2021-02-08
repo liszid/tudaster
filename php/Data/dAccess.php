@@ -17,7 +17,6 @@ use Samples\sActivity;
 class dAccess implements iData
 {
     private static $dbAccess;
-    private static $dAccess_Member;
 
     private static function Encode(string $string = ""): string
     {
@@ -47,7 +46,6 @@ class dAccess implements iData
     public function __construct()
     {
         self::$dbAccess = new dbAccess();
-        self::$dAccess_Member = new dAccess_Member();
     }
 
     public static function Insert(array $array = array()): bool

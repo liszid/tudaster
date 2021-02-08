@@ -385,8 +385,10 @@ $GLOBALS['Database'][20]['Select'] = array(
         INNER JOIN `Hardware` USING (companySiteId)"
     ,'byHardwareId' => "
         SELECT
-            *
+            `Hardware`.*
+            ,`User`.userName
         FROM `Hardware`
+        LEFT JOIN `User` USING (userId)
         WHERE hardwareId=:hardwareId"
     ,'byUserId_Last' => "
         SELECT
