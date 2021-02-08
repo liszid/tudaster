@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $GLOBALS['Database']['0']['Update'] = array(
-    "Profile" => "
+    "Edit" => "
         UPDATE
             `User`
         SET
@@ -13,9 +13,15 @@ $GLOBALS['Database']['0']['Update'] = array(
             ,userContPhone=:userContPhone
             ,userThumbnail=:userThumbnail
         WHERE
-            userId=:userId",
-
-    "Reset" => "
+            userId=:userId"
+    ,"Password" => "
+        UPDATE
+            `User`
+        SET
+            pWord=:pWord
+        WHERE
+            userId=:userId"
+    ,"Reset" => "
         UPDATE
             `User`
         SET

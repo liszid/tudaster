@@ -62,8 +62,18 @@ class dUser implements iData
         if (! strcmp($type, 'Delete')) {
             $dGroup_Member = new dGroup_Member();
             return $dGroup_Member->Update($array, 'byUserId');
-        } else {
+        } elseif (! strcmp($type, 'Edit')) {
             return self::$dbUser->Update($array, $type);
+        } elseif (! strcmp($type, 'Password')) {
+            $pWord = self::Select($array, 'Password')[0]['pWord'];
+            if (
+                ! strcmp(md5($array['userPassword_Old']), $pWord)
+                && ! strcmp(md5($array['userPassword_New']), md5($array['userPassword_Repeat']))
+            ) {
+                return self::$dbUser->Update(array('userId' => $array['userId'], 'pWord' => md5($array['userPassword_New'])), $type);
+            } else {
+                return false;
+            }
         }
     }
 

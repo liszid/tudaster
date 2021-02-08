@@ -137,7 +137,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                 return [
 //              "id starts w/", "post", "event id", ["array of items needed to send"], "send into", "special id"
                     ["usrLogin", "x=Login&Login=", "button", [], "modalDialog"]
-                    ,["usrEdit", "x=Profile&Save=", "button", [], "modalDialog"]
+                    ,["usrEdit", "x=Profile&y=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrPassword", "x=Profile&y=Password&Save=", "button", [], "modalDialog"]
                     ,["usrEdit", "x=Profile", "cancel", [], "modalDialog"]
                     ,["admUsrsAdd", "x=Administrative&y=Users&z=Add&Save=", "button", [], "modalDialog"]
                     ,["admGrpsAdd", "x=Administrative&y=Groups&z=Add&Save=", "button", [], "modalDialog"]

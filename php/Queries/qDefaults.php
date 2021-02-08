@@ -53,7 +53,8 @@ $GLOBALS['Database']['Table']['Insert'][3] = "
         ,huntgroupDesc
         ,isDelete
     ) VALUES
-        ('Alapértelmezett', 'Alapértelmezett adatok gyüjtő csoportja', 0);";
+        ('Alapértelmezett', 'Alapértelmezett adatok gyüjtő csoportja', 0)
+        ,('#_admin', '', 0);";
 
 $GLOBALS['Database']['Table']['Insert'][4] = "
     INSERT INTO `Huntgroup_Member`(
@@ -61,7 +62,8 @@ $GLOBALS['Database']['Table']['Insert'][4] = "
         ,huntgroupId
         ,isDelete
     ) VALUES
-        (1, 1, 0);";
+        (1, 1, 0)
+        ,(1, 2, 0);";
 
 $GLOBALS['Database']['Table']['Insert'][10] = "
     INSERT INTO `Company`(

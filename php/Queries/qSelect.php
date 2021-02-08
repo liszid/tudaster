@@ -235,6 +235,11 @@ $GLOBALS['Database'][0]['Select'] = array(
         WHERE
             userName=:userName
             AND pWord=:pWord"
+    ,'Password' => "
+        SELECT
+            pWord
+        FROM `User`
+        WHERE userId=:userId"
 );
 
 $GLOBALS['Database'][1]['Select'] = array(

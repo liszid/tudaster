@@ -63,6 +63,9 @@ class dbUser extends Table implements iDatabase
                 $tempArray[] = 'userName';
                 $tempArray[] = 'pWord';
                 break;
+            case 'Password':
+                $tempArray[] = 'userId';
+                break;
             default:
                 return array();
                 break;
@@ -97,13 +100,17 @@ class dbUser extends Table implements iDatabase
             case 'Reset':
                 $tempArray[] = 'userId';
                 break;
-            case 'Profile':
+            case 'Edit':
                 $tempArray[] = 'userId';
                 $tempArray[] = 'userFirstName';
                 $tempArray[] = 'userLastName';
                 $tempArray[] = 'userThumbnail';
                 $tempArray[] = 'userContSite';
                 $tempArray[] = 'userContPhone';
+                break;
+            case 'Password':
+                $tempArray[] = 'userId';
+                $tempArray[] = 'pWord';
                 break;
             default:
                 return false;
