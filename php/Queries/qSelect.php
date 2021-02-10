@@ -446,3 +446,10 @@ $GLOBALS['Database'][30]['Select'] = array(
         FROM `Access`
         WHERE userId=:userId"
 );
+
+$GLOBALS['Database'][90]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM `Log`"
+);

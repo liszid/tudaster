@@ -139,3 +139,17 @@ $GLOBALS['Database'][30]['Insert'] = "
         ,:userId
     );
 ";
+
+$GLOBALS['Database'][90]['Insert'] = "
+    INSERT INTO `Log`(
+        logType
+        ,logAction
+        ,logCategory
+        ,logText
+    ) VALUES (
+        :logType
+        ,:logAction
+        ,:logCategory
+        ,:logText
+    );
+";
