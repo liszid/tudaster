@@ -41,6 +41,7 @@ class sTables implements
         ,"Hardware_Camera" => self::HARDWARE_CAMERA
         ,"Hardware_DVR_CCTV" => self::HARDWARE_DVR_CCTV
         ,"Hardware_Alarm" => self::HARDWARE_ALARM
+        ,"Hardware_Telephony" => self::HARDWARE_TELEPHONY
         ,"Access_Access" => self::ACCESS_ACCESS
     );
 

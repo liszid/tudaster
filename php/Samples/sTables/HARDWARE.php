@@ -135,4 +135,11 @@ interface HARDWARE
         ,"button" => self::HARDWARE_BUTTONS
     );
 
+    const HARDWARE_TELEPHONY = array(
+        "tableId" => "tableHardwareTelephony"
+        ,"tableRoot" => "Hardware/Telephony"
+        ,"tableRole" => "canHardware"
+        ,"data" => self::HARDWARE_NETWORKING
+        ,"button" => self::HARDWARE_BUTTONS
+    );
 }

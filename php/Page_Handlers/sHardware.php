@@ -124,6 +124,11 @@ class sHardware
             ,"optionalData" => self::NETWORKING
             ,"tableName" => 'Hardware_Access_Point'
         )
+        ,"Telephony" => array(
+            "origo" => 'usrHardwTelephony'
+            ,"optionalData" => self::NETWORKING
+            ,"tableName" => 'Hardware_Telephony'
+        )
         ,"Camera" => array(
             "origo" => 'usrHardwCamera'
             ,"optionalData" => self::NETWORKING

@@ -190,6 +190,7 @@ class sSite
                         ,'Router'
                         ,'Switch'
                         ,'Access_Point'
+                        ,'Telephony'
                         ,'Camera'
                         ,'DVR_CCTV'
                         ,'Alarm'

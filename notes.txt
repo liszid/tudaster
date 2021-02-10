@@ -3,17 +3,6 @@
 #
 #-------------------------------------------------------------------------#
 
-[POST DATA]---------------------------------------------------------------#
-
-MUST modify these parameters according to the modifications of the post
- data:
-    -> php/Queries/Insert.php -> $GLOBALS['Database'][{classId}]['Insert']
-    -> php/Database/{dbName}.php -> Insert() -> vArray[]
-
-Errors still may occur, refer to error.log
-
-#-------------------------------------------------------------------------#
-
 For adding new file, use the precompiled {sampleFiles} at php/SampleFiles
 
 #-------------------------------------------------------------------------#
@@ -35,3 +24,56 @@ Javascript and CSS files must be loaded orderwise, which is set by default
 
 #-------------------------------------------------------------------------#
 
+For adding new [Hardware] subcategory, use the sample below.
+
+./php/Page/Hardware.php
+#   Add line in $urlPaths as follows
+    ,"Subcategory" => array("path" => "Hardware/Subcategory", "role" => "canHardware")
+
+./php/Page_Handlers/sHardware.php
+#   Add lines in const TYPES as follows
+    ,"Subcategory" => array(
+        "origo" => 'usrHardwSubcategory'
+        ,"optionalData" => self::NETWORKING //Or any fitting preset
+        ,"tableName" => 'Hardware_Subcategory'
+    )
+
+./php/Samples/sTables/HARDWARE.php
+#   Add a constant for its Table generating
+    const HARDWARE_SUBCATEGORY = array(
+        "tableId" => "tableHardwareSubcategory"
+        ,"tableRoot" => "Hardware/Subcategory"
+        ,"tableRole" => "canHardware"
+        ,"data" => self::HARDWARE_NETWORKING //Or any fitting preset
+        ,"button" => self::HARDWARE_BUTTONS
+    );
+
+./php/Samples/sTables/HARDWARE.php
+#   Add line to TABLES_BY_NAMES as follows
+    ,"Hardware_Subcategory" => self::HARDWARE_SUBCATEGORY
+
+./php/Samples/sTranslate/TRANSLATE.php
+# Copy the arrays of these
+        ,"Hardware/Subcategory" => array(
+            [...]
+        )
+        ,"Hardware/Subcategory/Add" => array(
+            [...]
+        )
+        ,"Hardware/Subcategory/Edit" => array(
+            [...]
+        )
+        ,"Hardware/Subcategory/View" => array(
+            [...]
+        )
+        ,"Hardware/Subcategory/Delete" => array(
+            [...]
+        )
+
+./js/53_AjaxParams.js
+#   At arrayObject add it as it follows
+    ,["usrHardwSubcategoryAdd", "x=Hardware&y=Subcategory&z=Add&Save=", "button", [], "modalDialog"]
+    ,["usrHardwSubcategoryEdit", "x=Hardware&y=Subcategory&z=Edit&Save=", "button", [], "modalDialog"]
+
+# At tableSearching add it as it follows
+    ,"tableHardwareSubcategory"

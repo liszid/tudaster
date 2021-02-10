@@ -34,7 +34,7 @@ $GLOBALS['Database']['Table']['Insert'][1] = "
         ,canLogin
         ,isDelete
     ) VALUES
-        ('Adminisztrátor',	'Adminisztratív jogosultság',                       1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 1, 1, 0)
+         ('Adminisztrátor',	 'Adminisztratív jogosultság',                       1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 1, 1, 0)
         ,('Alapértelmezett', 'Alapértelmezett jogosultság',                      0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 1, 1, 0)
         ,('Korlátozott',     'Korlátozott hozzáféréssel rendelkezö jogosultság', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0)
         ,('Törölt',          'Törölt felhasználók jogosultsága',                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
@@ -78,7 +78,7 @@ $GLOBALS['Database']['Table']['Insert'][10] = "
         ,companyAddressStreet
         ,isDelete
     ) VALUES
-        (1, 1, 'Default', '-', '-', '-', '-', '0', '-', 0);
+        (1, 1, 'Alapértelmezett', '-', '-', '-', '-', '0', '-', 0);
     ";
 
 $GLOBALS['Database']['Table']['Insert'][11] = "
@@ -119,7 +119,7 @@ $GLOBALS['Database']['Table']['Insert'][12] = "
         ,companySiteTypeId
         ,isDelete
     ) VALUES
-    (1, 1, 1, 'Default', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
+    (1, 1, 1, 'Alapértelmezett', '-', '-', '-', '-', 0,'-','-', '-', 0, '-', 0, '-', '-', 0, 1, 0);
 ";
 
 $GLOBALS['Database']['Table']['Insert'][20] = "
@@ -140,16 +140,17 @@ $GLOBALS['Database']['Table']['Insert'][20] = "
         ,companySiteId
         ,isDelete
     ) VALUES
-     ('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt001', '001','-','-','Server',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt001', '001','-','-','Laptop',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt001', '001','-','-','Printer',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt001', '001','-','-','Router',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt001', '001','-','-','Switch',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.7','R1', '07', 'Teszt001', '001','-','-','Access_Point',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.8','R1', '08', 'Teszt001', '001','-','-','Camera',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.9','R1', '09', 'Teszt001', '001','-','-','DVR_CCTV',1,1,0)
-    ,('Dummy', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.10','R1','10', 'Teszt001', '001','-','-','Alarm',1,1,0)";
+     ('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.1','R1', '01', 'Teszt001', '001','-','-','Computer',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.2','R1', '02', 'Teszt002', '002','-','-','Server',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.3','R1', '03', 'Teszt003', '003','-','-','Laptop',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.4','R1', '04', 'Teszt004', '004','-','-','Printer',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt005', '005','-','-','Router',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt006', '006','-','-','Switch',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.7','R1', '07', 'Teszt007', '007','-','-','Access_Point',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.8','R1', '08', 'Teszt008', '008','-','-','Camera',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.9','R1', '09', 'Teszt009', '009','-','-','DVR_CCTV',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.10','R1','10', 'Teszt010', '010','-','-','Alarm',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.11','R1','11', 'Teszt011', '011','-','-','Telephony',1,1,0)";
 
 $GLOBALS['Database']['Table']['Insert'][29] = "
     INSERT INTO `Hardware_Member`(
@@ -166,4 +167,5 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
     ,(7,1,0)
     ,(8,1,0)
     ,(9,1,0)
-    ,(10,1,0)";
+    ,(10,1,0)
+    ,(11,1,0)";

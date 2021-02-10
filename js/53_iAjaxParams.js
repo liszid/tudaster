@@ -166,6 +166,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["usrHardwSwitchEdit", "x=Hardware&y=Switch&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwAccessPointAdd", "x=Hardware&y=Access_Point&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwAccessPointEdit", "x=Hardware&y=Access_Point&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwTelephonyAdd", "x=Hardware&y=Telephony&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwTelephonyEdit", "x=Hardware&y=Telephony&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwCameraAdd", "x=Hardware&y=Camera&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwCameraEdit", "x=Hardware&y=Camera&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwDVRCCTVAdd", "x=Hardware&y=DVR_CCTV&z=Add&Save=", "button", [], "modalDialog"]
@@ -195,6 +197,7 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwareSecurity"
                     ,"tableHardwareSwitch"
                     ,"tableHardwareAccessPoint"
+                    ,"tableHardwareTelephony"
                     ,"tableHardwareCamera"
                     ,"tableHardwareDVRCCTV"
                     ,"tableHardwareAlarm"
