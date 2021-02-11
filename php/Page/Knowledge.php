@@ -21,7 +21,10 @@ if (
         "Root" => "Knowledge"
     );
 
-    echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => ''));
+    $returnContent = "
+	<div class='editor'>
+	</div>";
+    echo sFrame::Page(array('path' => $urlPaths['Root'], 'content' => $returnContent));
 } else {
     echo sRedirect::Home();
 }

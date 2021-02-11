@@ -5,6 +5,34 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
         super();
     }
 
+    evntCKEditor()
+    {
+	if ($('.editor').length !== 0) {
+	    ClassicEditor.create( document.querySelector( '.editor' ), {
+		toolbar: {
+		    items: ['heading','|','fontSize','bold','italic','underline','link','alignment','indent','outdent','numberedList','bulletedList','|','horizontalLine','blockQuote','imageUpload','insertTable','|','undo','redo']
+		},
+		language: 'hu',
+		image: {
+		    toolbar: ['imageTextAlternative','imageStyle:full','imageStyle:side']
+		},
+		table: {
+		    contentToolbar: ['tableColumn','tableRow','mergeTableCells','tableCellProperties','tableProperties']
+		},
+		licenseKey: '',
+	    } )
+	    .then( editor => {
+		window.editor = editor;
+	    } )
+	    .catch( error => {
+		console.error( 'Oops, something went wrong!' );
+		console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+		console.warn( 'Build id: f9un3bbiaar-rpyke4h3p653' );
+		console.error( error );
+	    } );
+	}
+    }
+
 /*
  * Sets DataTables, jQuery used
  * @author Liszi Dániel

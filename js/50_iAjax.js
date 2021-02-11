@@ -20,6 +20,7 @@ const iAjax = (iAjax = Object) => class extends iAjax
             window.stringInnerContent = xhttp.responseText;
             document.getElementById(id).innerHTML = window.stringInnerContent;
             $('.navbar-collapse').collapse('hide');
+	    this.evntCKEditor();
             this.evntDataTable();
             this.evntForm(z.getElementsByTagName('input'));
             this.evntForm(z.getElementsByTagName('button'));
