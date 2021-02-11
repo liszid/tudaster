@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Page_Handlers\sCompany;
 
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Samples\{
-    sElement,
-    sTranslate,
-    sTables,
-    sFrame
+    sElement
+    ,sCard
+    ,sTranslate
+    ,sTables
+    ,sFrame
 };
 
 class Company extends \Page_Handlers\sCompany
@@ -78,7 +79,9 @@ class Company extends \Page_Handlers\sCompany
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sElement::General(array('constData' => self::COMPANY, 'staticData' => array('origo' => 'usrCmpCmpView', 'tag' => 'View'),'valueData' => $Company),'Generate_Form')
+                        .sCard::Collapsible(array('header' => 'Alap adatok', 'content' => sElement::General(array('constData' => self::COMPANY, 'staticData' => array('origo' => 'usrCmpCmpView', 'tag' => 'View'),'valueData' => $Company),'Generate_Form')))
+                        .sElement::General( array('origo' => 'usrCmpCmpView', 'data' => 'userName', 'desc' => 'Hozzáadta', 'value' => $Company['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General( array('origo' => 'usrCmpCmpView', 'data' => 'companyDate','desc' => 'Hozzáadva','value' => $Company['companyDate'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';

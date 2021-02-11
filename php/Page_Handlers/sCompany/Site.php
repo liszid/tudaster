@@ -92,7 +92,8 @@ class Site extends \Page_Handlers\sCompany
                         .sCard::Collapsible(array('header' => 'Telephely adatok', 'content' => sElement::General(array('constData' => self::COMPANY_SITE, 'staticData' => array('origo' => 'usrCmpSiteView', 'tag' => 'View'),'valueData' => $Company_Site,'selectData' => array('companySiteTypeId' => self::Company_Site_Type_Select())),'Generate_Form')))
                         .sCard::Collapsible(array('header' => 'Telephely vezető adatok', 'content' => sElement::General(array('constData' => self::COMPANY_SITE_OWNER, 'staticData' => array('origo' => 'usrCmpSiteView', 'tag' => 'View'),'valueData' => $Company_Site),'Generate_Form')))
                         .sCard::Collapsible(array('header' => 'Telephely vezető helyettes adatok', 'content' => sElement::General(array('constData' => self::COMPANY_SITE_SUB_OWNER, 'staticData' => array('origo' => 'usrCmpSiteView', 'tag' => 'View'),'valueData' => $Company_Site),'Generate_Form')))
-                        .sElement::General( array( 'origo' => 'usrCmpSiteView', 'data' => 'userName', 'desc' => 'Hozzáadta', 'value' => $Company_Site['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General( array('origo' => 'usrCmpSiteView', 'data' => 'userName', 'desc' => 'Hozzáadta', 'value' => $Company_Site['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General( array('origo' => 'usrCmpSiteView', 'data' => 'companySiteDate','desc' => 'Hozzáadva','value' => $Company_Site['companySiteDate'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';

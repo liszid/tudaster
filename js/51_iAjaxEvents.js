@@ -22,7 +22,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
 		licenseKey: '',
 	    } )
 	    .then( editor => {
-		window.editor = editor;
+            window.editor = editor;
 	    } )
 	    .catch( error => {
 		console.error( 'Oops, something went wrong!' );

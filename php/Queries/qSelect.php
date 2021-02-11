@@ -333,12 +333,16 @@ $GLOBALS['Database'][4]['Select'] = array(
 $GLOBALS['Database'][10]['Select'] = array(
     'All' => "
         SELECT
-            *
-        FROM `Company`"
+            `Company`.*
+            ,`User`.userName
+        FROM `Company`
+        INNER JOIN `User` USING (userId)"
     ,'byCompanyId' => "
         SELECT
-            *
+            `Company`.*
+            ,`User`.userName
         FROM `Company`
+        INNER JOIN `User` USING (userId)
         WHERE companyId=:companyId"
     ,'forCompanySelect' => "
         SELECT
@@ -437,8 +441,10 @@ $GLOBALS['Database'][30]['Select'] = array(
         FROM `Access`"
     ,'byAccessId' => "
         SELECT
-            *
+            `Access`.*
+            ,`User`.userName
         FROM `Access`
+        INNER JOIN `User` USING (userId)
         WHERE accessId=:accessId"
     ,'byUserId' => "
         SELECT

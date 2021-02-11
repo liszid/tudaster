@@ -363,6 +363,7 @@ class sHardware
                         .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => $array['defaultData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                         .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General(array('constData' => $array['optionalData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                         .sElement::General(array('origo' => $array['origo'],'data' => 'userName','desc' => 'Hozzáadta','value' => $Hardware['userName'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General(array('origo' => $array['origo'],'data' => 'hardwareDate','desc' => 'Hozzáadva','value' => $Hardware['hardwareDate'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';

@@ -16,6 +16,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             userContPhone VARCHAR(32) NULL,
             userContSite VARCHAR(64) NULL,
             userThumbnail VARCHAR(255) DEFAULT 'user',
+            userDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT PKUser PRIMARY KEY (userId),
             CONSTRAINT userUserIdUnique UNIQUE (userId),
@@ -88,6 +89,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companyAddressCity VARCHAR(64) NULL,
             companyAddressPostcode VARCHAR(12) NULL,
             companyAddressStreet VARCHAR(128) NULL,
+            companyDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompany PRIMARY KEY (companyId),
             CONSTRAINT companyUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
@@ -122,6 +124,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             companySiteEmail VARCHAR(128) NULL,
             companySitePhone VARCHAR(32) NULL,
             companySiteTypeId INT(6) UNSIGNED NOT NULL DEFAULT 1,
+            companySiteDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompanySite PRIMARY KEY (companySiteId),
             CONSTRAINT companySiteCompanyCascade FOREIGN KEY (companyId) REFERENCES `Company` (companyId) ON DELETE CASCADE,
@@ -141,6 +144,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             hardwareSwitchPort VARCHAR(2) NULL,
             hardwareVLANName VARCHAR(64) NULL,
             hardwareVLANNum VARCHAR(4) NULL,
+            hardwareDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             hardwareDateIn VARCHAR(64) NULL,
             hardwareDateOut VARCHAR(64) NULL,
             hardwareType VARCHAR(64) NULL,
@@ -180,11 +184,35 @@ $GLOBALS['Database']['Table']['Create'] = array(
             hardwareId INT(6) UNSIGNED NOT NULL,
             accessUsername VARCHAR(128) NULL,
             accessPassword VARCHAR(128) NULL,
+            accessDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             userId INT(6) UNSIGNED NOT NULL,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyAccess PRIMARY KEY (accessId),
             CONSTRAINT accessHardwareCascade FOREIGN KEY (hardwareId) REFERENCES `Hardware` (hardwareId) ON DELETE CASCADE,
             CONSTRAINT accessUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
+        );
+    "
+    ,40 => "
+        CREATE TABLE IF NOT EXISTS `Knowledge_Type`(
+            knowledgeTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            knowledgeTypeName VARCHAR(128) NULL,
+            knowledgeTypeDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyKnowledgeType PRIMARY KEY (knowledgeTypeId)
+        );
+    "
+    ,41 => "
+        CREATE TABLE IF NOT EXISTS `Knowledge`(
+            knowledgeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
+            knowledgeTypeId INT(6) UNSIGNED NOT NULL,
+            knowledgeTitle VARCHAR(128) NULL,
+            knowledgeText TEXT NULL,
+            knowledgeDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            userId INT(6) UNSIGNED NOT NULL,
+            isDelete INT(1) DEFAULT 1,
+            CONSTRAINT primaryKeyKnowledge PRIMARY KEY (knowledgeId),
+            CONSTRAINT knowledgeTypeCascade FOREIGN KEY (knowledgeTypeId) REFERENCES `Knowledge_Type` (knowledgeTypeId) ON DELETE CASCADE,
+            CONSTRAINT knowledgeUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
     ,90 => "
@@ -194,7 +222,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             logAction VARCHAR(64) NULL,
             logCategory VARCHAR(64) NULL,
             logText TEXT NULL,
-            logDate TIMESTAMP NOT NULL,
+            logDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyLog PRIMARY KEY (logId)
         );

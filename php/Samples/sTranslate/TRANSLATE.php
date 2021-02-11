@@ -1075,6 +1075,50 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
         )
+        ,"Knowledge/Knowledge" => array(
+    	    "navbar" => "Tudáscikkek"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikkek"
+    	    ,"help" => "Tudáscikkek olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Cégek' gombra kattintva a menüsávban"
+            ,"card" => "Tudáscikkek megtekintéséhez kattintson a kártyára"
+            ,"info" => array(
+                'color' => 'success'
+                ,'header' => 'Információ'
+                ,'addButton' => true
+                ,'title' => ''
+                ,'content' => '
+                    Ezen a felületen vehetünk fel tudáscikket.<br />
+                '
+            )
+    	)
+    	,"Knowledge/Knowledge/Add" => array(
+            "navbar" => "Tudáscikk hozzáadása"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikk hozzáadása"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+    	,"Knowledge/Knowledge/Edit" => array(
+            "navbar" => "Tudáscikk szerkesztése"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikk szerkesztése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
+        ,"Knowledge/Knowledge/View" => array(
+            "navbar" => "Tudáscikk megtekintése"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikk megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+        ),
+    	"Knowledge/Knowledge/Delete" => array(
+            "navbar" => "Tudáscikk törlése"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikk törlése"
+    	    ,"help" => ""
+            ,"card" => ""
+        )
     	,"Login" => array(
     	    "navbar" => "Bejelentkezés"
     	    ,"fa" => "sign-in"
