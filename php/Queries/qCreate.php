@@ -196,7 +196,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
             logText TEXT NULL,
             logDate TIMESTAMP NOT NULL,
             isDelete INT(1) DEFAULT 1,
-            CONSTRAINT primaryKeyAccess PRIMARY KEY (accessId)
+            CONSTRAINT primaryKeyLog PRIMARY KEY (logId)
         );
     "
 );
