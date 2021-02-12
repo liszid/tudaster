@@ -99,6 +99,7 @@ $GLOBALS['Database']['Table']['Create'] = array(
         CREATE TABLE IF NOT EXISTS `Company_Site_Type`(
             companySiteTypeId INT(6) UNSIGNED AUTO_INCREMENT NOT NULL,
             companySiteTypeName VARCHAR(128) NOT NULL,
+            companySiteTypeDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             isDelete INT(1) DEFAULT 1,
             CONSTRAINT primaryKeyCompanySiteType PRIMARY KEY (companySiteTypeId)
         );

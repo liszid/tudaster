@@ -204,6 +204,20 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
     	)
+    	,"Administrative/Tools/Knowledge_Type" => array(
+    	    "navbar" => "Tudáscikk típusok"
+    	    ,"fa" => "info"
+    	    ,"title" => "Tudáscikk típusok"
+    	    ,"help" => ""
+            ,"card" => ""
+    	)
+    	,"Administrative/Tools/Company_Site_Type" => array(
+    	    "navbar" => "Telephely típusok"
+    	    ,"fa" => "info"
+    	    ,"title" => "Telephely típusok"
+    	    ,"help" => ""
+            ,"card" => ""
+    	)
     	,"Users" => array(
     	    "navbar" => "Felhasználók"
             ,"fa" => "user"

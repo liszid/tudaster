@@ -77,13 +77,34 @@ interface ADMIN
         ,"tableRole" => "mngTools"
         ,"data" => array(
             "logId" => array("text" => "Id", "tooltip" => "")
-//            ,"logType" => array("text" => "Type", "tooltip" => "")
             ,"logAction" => array("text" => "Action", "tooltip" => "")
             ,"logCategory" => array("text" => "Category", "tooltip" => "")
             ,"userId" => array("text" => "UserId", "tooltip" => "")
-//            ,"logText" => array("text" => "Text", "tooltip" => "")
-//            ,"logBool" => array("text" => "Bool", "tooltip" => "")
             ,"logDate" => array("text" => "Date", "tooltip" => "")
+        )
+        ,"button" => array()
+    );
+
+    const ADMIN_COMPANY_SITE_TYPE = array(
+        "tableId" => "tableAdminCompanySiteType"
+        ,"tableRoot" => "Administrative/Company_Site_Type"
+        ,"tableRole" => "mngTools"
+        ,"data" => array(
+            "companySiteTypeId" => array("text" => "Id", "tooltip" => "")
+            ,"companySiteTypeName" => array("text" => "Megnevezés", "tooltip" => "")
+            ,"companySiteTypeDate" => array("text" => "Dátum", "tooltip" => "")
+        )
+        ,"button" => array()
+    );
+
+    const ADMIN_KNOWLEDGE_TYPE = array(
+        "tableId" => "tableAdminKnowledgeType"
+        ,"tableRoot" => "Administrative/Knowledge_Type"
+        ,"tableRole" => "mngTools"
+        ,"data" => array(
+            "knowledgeTypeId" => array("text" => "Id", "tooltip" => "")
+            ,"knowledgeTypeName" => array("text" => "Megnevezés", "tooltip" => "")
+            ,"knowledgeTypeDate" => array("text" => "Dátum", "tooltip" => "")
         )
         ,"button" => array()
     );

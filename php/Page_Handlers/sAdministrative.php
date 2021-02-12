@@ -19,6 +19,8 @@ use Data\{
     ,dCombined
     ,dTools
     ,dLog
+    ,dKnowledge_Type
+    ,dCompany_Site_Type
 };
 
 use Samples\{
@@ -37,6 +39,8 @@ class sAdministrative {
     protected static $dCombined;
     protected static $dTools;
     protected static $dLog;
+    protected static $dKnowledge_Type;
+    protected static $dCompany_Site_Type;
 
 /*
  * Sets the class variable : dUser
@@ -118,6 +122,24 @@ class sAdministrative {
         self::$dLog = new dLog();
     }
 /*
+ * Sets the class variable : dTools
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDKnowledge_Type()
+    {
+        self::$dKnowledge_Type = new dKnowledge_Type();
+    }
+/*
+ * Sets the class variable : dTools
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDCompany_Site_Type()
+    {
+        self::$dCompany_Site_Type = new dCompany_Site_Type();
+    }
+/*
  * Used at Administrative Page for interactions
  * @param $array array
  * @return string
@@ -157,11 +179,18 @@ class sAdministrative {
             case 'Delete':
                 $returnContent .= $wclass::Delete($array);
                 break;
+            case 'Edit':
+                $returnContent .= $wclass::Edit($array);
+                break;
+// Tools specific
             case 'Logs':
                 $returnContent .= $wclass::Logs($array);
                 break;
-            case 'Edit':
-                $returnContent .= $wclass::Edit($array);
+            case 'Knowledge_Type':
+                $returnContent .= $wclass::Knowledge_Type($array);
+                break;
+            case 'Company_Site_Type':
+                $returnContent .= $wclass::Company_Site_Type($array);
                 break;
         }
 
@@ -248,8 +277,10 @@ class sAdministrative {
         if (Valid::vString($array['path'])) {
             $returnString .=
                 sCard::Collapsible(sTranslate::Info($array['path']))
-                .'<div class="card-columns m-2 justify-content-center">'
-                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'success','fa' => 'info','text' => ' Események megtekintése','path' => $array['path'].'/Logs','dp' => 'Database'),'Button')))
+                .'<div class="card-deck m-2 justify-content-center">'
+                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'success','fa' => 'info','text' => ' Események','path' => $array['path'].'/Logs','dp' => 'Database'),'Button')))
+                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'success','fa' => 'info','text' => ' Tudáscikk típusok','path' => $array['path'].'/Knowledge_Type','dp' => 'Database'),'Button')))
+                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'success','fa' => 'info','text' => ' Telephely típusok','path' => $array['path'].'/Company_Site_Type','dp' => 'Database'),'Button')))
                     .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'danger','fa' => 'trash','text' => ' Adatbázis törlése','path' => $array['path'].'/Delete','dp' => 'Database'),'Button')))
                 .'</div>';
 

@@ -52,4 +52,18 @@ class Tools extends \Page_Handlers\sAdministrative
         $Logs = self::$dLog->Select(array(), 'All');
         return sTables::Prompt($Logs, 'Admin_Logs');
     }
+
+    public static function Company_Site_Type(): string
+    {
+        self::setDCompany_Site_Type();
+        $Company_Site_Types = self::$dCompany_Site_Type->Select(array(), 'All');
+        return sTables::Prompt($Company_Site_Types, 'Admin_Company_Site_Type');
+    }
+
+    public static function Knowledge_Type(): string
+    {
+        self::setDKnowledge_Type();
+        $Knowledge_Types = self::$dKnowledge_Type->Select(array(), 'All');
+        return sTables::Prompt($Knowledge_Types, 'Admin_Knowledge_Type');
+    }
 }
