@@ -17,30 +17,25 @@ use Samples\sActivity;
 class dCompany implements iData
 {
     private static $dbCompany;
+    private static $dLog;
+
 
     public function __construct()
     {
         self::$dbCompany = new dbCompany();
+        self::$dLog = new dLog();
     }
 
     public static function Insert(array $array = array()): bool
     {
-        if (
-            isset($array['companyName'])
-            && (
-                Valid::vString($array['companyName'])
-                && Valid::vInput($array['companyName'], 2)
-            )
-        ) {
-            $returnData = self::$dbCompany->Insert($array);
+        $returnData = self::$dbCompany->Insert($array);
 
-            $dCombined = new dCombined();
-            sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+        $dCombined = new dCombined();
+        sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
 
-            return $returnData;
-        }
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 0,'logCategory' => self::$dbCompany->Class_Id(),'logText' => '','userId' => $array['userId'], 'logBool' => $returnData));
 
-        return false;
+        return $returnData;
     }
 
     public static function Select(array $array = array(), string $type = ''): array
@@ -50,21 +45,20 @@ class dCompany implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        $checkArray = array(
-            array('key' => 'companyDesc', 'type' => 2),
-            array('key' => 'companyOwnerLastName', 'type' => 2),
-            array('key' => 'companyOwnerFirstName', 'type' => 2),
-            array('key' => 'companyAddressCity', 'type' => 2),
-            array('key' => 'companyAddressPostcode', 'type' => 3),
-            array('key' => 'companyAddressStreet', 'type' => 2),
-        );
+        $returnData = self::$dbCompany->Update($array, $type);
 
-        return ((true) ? self::$dbCompany->Update($array, $type) : false);
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 1,'logCategory' => self::$dbCompany->Class_Id(),'logText' => 'companyId => '.$array['companyId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return  $returnData;
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbCompany->Delete($array, $type);
+        $returnData = self::$dbCompany->Delete($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 2,'logCategory' => self::$dbCompany->Class_Id(),'logText' => 'companyId => '.$array['companyId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Check( ): bool

@@ -15,15 +15,21 @@ use PreLoad\{
 class dKnowledge implements iData
 {
     private static $dbKnowledge;
+    private static $dLog;
 
     public function __construct()
     {
         self::$dbKnowledge = new dbKnowledge();
+        self::$dLog = new dLog();
     }
 
     public static function Insert(array $array = array()): bool
     {
-        return self::$dbKnowledge->Insert($array);
+        $returnData = self::$dbKnowledge->Insert($array);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 0,'logCategory' => self::$dbKnowledge->Class_Id(),'logText' => '','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Select(array $array = array(), string $type = ''): array
@@ -33,12 +39,20 @@ class dKnowledge implements iData
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return self::$dbKnowledge->Update($array, $type);
+        $returnData = self::$dbKnowledge->Update($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 1,'logCategory' => self::$dbKnowledge->Class_Id(),'logText' => 'knowledgeId => '.$array['knowledgeId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbKnowledge->Delete($array, $type);
+        $returnData = self::$dbKnowledge->Delete($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 2,'logCategory' => self::$dbKnowledge->Class_Id(),'logText' => 'knowledgeId => '.$array['knowledgeId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Check( ): bool

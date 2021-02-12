@@ -18,11 +18,13 @@ class dHardware implements iData
 {
     private static $dbHardware;
     private static $dHardware_Member;
+    private static $dLog;
 
     public function __construct()
     {
         self::$dbHardware = new dbHardware();
         self::$dHardware_Member = new dHardware_Member();
+        self::$dLog = new dLog();
     }
 
     public static function Insert(array $array = array()): bool
@@ -31,6 +33,8 @@ class dHardware implements iData
 
         $dCombined = new dCombined();
         sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 0,'logCategory' => self::$dbHardware->Class_Id(),'logText' => '','userId' => $array['userId'], 'logBool' => $returnData));
 
         return $returnData;
     }
@@ -125,12 +129,20 @@ class dHardware implements iData
             }
         }
 
-        return (self::$dbHardware->Update($array, $type) ||  $bool);
+        $returnData = self::$dbHardware->Update($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 1,'logCategory' => self::$dbHardware->Class_Id(),'logText' => 'hardwareId => '.$array['hardwareId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return ($returnData ||  $bool);
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbHardware->Delete($array, $type);
+        $returnData = self::$dbHardware->Delete($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 2,'logCategory' => self::$dbHardware->Class_Id(),'logText' => 'hardwareId => '.$array['hardwareId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Check( ): bool
