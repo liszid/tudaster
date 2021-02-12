@@ -26,6 +26,7 @@ class sTables implements
         ,"Admin_Groups" => self::ADMIN_GROUPS
         ,"Admin_Members" => self::ADMIN_MEMBERSHIP
         ,"Admin_Huntgroups" => self::ADMIN_HUNTGROUPS
+        ,"Admin_Logs" => self::ADMIN_LOGS
         ,"Home_Users" => self::HOME_USERS
         ,"Company_Company" => self::COMPANY_COMPANY
         ,"Company_Site" => self::COMPANY_SITE

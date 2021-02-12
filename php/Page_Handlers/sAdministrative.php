@@ -18,6 +18,7 @@ use Data\{
     ,dHuntgroup_Member
     ,dCombined
     ,dTools
+    ,dLog
 };
 
 use Samples\{
@@ -35,6 +36,7 @@ class sAdministrative {
     protected static $dHuntgroup_Member;
     protected static $dCombined;
     protected static $dTools;
+    protected static $dLog;
 
 /*
  * Sets the class variable : dUser
@@ -107,6 +109,15 @@ class sAdministrative {
     }
 
 /*
+ * Sets the class variable : dTools
+ * @author Liszi Dániel
+ * @since 2020.11.03
+ */
+    protected static function setDLog()
+    {
+        self::$dLog = new dLog();
+    }
+/*
  * Used at Administrative Page for interactions
  * @param $array array
  * @return string
@@ -146,6 +157,9 @@ class sAdministrative {
             case 'Delete':
                 $returnContent .= $wclass::Delete($array);
                 break;
+            case 'Logs':
+                $returnContent .= $wclass::Logs($array);
+                break;
             case 'Edit':
                 $returnContent .= $wclass::Edit($array);
                 break;
@@ -170,7 +184,6 @@ class sAdministrative {
         self::setDCombined();
         $returnString = '';
         $Users = self::$dCombined->Select(array(), 'Member_Full');
-        //$Users = self::$dUser->Select(array(), 'All');
 
         if (isset($array['path'])) {
             $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
@@ -233,24 +246,13 @@ class sAdministrative {
     {
         $returnString = '';
         if (Valid::vString($array['path'])) {
-            $returnString .= sCard::Collapsible(sTranslate::Info($array['path']));
             $returnString .=
-            sCard::Blank(
-                array(
-                    'color' => 'secondary',
-                    'bool' => true,
-                    'button' => sElement::General(
-                        array(
-                            'color' => 'danger',
-                            'fa' => 'trash',
-                            'text' => ' Adatbázis törlése',
-                            'path' => $array['path'].'/Delete',
-                            'dp' => 'Database'
-                        ),
-                        'Button'
-                    )
-                )
-            );
+                sCard::Collapsible(sTranslate::Info($array['path']))
+                .'<div class="card-columns m-2 justify-content-center">'
+                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'success','fa' => 'info','text' => ' Események megtekintése','path' => $array['path'].'/Logs','dp' => 'Database'),'Button')))
+                    .sCard::Blank(array('color' => 'secondary','bool' => true,'button' => sElement::General(array('color' => 'danger','fa' => 'trash','text' => ' Adatbázis törlése','path' => $array['path'].'/Delete','dp' => 'Database'),'Button')))
+                .'</div>';
+
         }
 
         return $returnString;

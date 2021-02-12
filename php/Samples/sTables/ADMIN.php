@@ -70,4 +70,21 @@ interface ADMIN
             ,array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Fiók töröltté állítása', 'level' => 1)
         )
     );
+
+    const ADMIN_LOGS = array(
+        "tableId" => "tableAdminLogs"
+        ,"tableRoot" => "Administrative/Logs"
+        ,"tableRole" => "mngTools"
+        ,"data" => array(
+            "logId" => array("text" => "Id", "tooltip" => "")
+//            ,"logType" => array("text" => "Type", "tooltip" => "")
+            ,"logAction" => array("text" => "Action", "tooltip" => "")
+            ,"logCategory" => array("text" => "Category", "tooltip" => "")
+            ,"userId" => array("text" => "UserId", "tooltip" => "")
+//            ,"logText" => array("text" => "Text", "tooltip" => "")
+//            ,"logBool" => array("text" => "Bool", "tooltip" => "")
+            ,"logDate" => array("text" => "Date", "tooltip" => "")
+        )
+        ,"button" => array()
+    );
 }

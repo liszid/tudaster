@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace Page_Handlers\sAdministrative;
 
 use PreLoad\{
-    Valid,
-    Check,
-    Log
+    Valid
+    ,Check
+    ,Log
 };
 
 use Samples\{
-    sTranslate,
-    sElement
+    sTables
+    ,sTranslate
+    ,sElement
 };
 
 use Database\Table;
 
 class Tools extends \Page_Handlers\sAdministrative
 {
-    public static function Delete(array $array = array())
+    public static function Delete(array $array = array()): string
     {
         self::setDTools();
         $bool = self::$dTools->Delete(array(), 'Database');
@@ -43,5 +44,12 @@ class Tools extends \Page_Handlers\sAdministrative
 
         return
             '<h4>'.$returnContent.'</h4>'.sElement::General(array('x' => 'Home', 'reload' => true), 'Spinner');
+    }
+
+    public static function Logs(): string
+    {
+        self::setDLog();
+        $Logs = self::$dLog->Select(array(), 'All');
+        return sTables::Prompt($Logs, 'Admin_Logs');
     }
 }

@@ -197,6 +197,13 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
     	)
+    	,"Administrative/Tools/Logs" => array(
+    	    "navbar" => "Események megtekintése"
+    	    ,"fa" => "info"
+    	    ,"title" => "Események megtekintése"
+    	    ,"help" => ""
+            ,"card" => ""
+    	)
     	,"Users" => array(
     	    "navbar" => "Felhasználók"
             ,"fa" => "user"
