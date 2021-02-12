@@ -26,7 +26,7 @@ class Table extends Queries
     {
         if (! isset($_SESSION['Database'])) {
             if (self::initDatabase()) {
-                foreach (self::$tableNames as $key => $query) {
+                foreach (self::TABLENAMES as $key => $query) {
                     if (self::qCheck($key)) {
                         if (self::qCreate($key)) {
                             self::qInsert($key);

@@ -385,6 +385,7 @@ class sHardware
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
+                            .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'hardwareType', 'desc' => '', 'value' => $array['hardwareType'], 'type' => 'hidden'), 'Input')
                             .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => $array['defaultData'],'staticData' => array('origo' => $array['origo'],'tag' => 'Edit'),'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
                             .sCard::Collapsible(array('header' => 'Opcionális adatok', 'content' => sElement::General( array( 'constData' => $array['optionalData'], 'staticData' => array( 'origo' => $array['origo'], 'tag' => 'Edit' ), 'valueData' => $Hardware, 'selectData' => array( 'companySiteId' => self::Company_Site_Select())),'Generate_Form')))
@@ -422,6 +423,7 @@ class sHardware
                     (self::$dHardware->Delete(
                         array(
                             'hardwareId' => (int)$array['dp']
+                            ,'userId' => $GLOBALS['sessionId']
                         )
                     ))
                         ? sTranslate::ACTION['Success']['content']

@@ -160,6 +160,7 @@ class Site extends \Page_Handlers\sCompany
                     && self::$dCompany_Site->Delete(
                         array(
                             'companySiteId' => (int)$array['dp']
+                            ,'userId' => $GLOBALS['sessionId']
                         )
                     )
                 )

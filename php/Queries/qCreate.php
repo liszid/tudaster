@@ -222,9 +222,12 @@ $GLOBALS['Database']['Table']['Create'] = array(
             logAction VARCHAR(64) NULL,
             logCategory VARCHAR(64) NULL,
             logText TEXT NULL,
+            logBool VARCHAR(16) NULL,
             logDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            userId INT(6) UNSIGNED NOT NULL,
             isDelete INT(1) DEFAULT 1,
-            CONSTRAINT primaryKeyLog PRIMARY KEY (logId)
+            CONSTRAINT primaryKeyLog PRIMARY KEY (logId),
+            CONSTRAINT logUserCascade FOREIGN KEY (userId) REFERENCES `User` (userId) ON DELETE CASCADE
         );
     "
 );

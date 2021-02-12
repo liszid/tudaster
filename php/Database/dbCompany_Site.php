@@ -134,6 +134,11 @@ class dbCompany_Site extends Table implements iDatabase
         }
     }
 
+    public static function Class_Id(): int
+    {
+        return self::CLASS_ID;
+    }
+
     public static function Check( ): bool
     {
         return (! self::qCheck(self::CLASS_ID));

@@ -14,19 +14,9 @@ use PreLoad\
 
 class Queries extends Database
 {
-    protected static $tableNames = array();
     private static $tableQueries = array();
 
-    public function __construct()
-    {
-        parent::__construct();
-        self::setTableNames();
-        self::sQueries(self::$tableQueries);
-    }
-
-    public static function setTableNames(): bool
-    {
-        self::$tableNames = array(
+    const TABLENAMES = array(
             0 => 'User'
             ,1 => 'Group'
             ,2 => 'Group_Member'
@@ -38,14 +28,18 @@ class Queries extends Database
             ,20 => 'Hardware'
             ,29 => 'Hardware_Member'
             ,30 => 'Access'
-
+            ,40 => 'Knowledge_Type'
+            ,41 => 'Knowledge'
             ,90 => 'Log'
             ,98 => 'Tools'
             ,99 => 'Combined'
         );
-        return true;
-    }
 
+    public function __construct()
+    {
+        parent::__construct();
+        self::sQueries(self::$tableQueries);
+    }
 
 /**
  * Sets array to have class specific queries
@@ -73,7 +67,6 @@ class Queries extends Database
 /**
  * Generates SQL Query array for Table queries
  * @return true
- *
  * @author Liszi Dániel
  * @since 2020.10.16
  */
@@ -95,19 +88,20 @@ class Queries extends Database
  * @param $var int
  * @param $type string
  * @return bool
- *
  * @author Liszi Dániel
  * @since 2020.09.28
  */
     public static function qCheck(int $var): bool
     {
-        if (isset(self::$tableNames[$var]) && isset(self::getSQL()['db'])) {
+        if (isset(self::TABLENAMES[$var]) && isset(self::getSQL()['db'])) {
             try {
+                $tableName = self::TABLENAMES[$var];
+
                 self::setConnection(self::getSQL()['db']);
-                $statement = self::getConnection()->prepare($GLOBALS['Database']['Select']['Table']);
-                $statement->bindParam(':sqlDB', self::getSQL()['db']);
-                $statement->bindParam(':tableName', self::$tableNames[$var]);
-                $statement->execute();
+                    $statement = self::getConnection()->prepare($GLOBALS['Database']['Select']['Table']);
+                    $statement->bindParam(':sqlDB', self::getSQL()['db']);
+                    $statement->bindParam(':tableName', $tableName);
+                    $statement->execute();
                 return ($statement->rowCount() === 0);
             } catch (PDOException $e) {
                 return false;
@@ -120,8 +114,8 @@ class Queries extends Database
         if (isset(self::$tableQueries['Create'][$var])) {
             try {
                 self::setConnection(self::getSQL()['db']);
-                $statement = self::getConnection()->prepare(self::$tableQueries['Create'][$var]);
-                $statement->execute();
+                    $statement = self::getConnection()->prepare(self::$tableQueries['Create'][$var]);
+                    $statement->execute();
                 return (($statement->errorInfo())[0] === '00000');
             } catch (PDOException $e) {
                 return false;
@@ -136,8 +130,8 @@ class Queries extends Database
         if (isset(self::$tableQueries['Insert'][$var])) {
             try {
                 self::setConnection(self::getSQL()['db']);
-                $statement = self::getConnection()->prepare(self::$tableQueries['Insert'][$var]);
-                $statement->execute();
+                    $statement = self::getConnection()->prepare(self::$tableQueries['Insert'][$var]);
+                    $statement->execute();
                 return ($statement->rowCount() > 0);
             } catch (PDOException $e) {
                 return false;
@@ -152,8 +146,8 @@ class Queries extends Database
         if (isset(self::$tableQueries['Lock'][$var])) {
             try {
                 self::setConnection(self::getSQL()['db']);
-                $statement = self::getConnection()->prepare(self::$tableQueries['Lock'][$var]);
-                $statement->execute();
+                    $statement = self::getConnection()->prepare(self::$tableQueries['Lock'][$var]);
+                    $statement->execute();
                 return ($statement->rowCount() > 0);
             } catch (PDOException $e) {
                 return false;
@@ -163,14 +157,13 @@ class Queries extends Database
         }
     }
 
-    /**
-     * Line saver function for running queries
-     * @param $array array
-     * @return PDOobject
-     *
-     * @author Liszi Dániel
-     * @since 2020.09.30
-     */
+/**
+ * Line saver function for running queries
+ * @param $array array
+ * @return PDOobject
+ * @author Liszi Dániel
+ * @since 2020.09.30
+ */
     public static function qRun(array $array): object
     {
         try {

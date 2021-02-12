@@ -242,6 +242,7 @@ class sAccess
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
+                            .sElement::General(array('origo' => 'usrAccessEdit', 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
                             .sElement::General(array('constData' => self::ACCESS,'staticData' => array('origo' => 'usrAccessEdit','tag' => 'Edit'),'valueData' => $Access,'selectData' => array('hardwareId' => self::Hardware_Select())),'Generate_Form')
                         .'</div>
                     </div>
@@ -277,6 +278,7 @@ class sAccess
                 (self::$dAccess->Delete(
                     array(
                         'accessId' => (int)$array['dp']
+                        ,'userId' => $GLOBALS['sessionId']
                     )
                 ))
                     ? sTranslate::ACTION['Success']['content']

@@ -140,16 +140,42 @@ $GLOBALS['Database'][30]['Insert'] = "
     );
 ";
 
+$GLOBALS['Database'][40]['Insert'] = "
+    INSERT INTO `Knowledge_Type`(
+        knowledgeTypeName
+    ) VALUES (
+        :knowledgeTypeName
+    );
+";
+
+$GLOBALS['Database'][41]['Insert'] = "
+    INSERT INTO `Knowledge`(
+        knowledgeTitle
+        ,knowledgeTypeId
+        ,knowledgeText
+        ,userId
+    ) VALUES (
+        :knowledgeTitle
+        ,:knowledgeTypeId
+        ,:knowledgeText
+        ,:userId
+    );
+";
+
 $GLOBALS['Database'][90]['Insert'] = "
     INSERT INTO `Log`(
         logType
         ,logAction
         ,logCategory
         ,logText
+        ,userId
+        ,logBool
     ) VALUES (
         :logType
         ,:logAction
         ,:logCategory
         ,:logText
+        ,:userId
+        ,:logBool
     );
 ";

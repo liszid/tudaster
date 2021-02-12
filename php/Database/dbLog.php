@@ -14,6 +14,24 @@ class dbLog extends Table implements iDatabase
 {
     const CLASS_ID = 90;
 
+    const TYPE = array(
+        'NOTICE'
+        ,'WARNING'
+        ,'ERROR'
+        ,'DEBUG'
+    );
+
+    const ACTION = array(
+        'INSERT'
+        ,'UPDATE'
+        ,'DELETE'
+    );
+
+    const BOOLE = array(
+        'FALSE'
+        ,'TRUE'
+    );
+
     private static $classQueries = array();
 
     public function __construct(){
@@ -24,6 +42,12 @@ class dbLog extends Table implements iDatabase
     public static function Insert(array $array = array()): bool
     {
         if (! empty($array) && Valid::vString(self::$classQueries['Insert'])) {
+
+            $array['logType'] = self::TYPE[(int)$array['logType']];
+            $array['logAction'] = self::ACTION[(int)$array['logAction']];
+            $array['logCategory'] = self::TABLENAMES[(int)$array['logCategory']];
+            $array['logBool'] = self::BOOLE[(int)$array['logBool']];
+
             return (
                 self::qRun(
                     array(
@@ -33,6 +57,8 @@ class dbLog extends Table implements iDatabase
                             ,'logAction'
                             ,'logCategory'
                             ,'logText'
+                            ,'userId'
+                            ,'logBool'
                         ),
                         'vData' => $array
                     )
@@ -84,6 +110,11 @@ class dbLog extends Table implements iDatabase
     public static function Delete(array $array = array(), string $type = ''): bool
     {
         return false;
+    }
+
+    public static function Class_Id(): int
+    {
+        return self::CLASS_ID;
     }
 
     public static function Check( ): bool

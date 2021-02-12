@@ -453,6 +453,32 @@ $GLOBALS['Database'][30]['Select'] = array(
         WHERE userId=:userId"
 );
 
+$GLOBALS['Database'][40]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM `Knowledge_Type`"
+);
+
+$GLOBALS['Database'][41]['Select'] = array(
+    'All' => "
+        SELECT
+            *
+        FROM `Knowledge`"
+    ,'byKnowledgeId' => "
+        SELECT
+            `Knowledge`.*
+            ,`User`.userName
+        FROM `Knowledge`
+        INNER JOIN `User` USING (userId)
+        WHERE knowledgeId=:knowledgeId"
+    ,'byUserId' => "
+        SELECT
+            userId
+        FROM `Knowledge`
+        WHERE userId=:userId"
+);
+
 $GLOBALS['Database'][90]['Select'] = array(
     'All' => "
         SELECT

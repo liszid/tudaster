@@ -142,6 +142,7 @@ class Company extends \Page_Handlers\sCompany
                     self::$dCompany->Delete(
                         array(
                             'companyId' => (int)$array['dp']
+                            ,'userId' => $GLOBALS['sessionId']
                         )
                     )
                 )

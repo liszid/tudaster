@@ -17,6 +17,7 @@ use Samples\sActivity;
 class dAccess implements iData
 {
     private static $dbAccess;
+    private static $dLog;
 
     private static function Encode(string $string = ""): string
     {
@@ -46,6 +47,7 @@ class dAccess implements iData
     public function __construct()
     {
         self::$dbAccess = new dbAccess();
+        self::$dLog = new dLog();
     }
 
     public static function Insert(array $array = array()): bool
@@ -56,6 +58,8 @@ class dAccess implements iData
 
         $dCombined = new dCombined();
         sActivity::Set(($dCombined->Select($array,'User_Full'))[0]);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 0,'logCategory' => self::$dbAccess->Class_Id(),'logText' => '','userId' => $array['userId'], 'logBool' => $returnData));
 
         return $returnData;
     }
@@ -68,13 +72,20 @@ class dAccess implements iData
     public static function Update(array $array = array(), string $type = ''): bool
     {
         $array['accessPassword'] = self::Encode($array['accessPassword']);
+        $returnData = self::$dbAccess->Update($array, $type);
 
-        return self::$dbAccess->Update($array, $type);
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 1,'logCategory' => self::$dbAccess->Class_Id(),'logText' => 'accessId => '.$array['accessId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return self::$dbAccess->Delete($array, $type);
+        $returnData = self::$dbAccess->Delete($array, $type);
+
+        self::$dLog->Insert(array('logType' => 0,'logAction' => 2,'logCategory' => self::$dbAccess->Class_Id(),'logText' => 'accessId => '.$array['accessId'].'','userId' => $array['userId'], 'logBool' => $returnData));
+
+        return $returnData;
     }
 
     public static function Check( ): bool

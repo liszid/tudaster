@@ -169,3 +169,19 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
     ,(9,1,0)
     ,(10,1,0)
     ,(11,1,0)";
+
+$GLOBALS['Database']['Table']['Insert'][40] = "
+    INSERT INTO `Knowledge_Type`(
+        knowledgeTypeName
+        ,isDelete
+    ) VALUES
+    ('ÁLTALÁNOS',0)
+    ,('VERK',0)
+    ,('SZIKE',0)
+    ,('ADATBÁZIS',0)
+    ,('PROGRAMOZÁS',0)
+    ,('TŰZFAL',0)
+    ,('LEVELEZÉS',0)
+    ,('SZERVER',0)
+    ,('ICINGA',0)
+    ,('AVAYA',0)";

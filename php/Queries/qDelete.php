@@ -23,3 +23,5 @@ $GLOBALS['Database'][20]['Delete'] = "DELETE FROM `Hardware` WHERE hardwareId=:h
 $GLOBALS['Database'][29]['Delete'] = "DELETE FROM `Hardware_Member` WHERE huntgroupId=:huntgroupId AND hardwareId=:hardwareId";
 
 $GLOBALS['Database'][30]['Delete'] = "DELETE FROM `Access` WHERE accessId=:accessId";
+
+$GLOBALS['Database'][41]['Delete'] = "DELETE FROM `Knowledge` WHERE knowledgeId=:knowledgeId";

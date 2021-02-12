@@ -114,6 +114,11 @@ class dbCombined extends Table implements iDatabase
         return false;
     }
 
+    public static function Class_Id(): int
+    {
+        return self::CLASS_ID;
+    }
+
     public static function Check( ): bool
     {
         return false;
