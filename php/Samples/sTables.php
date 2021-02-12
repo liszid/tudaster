@@ -16,6 +16,7 @@ class sTables implements
     ,sTables\COMPANY
     ,sTables\HARDWARE
     ,sTables\USERS
+    ,sTables\KNOWLEDGE
 {
     const ACTIONS = array('Edit', 'View', 'Delete', 'Reset', 'Filter');
 
@@ -46,6 +47,7 @@ class sTables implements
         ,"Hardware_Alarm" => self::HARDWARE_ALARM
         ,"Hardware_Telephony" => self::HARDWARE_TELEPHONY
         ,"Access_Access" => self::ACCESS_ACCESS
+        ,"Knowledge_Knowledge" => self::KNOWLEDGE_KNOWLEDGE
     );
 
 /*

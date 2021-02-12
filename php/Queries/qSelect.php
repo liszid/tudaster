@@ -171,6 +171,14 @@ $GLOBALS['Database'][99]['Select'] = array(
             `Huntgroup_Member`.userId=:userId
             OR `Access`.userId=:userId
         GROUP BY `Access`.accessId"
+    ,'Knowledge_Table' => "
+        SELECT
+            `Knowledge`.*
+            ,`Knowledge_Type`.knowledgeTypeName
+            ,`User`.userName
+        FROM `Knowledge`
+        INNER JOIN `User` USING (userId)
+        INNER JOIN `Knowledge_Type` USING (knowledgeTypeId)"
 );
 
 $GLOBALS['Database'][0]['Select'] = array(

@@ -43,6 +43,7 @@ class dbCombined extends Table implements iDatabase
             case 'Hardware_Security_Table':
             case 'Hardware_Laptop_Table':
             case 'Hardware_Members_All':
+            case 'Knowledge_Table':
             case 'User_Full':
                 $tempArray[] = 'userId';
                 break;

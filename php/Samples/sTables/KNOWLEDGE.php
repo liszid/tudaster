@@ -4,25 +4,19 @@ declare(strict_types=1);
 
 namespace Samples\sTables;
 
-interface ACCESS
+interface KNOWLEDGE
 {
-    const ACCESS_ACCESS = array(
-        "tableId" => "tableAccessAccess",
-        "tableRoot" => "Accesses/Access",
-        "tableRole" => "canAccess",
-        "data" => array(
-            "accessId" => array("text" => "Id", "tooltip" => "")
-            ,"hardwareId" => array("text" => "Eszk. Id", "tooltip" => "Eszköz azonosító")
-            ,"hardwareName" => array("text" => "Név", "tooltip" => "Eszköz neve")
-            ,"hardwareDesc" => array("text" => "Leírás", "tooltip" => "Eszköz leírása")
-            ,"hardwareIP" => array("text" => "IP", "tooltip" => "Eszköz IP címe")
-            ,"hardwareSwitch" => array("text" => "Switch", "tooltip" => "Switch IP címe")
-            ,"hardwareSwitchPort" => array("text" => "Port", "tooltip" => "Switch Portja")
-            ,"companyName" => array("text" => "Cég", "tooltip" => "Kihelyezettség - Cég")
-            ,"companySiteName" => array("text" => "Telephely", "tooltip" => "Kihelyezettség - Telephely")
-            ,"hardwareType" => array("text" => "Kategória", "tooltip" => "Kategória")
-        ),
-        "button" => array(
+    const KNOWLEDGE_KNOWLEDGE = array(
+        "tableId" => "tableKnowledgeKnowledge"
+        ,"tableRoot" => "Knowledge/Knowledge"
+        ,"tableRole" => "canKnowledge"
+        ,"data" => array(
+            "knowledgeId" => array("text" => "Id", "tooltip" => "")
+            ,"knowledgeTitle" => array("text" => "Cím", "tooltip" => "Cím")
+            ,"knowledgeTypeName" => array("text" => "Típus", "tooltip" => "Típus")
+            ,"knowledgeDate" => array("text" => "Dátum", "tooltip" => "Dátum")
+        )
+        ,"button" => array(
             array('color' => 'warning', 'fa' => 'th-list', 'action' => 'View', 'tooltip' => 'Megtekintés', 'level' => 1)
             ,array('color' => 'warning', 'fa' => 'pencil', 'action' => 'Edit', 'tooltip' => 'Szerkesztés', 'level' => 3)
             ,array('color' => 'danger', 'fa' => 'trash', 'action' => 'Delete', 'tooltip' => 'Törlés', 'level' => 7)
