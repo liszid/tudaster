@@ -19,6 +19,7 @@ use Samples\{
     sCard
     ,sTables
     ,sTranslate
+    ,sElement
 };
 
 class sKnowledge
@@ -30,7 +31,14 @@ class sKnowledge
         array('data' => 'knowledgeId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
         ,array('data' => 'knowledgeTitle', 'desc' => 'Cím', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
         ,array('data' => 'knowledgeTypeId', 'desc' => 'Típus', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
-        ,array('data' => 'knowledgeText', 'desc' => 'Leírás', 'type' => 'select', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'knowledgeText', 'desc' => 'Leírás', 'type' => 'text', 'tags' => 'Add,View,Edit')
+    );
+
+    const TYPES = array(
+        "Knowledge" => array(
+            "origo" => 'usrKnowledgeKnowledge'
+            ,"tableName" => 'Knowledge_Knowledge'
+        )
     );
 
 /*
@@ -65,7 +73,7 @@ class sKnowledge
 
         $array['defaultData'] = self::KNOWLEDGE;
         $array['origo'] = self::TYPES[$array['y']]['origo'].$array['z'];
-        $array['returnPath'] = array('x' => 'Hardware', 'y' => $array['y']);
+        $array['returnPath'] = array('x' => 'Knowledge', 'y' => $array['y']);
 
         switch ($array['z']) {
             case 'Add':
@@ -123,7 +131,7 @@ class sKnowledge
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                            .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => $array['defaultData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'Add'),'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::KNOWLEDGE,'staticData' => array('origo' => $array['origo'], 'tag' => 'Add')),  'Generate_Form')))
                         .'</div>
                     </div>
                     <div class="form-group">

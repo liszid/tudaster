@@ -42,8 +42,7 @@ class sTables implements
         ,"Hardware_Router" => self::HARDWARE_ROUTER
         ,"Hardware_Switch" => self::HARDWARE_SWITCH
         ,"Hardware_Access_Point" => self::HARDWARE_ACCESS_POINT
-        ,"Hardware_Camera" => self::HARDWARE_CAMERA
-        ,"Hardware_DVR_CCTV" => self::HARDWARE_DVR_CCTV
+        ,"Hardware_CCTV" => self::HARDWARE_CCTV
         ,"Hardware_Alarm" => self::HARDWARE_ALARM
         ,"Hardware_Telephony" => self::HARDWARE_TELEPHONY
         ,"Access_Access" => self::ACCESS_ACCESS

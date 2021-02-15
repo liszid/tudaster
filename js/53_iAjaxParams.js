@@ -52,54 +52,6 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
             get( ) {
                 return [
                     "Profile"
-                    ,"Administrative/Users/Add"
-                    ,"Administrative/Users/Edit"
-                    ,"Administrative/Groups/Add"
-                    ,"Administrative/Groups/View"
-                    ,"Administrative/Groups/Edit"
-                    ,"Administrative/Huntgroups/Add"
-                    ,"Administrative/Huntgroups/View"
-                    ,"Administrative/Huntgroups/Edit"
-                    ,"Company/Company/Add"
-                    ,"Company/Company/Edit"
-                    ,"Company/Company/View"
-                    ,"Company/Site/Add"
-                    ,"Company/Site/Edit"
-                    ,"Company/Site/View"
-                    ,"Accesses/Access/Add"
-                    ,"Accesses/Access/Edit"
-                    ,"Accesses/Access/View"
-                    ,"Hardware/Laptop/Add"
-                    ,"Hardware/Laptop/Edit"
-                    ,"Hardware/Laptop/View"
-                    ,"Hardware/Computer/Add"
-                    ,"Hardware/Computer/Edit"
-                    ,"Hardware/Computer/View"
-                    ,"Hardware/Printer/Add"
-                    ,"Hardware/Printer/Edit"
-                    ,"Hardware/Printer/View"
-                    ,"Hardware/Server/Add"
-                    ,"Hardware/Server/Edit"
-                    ,"Hardware/Server/View"
-                    ,"Hardware/Router/Add"
-                    ,"Hardware/Router/Edit"
-                    ,"Hardware/Router/View"
-                    ,"Hardware/Switch/Add"
-                    ,"Hardware/Switch/Edit"
-                    ,"Hardware/Switch/View"
-                    ,"Hardware/Access_Point/Add"
-                    ,"Hardware/Access_Point/Edit"
-                    ,"Hardware/Access_Point/View"
-                    ,"Hardware/Camera/Add"
-                    ,"Hardware/Camera/Edit"
-                    ,"Hardware/Camera/View"
-                    ,"Hardware/DVR_CCTV/Add"
-                    ,"Hardware/DVR_CCTV/Edit"
-                    ,"Hardware/DVR_CCTV/View"
-                    ,"Hardware/Alarm/Add"
-                    ,"Hardware/Alarm/Edit"
-                    ,"Hardware/Alarm/View"
-                    ,"Hardware/Hardware/View"
                 ];
             }
         } );
@@ -168,10 +120,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["usrHardwAccessPointEdit", "x=Hardware&y=Access_Point&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwTelephonyAdd", "x=Hardware&y=Telephony&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwTelephonyEdit", "x=Hardware&y=Telephony&z=Edit&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwCameraAdd", "x=Hardware&y=Camera&z=Add&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwCameraEdit", "x=Hardware&y=Camera&z=Edit&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwDVRCCTVAdd", "x=Hardware&y=DVR_CCTV&z=Add&Save=", "button", [], "modalDialog"]
-                    ,["usrHardwDVRCCTVEdit", "x=Hardware&y=DVR_CCTV&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwCCTVAdd", "x=Hardware&y=CCTV&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrHardwCCTVEdit", "x=Hardware&y=CCTV&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrHardwAlarmAdd", "x=Hardware&y=Alarm&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrHardwAlarmEdit", "x=Hardware&y=Alarm&z=Edit&Save=", "button", [], "modalDialog"]
                 ];
@@ -198,8 +148,7 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwareSwitch"
                     ,"tableHardwareAccessPoint"
                     ,"tableHardwareTelephony"
-                    ,"tableHardwareCamera"
-                    ,"tableHardwareDVRCCTV"
+                    ,"tableHardwareCCTV"
                     ,"tableHardwareAlarm"
                     ,"tableAccessAccess"
                 ];

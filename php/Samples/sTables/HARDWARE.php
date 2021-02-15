@@ -63,14 +63,6 @@ interface HARDWARE
         ,"button" => self::HARDWARE_BUTTONS
     );
 
-    const HARDWARE_CAMERA = array(
-        "tableId" => "tableHardwareCamera"
-        ,"tableRoot" => "Hardware/Camera"
-        ,"tableRole" => "canHardware"
-        ,"data" => self::HARDWARE_NETWORKING
-        ,"button" => self::HARDWARE_BUTTONS
-    );
-
     const HARDWARE_COMPUTER = array(
         "tableId" => "tableHardwareComputer"
         ,"tableRoot" => "Hardware/Computer"
@@ -79,9 +71,9 @@ interface HARDWARE
         ,"button" => self::HARDWARE_BUTTONS
     );
 
-    const HARDWARE_DVR_CCTV= array(
-        "tableId" => "tableHardwareDVRCCTV"
-        ,"tableRoot" => "Hardware/DVR_CCTV"
+    const HARDWARE_CCTV= array(
+        "tableId" => "tableHardwareCCTV"
+        ,"tableRoot" => "Hardware/CCTV"
         ,"tableRole" => "canHardware"
         ,"data" => self::HARDWARE_NETWORKING
         ,"button" => self::HARDWARE_BUTTONS

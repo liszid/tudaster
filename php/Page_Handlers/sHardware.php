@@ -129,15 +129,10 @@ class sHardware
             ,"optionalData" => self::NETWORKING
             ,"tableName" => 'Hardware_Telephony'
         )
-        ,"Camera" => array(
-            "origo" => 'usrHardwCamera'
+        ,"CCTV" => array(
+            "origo" => 'usrHardwCCTV'
             ,"optionalData" => self::NETWORKING
-            ,"tableName" => 'Hardware_Camera'
-        )
-        ,"DVR_CCTV" => array(
-            "origo" => 'usrHardwDVRCCTV'
-            ,"optionalData" => self::NETWORKING
-            ,"tableName" => 'Hardware_DVR_CCTV'
+            ,"tableName" => 'Hardware_CCTV'
         )
         ,"Alarm" => array(
             "origo" => 'usrHardwAlarm'

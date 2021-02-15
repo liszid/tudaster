@@ -67,6 +67,7 @@ class General
  */
     public static function Input(array $array): string
     {
+        $returnString = '';
         $inputId = (isset($array['origo']) && isset($array['data'])) ? $array['origo'].'-'.$array['data'] : '';
         $labelDesc = (isset($array['desc'])) ? $array['desc'] : '';
         $inputValue = (isset($array['value'])) ? $array['value'] : '';
@@ -90,18 +91,19 @@ class General
                 <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.(($mustFill)?' data-must-fill="true"':'').'>';
         }
 
-        return (
-                (! strcmp($inputType, 'hidden'))
-                    ?
-                        $input
-                    :'
-                        <div class="form-group row col-12 mx-0">
-                            <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.(($mustFill && ! isset($array['disabled']))?' *':'').'</label>
-                            <div class="col-sm-6">
-                                '.$input.'
-                            </div>
-                        </div>'
-        );
+        if (! strcmp($inputType, 'hidden'){
+            $returnString = $input;
+        } else {
+            $returnString = '
+                <div class="form-group row col-12 mx-0">
+                    <label for="'.$inputId.'" class="col-sm-6 col-form-label text-left">'.$labelDesc.(($mustFill && ! isset($array['disabled']))?' *':'').'</label>
+                    <div class="col-sm-6">
+                        '.$input.'
+                    </div>
+                </div>';
+        }
+
+        return $returnString;
     }
 /*
  * Used to generate modal redirect spinner

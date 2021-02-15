@@ -34,8 +34,7 @@ if (
                     ,"Switch"       => array("path" => "Hardware/Switch",       "role" => "canHardware")
                     ,"Access_Point" => array("path" => "Hardware/Access_Point", "role" => "canHardware")
                     ,"Telephony"    => array("path" => "Hardware/Telephony",    "role" => "canHardware")
-                    ,"Camera"       => array("path" => "Hardware/Camera",       "role" => "canHardware")
-                    ,"DVR_CCTV"     => array("path" => "Hardware/DVR_CCTV",     "role" => "canHardware")
+                    ,"CCTV"         => array("path" => "Hardware/CCTV",         "role" => "canHardware")
                     ,"Alarm"        => array("path" => "Hardware/Alarm",        "role" => "canHardware")
                 );
 /*

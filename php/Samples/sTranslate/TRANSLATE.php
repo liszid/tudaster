@@ -720,66 +720,6 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/Camera" => array(
-    	    "navbar" => "Kamerák"
-    	    ,"fa" => "hdd-o"
-    	    ,"title" => "Kamera eszköz adatok"
-    	    ,"help" => "Kamera eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
-            ,"card" => "Kamera eszköz adatok megtekintéséhez kattintson a kártyára"
-            ,"info" => array(
-                'addButton' => true
-                ,'color' => 'success'
-                ,'header' => 'Információ'
-                ,'title' => ''
-                ,'content' => '
-                    <b>Általános adatok</b><br />
-                    <b>Megnevezés</b>: Az eszköz általános megnevezése. Például: "Mucika gépe"<br />
-                    <b>Leírás</b>: Az eszköz leírása, vagy megjegyzés róla. Például: ""<br />
-                    <b>Serial</b>: Az eszköz serial/sorozat száma<br />
-                    <b>MAC-cím</b>: Az eszköz MAC-címe<br />
-                    <b>IP-cím</b>: Az eszköz IP-címe<br />
-                    <b>Telephely</b>: Mely telephelyre van kitéve az eszköz<br />
-                    <b>Switch IP</b>: Annak a switch-nek az IP-címe kell amelybe be van kötve az eszköz<br />
-                    <b>Switch Port</b>: Azt jelöli, hogy a switch melyik fizikai portjába van bekötve<br />
-                    <b>VLAN Név</b>: A VLAN-nak a neve amelyen keresztül elérik, használják<br />
-                    <b>VLAN Száma</b>: A VLAN-nak a száma amelyen keresztül elérik, használják<br />
-                    <b>Beszerzés dátuma</b>: Amikor az eszköz beérkezett<br />
-                    <b>Kivitel dátuma</b>: Amikor az eszközt kiszállították<br />
-                    <br />
-                    <b>Eszköz adatainak megtekintése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-th-list" aria-hidden="true"></i></a><br />
-                    <b>Adatok szerkesztése</b>: <a class="btn btn-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a><br />
-                    <b>Eltávolítása</b>: <a class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
-                '
-            )
-    	)
-    	,"Hardware/Camera/Add" => array(
-            "navbar" => "Kamera eszközök hozzáadása"
-    	    ,"fa" => "hdd-o"
-    	    ,"title" => "Kamera eszköz adatok hozzáadása"
-    	    ,"help" => ""
-            ,"card" => ""
-        )
-        ,"Hardware/Camera/Edit" => array(
-            "navbar" => "Kamera eszközök szerkesztése"
-    	    ,"fa" => "hdd-o"
-    	    ,"title" => "Kamera eszköz adatok szerkesztése"
-    	    ,"help" => ""
-            ,"card" => ""
-        )
-        ,"Hardware/Camera/View" => array(
-            "navbar" => "Kamera eszközök megtekintése"
-    	    ,"fa" => "hdd-o"
-    	    ,"title" => "Kamera eszköz adatok megtekintése"
-    	    ,"help" => ""
-            ,"card" => ""
-        )
-        ,"Hardware/Camera/Delete" => array(
-            "navbar" => "Kamera eszközök törlése"
-    	    ,"fa" => "hdd-o"
-    	    ,"title" => "Kamera eszköz adatok törlése"
-    	    ,"help" => ""
-            ,"card" => ""
-        )
         ,"Hardware/Telephony" => array(
     	    "navbar" => "Telefonközpontok"
     	    ,"fa" => "hdd-o"
@@ -900,12 +840,12 @@ interface TRANSLATE
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/DVR_CCTV" => array(
-    	    "navbar" => "DVR/CCTV"
+        ,"Hardware/CCTV" => array(
+    	    "navbar" => "CCTV"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "DVR/CCTV eszköz adatok"
-    	    ,"help" => "DVR/CCTV eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
-            ,"card" => "DVR/CCTV eszköz adatok megtekintéséhez kattintson a kártyára"
+    	    ,"title" => "CCTV eszköz adatok"
+    	    ,"help" => "CCTV eszköz adatok olvasása/írása/szerkesztése (jogosultság szinttől függően) elérhető a 'Hardver' gombra kattintva a menüsávban"
+            ,"card" => "CCTV eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
                 ,'color' => 'success'
@@ -932,31 +872,31 @@ interface TRANSLATE
                 '
             )
     	)
-    	,"Hardware/DVR_CCTV/Add" => array(
-            "navbar" => "DVR/CCTV eszközök hozzáadása"
+    	,"Hardware/CCTV/Add" => array(
+            "navbar" => "CCTV eszközök hozzáadása"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "DVR/CCTV eszköz adatok hozzáadása"
+    	    ,"title" => "CCTV eszköz adatok hozzáadása"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/DVR_CCTV/Edit" => array(
-            "navbar" => "DVR/CCTV eszközök szerkesztése"
+        ,"Hardware/CCTV/Edit" => array(
+            "navbar" => "CCTV eszközök szerkesztése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "DVR/CCTV eszköz adatok szerkesztése"
+    	    ,"title" => "CCTV eszköz adatok szerkesztése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/DVR_CCTV/View" => array(
-            "navbar" => "DVR/CCTV eszközök megtekintése"
+        ,"Hardware/CCTV/View" => array(
+            "navbar" => "CCTV eszközök megtekintése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "DVR/CCTV eszköz adatok megtekintése"
+    	    ,"title" => "CCTV eszköz adatok megtekintése"
     	    ,"help" => ""
             ,"card" => ""
         )
-        ,"Hardware/DVR_CCTV/Delete" => array(
-            "navbar" => "DVR/CCTV eszközök törlése"
+        ,"Hardware/CCTV/Delete" => array(
+            "navbar" => "CCTV eszközök törlése"
     	    ,"fa" => "hdd-o"
-    	    ,"title" => "DVR/CCTV eszköz adatok törlése"
+    	    ,"title" => "CCTV eszköz adatok törlése"
     	    ,"help" => ""
             ,"card" => ""
         )

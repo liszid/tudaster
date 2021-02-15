@@ -147,10 +147,9 @@ $GLOBALS['Database']['Table']['Insert'][20] = "
     ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.5','R1', '05', 'Teszt005', '005','-','-','Router',1,1,0)
     ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.6','R1', '06', 'Teszt006', '006','-','-','Switch',1,1,0)
     ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.7','R1', '07', 'Teszt007', '007','-','-','Access_Point',1,1,0)
-    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.8','R1', '08', 'Teszt008', '008','-','-','Camera',1,1,0)
-    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.9','R1', '09', 'Teszt009', '009','-','-','DVR_CCTV',1,1,0)
-    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.10','R1','10', 'Teszt010', '010','-','-','Alarm',1,1,0)
-    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.11','R1','11', 'Teszt011', '011','-','-','Telephony',1,1,0)";
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.8','R1', '08', 'Teszt008', '008','-','-','CCTV',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.9','R1','09', 'Teszt009', '009','-','-','Alarm',1,1,0)
+    ,('Alapértelmezett', '-','abcDEF-1234','x1-x2-x3-x4-x5-x6','192.168.0.10','R1','10', 'Teszt010', '010','-','-','Telephony',1,1,0)";
 
 $GLOBALS['Database']['Table']['Insert'][29] = "
     INSERT INTO `Hardware_Member`(
@@ -167,21 +166,20 @@ $GLOBALS['Database']['Table']['Insert'][29] = "
     ,(7,1,0)
     ,(8,1,0)
     ,(9,1,0)
-    ,(10,1,0)
-    ,(11,1,0)";
+    ,(10,1,0)";
 
 $GLOBALS['Database']['Table']['Insert'][40] = "
     INSERT INTO `Knowledge_Type`(
         knowledgeTypeName
         ,isDelete
     ) VALUES
-    ('ÁLTALÁNOS',0)
+    ('Általános',0)
     ,('VERK',0)
     ,('SZIKE',0)
-    ,('ADATBÁZIS',0)
-    ,('PROGRAMOZÁS',0)
-    ,('TŰZFAL',0)
-    ,('LEVELEZÉS',0)
-    ,('SZERVER',0)
-    ,('ICINGA',0)
-    ,('AVAYA',0)";
+    ,('Adatbázis',0)
+    ,('Programozás',0)
+    ,('Tűzfal',0)
+    ,('Levelezés',0)
+    ,('Szerver',0)
+    ,('Icinga',0)
+    ,('Avaya',0)";

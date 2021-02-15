@@ -39,12 +39,7 @@ if (
         }
 
         if (Valid::vString($returnContent)) {
-            if (! strcmp(Check::isPost('z'), 'Filter')) {
-                echo $returnContent;
-            } else {
-                echo sFrame::Page(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent));
-            }
-
+            echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent));
         } else {
             echo sRedirect::Home();
         }

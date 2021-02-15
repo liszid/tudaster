@@ -190,8 +190,7 @@ class sSite
                         ,'Switch'
                         ,'Access_Point'
                         ,'Telephony'
-                        ,'Camera'
-                        ,'DVR_CCTV'
+                        ,'CCTV'
                         ,'Alarm'
                     )
                     ,'Desc' => sTranslate::Prompt($navName)
