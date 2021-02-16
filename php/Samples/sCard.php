@@ -160,7 +160,7 @@ class sCard
         $contHeader = ((isset($array['header'])) ? $array['header'] : '');
         $contText = ((isset($array['content'])) ? $array['content'] : '');
 // Optional Contents
-        $contAddButton = ((isset($array['path']) && isset($array['addButton']) && $array['addButton'])? sElement::General(array('path' => $array['path'], 'fa' => 'plus-circle'), 'Add') : '');
+        $contAddButton = ((isset($array['path']) && isset($array['addButton']) && $array['addButton'])? sElement::General(array('path' => $array['path'], 'addNonModal' => $array['addNonModal'],'fa' => 'plus-circle'), 'Add') : '');
 
         if (Valid::vArray($array)) {
             return '

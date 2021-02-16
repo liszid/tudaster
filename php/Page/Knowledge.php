@@ -29,17 +29,19 @@ if (
  * Post action handling and form prompt section
  */
     if (isset($_POST['y']) && isset($_POST['z'])) {
-        $returnArray = array();
-
         if(
             Valid::vString(Check::isPost('y'))
             && Valid::vString(Check::isPost('z'))
         ) {
-            $returnContent = sKnowledge::Action($_POST);
+            $returnContent .= sKnowledge::Action($_POST);
         }
 
-        if (Valid::vString($returnContent)) {
-            echo sFrame::Modal(array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent));
+        $returnArray = array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent);
+
+        if (Valid::vString($returnContent) && ! isset($_POST['Save'])) {
+            echo sFrame::Page($returnArray);
+        } elseif (Valid::vString($returnContent) && isset($_POST['Save'])) {
+            echo sFrame::Modal($returnArray);
         } else {
             echo sRedirect::Home();
         }

@@ -7,30 +7,58 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
 
     evntCKEditor()
     {
-	if ($('.ckeditor').length !== 0) {
-	    ClassicEditor.create( document.querySelector( '.ckeditor' ), {
-		toolbar: {
-		    items: ['heading','|','fontSize','bold','italic','underline','link','alignment','indent','outdent','numberedList','bulletedList','|','horizontalLine','blockQuote','imageUpload','insertTable','|','undo','redo']
-		},
-		language: 'hu',
-		image: {
-		    toolbar: ['imageTextAlternative','imageStyle:full','imageStyle:side']
-		},
-		table: {
-		    contentToolbar: ['tableColumn','tableRow','mergeTableCells','tableCellProperties','tableProperties']
-		},
-		licenseKey: '',
-	    } )
-	    .then( editor => {
-            window.editor = editor;
-	    } )
-	    .catch( error => {
-		console.error( 'Oops, something went wrong!' );
-		console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-		console.warn( 'Build id: f9un3bbiaar-rpyke4h3p653' );
-		console.error( error );
-	    } );
-	}
+        if ($('.ckeditor').length !== 0) {
+            ClassicEditor.create( document.querySelector( '.ckeditor' ), {
+                toolbar: {
+                    items: [
+                        'heading'
+                        ,'|'
+                        ,'fontSize'
+                        ,'bold'
+                        ,'italic'
+                        ,'underline'
+                        ,'link'
+                        ,'alignment'
+                        ,'indent'
+                        ,'outdent'
+                        ,'numberedList'
+                        ,'bulletedList'
+                        ,'|'
+                        ,'horizontalLine'
+                        ,'blockQuote'
+                        ,'imageUpload'
+                        ,'insertTable'
+                        ,'|'
+                        ,'undo'
+                        ,'redo'
+                    ]
+                }
+                ,language: 'hu'
+                ,image: {
+                    toolbar: [
+                        'imageTextAlternative'
+                        ,'imageStyle:full'
+                        ,'imageStyle:side'
+                    ]
+                }
+                ,table: {
+                    contentToolbar: [
+                        'tableColumn'
+                        ,'tableRow'
+                        ,'mergeTableCells'
+                        ,'tableCellProperties'
+                        ,'tableProperties'
+                    ]
+                }
+                ,licenseKey: '',
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+        }
     }
 
 /*
@@ -117,7 +145,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                 let loc = (srcLmnt !== null && srcLmnt.getAttribute('data-link') !== null) ? srcLmnt.getAttribute('data-link') : null;
                 if (loc !== null && srcLmnt !== null) {
                     e.preventDefault();
-//                    _self.enlargenModal(loc);
                     let tempLocation = loc.split("/");
                     let dataPost = (srcLmnt.getAttribute('data-post') !== null)? srcLmnt.getAttribute('data-post'):'';
                     if (tempLocation.length > 1) {
@@ -189,7 +216,6 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                     for (let i = 0; i < _self.arrayObject.length; i++) {
                         if (srcLmnt.getAttribute('id').startsWith(_self.arrayObject[i][0]+"-"+_self.arrayObject[i][2])) {
                             let returnString = _self.arrayObject[i][1];
-//                            _self.enlargenModal(((returnString.split("&"))[0].split("="))[1]);
                             let innerArray = document.querySelectorAll('[id^="'+ _self.arrayObject[i][0] + '-"]');
                             if (innerArray.length > 0) {
                                 for (let k = 0; k < innerArray.length; k++) {
@@ -219,7 +245,13 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                                 }
                                             }
                                         } else {
-                                            returnString = returnString.concat("&" + innerArrayObjectName + "=" + innerArray[k].value);
+                                            let valueOfK = '';
+                                            if(innerArray[k].classList.contains('ckeditor')) {
+                                                valueOfK = editor.getData();
+                                            } else {
+                                                valueOfK = innerArray[k].value;
+                                            }
+                                            returnString = returnString.concat("&" + innerArrayObjectName + "=" + valueOfK);
                                         }
                                     } else {
                                         returnString = returnString.concat("&" + innerArrayObjectName + "=" + _self.MD5(innerArray[k].value));

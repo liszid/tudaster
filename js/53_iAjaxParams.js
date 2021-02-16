@@ -98,6 +98,8 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,["admHuntgroupsAdd", "x=Administrative&y=Huntgroups&z=Add&Save=", "button", [], "modalDialog"]
                     ,["admHuntgroupsEdit", "x=Administrative&y=Huntgroups&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["admMemsEdit", "x=Administrative&y=Users&z=Edit&Save=", "button", [], "modalDialog"]
+                    ,["usrKnowledgeKnowledgeAdd", "x=Knowledge&y=Knowledge&z=Add&Save=", "button", [], "modalDialog"]
+                    ,["usrKnowledgeKnowledgeEdit", "x=Knowledge&y=Knowledge&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrAccessAdd", "x=Accesses&y=Access&z=Add&Save=", "button", [], "modalDialog"]
                     ,["usrAccessEdit", "x=Accesses&y=Access&z=Edit&Save=", "button", [], "modalDialog"]
                     ,["usrCmpCmpAdd", "x=Company&y=Company&z=Add&Save=", "button", [], "modalDialog"]

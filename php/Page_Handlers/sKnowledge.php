@@ -31,7 +31,7 @@ class sKnowledge
         array('data' => 'knowledgeId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
         ,array('data' => 'knowledgeTitle', 'desc' => 'Cím', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
         ,array('data' => 'knowledgeTypeId', 'desc' => 'Típus', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
-        ,array('data' => 'knowledgeText', 'desc' => 'Leírás', 'type' => 'text', 'tags' => 'Add,View,Edit')
+        ,array('data' => 'knowledgeText', 'desc' => 'Leírás', 'type' => 'ckeditor', 'tags' => 'Add,View,Edit')
     );
 
     const TYPES = array(
@@ -83,14 +83,11 @@ class sKnowledge
                 $returnContent .= self::View($array);
                 break;
             case 'Delete':
-                $returnContent .= self::Delete($array);
+                $returnContent .= '<div class="text-center justification-centered">'.self::Delete($array).'</div>';
                 break;
             case 'Edit':
                 $returnContent .= self::Edit($array);
                 break;
-        }
-        if (Valid::vString($returnContent)) {
-            $returnContent = '<div class="text-center justification-centered">'.$returnContent.'</div>';
         }
 
         return $returnContent;
@@ -129,9 +126,9 @@ class sKnowledge
             return '
                 <form method="post" class="form-group col-12" autocomplete="on">
                     <div class="form-group col p-0">
-                        <div class="col-12 row">'
+                        <div class="col-12">'
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                            .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => self::KNOWLEDGE,'staticData' => array('origo' => $array['origo'], 'tag' => 'Add')),  'Generate_Form')))
+                            .sElement::General(array('constData' => self::KNOWLEDGE,'staticData' => array('origo' => $array['origo'], 'tag' => 'Add')),  'Generate_Form')
                         .'</div>
                     </div>
                     <div class="form-group">
@@ -141,12 +138,12 @@ class sKnowledge
                     </div>
                 </form>';
         } else {
-            return
-                '<h4>'.(
+            return 'Thanks';
+                /*'<h4>'.(
                     (self::$dKnowledge->Insert($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');
+                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');*/
         }
     }
 
@@ -165,7 +162,7 @@ class sKnowledge
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sCard::Collapsible(array('header' => 'Általános adatok', 'content' => sElement::General(array('constData' => $array['defaultData'], 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Hardware,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                        .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Knowledge),'Generate_Form')
                         .sElement::General(array('origo' => $array['origo'],'data' => 'userName','desc' => 'Hozzáadta','value' => $Knowledge['userName'], 'type' => 'text', 'disabled' => true), 'Input')
                         .sElement::General(array('origo' => $array['origo'],'data' => 'hardwareDate','desc' => 'Hozzáadva','value' => $Knowledge['hardwareDate'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
@@ -190,7 +187,7 @@ class sKnowledge
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                            .sCard::Collapsible(array('header' => 'Általános adatok','content' => sElement::General(array('constData' => $array['defaultData'],'staticData' => array('origo' => $array['origo'],'tag' => 'Edit'),'valueData' => $Knowledge,'selectData' => array('companySiteId' => self::Company_Site_Select())),'Generate_Form')))
+                            .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'Edit'), 'valueData' => $Knowledge),'Generate_Form')
                         .'</div>
                     </div>
                     <div class="form-group">

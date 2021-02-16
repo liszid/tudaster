@@ -88,11 +88,17 @@ class General
             $input .= '</select>';
         } else {
             $input = '
-                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.(($mustFill)?' data-must-fill="true"':'').'>';
+                <input type="'.$inputType.'" class="form-control" id="'.$inputId.'" value="'.$inputValue.'"'.$inputDisabled.(($mustFill)?' data-must-fill="true"':'').'>
+            ';
         }
 
-        if (! strcmp($inputType, 'hidden'){
+        if (! strcmp($inputType, 'hidden')){
             $returnString = $input;
+        } elseif (! strcmp($inputType, 'ckeditor')){
+            $returnString = '
+                <div class="form-group col-12 mx-0">
+                    <textarea class="ckeditor col-12" id="'.$inputId.'"></textarea>
+                </div>';
         } else {
             $returnString = '
                 <div class="form-group row col-12 mx-0">
@@ -161,7 +167,7 @@ class General
         if (isset($array['path'])) {
             return '
                 <div class="ml-auto">
-                    <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add" data-post="0" data-toggle="modal" data-target="#modalBox">
+                    <a class="btn btn-success" role="button" data-link="'.$array['path'].'/Add"'.(($array['addNonModal'] === true)?'':' data-post="0" data-toggle="modal" data-target="#modalBox"').'>
                         <i class="fa fa-'.$array['fa'].'" aria-hidden="true"></i>
                         <span><b>Új hozzáadása</b></span>
                     </a>

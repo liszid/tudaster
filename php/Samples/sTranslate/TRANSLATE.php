@@ -24,6 +24,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     Az új felhasználó alapértelmett jelszava a felhasználói neve, illetve jogosultsága a 2-es ID-val rendelkezö "Alapértelmezett" jogosultsági kör<br />
@@ -75,6 +76,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     <b>Állítható engedélyek, jogkörök</b> <br />
@@ -135,6 +137,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     Ezen a felületen történik a csoportok létrehozása, és a csoporttagságok hozzárendelése.<br />
@@ -254,6 +257,7 @@ interface TRANSLATE
             ,"card" => "Hozzáférési adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => ''
             )
@@ -308,6 +312,7 @@ interface TRANSLATE
             ,"card" => "Laptop adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -368,6 +373,7 @@ interface TRANSLATE
             ,"card" => "Számítógép adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -428,6 +434,7 @@ interface TRANSLATE
             ,"card" => "Szerver adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -488,6 +495,7 @@ interface TRANSLATE
             ,"card" => "Router adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -548,6 +556,7 @@ interface TRANSLATE
             ,"card" => "Nyomtató adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -608,6 +617,7 @@ interface TRANSLATE
             ,"card" => "Switch eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -668,6 +678,7 @@ interface TRANSLATE
             ,"card" => "Access Point eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -728,6 +739,7 @@ interface TRANSLATE
             ,"card" => "Telefonközpont adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -788,6 +800,7 @@ interface TRANSLATE
             ,"card" => "Riasztó eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -848,6 +861,7 @@ interface TRANSLATE
             ,"card" => "CCTV eszköz adatok megtekintéséhez kattintson a kártyára"
             ,"info" => array(
                 'addButton' => true
+                ,'addNonModal' => false
                 ,'color' => 'success'
                 ,'header' => 'Információ'
                 ,'title' => ''
@@ -917,6 +931,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     Ezen a felületen vehetjük fel a partnereket, ügyfeleket, akikhez később telephelyeket, hardvereket és hozzáféréseket társíthatunk.<br />
@@ -980,6 +995,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     Ezen a felületen vehetünk fel partnerekhez, ügyfelekhez tartozó telephelyeket, kirendeltségeket.<br />
@@ -1046,6 +1062,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
+                ,'addNonModal' => true
                 ,'title' => ''
                 ,'content' => '
                     Ezen a felületen vehetünk fel tudáscikket.<br />
