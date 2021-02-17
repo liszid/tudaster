@@ -38,9 +38,7 @@ if (
 
         $returnArray = array('path' => $urlPaths[Check::isPost('y')]['path'].'/'.Check::isPost('z'), 'content' => $returnContent);
 
-        if (Valid::vString($returnContent) && ! isset($_POST['Save'])) {
-            echo sFrame::Page($returnArray);
-        } elseif (Valid::vString($returnContent) && isset($_POST['Save'])) {
+        if (Valid::vString($returnContent)) {
             echo sFrame::Modal($returnArray);
         } else {
             echo sRedirect::Home();

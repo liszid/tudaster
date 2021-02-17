@@ -152,7 +152,21 @@ const iAjaxParams = (iAjaxParams = Object) => class extends iAjaxParams
                     ,"tableHardwareTelephony"
                     ,"tableHardwareCCTV"
                     ,"tableHardwareAlarm"
+                    ,"tableKnowledgeKnowledge"
                     ,"tableAccessAccess"
+                ];
+            }
+        });
+
+        Object.defineProperty( this, 'tableNonSearching',
+        {
+            get( ) {
+                return[
+                    "tableAdminLogs"
+                    ,"tableAdminCompanySiteType"
+                    ,"tableAdminKnowledgeType"
+                    ,"tableAdminHuntgroups"
+                    ,"tableAdminGroups"
                 ];
             }
         });

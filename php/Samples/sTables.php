@@ -120,7 +120,7 @@ class sTables implements
             if (count($data['button']) > 0) {
                 foreach ($data['button'] as $b) {
                     $aTooltip = (isset($b['tooltip']) && Valid::vString($b['tooltip'])) ? "data-toggle='tooltip' data-placement='top' title='".$b['tooltip']."'" : "";
-                    $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'" data-target="#modalBox">';
+                    $aData = '<a class="btn btn-'.$b['color'].'" role="button" data-link="'.$data['tableRoot'].'/'.$b['action'].'" data-post="'.$i[array_key_first($data['data'])].'"'.(! isset($b['nonModal'])?' data-target="#modalBox"':'').'>';
                     if (
                         (
                             (

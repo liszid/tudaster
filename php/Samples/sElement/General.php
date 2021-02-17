@@ -97,7 +97,7 @@ class General
         } elseif (! strcmp($inputType, 'ckeditor')){
             $returnString = '
                 <div class="form-group col-12 mx-0">
-                    <textarea class="ckeditor col-12" id="'.$inputId.'"></textarea>
+                    <textarea class="ckeditor col-12" id="'.$inputId.'">'.str_replace( '&', '&amp;', $inputValue).'</textarea>
                 </div>';
         } else {
             $returnString = '

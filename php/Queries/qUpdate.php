@@ -171,3 +171,14 @@ $GLOBALS['Database'][30]['Update'] = "
     WHERE
         accessId=:accessId
 ";
+
+$GLOBALS['Database'][41]['Update'] = "
+    UPDATE
+        `Knowledge`
+    SET
+        knowledgeTypeId=:knowledgeTypeId
+        ,knowledgeTitle=:knowledgeTitle
+        ,knowledgeText=:knowledgeText
+    WHERE
+        knowledgeId=:knowledgeId
+";

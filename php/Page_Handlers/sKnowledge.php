@@ -12,6 +12,7 @@ use PreLoad\{
 
 use Data\{
     dKnowledge
+    ,dKnowledge_Type
     ,dCombined
 };
 
@@ -26,11 +27,12 @@ class sKnowledge
 {
     protected static $dKnowledge;
     protected static $dCombined;
+    protected static $dKnowledge_Type;
 
     const KNOWLEDGE = array(
         array('data' => 'knowledgeId', 'desc' => '', 'type' => 'hidden', 'tags' => 'Edit')
         ,array('data' => 'knowledgeTitle', 'desc' => 'Cím', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
-        ,array('data' => 'knowledgeTypeId', 'desc' => 'Típus', 'type' => 'text', 'tags' => 'Add,Edit,View', 'must-fill' => true)
+        ,array('data' => 'knowledgeTypeId', 'desc' => 'Típus', 'type' => 'select', 'tags' => 'Add,Edit,View', 'must-fill' => true)
         ,array('data' => 'knowledgeText', 'desc' => 'Leírás', 'type' => 'ckeditor', 'tags' => 'Add,View,Edit')
     );
 
@@ -49,6 +51,16 @@ class sKnowledge
     protected static function setDKnowledge()
     {
         self::$dKnowledge= new dKnowledge();
+    }
+
+/*
+ * Sets the class variable : dKnowledge_Type
+ * @author Liszi Dániel
+ * @since 2020.12.07
+ */
+    protected static function setDKnowledge_Type()
+    {
+        self::$dKnowledge_Type = new dKnowledge_Type();
     }
 
 /*
@@ -82,16 +94,32 @@ class sKnowledge
             case 'View':
                 $returnContent .= self::View($array);
                 break;
-            case 'Delete':
-                $returnContent .= '<div class="text-center justification-centered">'.self::Delete($array).'</div>';
-                break;
             case 'Edit':
                 $returnContent .= self::Edit($array);
                 break;
+            case 'Delete':
+                $returnContent .= self::Delete($array);
+                break;
         }
 
-        return $returnContent;
+        return '<div class="text-center justification-centered">'.$returnContent.'</div>';
     }
+/*
+ * Generates a Select list to choose the Location of the item
+ * @return array
+ * @author Liszi Dániel
+ * @since 2020.12.16
+ */
+    protected static function Knowledge_Type_Select(): array
+    {
+        self::setDKnowledge_Type();
+        $tempArray = array();
+        foreach(self::$dKnowledge_Type->Select(array(), 'All') as $i) {
+            $tempArray[] = array('id' => $i['knowledgeTypeId'], 'name' => $i['knowledgeTypeName']);
+        }
+        return $tempArray;
+    }
+
 /*
  * @param $array array
  * @return string
@@ -128,7 +156,7 @@ class sKnowledge
                     <div class="form-group col p-0">
                         <div class="col-12">'
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                            .sElement::General(array('constData' => self::KNOWLEDGE,'staticData' => array('origo' => $array['origo'], 'tag' => 'Add')),  'Generate_Form')
+                            .sElement::General(array('constData' => self::KNOWLEDGE,'staticData' => array('origo' => $array['origo'], 'tag' => 'Add'),'selectData' => array('knowledgeTypeId' => self::Knowledge_Type_Select())),  'Generate_Form')
                         .'</div>
                     </div>
                     <div class="form-group">
@@ -138,12 +166,11 @@ class sKnowledge
                     </div>
                 </form>';
         } else {
-            return 'Thanks';
-                /*'<h4>'.(
+            return '<h4>'.(
                     (self::$dKnowledge->Insert($array))
                         ? sTranslate::ACTION['Success']['content']
                         : sTranslate::ACTION['Fail']['content']
-                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');*/
+                ).'</h4>'.sElement::General($array['returnPath'], 'Spinner');
         }
     }
 
@@ -162,9 +189,9 @@ class sKnowledge
             <form method="post" class="form-group col-12" autocomplete="on">
                 <div class="form-group col p-0">
                     <div class="col-12 row">'
-                        .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'), 'valueData' => $Knowledge),'Generate_Form')
+                        .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'View'),'selectData' => array('knowledgeTypeId' => self::Knowledge_Type_Select()), 'valueData' => $Knowledge),'Generate_Form')
                         .sElement::General(array('origo' => $array['origo'],'data' => 'userName','desc' => 'Hozzáadta','value' => $Knowledge['userName'], 'type' => 'text', 'disabled' => true), 'Input')
-                        .sElement::General(array('origo' => $array['origo'],'data' => 'hardwareDate','desc' => 'Hozzáadva','value' => $Knowledge['hardwareDate'], 'type' => 'text', 'disabled' => true), 'Input')
+                        .sElement::General(array('origo' => $array['origo'],'data' => 'knowledgeDate','desc' => 'Hozzáadva','value' => $Knowledge['knowledgeDate'], 'type' => 'text', 'disabled' => true), 'Input')
                     .'</div>
                 </div>
             </form>';
@@ -187,7 +214,7 @@ class sKnowledge
                     <div class="form-group col p-0">
                         <div class="col-12 row">'
                             .sElement::General(array('origo' => $array['origo'], 'data' => 'userId', 'desc' => '', 'value' => $GLOBALS['sessionId'], 'type' => 'hidden'), 'Input')
-                            .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'Edit'), 'valueData' => $Knowledge),'Generate_Form')
+                            .sElement::General(array('constData' => self::KNOWLEDGE, 'staticData' => array('origo' => $array['origo'], 'tag' => 'Edit'),'selectData' => array('knowledgeTypeId' => self::Knowledge_Type_Select()), 'valueData' => $Knowledge),'Generate_Form')
                         .'</div>
                     </div>
                     <div class="form-group">

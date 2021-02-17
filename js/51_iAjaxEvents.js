@@ -98,29 +98,30 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                             } );
                             var table = $( this ).DataTable(
                             {
-                                "columnDefs":[{"targets": 'no-sort', "orderable": false}],
-                                "columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}],
-                                "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]],
-                                "order": [[ 0, "asc" ]],
-                                "fixedHeader": true,
-                                "order": [],
-                                "language": {
+                                "columnDefs":[{"targets": 'no-sort', "orderable": false}]
+                                ,"columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}]
+                                ,"lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]]
+                                ,"order": [[ 0, "asc" ]]
+                                ,"fixedHeader": true
+                                ,"language": {
                                     "url": "plug-ins/datatable.lang.hungarian.json"
                                 }
                             });
                         } else {
-                            $( this ).DataTable(
-                            {
-                                "order": [[ 0, "asc" ]],
-                                "columnDefs":[{"targets": 'no-sort', "orderable": false}],
-                                "columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}],
-                                "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]],
-                                "paging": false,
-                                "searching": false,
-                                "language": {
-                                    "url": "plug-ins/datatable.lang.hungarian.json"
-                                }
-                            });
+                            if( $.inArray($(this).attr('id'), _self.tableNonSearching ) >= 0 ){
+                                $( this ).DataTable(
+                                {
+                                    "order": [[ 0, "asc" ]]
+                                    ,"columnDefs":[{"targets": 'no-sort', "orderable": false}]
+                                    ,"columnDefs":[{"targets": 'never',"orderable": false, "order": [], "visible": false}]
+                                    ,"lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "Mind"]]
+                                    ,"paging": false
+                                    ,"searching": false
+                                    ,"language": {
+                                        "url": "plug-ins/datatable.lang.hungarian.json"
+                                    }
+                                });
+                            }
                         }
                     }
                 }

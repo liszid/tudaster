@@ -1062,7 +1062,7 @@ interface TRANSLATE
                 'color' => 'success'
                 ,'header' => 'Információ'
                 ,'addButton' => true
-                ,'addNonModal' => true
+                ,'addNonModal' => false
                 ,'title' => ''
                 ,'content' => '
                     Ezen a felületen vehetünk fel tudáscikket.<br />

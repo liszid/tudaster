@@ -50,6 +50,12 @@ class dbKnowledge extends Table implements iDatabase
         switch ($type) {
             case 'All':
                 break;
+            case 'byKnowledgeId':
+                $tempArray[] = "knowledgeId";
+                break;
+            case 'byUserId':
+                $tempArray[] = "userId";
+                break;
             default:
                 return array();
                 break;
@@ -78,12 +84,43 @@ class dbKnowledge extends Table implements iDatabase
 
     public static function Update(array $array = array(), string $type = ''): bool
     {
-        return false;
+        if (! empty($array) && Valid::vString(self::$classQueries['Update'])) {
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Update'],
+                        'vNames' => array(
+                            'knowledgeId'
+                            ,'knowledgeTypeId'
+                            ,'knowledgeTitle'
+                            ,'knowledgeText'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
+        } else {
+            return false;
+        }
     }
 
     public static function Delete(array $array = array(), string $type = ''): bool
     {
-        return false;
+        if (! empty($array) && Valid::vString(self::$classQueries['Delete'])) {
+            return (
+                self::qRun(
+                    array(
+                        'query' => self::$classQueries['Delete'],
+                        'vNames' => array(
+                            'knowledgeId'
+                        ),
+                        'vData' => $array
+                    )
+                )->rowCount() > 0
+            );
+        } else {
+            return false;
+        }
     }
 
     public static function Class_Id(): int
