@@ -248,7 +248,7 @@ const iAjaxEvnts = (iAjaxEvnts = Object) => class extends iAjaxEvnts
                                         } else {
                                             let valueOfK = '';
                                             if(innerArray[k].classList.contains('ckeditor')) {
-                                                valueOfK = editor.getData();
+                                                valueOfK = encodeURIComponent(editor.getData());
                                             } else {
                                                 valueOfK = innerArray[k].value;
                                             }

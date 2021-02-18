@@ -95,10 +95,18 @@ class General
         if (! strcmp($inputType, 'hidden')){
             $returnString = $input;
         } elseif (! strcmp($inputType, 'ckeditor')){
-            $returnString = '
-                <div class="form-group col-12 mx-0">
-                    <textarea class="ckeditor col-12" id="'.$inputId.'">'.str_replace( '&', '&amp;', $inputValue).'</textarea>
+            if (empty($inputDisabled)){
+                $returnString = '
+                    <div class="form-group col-12 mx-0">
+                        <textarea class="ckeditor col-12" id="'.$inputId.'">'.str_replace( '&', '&amp;', $inputValue).'</textarea>
+                    </div>';
+            } else {
+                $returnString ='
+                <div class="border m-1 col col-12">
+                    '.$inputValue.'
                 </div>';
+            }
+
         } else {
             $returnString = '
                 <div class="form-group row col-12 mx-0">
