@@ -64,8 +64,8 @@ interface ROLE
     	    ,'select_type' => 'access'
     	)
         ,'canKnowledge' => array(
-    	    'color' => 'primary'
-    	    ,'header' => 'Fejlesztés alatti funkció'
+    	    'color' => 'success'
+    	    ,'header' => 'Elérhető funkció'
     	    ,'respective' => 'Knowledge'
     	    ,'short' => 'cK'
     	    ,'desc' => '<b>[Tudáscikk]</b> jogosultság'
